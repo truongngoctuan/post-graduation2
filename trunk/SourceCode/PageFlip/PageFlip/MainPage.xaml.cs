@@ -75,8 +75,86 @@ namespace PageFlip
         }
 
         private void CompositionTarget_Rendering(object sender, EventArgs e)
-        {
-            this.update();
+        {//this is the updater
+            // THIS IS THE RAW FOLLOW
+            this.follow.X += (this.mouse.X - this.follow.X) * 0.12;
+            this.follow.Y += (this.mouse.Y - this.follow.Y) * 0.12;
+
+            // DETERMINE ANGLE FROM SPINE BOTTOM TO RAW FOLLOW
+            this.angleSB2RF = Math.Atan2(this.spineBottom.Y - this.follow.Y, this.follow.X);
+
+            // PLOT THE FIXED RADIUS FOLLOW
+            this.radius1.X = Math.Cos(this.angleSB2RF) * this.fixedRadius;
+            this.radius1.Y = this.spineBottom.Y - (Math.Sin(this.angleSB2RF) * this.fixedRadius);
+
+            // DETERMINE THE SHORTER OF THE TWO DISTANCES
+            double distanceToFollow = Math.Sqrt(((this.spineBottom.Y - this.follow.Y) * (this.spineBottom.Y - this.follow.Y)) + (this.follow.X * this.follow.X));
+            double distToRadius1 = Math.Sqrt(((this.spineBottom.Y - this.radius1.Y) * (this.spineBottom.Y - this.radius1.Y)) + (this.radius1.X * this.radius1.X));
+            if (distToRadius1 < distanceToFollow)
+            {
+                this.corner.X = this.radius1.X;
+                this.corner.Y = this.radius1.Y;
+            }
+            else
+            {
+                this.corner.X = this.follow.X;
+                this.corner.Y = this.follow.Y;
+            }
+
+            // NOW CHECK FOR THE OTHER CONSTRAINT, FROM THE SPINE TOP TO THE RADIUS OF THE PAGE DIAMETER...
+            this.dx = this.spineTop.X - this.corner.X;
+            this.dy = this.corner.Y + this.pageHalfHeight;
+
+            this.distanceToFollow = Math.Sqrt((this.dx * this.dx) + (this.dy * this.dy));
+            this.pageDiagonal = Math.Sqrt((this.pageWidth * this.pageWidth) + (this.pageHeight * this.pageHeight));
+            if (this.distanceToFollow > this.pageDiagonal)
+            {
+                this.angleST2C = Math.Atan2(this.dy, this.dx);
+                this.corner.X = -Math.Cos(this.angleST2C) * this.pageDiagonal;
+                this.corner.Y = this.spineTop.Y + (Math.Sin(this.angleST2C) * this.pageDiagonal);
+            }
+
+            // CALCULATE THE BISECTOR AND CREATE THE CRITICAL TRIANGLE
+            // DETERMINE THE MIDSECTION POINT
+
+            this.bisector.X = this.corner.X + (0.5 * (this.pageWidth - this.corner.X));
+            this.bisector.Y = this.corner.Y + (0.5 * (this.pageHalfHeight - this.corner.Y));
+            this.bisectorAngle = Math.Atan2(this.pageHalfHeight - this.bisector.Y, this.pageWidth - this.bisector.X);
+            this.bisectorTanget = this.bisector.X - (Math.Tan(this.bisectorAngle) * (this.pageHalfHeight - this.bisector.Y));
+            if (this.bisectorTanget < 0.0)
+            {
+                this.bisectorTanget = 0.0;
+            }
+
+            this.tangentBottom.X = this.bisectorTanget;
+            this.tangentBottom.Y = this.pageHalfHeight;
+
+            this.tanAngle = Math.Atan2(this.pageHalfHeight - this.bisector.Y, this.bisector.X - this.bisectorTanget);
+
+            // DETERMINE THE tangentToCorner FOR THE ANGLE OF THE PAGE
+            this.tangentToCornerAngle = Math.Atan2(this.tangentBottom.Y - this.corner.Y, this.tangentBottom.X - this.corner.X);
+
+            // VISUALIZE THE CLIPPING RECTANGLE
+            this.maskAngle.Angle = (90.0 * (this.tanAngle / Math.Abs(this.tanAngle))) - ((this.tanAngle * 180.0) / Math.PI);
+            this.mainMask.SetValue(Canvas.LeftProperty, this.pageWidth + (this.bisectorTanget - this.maskSize.X));
+
+            this.Page2SheetSection2.X = this.pageWidth + this.corner.X;
+            this.Page2SheetSection2.Y = this.pageHalfHeight + this.corner.Y;
+            this.Page2SheetSection2.Angle.Angle = (this.tangentToCornerAngle * 180.0) / Math.PI;
+
+            this.transform = this.mainMask.TransformToVisual(this.cavBook);
+            this.ClipPathCloseFigure.StartPoint = this.transform.Transform(new Point(0.0, -100.0));
+            this.cpp20.Point = this.transform.Transform(new Point(this.mainMask.Width, -100.0));
+            this.cpp02.Point = this.transform.Transform(new Point(this.mainMask.Width, this.mainMask.Height));
+            this.cpp101.Point = this.transform.Transform(new Point(0.0, this.mainMask.Height));
+            this.UpdatePage();
+
+            this.transform = this.dropShadow.TransformToVisual(this.cavBook);
+            this.baclpz.StartPoint = this.transform.Transform(new Point(-2.0, 0.0));
+            this.baclzz.Point = this.transform.Transform(new Point(600.0, 0.0));
+            this.baclzyy.Point = this.transform.Transform(new Point(600.0, this.pageHeight));
+            this.baclzyrq.Point = this.transform.Transform(new Point(-2.0, this.pageHeight));
+            this.checkTransition();
         }
 
         private void ChangePageAfterTransition(object sender, EventArgs e)
@@ -105,7 +183,7 @@ namespace PageFlip
             }
             catch (Exception ex)
             {
-                MessageBox.Show("dt_Tick: " + ex.Message);
+                MessageBox.Show("ChangePageAfterTransition: " + ex.Message);
             }
         }
 
@@ -188,17 +266,18 @@ namespace PageFlip
             this.nextImageIndex = -1;
             //this.dtTransationTimer.Interval = TimeSpan.FromMilliseconds(20.0);
             //this.dtTransationTimer.Tick += new EventHandler(this.ChangePageAfterTransition);
-            this.updateImages();
             //this.dtTransationTimer.Start();
-            ChangePageAfterTransition(this, new EventArgs());
+            //ChangePageAfterTransition(this, new EventArgs());
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             try
             {
-                this.updateImages();
                 this.setupUI();
+                this.loadInitialImages();
+                this.updateImages();
+                ChangePageAfterTransition(this, new EventArgs());
                 CompositionTarget.Rendering += new EventHandler(this.CompositionTarget_Rendering);
             }
             catch (Exception ex)
@@ -244,97 +323,13 @@ namespace PageFlip
             this.PageCorner.MouseMove += new MouseEventHandler(this.PageCorner_MouseMove);
             this.PageCorner.MouseLeftButtonUp += new MouseButtonEventHandler(this.PageCorner_MouseLeftButtonUp);
             this.PageCorner.MouseLeave += new MouseEventHandler(this.PageCorner_MouseLeave);
-            this.loadInitialImages();
-            this.updateImages();
+            
         }
 
         private void startTransition()
         {
             this.IsTransitionStarted = true;
             this.transCurCount = 0;
-        }
-
-        private void update()
-        {
-            // THIS IS THE RAW FOLLOW
-            this.follow.X += (this.mouse.X - this.follow.X) * 0.12;
-            this.follow.Y += (this.mouse.Y - this.follow.Y) * 0.12;
-
-            // DETERMINE ANGLE FROM SPINE BOTTOM TO RAW FOLLOW
-            this.angleSB2RF = Math.Atan2(this.spineBottom.Y - this.follow.Y, this.follow.X);
-
-            // PLOT THE FIXED RADIUS FOLLOW
-            this.radius1.X = Math.Cos(this.angleSB2RF) * this.fixedRadius;
-            this.radius1.Y = this.spineBottom.Y - (Math.Sin(this.angleSB2RF) * this.fixedRadius);
-
-            // DETERMINE THE SHORTER OF THE TWO DISTANCES
-            double distanceToFollow = Math.Sqrt(((this.spineBottom.Y - this.follow.Y) * (this.spineBottom.Y - this.follow.Y)) + (this.follow.X * this.follow.X));
-            double distToRadius1 = Math.Sqrt(((this.spineBottom.Y - this.radius1.Y) * (this.spineBottom.Y - this.radius1.Y)) + (this.radius1.X * this.radius1.X));
-            if (distToRadius1 < distanceToFollow)
-            {
-                this.corner.X = this.radius1.X;
-                this.corner.Y = this.radius1.Y;
-            }
-            else
-            {
-                this.corner.X = this.follow.X;
-                this.corner.Y = this.follow.Y;
-            }
-
-            // NOW CHECK FOR THE OTHER CONSTRAINT, FROM THE SPINE TOP TO THE RADIUS OF THE PAGE DIAMETER...
-            this.dx = this.spineTop.X - this.corner.X;
-            this.dy = this.corner.Y + this.pageHalfHeight;
-
-            this.distanceToFollow = Math.Sqrt((this.dx * this.dx) + (this.dy * this.dy));
-            this.pageDiagonal = Math.Sqrt((this.pageWidth * this.pageWidth) + (this.pageHeight * this.pageHeight));
-            if (this.distanceToFollow > this.pageDiagonal)
-            {
-                this.angleST2C = Math.Atan2(this.dy, this.dx);
-                this.corner.X = -Math.Cos(this.angleST2C) * this.pageDiagonal;
-                this.corner.Y = this.spineTop.Y + (Math.Sin(this.angleST2C) * this.pageDiagonal);
-            }
-
-            // CALCULATE THE BISECTOR AND CREATE THE CRITICAL TRIANGLE
-            // DETERMINE THE MIDSECTION POINT
-
-            this.bisector.X = this.corner.X + (0.5 * (this.pageWidth - this.corner.X));
-            this.bisector.Y = this.corner.Y + (0.5 * (this.pageHalfHeight - this.corner.Y));
-            this.bisectorAngle = Math.Atan2(this.pageHalfHeight - this.bisector.Y, this.pageWidth - this.bisector.X);
-            this.bisectorTanget = this.bisector.X - (Math.Tan(this.bisectorAngle) * (this.pageHalfHeight - this.bisector.Y));
-            if (this.bisectorTanget < 0.0)
-            {
-                this.bisectorTanget = 0.0;
-            }
-
-            this.tangentBottom.X = this.bisectorTanget;
-            this.tangentBottom.Y = this.pageHalfHeight;
-
-            this.tanAngle = Math.Atan2(this.pageHalfHeight - this.bisector.Y, this.bisector.X - this.bisectorTanget);
-
-            // DETERMINE THE tangentToCorner FOR THE ANGLE OF THE PAGE
-            this.tangentToCornerAngle = Math.Atan2(this.tangentBottom.Y - this.corner.Y, this.tangentBottom.X - this.corner.X);
-
-            // VISUALIZE THE CLIPPING RECTANGLE
-            this.maskAngle.Angle = (90.0 * (this.tanAngle / Math.Abs(this.tanAngle))) - ((this.tanAngle * 180.0) / Math.PI);
-            this.mainMask.SetValue(Canvas.LeftProperty, this.pageWidth + (this.bisectorTanget - this.maskSize.X));
-
-            this.Page2SheetSection2.X = this.pageWidth + this.corner.X;
-            this.Page2SheetSection2.Y = this.pageHalfHeight + this.corner.Y;
-            this.Page2SheetSection2.Angle.Angle = (this.tangentToCornerAngle * 180.0) / Math.PI;
-
-            this.transform = this.mainMask.TransformToVisual(this.cavBook);
-            this.ClipPathCloseFigure.StartPoint = this.transform.Transform(new Point(0.0, -100.0));
-            this.cpp20.Point = this.transform.Transform(new Point(this.mainMask.Width, -100.0));
-            this.cpp02.Point = this.transform.Transform(new Point(this.mainMask.Width, this.mainMask.Height));
-            this.cpp101.Point = this.transform.Transform(new Point(0.0, this.mainMask.Height));
-            this.UpdatePage();
-
-            this.transform = this.dropShadow.TransformToVisual(this.cavBook);
-            this.baclpz.StartPoint = this.transform.Transform(new Point(-2.0, 0.0));
-            this.baclzz.Point = this.transform.Transform(new Point(600.0, 0.0));
-            this.baclzyy.Point = this.transform.Transform(new Point(600.0, this.pageHeight));
-            this.baclzyrq.Point = this.transform.Transform(new Point(-2.0, this.pageHeight));
-            this.checkTransition();
         }
 
         private void updateImages()
