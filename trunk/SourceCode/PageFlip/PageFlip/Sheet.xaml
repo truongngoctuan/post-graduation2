@@ -10,7 +10,7 @@
                 <RectangleGeometry Rect="0,0,600,425"/>
             </Canvas.Clip>
             <!--<Image x:Name="sheetImage" Source="images/page0.jpg" Width="600" Height="425" Stretch="Fill"/>-->
-
+            <Canvas x:Name="sheetImage" Width="600" Height="425" Background="White"></Canvas>
             
             <Image x:Name="shadowSpine" Source="images/shadowSpine.png" Canvas.Left="199" Canvas.Top="0"/>
             <Image x:Name="curlShadow" Opacity="0.0" Source="images/curlShadow.png" Canvas.Top="0" Canvas.Left="-50" Width="300" Height="637" Stretch="Fill"
@@ -24,7 +24,7 @@
                 </Image.RenderTransform>
             </Image>
 
-            <Canvas x:Name="sheetImage" Width="600" Height="425" Background="White"></Canvas>
+            
         </Canvas>
     </Canvas>
 </UserControl>

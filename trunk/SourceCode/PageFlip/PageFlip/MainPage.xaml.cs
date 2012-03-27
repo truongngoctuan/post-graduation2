@@ -180,14 +180,11 @@ namespace PageFlip
                 //img.Source = new BitmapImage(new Uri(uriString, UriKind.RelativeOrAbsolute));
                 //this.PageContents.Add(img);
 
-                string xaml = string.Format(@"<ScrollViewer xmlns='http://schemas.microsoft.com/client/2007'
+                string xaml = string.Format(@"<Image x:Name='imgTest' xmlns='http://schemas.microsoft.com/client/2007'
      xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-Margin='10'
-	 Width='580' Height='405' VerticalScrollBarVisibility='Visible' HorizontalScrollBarVisibility='Visible'>
 
-<Image x:Name='imgTest' 
-	 Source='images/page{0}.jpg'></Image>
-</ScrollViewer>", i.ToString());
+	 Width='592' 
+	 Source='images/page{0}.jpg' />", i.ToString());
                 this.PageContents.Add(xaml);
             }
 
