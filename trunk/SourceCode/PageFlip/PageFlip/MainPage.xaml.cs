@@ -369,6 +369,12 @@ namespace PageFlip
             this.Page2SheetSection2.curlShadow.SetValue(Canvas.LeftProperty, -this.bisectorTanget - 5.0);
             this.Page2SheetSection2.curlShadow.Opacity = this.dropShadow.Opacity * 2.0;
         }
+
+        private void btNextPage_Click(object sender, RoutedEventArgs e)
+        {
+            this.startTransition();
+            this.mouse = new Point(-this.pageWidth, this.pageHalfHeight);
+        }
     }
 
 }

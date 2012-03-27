@@ -4,11 +4,12 @@
              xmlns:local="clr-namespace:PageFlip" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
-    <Canvas x:Name="outerWrapper" Width="655" Height="554">
-        <Canvas.Background>
-            <ImageBrush ImageSource="/PageFlip;component/Images/pageflipbkg.png"/>
-        </Canvas.Background>
-        <Canvas x:Name="layoutRoot" Width="600" Height="425" Canvas.Left="28" Canvas.Top="96" Background="White" RenderTransformOrigin=".5,.5">
+    <StackPanel x:Name="outerWrapper" Orientation="Horizontal">
+        <StackPanel.Background>
+            <ImageBrush ImageSource="/PageFlip;component/Images/wood-texture.jpg"/>
+        </StackPanel.Background>
+        <Button x:Name="btPreviousPage" Content="To Prevous Page" Width="100" Height="100"></Button>
+        <Canvas x:Name="layoutRoot" Width="600" Height="425" Background="White" RenderTransformOrigin=".5,.5">
             <Canvas.RenderTransform>
                 <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
             </Canvas.RenderTransform>
@@ -77,7 +78,8 @@
                     <Rectangle x:Name="PageCorner" Canvas.Left="250" Canvas.Top="162" Width="100" Height="100" Fill="#00FF0000" Cursor="Hand"/>
                 </Canvas>
             </Canvas>
-            
+
         </Canvas>
-    </Canvas>    <!--outerWrapper-->
+        <Button x:Name="btNextPage" Content="To Next Page" Width="100" Height="100" Click="btNextPage_Click"></Button>
+    </StackPanel>    <!--outerWrapper-->
 </UserControl>
