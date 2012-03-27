@@ -30,22 +30,22 @@ namespace PageFlipUltis
 
         //}
 
-        //dll reference to System.Runtime.Serialization
-        public static T DeepCopy<T>(this T oSource)
-        {
-            T oClone;
+        ////dll reference to System.Runtime.Serialization
+        //public static T DeepCopy<T>(this T oSource)
+        //{
+        //    T oClone;
 
-            System.Runtime.Serialization.DataContractSerializer dcs = new System.Runtime.Serialization.DataContractSerializer(typeof(T));
+        //    System.Runtime.Serialization.DataContractSerializer dcs = new System.Runtime.Serialization.DataContractSerializer(typeof(T));
 
-            using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
-            {
-                dcs.WriteObject(ms, oSource);
-                ms.Position = 0;
-                oClone = (T)dcs.ReadObject(ms);
-            }
+        //    using (System.IO.MemoryStream ms = new System.IO.MemoryStream())
+        //    {
+        //        dcs.WriteObject(ms, oSource);
+        //        ms.Position = 0;
+        //        oClone = (T)dcs.ReadObject(ms);
+        //    }
 
-            return oClone;
-        }
+        //    return oClone;
+        //}
 
         public static UIElement LoadXamlFromString(string xaml)
         {

@@ -26,7 +26,7 @@ namespace PageFlip
         private GeneralTransform transform;
 
         private Point corner;
-        private DispatcherTimer dtTransationTimer = new DispatcherTimer();
+        //private DispatcherTimer dtTransationTimer = new DispatcherTimer();
         private double distanceToFollow;
         private double dx;
         private double dy;
@@ -68,7 +68,9 @@ namespace PageFlip
         {
             if (this.IsTransitionStarted && (this.transCurCount++ == this.transMaxCount))
             {
-                this.endTransition();
+                //this.endTransition();
+                this.updateImages();
+                this.IsTransitionStarted = false;
             }
         }
 
@@ -77,11 +79,11 @@ namespace PageFlip
             this.update();
         }
 
-        private void dt_Tick(object sender, EventArgs e)
+        private void ChangePageAfterTransition(object sender, EventArgs e)
         {
             try
             {
-                this.IsTransitionStarted = false;
+                //this.IsTransitionStarted = false;
                 //this.Page2SheetSection2.sheetImage.Source = this.PageContents[this.PageContentCurrentIndex];
                 //this.Page1TraceSheet.sheetImage.Source = this.PageContents[this.PageContentCurrentIndex];
 
@@ -99,17 +101,12 @@ namespace PageFlip
 
                 this.mouse = new Point(this.pageWidth - 1.0, this.pageHalfHeight - 1.0);
                 this.follow = new Point(this.pageWidth - 1.0, this.pageHalfHeight - 1.0);
-                this.dtTransationTimer.Stop();
+                //this.dtTransationTimer.Stop();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("dt_Tick: " + ex.Message);
             }
-        }
-
-        private void endTransition()
-        {
-            this.updateImages();
         }
 
         private void PageCorner_MouseLeave(object sender, MouseEventArgs e)
@@ -183,16 +180,17 @@ namespace PageFlip
                 string xaml = string.Format(@"<Image x:Name='imgTest' xmlns='http://schemas.microsoft.com/client/2007'
      xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
 
-	 Width='592' 
+	 Width='1024' 
 	 Source='images/page{0}.jpg' />", i.ToString());
                 this.PageContents.Add(xaml);
             }
 
             this.nextImageIndex = -1;
-            this.dtTransationTimer.Interval = TimeSpan.FromMilliseconds(20.0);
-            this.dtTransationTimer.Tick += new EventHandler(this.dt_Tick);
+            //this.dtTransationTimer.Interval = TimeSpan.FromMilliseconds(20.0);
+            //this.dtTransationTimer.Tick += new EventHandler(this.ChangePageAfterTransition);
             this.updateImages();
-            this.dtTransationTimer.Start();
+            //this.dtTransationTimer.Start();
+            ChangePageAfterTransition(this, new EventArgs());
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -356,7 +354,8 @@ namespace PageFlip
                 //this.Page1Sheet.sheetImage.Source = this.PageContents[this.nextImageIndex];
                 this.Page1Sheet.sheetImage.Children.Clear();
                 this.Page1Sheet.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.nextImageIndex]));
-                this.dtTransationTimer.Start();
+                //this.dtTransationTimer.Start();
+                ChangePageAfterTransition(this, new EventArgs());
             }
         }
 
