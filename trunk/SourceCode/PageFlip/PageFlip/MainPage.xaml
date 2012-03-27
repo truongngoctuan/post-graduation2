@@ -8,8 +8,11 @@
         <StackPanel.Background>
             <ImageBrush ImageSource="/PageFlip;component/Images/wood-texture.jpg"/>
         </StackPanel.Background>
-        <Button x:Name="btPreviousPage" Content="To Prevous Page" Width="100" Height="100"></Button>
+        <Button x:Name="btPreviousPage" Content="To Prevous Page" Width="100" Height="100" Margin="5,5,10,5"></Button>
         <Canvas x:Name="layoutRoot" Width="600" Height="425" Background="White" RenderTransformOrigin=".5,.5">
+        	<Canvas.Effect>
+        		<DropShadowEffect/>
+        	</Canvas.Effect>
             <Canvas.RenderTransform>
                 <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
             </Canvas.RenderTransform>
@@ -80,6 +83,6 @@
             </Canvas>
 
         </Canvas>
-        <Button x:Name="btNextPage" Content="To Next Page" Width="100" Height="100" Click="btNextPage_Click"></Button>
+        <Button x:Name="btNextPage" Content="To Next Page" Width="100" Height="100" Click="btNextPage_Click" Margin="10,5,5,5"></Button>
     </StackPanel>    <!--outerWrapper-->
 </UserControl>
