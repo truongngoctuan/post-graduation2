@@ -33,6 +33,11 @@ namespace SilverlightBookDemo2
             //bt.Click += new RoutedEventHandler(bt_Click);
             //slbook1.Items.Add(bt);
 
+            
+        }
+    
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
             try
             {
                 WebClient wc = new WebClient();
@@ -44,21 +49,6 @@ namespace SilverlightBookDemo2
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        void bt_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("bt_Click");
-        }
-    
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Button_Click");
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         private void wc_OpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
@@ -85,13 +75,13 @@ namespace SilverlightBookDemo2
                     //bt.Click += new RoutedEventHandler(bt_Click);
                     //slbook1.Items.Add(bt);
 
-                    slbook1.Items.Clear();
+                    //slbook1.Items.Clear();
                     List<UIElement> list = Utils.LoadXamlFromStream(s);
                     for (int i = 0; i < list.Count; i++)
                     {
                         slbook1.Items.Add(list[i]);
                     }
-                    slbook1.InvalidateArrange();
+                    //slbook1.InvalidateArrange();
                 }
             }
             catch (Exception ex)
