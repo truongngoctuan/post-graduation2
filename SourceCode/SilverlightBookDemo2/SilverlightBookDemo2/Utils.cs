@@ -64,17 +64,17 @@ namespace SilverlightBookDemo2
                         //MessageBox.Show(reader.ReadOuterXml());
                         if (reader.Name == "SilverlightControl1")
                         {
-                            Type calcType = testAssembly.GetType("Test.Calculator");
+                            //Type calcType = testAssembly.GetType("Test.Calculator");
 
-                            // create instance of class Calculator
-                            object calcInstance = Activator.CreateInstance(calcType);
+                            //// create instance of class Calculator
+                            //object calcInstance = Activator.CreateInstance(calcType);
 
 
-                            // Load a particular assembly from the XAP package
-                            Assembly a = GetAssemblyFromPackage(assemblyName, e.Result);
+                            //// Load a particular assembly from the XAP package
+                            //Assembly a = GetAssemblyFromPackage(assemblyName, e.Result);
 
-                            // Get an instance of the XAML object
-                            object page = a.CreateInstance(className);
+                            //// Get an instance of the XAML object
+                            //object page = a.CreateInstance(className);
                         }
                         else
                         {
