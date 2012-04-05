@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+<ScrollViewer xmlns='http://schemas.microsoft.com/client/2007'
+     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+	 Width='200' Height='200' VerticalScrollBarVisibility='Visible' HorizontalScrollBarVisibility='Visible'>
+  <Image x:Name='imgTest'
+     Source='Diablo-III1-588x330.png'></Image>
+</ScrollViewer>
+  <StackPanel 
+    xmlns='http://schemas.microsoft.com/client/2007'
+     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+    Orientation="Vertical">
+    <Button Width="100" Height="25" Content="Dynamic button"></Button>
+    <Image Source="Diablo-III1-588x330.png"></Image>
+    <HyperlinkButton TargetName="_blank" Content="Open google page in new tab" NavigateUri="http://www.silverlight.net"></HyperlinkButton>
+
+  </StackPanel>
+
+  <!--<local:CommentForm
+    xmlns:local='clr-namespace:SilverlightBookDemo2'
+    xmlns='http://schemas.microsoft.com/client/2007'
+     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'></local:CommentForm>-->
+</Items>

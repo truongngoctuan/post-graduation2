@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+<ScrollViewer xmlns='http://schemas.microsoft.com/client/2007'
+     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+	 Width='200' Height='200' VerticalScrollBarVisibility='Visible' HorizontalScrollBarVisibility='Visible'>
+  <Image x:Name='imgTest'
+     Source='Diablo-III1-588x330.png'></Image>
+</ScrollViewer>
+  <Button Content="Dynamic button"></Button>
+</Items>
