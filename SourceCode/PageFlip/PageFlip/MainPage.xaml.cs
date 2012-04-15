@@ -39,7 +39,13 @@ namespace PageFlip
         private double pageHalfHeight;
         private double pageHeight;
         private double pageDiagonal;
+
         private double pageWidth;
+        private double pageHalfWidth;
+
+        //fixed point ofpages such as topleft, topbottom, cornerposition...
+        private Point FixedPoint_CornerBottomRight;
+
         private Point spineBottom;
         private double sbScale = 1.0;
 
@@ -106,7 +112,7 @@ namespace PageFlip
             this.dy = this.corner.Y + this.pageHalfHeight;
 
             this.distanceToFollow = Math.Sqrt((this.dx * this.dx) + (this.dy * this.dy));
-            this.pageDiagonal = Math.Sqrt((this.pageWidth * this.pageWidth) + (this.pageHeight * this.pageHeight));
+            this.pageDiagonal = Math.Sqrt((this.pageHalfWidth * this.pageHalfWidth) + (this.pageHeight * this.pageHeight));
             if (this.distanceToFollow > this.pageDiagonal)
             {
                 this.angleST2C = Math.Atan2(this.dy, this.dx);
@@ -117,9 +123,9 @@ namespace PageFlip
             // CALCULATE THE BISECTOR AND CREATE THE CRITICAL TRIANGLE
             // DETERMINE THE MIDSECTION POINT
 
-            this.bisector.X = this.corner.X + (0.5 * (this.pageWidth - this.corner.X));
+            this.bisector.X = this.corner.X + (0.5 * (this.pageHalfWidth - this.corner.X));
             this.bisector.Y = this.corner.Y + (0.5 * (this.pageHalfHeight - this.corner.Y));
-            this.bisectorAngle = Math.Atan2(this.pageHalfHeight - this.bisector.Y, this.pageWidth - this.bisector.X);
+            this.bisectorAngle = Math.Atan2(this.pageHalfHeight - this.bisector.Y, this.pageHalfWidth - this.bisector.X);
             this.bisectorTanget = this.bisector.X - (Math.Tan(this.bisectorAngle) * (this.pageHalfHeight - this.bisector.Y));
             if (this.bisectorTanget < 0.0)
             {
@@ -136,9 +142,9 @@ namespace PageFlip
 
             // VISUALIZE THE CLIPPING RECTANGLE
             this.maskAngle.Angle = (90.0 * (this.tanAngle / Math.Abs(this.tanAngle))) - ((this.tanAngle * 180.0) / Math.PI);
-            this.mainMask.SetValue(Canvas.LeftProperty, this.pageWidth + (this.bisectorTanget - this.maskSize.X));
+            this.mainMask.SetValue(Canvas.LeftProperty, this.pageHalfWidth + (this.bisectorTanget - this.maskSize.X));
 
-            this.Page2SheetSection2.X = this.pageWidth + this.corner.X;
+            this.Page2SheetSection2.X = this.pageHalfWidth + this.corner.X;
             this.Page2SheetSection2.Y = this.pageHalfHeight + this.corner.Y;
             this.Page2SheetSection2.Angle.Angle = (this.tangentToCornerAngle * 180.0) / Math.PI;
 
@@ -177,8 +183,8 @@ namespace PageFlip
                 this.Page2SheetSection2.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.PageContentCurrentIndex]));
                 this.Page1TraceSheet.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.PageContentCurrentIndex]));
 
-                this.mouse = new Point(this.pageWidth - 1.0, this.pageHalfHeight - 1.0);
-                this.follow = new Point(this.pageWidth - 1.0, this.pageHalfHeight - 1.0);
+                this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
+                this.follow = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
                 //this.dtTransationTimer.Stop();
             }
             catch (Exception ex)
@@ -191,7 +197,7 @@ namespace PageFlip
         {
             if (!this.IsTransitionStarted)
             {
-                this.mouse = new Point(this.pageWidth - 1.0, this.pageHalfHeight - 1.0);
+                this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
             }
         }
 
@@ -213,16 +219,16 @@ namespace PageFlip
                 if ((DateTime.Now < this.doubleClickDuration) && ((this.mouse.X > 0.0) && (this.mouse.Y > 0.0)))
                 {
                     this.startTransition();
-                    this.mouse = new Point(-this.pageWidth, this.pageHalfHeight);
+                    this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
                 }
                 else if (this.mouse.X < 0.0)
                 {
                     this.startTransition();
-                    this.mouse = new Point(-this.pageWidth, this.pageHalfHeight);
+                    this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
                 }
                 else
                 {
-                    this.mouse = new Point(this.pageWidth - 1.0, this.pageHalfHeight - 1.0);
+                    this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
                 }
             }
         }
@@ -232,10 +238,10 @@ namespace PageFlip
             if (!this.IsTransitionStarted)
             {
                 this.mouseMovePosition = e.GetPosition(this.rutieow);
-                if ((this.mouseMovePosition.X > this.pageWidth) && (this.mouseMovePosition.Y > this.pageHalfHeight))
+                if ((this.mouseMovePosition.X > this.pageHalfWidth) && (this.mouseMovePosition.Y > this.pageHalfHeight))
                 {
                     this.PageCorner.ReleaseMouseCapture();
-                    this.mouse = new Point(this.pageWidth - 1.0, this.pageHalfHeight - 1.0);
+                    this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
                 }
                 else
                 {
@@ -288,30 +294,31 @@ namespace PageFlip
 
         private void setupUI()
         {
-            this.pageWidth = 300.0;
+            this.pageWidth = 600.0;
             this.pageHeight = 425.0;
 
+            this.pageHalfWidth = this.pageWidth * 0.5;
             this.pageHalfHeight = this.pageHeight * 0.5;
 
-            this.rutieow.SetValue(Canvas.LeftProperty, this.pageWidth);
+            this.rutieow.SetValue(Canvas.LeftProperty, this.pageHalfWidth);
             this.rutieow.SetValue(Canvas.TopProperty, this.pageHalfHeight);
 
-            this.PageCorner.SetValue(Canvas.LeftProperty, this.pageWidth - 100.0);
+            this.PageCorner.SetValue(Canvas.LeftProperty, this.pageHalfWidth - 100.0);
             this.PageCorner.SetValue(Canvas.TopProperty, this.pageHalfHeight - 100.0);
 
             this.spineTop = new Point(0.0, -this.pageHalfHeight);
 
 
             this.spineBottom = new Point(0.0, this.pageHalfHeight);
-            this.fixedRadius = this.pageWidth;
+            this.fixedRadius = this.pageHalfWidth;
 
-            this.maskSize.X = this.pageWidth;
+            this.maskSize.X = this.pageHalfWidth;
             this.maskSize.Y = this.pageHeight * 1.6;
             this.mainMask.Width = this.maskSize.X;
             this.mainMask.Height = this.maskSize.Y;
             this.mainMask.SetValue(Canvas.TopProperty, this.pageHeight - (this.maskSize.Y * 0.8));
 
-            this.mouse.X = this.pageWidth - 1.0;
+            this.mouse.X = this.pageHalfWidth - 1.0;
             this.mouse.Y = this.pageHalfHeight - 1.0;
 
             this.follow.X = this.mouse.X;
@@ -357,14 +364,14 @@ namespace PageFlip
         private void UpdatePage()
         {
             this.shadowspineAngle.Angle = this.maskAngle.Angle;
-            this.sbScale = (this.pageWidth - this.corner.X) / this.pageWidth;
+            this.sbScale = (this.pageHalfWidth - this.corner.X) / this.pageHalfWidth;
             this.sbScale = Math.Min(1.0, Math.Max(this.sbScale, 0.02));
             this.shadowspineImage.Opacity = 0.9 - (this.sbScale * 0.5);
             this.shadowspineScale.ScaleX = 0.8 * this.sbScale;
             this.shadowspineImage.SetValue(Canvas.LeftProperty, this.bisectorTanget);
-            this.dropShadow.SetValue(Canvas.LeftProperty, this.bisectorTanget + this.pageWidth);
+            this.dropShadow.SetValue(Canvas.LeftProperty, this.bisectorTanget + this.pageHalfWidth);
             this.dropShadowAngle.Angle = this.shadowspineAngle.Angle;
-            this.dropShadow.Opacity = 1.0 + (this.corner.X / this.pageWidth);
+            this.dropShadow.Opacity = 1.0 + (this.corner.X / this.pageHalfWidth);
             this.Page2SheetSection2.curlShadowRotate.Angle = this.maskAngle.Angle - this.Page2SheetSection2.Angle.Angle;
             this.Page2SheetSection2.curlShadow.SetValue(Canvas.LeftProperty, -this.bisectorTanget - 5.0);
             this.Page2SheetSection2.curlShadow.Opacity = this.dropShadow.Opacity * 2.0;
@@ -373,7 +380,7 @@ namespace PageFlip
         private void btNextPage_Click(object sender, RoutedEventArgs e)
         {
             this.startTransition();
-            this.mouse = new Point(-this.pageWidth, this.pageHalfHeight);
+            this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
         }
     }
 

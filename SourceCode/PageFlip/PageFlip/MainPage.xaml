@@ -10,9 +10,9 @@
         </StackPanel.Background>
         <Button x:Name="btPreviousPage" Content="To Prevous Page" Width="100" Height="100" Margin="5,5,10,5"></Button>
         <Canvas x:Name="layoutRoot" Width="600" Height="425" Background="White" RenderTransformOrigin=".5,.5">
-        	<Canvas.Effect>
-        		<DropShadowEffect/>
-        	</Canvas.Effect>
+            <Canvas.Effect>
+                <DropShadowEffect/>
+            </Canvas.Effect>
             <Canvas.RenderTransform>
                 <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
             </Canvas.RenderTransform>
@@ -34,6 +34,7 @@
                     </Canvas.Clip>
                     <local:Sheet x:Name="Page1TraceSheet" X="0" Y="425"/>
                 </Canvas>
+                
                 <Canvas>
                     <Canvas.Clip>
                         <RectangleGeometry Rect="0,0,600,425"/>
@@ -78,11 +79,13 @@
                     </Rectangle>
                 </Canvas>
                 <Canvas x:Name="rutieow" Canvas.Left="300" Canvas.Top="212">
-                    <Rectangle x:Name="PageCorner" Canvas.Left="250" Canvas.Top="162" Width="100" Height="100" Fill="#00FF0000" Cursor="Hand"/>
+                    <Rectangle x:Name="PageCorner" Canvas.Left="250" Canvas.Top="162" 
+                               Width="100" Height="100" Fill="#00FF0000" Cursor="Hand"/>
                 </Canvas>
             </Canvas>
 
         </Canvas>
         <Button x:Name="btNextPage" Content="To Next Page" Width="100" Height="100" Click="btNextPage_Click" Margin="10,5,5,5"></Button>
-    </StackPanel>    <!--outerWrapper-->
+    </StackPanel>
+    <!--outerWrapper-->
 </UserControl>

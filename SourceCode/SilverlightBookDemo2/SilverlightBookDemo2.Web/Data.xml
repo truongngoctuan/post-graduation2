@@ -1,5 +1,19 @@
 ﻿<?xml version='1.0' encoding='utf-8' ?>
 <Items>
+  <Grid
+  xmlns='http://schemas.microsoft.com/client/2007'
+   xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'>
+    <StackPanel Orientation="Vertical">
+      <TextBlock FontSize="20" FontFamily="Times New Roman" Foreground="Violet">Mùa xuân ngập nắng và hoa ở Bắc Mỹ</TextBlock>
+      <TextBlock>Những bông hoa anh đào thi nhau đua nở tạo nên một rừng hoa báo hiệu</TextBlock>
+      <TextBlock>mùa xuân đã đến với thành phố Seattle, bang Washington của Mỹ.</TextBlock>
+      <HyperlinkButton TargetName="_blank" NavigateUri="http://vnexpress.net/contactus/?id=thegioi@vnexpress.net"
+                       Content="Gửi ảnh mùa xuân của bạn"></HyperlinkButton>
+      <HyperlinkButton TargetName="_blank" NavigateUri="http://vnexpress.net/gl/the-gioi/nguoi-viet-5-chau/2012/04/nguyet-que-thanh-khiet-cua-mua-xuan-nuoc-my/"
+                       Content="Nguyệt quế mùa xuân"></HyperlinkButton>
+      <Image Source="/SilverlightBookDemo2;component/Images/spring_(0).jpg"></Image>
+    </StackPanel>
+  </Grid>
 <ScrollViewer xmlns='http://schemas.microsoft.com/client/2007'
      xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
 	 Width='300' Height='300' VerticalScrollBarVisibility='Visible' HorizontalScrollBarVisibility='Visible'>
@@ -15,20 +29,6 @@
     xmlns='http://schemas.microsoft.com/client/2007'
      xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'>
     <Image Source='/SilverlightBookDemo2;component/Images/Desert.jpg'/>
-  </Grid>
-  <Grid 
-    xmlns='http://schemas.microsoft.com/client/2007'
-     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'>
-    <StackPanel Orientation="Vertical">
-      <TextBlock FontSize="20" FontFamily="Times New Roman" Foreground="Violet">Mùa xuân ngập nắng và hoa ở Bắc Mỹ</TextBlock>
-      <TextBlock>Những bông hoa anh đào thi nhau đua nở tạo nên một rừng hoa báo hiệu</TextBlock>
-      <TextBlock>mùa xuân đã đến với thành phố Seattle, bang Washington của Mỹ.</TextBlock>
-      <HyperlinkButton TargetName="_blank" NavigateUri="http://vnexpress.net/contactus/?id=thegioi@vnexpress.net"
-                       Content="Gửi ảnh mùa xuân của bạn"></HyperlinkButton>
-      <HyperlinkButton TargetName="_blank" NavigateUri="http://vnexpress.net/gl/the-gioi/nguoi-viet-5-chau/2012/04/nguyet-que-thanh-khiet-cua-mua-xuan-nuoc-my/"
-                       Content="Nguyệt quế mùa xuân"></HyperlinkButton>
-      <Image Source="/SilverlightBookDemo2;component/Images/spring_(0).jpg"></Image>
-    </StackPanel>
   </Grid>
   <Grid x:Name='LayoutRoot'
         xmlns='http://schemas.microsoft.com/client/2007'
