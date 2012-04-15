@@ -33,7 +33,11 @@ namespace SilverlightBookDemo2
             //bt.Click += new RoutedEventHandler(bt_Click);
             //slbook1.Items.Add(bt);
 
-            
+            ArticleLargeIcon.ArticleImage articleControl = new ArticleLargeIcon.ArticleImage();
+            //articleControl.Width = 200;
+            //articleControl.Height = 200;
+            slbook1.Items.Clear();
+            slbook1.Items.Add(articleControl);
         }
     
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -77,10 +81,15 @@ namespace SilverlightBookDemo2
 
                     //slbook1.Items.Clear();
                     List<UIElement> list = Utils.LoadXamlFromStream(s);
+                    list[0].UpdateLayout();
                     for (int i = 0; i < list.Count; i++)
                     {
                         slbook1.Items.Add(list[i]);
                     }
+                    
+                    this.UpdateLayout();
+                    double asd = list[0].DesiredSize.Width;
+                    //this.Measure
                     //slbook1.InvalidateArrange();
                 }
             }
