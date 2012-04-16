@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="484bb541-e250-469c-86af-30bdcb0ba5b9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:4452/ServiceDNN3.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceDNN3.wsdl" MetadataType="Wsdl" ID="d965630e-fb9e-48df-931f-d7cdd80b987e" SourceId="1" SourceUrl="http://localhost:4452/ServiceDNN3.svc?wsdl" />
+    <MetadataFile FileName="ServiceDNN31.wsdl" MetadataType="Wsdl" ID="87950da5-2d9b-4dff-81b0-c5a390d069b2" SourceId="1" SourceUrl="http://localhost:4452/ServiceDNN3.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ServiceDNN3.disco" MetadataType="Disco" ID="4da4c3b8-6f0c-4bff-a909-0b435ed93e9c" SourceId="1" SourceUrl="http://localhost:4452/ServiceDNN3.svc?disco" />
+    <MetadataFile FileName="ServiceDNN31.xsd" MetadataType="Schema" ID="c408c464-24de-4511-a6da-3a7afdcd04e3" SourceId="1" SourceUrl="http://localhost:4452/ServiceDNN3.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceDNN3.xsd" MetadataType="Schema" ID="8f161d24-b79c-4a1c-8676-f07d4dde1dcf" SourceId="1" SourceUrl="http://localhost:4452/ServiceDNN3.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceDNN311.xsd" MetadataType="Schema" ID="ecfa0461-6241-4118-b796-0bff23da2284" SourceId="1" SourceUrl="http://localhost:4452/ServiceDNN3.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

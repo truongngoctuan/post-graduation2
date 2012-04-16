@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SilverlightBookDemo2.Web.ServiceDNN3" CodeBehind="ServiceDNN3.svc.cs" %>

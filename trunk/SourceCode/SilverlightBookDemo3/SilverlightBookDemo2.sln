@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverlightBookDemo2", "SilverlightBookDemo2\SilverlightBookDemo2.csproj", "{EADDA14D-F342-4B81-B306-69C41EB9BAD8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{457A7391-2263-417C-9AA8-7227C9F8C94F} = {457A7391-2263-417C-9AA8-7227C9F8C94F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverlightBookDemo2.Web", "SilverlightBookDemo2.Web\SilverlightBookDemo2.Web.csproj", "{457A7391-2263-417C-9AA8-7227C9F8C94F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paris.Controls", "Paris.Controls\Paris.Controls.csproj", "{04FCD34F-4F78-48AE-8DF4-1D3042798C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverlightBookUserControl", "SilverlightBookUserControl\SilverlightBookUserControl.csproj", "{5427AEA1-D829-4099-8CFB-45DF77AD167C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EADDA14D-F342-4B81-B306-69C41EB9BAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EADDA14D-F342-4B81-B306-69C41EB9BAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EADDA14D-F342-4B81-B306-69C41EB9BAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EADDA14D-F342-4B81-B306-69C41EB9BAD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{457A7391-2263-417C-9AA8-7227C9F8C94F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{457A7391-2263-417C-9AA8-7227C9F8C94F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{457A7391-2263-417C-9AA8-7227C9F8C94F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{457A7391-2263-417C-9AA8-7227C9F8C94F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04FCD34F-4F78-48AE-8DF4-1D3042798C3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04FCD34F-4F78-48AE-8DF4-1D3042798C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04FCD34F-4F78-48AE-8DF4-1D3042798C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04FCD34F-4F78-48AE-8DF4-1D3042798C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5427AEA1-D829-4099-8CFB-45DF77AD167C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5427AEA1-D829-4099-8CFB-45DF77AD167C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5427AEA1-D829-4099-8CFB-45DF77AD167C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5427AEA1-D829-4099-8CFB-45DF77AD167C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

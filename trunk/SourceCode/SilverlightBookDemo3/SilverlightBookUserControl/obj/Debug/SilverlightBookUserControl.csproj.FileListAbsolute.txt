@@ -1,0 +1,14 @@
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookUserControl\obj\Debug\ResolveAssemblyReference.cache
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookUserControl\obj\Debug\SilverlightControl1.g.i.cs
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookUserControl\obj\Debug\SilverlightBookUserControl.g.resources
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookUserControl\Bin\Debug\SilverlightBookUserControl.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookUserControl\Bin\Debug\SilverlightBookUserControl.pdb
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookUserControl\obj\Debug\SilverlightBookUserControl.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookUserControl\obj\Debug\SilverlightBookUserControl.pdb
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookUserControl\Bin\Debug\SilverlightBookUserControl.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookUserControl\Bin\Debug\SilverlightBookUserControl.pdb
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookUserControl\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookUserControl\obj\Debug\SilverlightControl1.g.i.cs
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookUserControl\obj\Debug\SilverlightBookUserControl.g.resources
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookUserControl\obj\Debug\SilverlightBookUserControl.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookUserControl\obj\Debug\SilverlightBookUserControl.pdb

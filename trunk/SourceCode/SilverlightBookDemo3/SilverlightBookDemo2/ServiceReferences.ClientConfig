@@ -1,0 +1,24 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <customBinding>
+                <binding name="CustomBinding_Service1">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_ServiceDNN3">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:4452/Service1.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_Service1" contract="ServiceReference1.Service1"
+                name="CustomBinding_Service1" />
+            <endpoint address="http://localhost:4452/ServiceDNN3.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_ServiceDNN3" contract="ServiceReference1.ServiceDNN3"
+                name="CustomBinding_ServiceDNN3" />
+        </client>
+    </system.serviceModel>
+</configuration>
