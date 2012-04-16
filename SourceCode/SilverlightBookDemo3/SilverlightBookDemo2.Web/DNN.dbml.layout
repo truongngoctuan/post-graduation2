@@ -1,0 +1,1395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 23.25, 129.5" name="DNN">
+  <DataContextMoniker Name="/DNNDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f5f843ca-bac3-40dd-aa40-513a07e702d5" absoluteBounds="0.75, 11.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DNNDataContext/aspnet_Application" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4eef2787-b099-48fd-8af4-1cd658826050" absoluteBounds="0.765, 11.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="361469ca-ae06-458a-adc2-be9f3f72b693" absoluteBounds="12.5, 52, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_WorkflowState" />
+      <nestedChildShapes>
+        <elementListCompartment Id="19c3ac23-eb9a-4b27-8623-d706a39b7bab" absoluteBounds="12.515, 52.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbc3c09b-32bf-4163-bf42-5c2b8db26a42" absoluteBounds="9.25, 10.625, 2, 4.8477197265624987">
+      <DataClassMoniker Name="/DNNDataContext/aspnet_Membership" />
+      <nestedChildShapes>
+        <elementListCompartment Id="562b2706-a773-43cf-ba26-63f02f800b2c" absoluteBounds="9.265, 11.085, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b272a7ea-9e67-479b-aa4d-a1c95890b5f9" absoluteBounds="6.25, 12.625, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/DNNDataContext/aspnet_Profile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c3c5e4ee-57d1-4337-9bdc-64196f432ae5" absoluteBounds="6.265, 13.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ece93150-12da-4f41-851b-9c2280235f5b" absoluteBounds="3.5, 10, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/DNNDataContext/aspnet_Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6b759b7e-2340-4289-bbf6-36c52782569f" absoluteBounds="3.515, 10.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="adf22adb-7a64-4ab1-a59e-5896bcbb99f9" absoluteBounds="6.75, 7.5, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DNNDataContext/aspnet_SchemaVersion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f1880d6-ebbc-4ad2-8103-784eab595bdd" absoluteBounds="6.765, 7.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="74be6da4-99d6-4bc3-b969-7b6af3cac726" absoluteBounds="3.5, 12.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DNNDataContext/aspnet_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99402e3a-bd5e-4b2f-95aa-225eed7b7277" absoluteBounds="3.515, 12.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="adeaa76a-ba9a-4df7-885c-390ba8e578a5" absoluteBounds="6.25, 10.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DNNDataContext/aspnet_UsersInRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="198453a1-4961-4f21-8216-3169e8fd84ff" absoluteBounds="6.265, 11.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ee309061-a204-4b83-9f2d-9a8d57450704" absoluteBounds="6.25, 121.625, 2, 2.3478011067708451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Affiliate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df10be26-fb95-444e-bcba-def54280dbb7" absoluteBounds="6.265, 122.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="68d8481f-e6c3-4e16-b06e-7be389506ba9" absoluteBounds="3.5, 43.125, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/DNNDataContext/dnn_AnonymousUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd2234f1-9788-432b-b78d-d2a01ea41897" absoluteBounds="3.515, 43.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ad80936-bec5-4d95-9bb5-c8c1856ccfa1" absoluteBounds="3.75, 25.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Assembly" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e41ddb77-4090-4df5-849b-8fa2198ccb95" absoluteBounds="3.765, 25.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8654bad5-f5d8-4fd2-96e3-1fe4c11e40cb" absoluteBounds="3.75, 5.875, 2, 2.9247054036458309">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Authentication" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a65b34dc-674d-4de2-88e5-2082a946143e" absoluteBounds="3.765, 6.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e5bc1b88-fa6d-423f-8694-9bd518182d49" absoluteBounds="6.25, 124.75, 2, 4.4631168619791737">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Banner" />
+      <nestedChildShapes>
+        <elementListCompartment Id="387c99bd-ba4e-48d7-ae08-7e862b0ec589" absoluteBounds="6.265, 125.21, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9614c319-6a5f-4625-a860-0d598ead43e4" absoluteBounds="6.5, 118.625, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Classification" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40050c70-57b7-4d6c-b452-8a048707ad24" absoluteBounds="6.515, 119.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d739361d-ee90-4699-a9af-61ecfae50cc8" absoluteBounds="0.75, 56.5, 2, 2.9247054036458309">
+      <DataClassMoniker Name="/DNNDataContext/dnn_ContentItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b6ea691c-01eb-436b-89fe-696fa5d42fb3" absoluteBounds="0.765, 56.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c58e1bba-e0e8-4b93-a9df-c89f18b6c681" absoluteBounds="9.5, 49.125, 2, 1.5785953776041595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_ContentItems_MetaData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4bf31e30-5543-4584-acc4-7bbf0fa602a1" absoluteBounds="9.515, 49.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ff305dde-5c4c-4b5a-9f4c-3e9e0e920e7b" absoluteBounds="9, 29.875, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_ContentItems_Tag" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b946f943-0112-4573-acba-6ea261b7d267" absoluteBounds="9.015, 30.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b4f5478e-0793-41c8-a039-fe28ff652e9d" absoluteBounds="1.5, 48.375, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/DNNDataContext/dnn_ContentType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2b70e668-5317-4f44-974a-91fd54690af6" absoluteBounds="1.5150000000000001, 48.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9dca48b5-98fd-4fe8-aa9e-8af4954fc60c" absoluteBounds="3.75, 21.375, 2, 2.3478011067708309">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Dashboard_Control" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6900481f-9412-4dd4-8dfb-2ae6973a5dc3" absoluteBounds="3.765, 21.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2fdd33f3-fdbb-43c2-b77c-06dc312c470d" absoluteBounds="12.25, 59.625, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_DesktopModulePermission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d20851c8-ca76-4f3f-ae65-f012993c97f1" absoluteBounds="12.265, 60.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="48842f4e-8339-4782-89cb-9b3c3eea6406" absoluteBounds="3.75, 32.75, 2, 4.4631168619791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_DesktopModule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3341b817-f511-4370-8e82-6b9b5700b268" absoluteBounds="3.765, 33.21, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6031bb67-6203-4f9f-8cfe-c7b6cb0a987f" absoluteBounds="17.25, 9.75, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_EventLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="59d40744-f203-4e4c-897c-b427bdf26937" absoluteBounds="17.265, 10.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9e0dd03c-5831-4bb5-8e1f-7049c51c9db1" absoluteBounds="14.5, 9.875, 2, 2.9247054036458309">
+      <DataClassMoniker Name="/DNNDataContext/dnn_EventLogConfig" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a540266-57ac-4807-984c-8e261388fe1d" absoluteBounds="14.515, 10.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="42b8b6e7-92f2-4237-9301-ebc2a2c8a8bb" absoluteBounds="11.75, 10.5, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/DNNDataContext/dnn_EventLogType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e290953f-049b-4310-b119-933c1ef9c319" absoluteBounds="11.765, 10.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6cff1367-c192-4a6e-a750-75cf0f67643d" absoluteBounds="14.75, 1.5, 2, 3.5016097005208331">
+      <DataClassMoniker Name="/DNNDataContext/dnn_EventQueue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="03ed1714-8fbc-4040-bd91-b4b58cb4e0ab" absoluteBounds="14.765, 1.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="40a47ca3-ce34-4921-aafa-78a296cc668c" absoluteBounds="9.25, 74.125, 2, 4.2708154296875023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_File" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99e46fc3-b4b6-4bbe-b8d4-3cffa55aae43" absoluteBounds="9.265, 74.585, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f12e81dd-0110-427d-9636-96e38fafa8cd" absoluteBounds="3.5, 68.625, 2, 2.5401025390625023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_FolderMapping" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ae7105a-7f56-4a44-995a-6a2b8d1fc126" absoluteBounds="3.515, 69.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9d706a26-3be0-47d8-9781-b4ca21778b2e" absoluteBounds="6.25, 68.875, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_FolderMappingsSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ca65d82-0393-4176-90ae-f97fb8fe4509" absoluteBounds="6.265, 69.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6588e6ac-7c7e-46af-b6ad-e474152d3531" absoluteBounds="6.25, 83.375, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_FolderPermission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="26ccfd92-100d-4d72-9b3e-e882008348b8" absoluteBounds="6.265, 83.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6990b046-fd7f-4005-8616-27f4774c357e" absoluteBounds="3.5, 83, 2, 3.5016097005208451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Folder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ceb3dd99-baad-4052-b4d8-7312a6eb8819" absoluteBounds="3.515, 83.46, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3b1ad57e-0cda-459c-ba17-dc1c835558f0" absoluteBounds="9.75, 7.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DNNDataContext/dnn_HostSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="719143fc-bdbc-4e62-8c30-c4caed23f5e8" absoluteBounds="9.765, 7.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4853f5d-c37a-4311-b055-cd994af6ebd5" absoluteBounds="15.25, 65.5, 2, 2.9247054036458451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_HtmlText" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3854d3d1-8e8b-48b8-9942-9d3ab9466f19" absoluteBounds="15.265, 65.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="95c1ab44-d9d9-4330-bd87-7d6f66b68f56" absoluteBounds="21, 65.875, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_HtmlTextLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e151b5d7-d123-4c39-926b-a0b37dfabf6c" absoluteBounds="21.015, 66.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a8052713-3036-4dff-9657-5954b1350e3f" absoluteBounds="18, 68.75, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_HtmlTextUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35a9453c-068d-46c9-9075-24b5f49ae902" absoluteBounds="18.015, 69.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0963ec2-eb28-47c9-b20d-5be3bc0193d2" absoluteBounds="9.5, 38.625, 2, 2.3478011067708309">
+      <DataClassMoniker Name="/DNNDataContext/dnn_LanguagePack" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45639f44-6108-4ef5-a63d-9d03a091fb51" absoluteBounds="9.515, 39.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="abd336f0-8bec-4eb7-8832-018e6b1a5231" absoluteBounds="6.75, 44.75, 2, 2.3478011067708309">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Language" />
+      <nestedChildShapes>
+        <elementListCompartment Id="31c709db-6026-4b2b-8cde-583f56ad7e51" absoluteBounds="6.765, 45.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="318d0216-e043-4f18-bd09-3a5cd0e2bdaa" absoluteBounds="12.25, 67.875, 2, 2.3478011067708451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Link" />
+      <nestedChildShapes>
+        <elementListCompartment Id="07065977-bec8-4d5b-9f16-4a0dfe458ecb" absoluteBounds="12.265, 68.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a80e6e8a-311e-4688-baa6-fc805fffff1f" absoluteBounds="17.75, 1.5, 2, 3.6939111328124987">
+      <DataClassMoniker Name="/DNNDataContext/dnn_List" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b44cc333-b428-4717-ab50-9d0709a43858" absoluteBounds="17.765, 1.96, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="14998219-b10b-4ae5-aa1d-323edafbb5bf" absoluteBounds="9.75, 18.5, 2, 4.2708154296875023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Messaging_Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="903de60a-3d19-4e8e-949e-643e40058da2" absoluteBounds="9.765, 18.96, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbbedbc1-933f-456e-bf48-07118f9ece57" absoluteBounds="6.75, 42.25, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_MetaData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57263c26-fee0-416d-95e5-dcff6e30bac1" absoluteBounds="6.765, 42.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8dac6f69-8fa6-40e6-b4e6-df01d8899a7a" absoluteBounds="3.5, 71.875, 2, 2.9247054036458451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Mobile_PreviewProfile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a04dd89-0c9e-4e34-8863-26b033902e7a" absoluteBounds="3.515, 72.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2a26bb89-9bf7-44b1-aedb-10d3f6ab1652" absoluteBounds="6.25, 88.125, 2, 1.5785953776041595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Mobile_RedirectionRule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3088b9c1-30d1-44bd-be5b-d0866dfef8ab" absoluteBounds="6.265, 88.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="98e8353f-9f93-4be2-9736-e02836806495" absoluteBounds="3.5, 87.25, 2, 3.5016097005208451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Mobile_Redirection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6c8a27f-923d-4f4f-9fa1-bf615e8a6685" absoluteBounds="3.515, 87.71, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9e1cbf13-e4e4-4881-880f-927f09289474" absoluteBounds="9.5, 90.125, 2, 3.6939111328125023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_ModuleControl" />
+      <nestedChildShapes>
+        <elementListCompartment Id="373d43dc-4441-4f25-b0dd-c8696868ceaa" absoluteBounds="9.515, 90.585, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3b5539d-2552-4b3a-85cd-01039274e71d" absoluteBounds="6.75, 90.75, 2, 2.3478011067708451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_ModuleDefinition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="93a761cd-f948-409f-8468-68da62245105" absoluteBounds="6.765, 91.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f9a9aced-68e0-49bd-b8db-ae03b70704c8" absoluteBounds="15.25, 69.625, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_ModulePermission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="367204c0-34fa-4bbb-bd7d-e7cfa416f2b7" absoluteBounds="15.265, 70.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3710e8b0-6fb3-439f-aa4f-8d94ff3073ca" absoluteBounds="9.5, 69.25, 2, 3.5016097005208451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Module" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a258c83-bc1d-44bc-a12c-dffd314ba4b8" absoluteBounds="9.515, 69.71, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b7c997a8-b856-4f5e-83f0-1a9638e79663" absoluteBounds="12.25, 65, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_ModuleSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="620fbd0b-d935-4596-9625-ab56ded95074" absoluteBounds="12.265, 65.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="48a49529-dd19-4ad5-a6a1-98f4986a9d4d" absoluteBounds="12.25, 71, 2, 2.5401025390625023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_MySite_Article" />
+      <nestedChildShapes>
+        <elementListCompartment Id="067ca17b-c653-49c0-9f0c-cf7c83f11461" absoluteBounds="12.265, 71.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9f890ae5-23e0-4ca7-9a7b-e6799601d834" absoluteBounds="14.5, 14.75, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/DNNDataContext/dnn_NewNews_Article" />
+      <nestedChildShapes>
+        <elementListCompartment Id="32b64e86-5f1f-4dd2-91c1-a196e6658e0c" absoluteBounds="14.515, 15.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ec9ee015-9a09-4552-aef1-e97d695b52a0" absoluteBounds="11.75, 15, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DNNDataContext/dnn_NewNews_Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc57fbc4-a8fe-4c06-9d42-5d18a4fa4721" absoluteBounds="11.765, 15.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b12171f3-4d26-46ea-8341-2a9e4eb395b0" absoluteBounds="1, 32.5, 2, 4.8477197265625023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Package" />
+      <nestedChildShapes>
+        <elementListCompartment Id="60bc92de-aca6-427e-9042-5c21f6fd6efd" absoluteBounds="1.0150000000000001, 32.96, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5b4b198b-ade0-47a1-8c25-dc4799e9c8fe" absoluteBounds="1.75, 30.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DNNDataContext/dnn_PackageType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8505fb42-0edd-4050-8a75-3edd0be0734b" absoluteBounds="1.7650000000000001, 30.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="26bbeba0-d421-4d87-ac6e-2ae3119446a7" absoluteBounds="6.5, 53.375, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Permission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cdcb1e08-3b21-40ca-aad4-5ee66e9d106c" absoluteBounds="6.515, 53.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="34f2c354-e056-4de9-87de-43cefc19b028" absoluteBounds="3.5, 50.625, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_PortalAlia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3e458a07-ef01-4c70-af68-326e91385c4b" absoluteBounds="3.515, 51.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="189de723-d62e-4b32-a9dc-fbd710ae8611" absoluteBounds="6.5, 59.875, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_PortalDesktopModule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cd8620c8-96e4-4a6d-82a8-05b4cd2a2b5f" absoluteBounds="6.515, 60.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1dd2614a-5170-4b43-b2d4-e5d6cf70edd6" absoluteBounds="12.75, 18.5, 2, 2.5401025390625023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_PortalGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d3b9cf7-6042-4696-9111-acd135e81993" absoluteBounds="12.765, 18.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6d1fc337-6a2e-40b1-9ab7-6fa236d4c7b2" absoluteBounds="9.5, 65.75, 2, 2.3478011067708451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_PortalLanguage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b0522e0-598c-4478-bba5-04c4d94ab181" absoluteBounds="9.515, 66.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b96cffea-8b66-4196-b98d-2d6da090fd1e" absoluteBounds="3.5, 114.25, 2, 4.4631168619791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_PortalLocalization" />
+      <nestedChildShapes>
+        <elementListCompartment Id="993b68d6-bb4c-4ec5-9734-3ca4eb550c32" absoluteBounds="3.515, 114.71, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8f5c698-a26d-4242-9533-d53c61c6b865" absoluteBounds="0.75, 64.125, 2, 5.6169254557291595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Portal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="85f59e09-07f1-44b1-b6d0-35a1e8042fa5" absoluteBounds="0.765, 64.585, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f6504c47-ea90-482f-b12b-52778e3448c6" absoluteBounds="3.5, 62.5, 2, 2.347801106770838">
+      <DataClassMoniker Name="/DNNDataContext/dnn_PortalSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14cf81d3-1ec1-4f98-a2d1-f56dffb7163d" absoluteBounds="3.515, 62.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="597393f8-bbd1-41de-ae5a-dcca9c080c35" absoluteBounds="6.5, 66.125, 2, 1.7708968098958451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Profile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1716ded-b384-4c94-b251-9409f38ca441" absoluteBounds="6.515, 66.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bca4ea35-14fb-449c-850a-c507b0a51ef8" absoluteBounds="3.5, 109.25, 2, 4.2708154296875023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_ProfilePropertyDefinition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b5b2a5a3-32b5-4831-8c89-4c8bb143a5ca" absoluteBounds="3.515, 109.71, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3956430-1991-415c-a3f4-1ecad3224d66" absoluteBounds="3.5, 65.5, 2, 2.3478011067708451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_RoleGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d6a20ecd-cc26-4715-a752-86c477caab12" absoluteBounds="3.515, 65.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9dd08647-cfbf-45e9-b59c-3277711c74ed" absoluteBounds="9.25, 59.75, 2, 4.4631168619791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e196f5f1-eed3-43c4-a882-c6a1b4b3f3bd" absoluteBounds="9.265, 60.21, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="15c9e312-da80-4ee7-b990-0099e66ba52f" absoluteBounds="8.75, 2, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Schedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56331cd7-7d27-4816-afe0-5aa9a14f1b4b" absoluteBounds="8.765, 2.46, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b54b00a9-17f0-4950-8059-9d2f3a1898d5" absoluteBounds="11.5, 4, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/DNNDataContext/dnn_ScheduleHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c9587de-9799-43fc-a3af-278bacf739db" absoluteBounds="11.515, 4.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="796f0790-417f-49d2-a80b-5fc0185741ec" absoluteBounds="11.5, 1.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DNNDataContext/dnn_ScheduleItemSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e87d5dd4-2061-4f2f-9f91-a2d802d0b24c" absoluteBounds="11.515, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dec093ae-39dc-47e1-b0e5-8322bc005d9e" absoluteBounds="12.75, 7.5, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/DNNDataContext/dnn_SearchCommonWord" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cee8b220-23ea-4483-a928-f7677095f3e4" absoluteBounds="12.765, 7.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6024cffd-958b-4b9b-9760-88ca029133cd" absoluteBounds="0.75, 15.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DNNDataContext/dnn_SearchIndexer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef3069f9-b5b7-496e-b9f5-e788881f26cb" absoluteBounds="0.765, 15.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2092659b-3fa1-4fc3-a26f-d95d0a62bd6c" absoluteBounds="12.25, 77.75, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_SearchItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2150236f-9037-431e-a1c5-c4b45acdbb90" absoluteBounds="12.265, 78.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11787d1c-b21e-495b-bdbb-251608e498d1" absoluteBounds="15, 78.25, 2, 1.5785953776041595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_SearchItemWord" />
+      <nestedChildShapes>
+        <elementListCompartment Id="623a8e64-c8b3-4a62-956e-1edc3eb839c8" absoluteBounds="15.015, 78.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66a21e17-366d-4835-bf9b-60e25f87f928" absoluteBounds="17.75, 78.375, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_SearchItemWordPosition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89d3c1a4-e0ff-4314-aa74-e060fd02dc85" absoluteBounds="17.765, 78.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="706dc268-2012-4801-9bb7-a6bf92a3a859" absoluteBounds="12.25, 75.25, 2, 1.5785953776041595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_SearchWord" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf01569a-92f6-4ba7-9db8-3810736fd45a" absoluteBounds="12.265, 75.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="09080db9-51ef-474d-b955-2521c738c266" absoluteBounds="3.5, 75.625, 2, 2.9247054036458451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_SiteLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a4f71195-fee6-4097-b64b-68c37360b09d" absoluteBounds="3.515, 76.085, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c84d7190-e821-443e-b8bf-7c01b6a278b8" absoluteBounds="3.75, 91.5, 2, 2.9247054036458451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_SkinControl" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fdb44dc8-3119-4abd-88c2-8bfcec243a16" absoluteBounds="3.765, 91.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="14f0c6f4-3622-438d-81f4-e595ab3a136a" absoluteBounds="3.75, 17.625, 2, 2.5401025390625023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_SkinPackage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="acc88def-8d99-45ed-bef7-bc920792261b" absoluteBounds="3.765, 18.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bbbee56e-290f-4608-af8d-96c226c2f47f" absoluteBounds="6.5, 18.125, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Skin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="62550499-df5e-4529-aa43-57b80834cc36" absoluteBounds="6.515, 18.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="75527459-608e-49ff-990f-a023a8e65674" absoluteBounds="3.5, 40.75, 2, 1.5785953776041595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_SystemMessage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c6cf557-e0a0-47aa-b00c-71b60163a6dd" absoluteBounds="3.515, 41.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="19ba362e-d3b4-4701-87ad-90e70d05af96" absoluteBounds="18.25, 59.875, 2, 7.1553369140625023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_TabModule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="639f4539-7333-41e9-ab10-f3c780913499" absoluteBounds="18.265, 60.335, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bee13391-d29a-4fc0-a645-ef4d1feb5baf" absoluteBounds="21, 62.375, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_TabModuleSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d84d03c-911b-4bef-a83a-423a5dedcbe2" absoluteBounds="21.015, 62.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="129eee8c-6ed9-4d73-9000-23368c7a1592" absoluteBounds="9.25, 55.625, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_TabPermission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="441450bc-c924-4327-89f2-cf12f22359d3" absoluteBounds="9.265, 56.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c77b495-e4ce-4de1-a287-bc6083e3a8fb" absoluteBounds="3.5, 54.125, 2, 7.5399397786458309">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Tab" />
+      <nestedChildShapes>
+        <elementListCompartment Id="27fa787e-c14f-4434-95e9-22905dc77768" absoluteBounds="3.515, 54.585, 1.9700000000000002, 6.979939778645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b465215f-3d60-47c1-83a0-267f486c2a1e" absoluteBounds="6.25, 56.875, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_TabSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="648f6245-8c42-4fcb-a584-4829427ed9cd" absoluteBounds="6.265, 57.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="719ef1af-6cfe-45aa-9a2a-756dedf11503" absoluteBounds="0.75, 2.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Taxonomy_ScopeType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c08a5d70-9bcf-4829-b55d-00b4bd5c71f7" absoluteBounds="0.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="09c8f824-d197-4b5c-8936-730021316559" absoluteBounds="6.25, 1.75, 2, 3.1170068359375">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Taxonomy_Term" />
+      <nestedChildShapes>
+        <elementListCompartment Id="32bbf238-2e9d-4ec0-84a2-6175a0d6239c" absoluteBounds="6.265, 2.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d524001c-75c1-4caf-aa16-91acf6900d7a" absoluteBounds="3.5, 1.75, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Taxonomy_Vocabulary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2dd1588d-8810-4c98-896a-b4406429e952" absoluteBounds="3.515, 2.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0320382-6ec0-4f73-a92c-064c9d7ecb22" absoluteBounds="0.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Taxonomy_VocabularyType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0f7bf261-bac6-479d-a8c4-c6e70bae3bc3" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="77beccd3-9e90-4d2e-9057-df42c80b054a" absoluteBounds="6.25, 80, 2, 1.5785953776041595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_UrlLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b8f32d23-11d1-45ff-8ddb-c30fdb4670c3" absoluteBounds="6.265, 80.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bfb05def-3886-43a4-be87-15f99916a8ff" absoluteBounds="3.5, 38.625, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Url" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a839a15-dc44-4a77-9a1a-924f2ecf189a" absoluteBounds="3.515, 39.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b8c51d4c-27c1-49c3-9129-96f73abbcd3b" absoluteBounds="3.5, 79.25, 2, 2.9247054036458451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_UrlTracking" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36df04d9-0723-4bf6-a914-b29ea6f56846" absoluteBounds="3.515, 79.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a08c09e9-c57b-49ab-8f2b-591bfadac81b" absoluteBounds="9.25, 35.5, 2, 2.3478011067708309">
+      <DataClassMoniker Name="/DNNDataContext/dnn_UserAuthentication" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6afbfe40-dfb5-4715-be50-40816c104905" absoluteBounds="9.265, 35.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="36a6eaf0-1a32-41d1-94d5-6bc1afae1de3" absoluteBounds="6.5, 71.875, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_UserPortal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d7fae0b-6b40-4e98-ad3d-b770753b1821" absoluteBounds="6.515, 72.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="475761c9-05bd-4856-9059-8875c5e3f040" absoluteBounds="6.25, 110.25, 2, 2.1554996744791595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_UserProfile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e3324607-43d7-4567-8b13-13519c8cb809" absoluteBounds="6.265, 110.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="19751d1a-094f-4b4f-a2f5-06083f7b7293" absoluteBounds="15, 60.625, 2, 2.7324039713541595">
+      <DataClassMoniker Name="/DNNDataContext/dnn_UserRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="608cf03f-a05b-40a6-8a0e-e087b5b2deec" absoluteBounds="15.015, 61.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b33206c2-1e8f-4489-b121-2701f4b19e79" absoluteBounds="6.5, 48.875, 2, 3.6939111328125023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f50e123d-560e-4887-b6bd-f4407f069fa8" absoluteBounds="6.515, 49.335, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="35b4ff5a-452d-4be0-a1f5-f47044a8427e" absoluteBounds="6.5, 63.125, 2, 1.770896809895838">
+      <DataClassMoniker Name="/DNNDataContext/dnn_UsersOnline" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a41ee7fe-487d-4b05-bc69-ce1ee329bdb1" absoluteBounds="6.515, 63.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e87dffde-4c04-41a6-922c-4c263691ca14" absoluteBounds="9.25, 122.625, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/DNNDataContext/dnn_VendorClassification" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7bd16b59-7aa1-4340-89de-a34bb226bd73" absoluteBounds="9.265, 123.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7eade44-3cde-4af5-9c13-602c42f07923" absoluteBounds="3.5, 120.625, 2, 5.2323225911458451">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Vendor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="233b5cd3-4206-4fc9-be05-b1010d11a036" absoluteBounds="3.515, 121.085, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ba8182f7-c168-476d-aa16-e025148e01b3" absoluteBounds="15.75, 6.5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Version" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04ea7d7b-15ad-4040-a267-da39bab22f60" absoluteBounds="15.765, 6.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44da4a01-2349-4a8e-8b6d-d05d748a691b" absoluteBounds="17.75, 14.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DNNDataContext/dnn_WebServer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d1e6067b-21fd-46a1-8240-da409d9a55be" absoluteBounds="17.765, 14.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="84a4b783-046c-4f0a-a2aa-82a26cd08d16" absoluteBounds="9.75, 52.125, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/DNNDataContext/dnn_Workflow" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9e1c7bad-1507-44b6-8743-ef5b34ec5a13" absoluteBounds="9.765, 52.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 12.1594962565104); (2.91666666666667 : 12.1594962565104 : JumpStart); (3.08333333333333 : 12.1594962565104 : JumpEnd); (8.91666666666667 : 12.1594962565104 : JumpStart); (9.08333333333333 : 12.1594962565104 : JumpEnd); (9.25 : 12.1594962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/aspnet_Application/aspnet_Application_aspnet_Membership" />
+      <nodes>
+        <classShapeMoniker Id="f5f843ca-bac3-40dd-aa40-513a07e702d5" />
+        <classShapeMoniker Id="dbc3c09b-32bf-4163-bf42-5c2b8db26a42" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 11.5); (1.75 : 10.7499995); (2.91666666666667 : 10.7499995 : JumpStart); (3.08333333333333 : 10.7499995 : JumpEnd); (3.5 : 10.7499995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/aspnet_Application/aspnet_Application_aspnet_Role" />
+      <nodes>
+        <classShapeMoniker Id="f5f843ca-bac3-40dd-aa40-513a07e702d5" />
+        <classShapeMoniker Id="ece93150-12da-4f41-851b-9c2280235f5b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 14.5569482421875); (8.91666666666667 : 14.5569482421875 : JumpStart); (9.08333333333333 : 14.5569482421875 : JumpEnd); (9.25 : 14.5569482421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/aspnet_User/aspnet_User_aspnet_Membership" />
+      <nodes>
+        <classShapeMoniker Id="74be6da4-99d6-4bc3-b969-7b6af3cac726" />
+        <classShapeMoniker Id="dbc3c09b-32bf-4163-bf42-5c2b8db26a42" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 13.5104484049479); (6.25 : 13.5104484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/aspnet_User/aspnet_User_aspnet_Profile" />
+      <nodes>
+        <classShapeMoniker Id="74be6da4-99d6-4bc3-b969-7b6af3cac726" />
+        <classShapeMoniker Id="b272a7ea-9e67-479b-aa4d-a1c95890b5f9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 12.7892976888021); (2.91666666666667 : 12.7892976888021 : JumpStart); (3.08333333333333 : 12.7892976888021 : JumpEnd); (3.5 : 12.7892976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/aspnet_Application/aspnet_Application_aspnet_User" />
+      <nodes>
+        <classShapeMoniker Id="f5f843ca-bac3-40dd-aa40-513a07e702d5" />
+        <classShapeMoniker Id="74be6da4-99d6-4bc3-b969-7b6af3cac726" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 11.1979484049479); (6.25 : 11.1979484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/aspnet_Role/aspnet_Role_aspnet_UsersInRole" />
+      <nodes>
+        <classShapeMoniker Id="ece93150-12da-4f41-851b-9c2280235f5b" />
+        <classShapeMoniker Id="adeaa76a-ba9a-4df7-885c-390ba8e578a5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 12.5); (5.875 : 12.125); (5.875 : 11.5397224589844); (6.25 : 11.5397224589844)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/aspnet_User/aspnet_User_aspnet_UsersInRole" />
+      <nodes>
+        <classShapeMoniker Id="74be6da4-99d6-4bc3-b969-7b6af3cac726" />
+        <classShapeMoniker Id="adeaa76a-ba9a-4df7-885c-390ba8e578a5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.19931705603966 : 120.011293945313); (7.19931705603966 : 120.261293945313); (7.81500117938702 : 120.261293945313); (7.81500117938702 : 120.011293945313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Classification/dnn_Classification_dnn_Classification" />
+      <nodes>
+        <classShapeMoniker Id="9614c319-6a5f-4625-a860-0d598ead43e4" />
+        <classShapeMoniker Id="9614c319-6a5f-4625-a860-0d598ead43e4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 57.9623527018229); (2.79166666666667 : 57.9623527018229 : JumpStart); (3.20833333333333 : 57.9623527018229 : JumpEnd); (3.25 : 57.9623527018229); (3.25 : 53.125); (3.29166666666667 : 53.125 : JumpStart); (3.45833333333333 : 53.125 : JumpEnd); (5.57291666666667 : 53.125 : JumpStart); (5.73958333333333 : 53.125 : JumpEnd); (5.79166666666667 : 53.125 : JumpStart); (6.08333333333333 : 53.125 : JumpEnd); (7.40051282051282 : 53.125 : JumpStart); (7.56717948717949 : 53.125 : JumpEnd); (8.57291666666667 : 53.125 : JumpStart); (8.73958333333333 : 53.125 : JumpEnd); (8.85416666666667 : 53.125 : JumpStart); (9.02083333333333 : 53.125 : JumpEnd); (9.26041666666667 : 53.125 : JumpStart); (9.42708333333333 : 53.125 : JumpEnd); (9.5 : 53.125); (9.5 : 51.875); (10.5 : 51.875); (10.5 : 50.7035953776042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_ContentItem/dnn_ContentItem_dnn_ContentItems_MetaData" />
+      <nodes>
+        <classShapeMoniker Id="d739361d-ee90-4699-a9af-61ecfae50cc8" />
+        <classShapeMoniker Id="c58e1bba-e0e8-4b93-a9df-c89f18b6c681" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.84375 : 56.5); (0.84375 : 29.96875); (1.05728916666667 : 29.96875 : JumpStart); (1.22395583333333 : 29.96875 : JumpEnd); (1.26041666666667 : 29.96875 : JumpStart); (1.42708333333333 : 29.96875 : JumpEnd); (1.46354416666667 : 29.96875 : JumpStart); (1.63021083333333 : 29.96875 : JumpEnd); (3.91666666666667 : 29.96875 : JumpStart); (4.08333333333333 : 29.96875 : JumpEnd); (8.66666666666667 : 29.96875 : JumpStart); (8.83333333333333 : 29.96875 : JumpEnd); (9 : 29.96875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_ContentItem/dnn_ContentItem_dnn_ContentItems_Tag" />
+      <nodes>
+        <classShapeMoniker Id="d739361d-ee90-4699-a9af-61ecfae50cc8" />
+        <classShapeMoniker Id="ff305dde-5c4c-4b5a-9f4c-3e9e0e920e7b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.125 : 49.5689925130208); (2.125 : 56.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_ContentType/dnn_ContentType_dnn_ContentItem" />
+      <nodes>
+        <classShapeMoniker Id="b4f5478e-0793-41c8-a039-fe28ff652e9d" />
+        <classShapeMoniker Id="d739361d-ee90-4699-a9af-61ecfae50cc8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.5 : 11.3373527018229); (17.25 : 11.3373527018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_EventLogConfig/dnn_EventLogConfig_dnn_EventLog" />
+      <nodes>
+        <classShapeMoniker Id="9e0dd03c-5831-4bb5-8e1f-7049c51c9db1" />
+        <classShapeMoniker Id="6031bb67-6203-4f9f-8cfe-c7b6cb0a987f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.75 : 10.5); (12.75 : 9.78125); (17.25 : 9.78125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_EventLogType/dnn_EventLogType_dnn_EventLog" />
+      <nodes>
+        <classShapeMoniker Id="42b8b6e7-92f2-4237-9301-ebc2a2c8a8bb" />
+        <classShapeMoniker Id="6031bb67-6203-4f9f-8cfe-c7b6cb0a987f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.75 : 11.3854484049479); (14.5 : 11.3854484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_EventLogType/dnn_EventLogType_dnn_EventLogConfig" />
+      <nodes>
+        <classShapeMoniker Id="42b8b6e7-92f2-4237-9301-ebc2a2c8a8bb" />
+        <classShapeMoniker Id="9e0dd03c-5831-4bb5-8e1f-7049c51c9db1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 69.9527498372396); (5.79166666666667 : 69.9527498372396 : JumpStart); (6.20833333333333 : 69.9527498372396 : JumpEnd); (6.25 : 69.9527498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_FolderMapping/dnn_FolderMapping_dnn_FolderMappingsSetting" />
+      <nodes>
+        <classShapeMoniker Id="f12e81dd-0110-427d-9636-96e38fafa8cd" />
+        <classShapeMoniker Id="9d706a26-3be0-47d8-9781-b4ca21778b2e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 86.3357568359375); (5.91666666666667 : 86.3357568359375 : JumpStart); (6.20833333333333 : 86.3357568359375 : JumpEnd); (8.57291666666667 : 86.3357568359375 : JumpStart); (8.73958333333333 : 86.3357568359375 : JumpEnd); (10.25 : 86.3357568359375); (10.25 : 78.3958154296875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Folder/dnn_Folder_dnn_File" />
+      <nodes>
+        <classShapeMoniker Id="6990b046-fd7f-4005-8616-27f4774c357e" />
+        <classShapeMoniker Id="40a47ca3-ce34-4921-aafa-78a296cc668c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 84.7412019856771); (5.91666666666667 : 84.7412019856771 : JumpStart); (6.20833333333333 : 84.7412019856771 : JumpEnd); (6.25 : 84.7412019856771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Folder/dnn_Folder_dnn_FolderPermission" />
+      <nodes>
+        <classShapeMoniker Id="6990b046-fd7f-4005-8616-27f4774c357e" />
+        <classShapeMoniker Id="6588e6ac-7c7e-46af-b6ad-e474152d3531" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.40625 : 53.9631982421875); (14.40625 : 67.5152498372396); (14.6666666666667 : 67.5152498372396 : JumpStart); (14.8333333333333 : 67.5152498372396 : JumpEnd); (15.0416666666667 : 67.5152498372396 : JumpStart); (15.2083333333333 : 67.5152498372396 : JumpEnd); (15.25 : 67.5152498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_WorkflowState/dnn_WorkflowState_dnn_HtmlText" />
+      <nodes>
+        <classShapeMoniker Id="361469ca-ae06-458a-adc2-be9f3f72b693" />
+        <classShapeMoniker Id="a4853f5d-c37a-4311-b055-cd994af6ebd5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.25 : 67.5616682942708); (19.1666666666667 : 67.5616682942708 : JumpStart); (19.3333333333333 : 67.5616682942708 : JumpEnd); (21 : 67.5616682942708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_HtmlText/dnn_HtmlText_dnn_HtmlTextLog" />
+      <nodes>
+        <classShapeMoniker Id="a4853f5d-c37a-4311-b055-cd994af6ebd5" />
+        <classShapeMoniker Id="95c1ab44-d9d9-4330-bd87-7d6f66b68f56" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.5 : 53.9631982421875); (14.875 : 54.3381982421875); (15.9166666666667 : 54.3381982421875 : JumpStart); (16.0833333333333 : 54.3381982421875 : JumpEnd); (17.4166666666667 : 54.3381982421875 : JumpStart); (17.5833333333333 : 54.3381982421875 : JumpEnd); (20.625 : 54.3381982421875); (20.625 : 65.4984625384615); (21.0015374615385 : 65.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DNNDataContext/dnn_WorkflowState/dnn_WorkflowState_dnn_HtmlTextLog" />
+      <nodes>
+        <classShapeMoniker Id="361469ca-ae06-458a-adc2-be9f3f72b693" />
+        <classShapeMoniker Id="95c1ab44-d9d9-4330-bd87-7d6f66b68f56" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.25 : 68.0244393489583); (18.09375 : 68.0244393489583); (18.09375 : 68.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_HtmlText/dnn_HtmlText_dnn_HtmlTextUser" />
+      <nodes>
+        <classShapeMoniker Id="a4853f5d-c37a-4311-b055-cd994af6ebd5" />
+        <classShapeMoniker Id="a8052713-3036-4dff-9657-5954b1350e3f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 45.9239005533854); (9.91666666666667 : 45.9239005533854 : JumpStart); (10.0833333333333 : 45.9239005533854 : JumpEnd); (10.5 : 45.9239005533854); (10.5 : 40.9728011067708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Language/dnn_Language_dnn_LanguagePack" />
+      <nodes>
+        <classShapeMoniker Id="abd336f0-8bec-4eb7-8832-018e6b1a5231" />
+        <classShapeMoniker Id="f0963ec2-eb28-47c9-b20d-5be3bc0193d2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 42.9431469726563); (10 : 42.9431469726563); (10 : 49.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_MetaData/dnn_MetaData_dnn_ContentItems_MetaData" />
+      <nodes>
+        <classShapeMoniker Id="dbbedbc1-933f-456e-bf48-07118f9ece57" />
+        <classShapeMoniker Id="c58e1bba-e0e8-4b93-a9df-c89f18b6c681" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 88.9142976888021); (5.91666666666667 : 88.9142976888021 : JumpStart); (6.20833333333333 : 88.9142976888021 : JumpEnd); (6.25 : 88.9142976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Mobile_Redirection/dnn_Mobile_Redirection_dnn_Mobile_RedirectionRule" />
+      <nodes>
+        <classShapeMoniker Id="98e8353f-9f93-4be2-9736-e02836806495" />
+        <classShapeMoniker Id="2a26bb89-9bf7-44b1-aedb-10d3f6ab1652" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 91.9239005533854); (9.5 : 91.9239005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_ModuleDefinition/dnn_ModuleDefinition_dnn_ModuleControl" />
+      <nodes>
+        <classShapeMoniker Id="d3b5539d-2552-4b3a-85cd-01039274e71d" />
+        <classShapeMoniker Id="9e1cbf13-e4e4-4881-880f-927f09289474" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.75 : 37.2131168619792); (4.75 : 38.375); (5.57291666666667 : 38.375 : JumpStart); (5.73958333333333 : 38.375 : JumpEnd); (6 : 38.375); (6 : 91.9239005533854); (6.04166666666667 : 91.9239005533854 : JumpStart); (6.20833333333333 : 91.9239005533854 : JumpEnd); (6.75 : 91.9239005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_DesktopModule/dnn_DesktopModule_dnn_ModuleDefinition" />
+      <nodes>
+        <classShapeMoniker Id="48842f4e-8339-4782-89cb-9b3c3eea6406" />
+        <classShapeMoniker Id="d3b5539d-2552-4b3a-85cd-01039274e71d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 71.0008048502604); (11.6666666666667 : 71.0008048502604 : JumpStart); (11.8333333333333 : 71.0008048502604 : JumpEnd); (12 : 71.0008048502604); (12 : 70.75); (14.6666666666667 : 70.75 : JumpStart); (14.8333333333333 : 70.75 : JumpEnd); (15 : 70.75); (15 : 69.375); (15.6666671666667 : 69.375 : JumpStart); (15.8333338333333 : 69.375 : JumpEnd); (16.25 : 69.375); (16.25 : 68.4247054036458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Module/dnn_Module_dnn_HtmlText" />
+      <nodes>
+        <classShapeMoniker Id="3710e8b0-6fb3-439f-aa4f-8d94ff3073ca" />
+        <classShapeMoniker Id="a4853f5d-c37a-4311-b055-cd994af6ebd5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 69.7364005533854); (12.25 : 69.7364005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Module/dnn_Module_dnn_Link" />
+      <nodes>
+        <classShapeMoniker Id="3710e8b0-6fb3-439f-aa4f-8d94ff3073ca" />
+        <classShapeMoniker Id="318d0216-e043-4f18-bd09-3a5cd0e2bdaa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 70.4551505533854); (14.6666666666667 : 70.4551505533854 : JumpStart); (14.8333333333333 : 70.4551505533854 : JumpEnd); (14.9166666666667 : 70.4551505533854 : JumpStart); (15.0833333333333 : 70.4551505533854 : JumpEnd); (15.25 : 70.4551505533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Module/dnn_Module_dnn_ModulePermission" />
+      <nodes>
+        <classShapeMoniker Id="3710e8b0-6fb3-439f-aa4f-8d94ff3073ca" />
+        <classShapeMoniker Id="f9a9aced-68e0-49bd-b8db-ae03b70704c8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 58.7247810527344); (2.79166666666667 : 58.7247810527344 : JumpStart); (3.20833333333333 : 58.7247810527344 : JumpEnd); (3.25 : 58.7247810527344); (3.25 : 62.2804996744792); (3.29166666666667 : 62.2804996744792 : JumpStart); (3.45833333333333 : 62.2804996744792 : JumpEnd); (5.79166666666667 : 62.2804996744792 : JumpStart); (6.20833333333333 : 62.2804996744792 : JumpEnd); (8.57291666666667 : 62.2804996744792 : JumpStart); (8.73958333333333 : 62.2804996744792 : JumpEnd); (8.79166666666667 : 62.2804996744792 : JumpStart); (8.95833333333333 : 62.2804996744792 : JumpEnd); (9 : 62.2804996744792); (9 : 68.875); (9.04166666666667 : 68.875 : JumpStart); (9.20833333333333 : 68.875 : JumpEnd); (10.5 : 68.875); (10.5 : 69.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_ContentItem/dnn_ContentItem_dnn_Module" />
+      <nodes>
+        <classShapeMoniker Id="d739361d-ee90-4699-a9af-61ecfae50cc8" />
+        <classShapeMoniker Id="3710e8b0-6fb3-439f-aa4f-8d94ff3073ca" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.65625 : 90.75); (8.65625 : 71.4527498372396); (8.79166666666667 : 71.4527498372396 : JumpStart); (9.00712095763222 : 71.4527498372396 : JumpEnd); (9.5 : 71.4527498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_ModuleDefinition/dnn_ModuleDefinition_dnn_Module" />
+      <nodes>
+        <classShapeMoniker Id="d3b5539d-2552-4b3a-85cd-01039274e71d" />
+        <classShapeMoniker Id="3710e8b0-6fb3-439f-aa4f-8d94ff3073ca" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 69.2515374615385); (11.875 : 68.8765374615385); (11.875 : 66.0777498372396); (12.25 : 66.0777498372396)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Module/dnn_Module_dnn_ModuleSetting" />
+      <nodes>
+        <classShapeMoniker Id="3710e8b0-6fb3-439f-aa4f-8d94ff3073ca" />
+        <classShapeMoniker Id="b7c997a8-b856-4f5e-83f0-1a9638e79663" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 71.9387072753906); (12.25 : 71.9387072753906)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Module/dnn_Module_dnn_MySite_Article" />
+      <nodes>
+        <classShapeMoniker Id="3710e8b0-6fb3-439f-aa4f-8d94ff3073ca" />
+        <classShapeMoniker Id="48a49529-dd19-4ad5-a6a1-98f4986a9d4d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.75 : 15.9815991210938); (14.5 : 15.9815991210938)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_NewNews_Category/dnn_NewNews_Category_dnn_NewNews_Article" />
+      <nodes>
+        <classShapeMoniker Id="ec9ee015-9a09-4552-aef1-e97d695b52a0" />
+        <classShapeMoniker Id="9f890ae5-23e0-4ca7-9a7b-e6799601d834" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.34375 : 32.5); (1.34375 : 25.9142976888021); (1.46354416666667 : 25.9142976888021 : JumpStart); (1.63021083333333 : 25.9142976888021 : JumpEnd); (2.91666666666667 : 25.9142976888021 : JumpStart); (3.08333333333333 : 25.9142976888021 : JumpEnd); (3.75 : 25.9142976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Package/dnn_Package_dnn_Assembly" />
+      <nodes>
+        <classShapeMoniker Id="b12171f3-4d26-46ea-8341-2a9e4eb395b0" />
+        <classShapeMoniker Id="0ad80936-bec5-4d95-9bb5-c8c1856ccfa1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.203127 : 32.5); (2.203127 : 31.9535953776042); (2.58073016666667 : 31.9535953776042 : JumpStart); (2.74739683333333 : 31.9535953776042 : JumpEnd); (4 : 31.9535953776042); (4 : 26.9535953776042); (3 : 26.9535953776042); (3 : 7.33735270182292); (3.75 : 7.33735270182292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Package/dnn_Package_dnn_Authentication" />
+      <nodes>
+        <classShapeMoniker Id="b12171f3-4d26-46ea-8341-2a9e4eb395b0" />
+        <classShapeMoniker Id="8654bad5-f5d8-4fd2-96e3-1fe4c11e40cb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5468775 : 32.5); (1.5468775 : 22.5489005533854); (2.91666666666667 : 22.5489005533854 : JumpStart); (3.08333333333333 : 22.5489005533854 : JumpEnd); (3.75 : 22.5489005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Package/dnn_Package_dnn_Dashboard_Control" />
+      <nodes>
+        <classShapeMoniker Id="b12171f3-4d26-46ea-8341-2a9e4eb395b0" />
+        <classShapeMoniker Id="9dca48b5-98fd-4fe8-aa9e-8af4954fc60c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 34.9815584309896); (3.75 : 34.9815584309896)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Package/dnn_Package_dnn_DesktopModule" />
+      <nodes>
+        <classShapeMoniker Id="b12171f3-4d26-46ea-8341-2a9e4eb395b0" />
+        <classShapeMoniker Id="48842f4e-8339-4782-89cb-9b3c3eea6406" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2 : 37.3477197265625); (2 : 40.3806469726563); (2.44791866666667 : 40.3806469726563 : JumpStart); (2.61458533333333 : 40.3806469726563 : JumpEnd); (3.29166666666667 : 40.3806469726563 : JumpStart); (3.45833333333333 : 40.3806469726563 : JumpEnd); (5.57291666666667 : 40.3806469726563 : JumpStart); (5.73958333333333 : 40.3806469726563 : JumpEnd); (5.91666666666667 : 40.3806469726563 : JumpStart); (6.08333333333333 : 40.3806469726563 : JumpEnd); (6.51041666666667 : 40.3806469726563 : JumpStart); (6.67708333333333 : 40.3806469726563 : JumpEnd); (9.5 : 40.3806469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Package/dnn_Package_dnn_LanguagePack" />
+      <nodes>
+        <classShapeMoniker Id="b12171f3-4d26-46ea-8341-2a9e4eb395b0" />
+        <classShapeMoniker Id="f0963ec2-eb28-47c9-b20d-5be3bc0193d2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.6640635 : 31.7035953776042); (2.6640635 : 32.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_PackageType/dnn_PackageType_dnn_Package" />
+      <nodes>
+        <classShapeMoniker Id="5b4b198b-ade0-47a1-8c25-dc4799e9c8fe" />
+        <classShapeMoniker Id="b12171f3-4d26-46ea-8341-2a9e4eb395b0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 54.7940991210938); (8.57291666666667 : 54.7940991210938 : JumpStart); (8.73958333333333 : 54.7940991210938 : JumpEnd); (8.85416666666667 : 54.7940991210938 : JumpStart); (9.20833333333333 : 54.7940991210938 : JumpEnd); (9.26041666666667 : 54.7940991210938 : JumpStart); (9.42708333333333 : 54.7940991210938 : JumpEnd); (12.34375 : 54.7940991210938); (12.34375 : 59.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Permission/dnn_Permission_dnn_DesktopModulePermission" />
+      <nodes>
+        <classShapeMoniker Id="26bbeba0-d421-4d87-ac6e-2ae3119446a7" />
+        <classShapeMoniker Id="2fdd33f3-fdbb-43c2-b77c-06dc312c470d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 56.1058645098157); (8.59732443490112 : 56.2031889447168 : JumpStart); (8.71517556509888 : 56.3210400749146 : JumpEnd); (8.875 : 56.4808645098157); (8.875 : 83); (8.62653746153846 : 83); (8.25 : 83.3765374615385)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Permission/dnn_Permission_dnn_FolderPermission" />
+      <nodes>
+        <classShapeMoniker Id="26bbeba0-d421-4d87-ac6e-2ae3119446a7" />
+        <classShapeMoniker Id="6588e6ac-7c7e-46af-b6ad-e474152d3531" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 55.2095520605469); (8.57291666666667 : 55.2095520605469 : JumpStart); (8.73958333333333 : 55.2095520605469 : JumpEnd); (8.85416666666667 : 55.2095520605469 : JumpStart); (9.20833333333333 : 55.2095520605469 : JumpEnd); (9.26041666666667 : 55.2095520605469 : JumpStart); (9.42708333333333 : 55.2095520605469 : JumpEnd); (12.2604166666667 : 55.2095520605469 : JumpStart); (12.4583358333333 : 55.2095520605469 : JumpEnd); (14.3229166666667 : 55.2095520605469 : JumpStart); (14.4895833333333 : 55.2095520605469 : JumpEnd); (15.9166666666667 : 55.2095520605469 : JumpStart); (16.0833333333333 : 55.2095520605469 : JumpEnd); (17.25 : 55.2095520605469); (17.25 : 65.25); (15.2083333333333 : 65.25 : JumpStart); (15.0416666666667 : 65.25 : JumpEnd); (14.75 : 65.25); (14.75 : 69); (15.0416666666667 : 69 : JumpStart); (15.2083333333333 : 69 : JumpEnd); (15.7500005 : 69); (15.7500005 : 69.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Permission/dnn_Permission_dnn_ModulePermission" />
+      <nodes>
+        <classShapeMoniker Id="26bbeba0-d421-4d87-ac6e-2ae3119446a7" />
+        <classShapeMoniker Id="f9a9aced-68e0-49bd-b8db-ae03b70704c8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 59.9365374615385); (8.58590029920491 : 59.8819938999962 : JumpStart); (8.72659970079509 : 59.7926549041996 : JumpEnd); (8.80465029920491 : 59.7430956167794 : JumpStart); (9.00784970079509 : 59.6140713972066 : JumpEnd); (9.02340029920491 : 59.6041973335626 : JumpStart); (9.16409970079509 : 59.514858337766 : JumpEnd); (9.1875 : 59.5); (9.1875 : 59.25); (11.875 : 59.25); (12.25 : 59.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DNNDataContext/dnn_PortalDesktopModule/dnn_PortalDesktopModule_dnn_DesktopModulePermission" />
+      <nodes>
+        <classShapeMoniker Id="189de723-d62e-4b32-a9dc-fbd710ae8611" />
+        <classShapeMoniker Id="2fdd33f3-fdbb-43c2-b77c-06dc312c470d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.65625 : 37.2131168619792); (5.65625 : 61.8789697265625); (5.79166666666667 : 61.8789697265625 : JumpStart); (6.20833333333333 : 61.8789697265625 : JumpEnd); (6.5 : 61.8789697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_DesktopModule/dnn_DesktopModule_dnn_PortalDesktopModule" />
+      <nodes>
+        <classShapeMoniker Id="48842f4e-8339-4782-89cb-9b3c3eea6406" />
+        <classShapeMoniker Id="189de723-d62e-4b32-a9dc-fbd710ae8611" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.65625 : 47.0978011067708); (8.65625 : 65.90625); (8.79166666666667 : 65.90625 : JumpStart); (9.20833333333333 : 65.90625 : JumpEnd); (9.5 : 65.90625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Language/dnn_Language_dnn_PortalLanguage" />
+      <nodes>
+        <classShapeMoniker Id="abd336f0-8bec-4eb7-8832-018e6b1a5231" />
+        <classShapeMoniker Id="6d1fc337-6a2e-40b1-9ab7-6fa236d4c7b2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 64.125); (1.75 : 59.6747054036458); (2.79166666666667 : 59.6747054036458 : JumpStart); (2.95833333333333 : 59.6747054036458 : JumpEnd); (3 : 59.6747054036458); (3 : 49.8189925130208); (3.54166666666667 : 49.8189925130208 : JumpStart); (3.70833333333333 : 49.8189925130208 : JumpEnd); (3.75 : 49.8189925130208); (3.75 : 45.1458968098958); (3.45833333333333 : 45.1458968098958 : JumpStart); (3.29166666666667 : 45.1458968098958 : JumpEnd); (3.25 : 45.1458968098958); (3.25 : 44.0104484049479); (3.29166666666667 : 44.0104484049479 : JumpStart); (3.45833333333333 : 44.0104484049479 : JumpEnd); (3.5 : 44.0104484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_AnonymousUser" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="68d8481f-e6c3-4e16-b06e-7be389506ba9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 69.7419254557292); (1.75 : 75.2123527018229); (2.06510604166667 : 75.2123527018229 : JumpStart); (2.76302520833333 : 75.2123527018229 : JumpEnd); (3.29166666666667 : 75.2123527018229 : JumpStart); (3.45833333333333 : 75.2123527018229 : JumpEnd); (5.79166666666667 : 75.2123527018229 : JumpStart); (6.20833333333333 : 75.2123527018229 : JumpEnd); (8.57291666666667 : 75.2123527018229 : JumpStart); (8.73958333333333 : 75.2123527018229 : JumpEnd); (8.79166666666667 : 75.2123527018229 : JumpStart); (8.95833333333333 : 75.2123527018229 : JumpEnd); (9.25 : 75.2123527018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_File" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="40a47ca3-ce34-4921-aafa-78a296cc668c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 69.1834627278646); (3.29166666666667 : 69.1834627278646 : JumpStart); (3.45833333333333 : 69.1834627278646 : JumpEnd); (3.5 : 69.1834627278646)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_FolderMapping" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="f12e81dd-0110-427d-9636-96e38fafa8cd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 69.7419254557292); (2.2812525 : 84.7508048502604); (2.46354541666667 : 84.7508048502604 : JumpStart); (2.63021208333333 : 84.7508048502604 : JumpEnd); (3.29166666666667 : 84.7508048502604 : JumpStart); (3.45833333333333 : 84.7508048502604 : JumpEnd); (3.5 : 84.7508048502604)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_Folder" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="6990b046-fd7f-4005-8616-27f4774c357e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.2187475 : 69.7419254557292); (1.2187475 : 73.3373527018229); (1.40104041666667 : 73.3373527018229 : JumpStart); (1.56770708333333 : 73.3373527018229 : JumpEnd); (1.66666666666667 : 73.3373527018229 : JumpStart); (1.83333333333333 : 73.3373527018229 : JumpEnd); (2.06510604166667 : 73.3373527018229 : JumpStart); (2.76302520833333 : 73.3373527018229 : JumpEnd); (3.29166666666667 : 73.3373527018229 : JumpStart); (3.45833333333333 : 73.3373527018229 : JumpEnd); (3.5 : 73.3373527018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_Mobile_PreviewProfile" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="8dac6f69-8fa6-40e6-b4e6-df01d8899a7a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.54687875 : 69.7419254557292); (2.54687875 : 89.0008048502604); (3.29166666666667 : 89.0008048502604 : JumpStart); (3.45833333333333 : 89.0008048502604 : JumpEnd); (3.5 : 89.0008048502604)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_Mobile_Redirection" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="98e8353f-9f93-4be2-9736-e02836806495" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.01562625 : 69.7419254557292); (2.01562625 : 71.6638774186198); (2.06510604166667 : 71.6638774186198 : JumpStart); (2.76302520833333 : 71.6638774186198 : JumpEnd); (3.29166666666667 : 71.6638774186198 : JumpStart); (3.45833333333333 : 71.6638774186198 : JumpEnd); (5.79166666666667 : 71.6638774186198 : JumpStart); (6.37374821349159 : 71.6638774186198 : JumpEnd); (8.57291666666667 : 71.6638774186198 : JumpStart); (8.95833333333333 : 71.6638774186198 : JumpEnd); (9.5 : 71.6638774186198)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_Module" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="3710e8b0-6fb3-439f-aa4f-8d94ff3073ca" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.71769230769231 : 64.125); (3.125 : 63.7176923076923); (3.125 : 51.7027498372396); (3.29166666666667 : 51.7027498372396 : JumpStart); (3.45833333333333 : 51.7027498372396 : JumpEnd); (3.5 : 51.7027498372396)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_PortalAlia" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="34f2c354-e056-4de9-87de-43cefc19b028" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.2812525 : 64.125); (2.2812525 : 61.9859872005208); (3.04166666666667 : 61.9859872005208 : JumpStart); (3.45833333333333 : 61.9859872005208 : JumpEnd); (5.79166666666667 : 61.9859872005208 : JumpStart); (6.20833333333333 : 61.9859872005208 : JumpEnd); (6.5 : 61.9859872005208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_PortalDesktopModule" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="189de723-d62e-4b32-a9dc-fbd710ae8611" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 68.0280989583333); (3.29166666666667 : 68.0280989583333 : JumpStart); (3.45833333333333 : 68.0280989583333 : JumpEnd); (5.79166666666667 : 68.0280989583333 : JumpStart); (6.20833333333333 : 68.0280989583333 : JumpEnd); (8.32291666666667 : 68.0280989583333 : JumpStart); (8.48958333333333 : 68.0280989583333 : JumpEnd); (8.79166666666667 : 68.0280989583333 : JumpStart); (9.20833333333333 : 68.0280989583333 : JumpEnd); (9.5 : 68.0280989583333)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_PortalLanguage" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="6d1fc337-6a2e-40b1-9ab7-6fa236d4c7b2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.48437375 : 69.7419254557292); (1.48437375 : 116.48155843099); (2.06510604166667 : 116.48155843099 : JumpStart); (2.23177270833333 : 116.48155843099 : JumpEnd); (3.5 : 116.48155843099)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_PortalLocalization" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="b96cffea-8b66-4196-b98d-2d6da090fd1e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 64.5184217841547); (3.29166666666667 : 64.5184217841547 : JumpStart); (3.45833333333333 : 64.5184217841547 : JumpEnd); (3.5 : 64.5184217841547)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_PortalSetting" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="f6504c47-ea90-482f-b12b-52778e3448c6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 68.3265519791667); (3.29166666666667 : 68.3265519791667 : JumpStart); (3.45833333333333 : 68.3265519791667 : JumpEnd); (5.79166666666667 : 68.3265519791667 : JumpStart); (6.20833333333333 : 68.3265519791667 : JumpEnd); (8.40625 : 68.3265519791667); (8.40625 : 67.8958968098958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_Profile" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="597393f8-bbd1-41de-ae5a-dcca9c080c35" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.95312125 : 69.7419254557292); (0.95312125 : 111.385407714844); (1.40104041666667 : 111.385407714844 : JumpStart); (1.56770708333333 : 111.385407714844 : JumpEnd); (2.06510604166667 : 111.385407714844 : JumpStart); (2.23177270833333 : 111.385407714844 : JumpEnd); (3.5 : 111.385407714844)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_ProfilePropertyDefinition" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="bca4ea35-14fb-449c-850a-c507b0a51ef8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 66.6739005533854); (3.29166666666667 : 66.6739005533854 : JumpStart); (3.45833333333333 : 66.6739005533854 : JumpEnd); (3.5 : 66.6739005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_RoleGroup" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="d3956430-1991-415c-a3f4-1ecad3224d66" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 65.1979484049479); (3.29166666666667 : 65.1979484049479 : JumpStart); (3.45833333333333 : 65.1979484049479 : JumpEnd); (5.79166666666667 : 65.1979484049479 : JumpStart); (6.20833333333333 : 65.1979484049479 : JumpEnd); (7.41666666666667 : 65.1979484049479 : JumpStart); (7.58333333333333 : 65.1979484049479 : JumpEnd); (8.57291666666667 : 65.1979484049479 : JumpStart); (8.73958333333333 : 65.1979484049479 : JumpEnd); (8.79166666666667 : 65.1979484049479 : JumpStart); (9.20833333333333 : 65.1979484049479 : JumpEnd); (9.34375 : 65.1979484049479); (9.34375 : 64.2131168619792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_Role" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="9dd08647-cfbf-45e9-b59c-3277711c74ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 65.59375); (5.79166666666667 : 65.59375 : JumpStart); (6.20833333333333 : 65.59375 : JumpEnd); (8.57291666666667 : 65.59375 : JumpStart); (8.73958333333333 : 65.59375 : JumpEnd); (8.79166666666667 : 65.59375 : JumpStart); (9.20833333333333 : 65.59375 : JumpEnd); (9.3124975 : 65.59375); (9.3124975 : 64.2131168619792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_RoleGroup/dnn_RoleGroup_dnn_Role" />
+      <nodes>
+        <classShapeMoniker Id="d3956430-1991-415c-a3f4-1ecad3224d66" />
+        <classShapeMoniker Id="9dd08647-cfbf-45e9-b59c-3277711c74ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.75 : 5.03925699869792); (11.5 : 5.03925699869792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Schedule/dnn_Schedule_dnn_ScheduleHistory" />
+      <nodes>
+        <classShapeMoniker Id="15c9e312-da80-4ee7-b990-0099e66ba52f" />
+        <classShapeMoniker Id="b54b00a9-17f0-4950-8059-9d2f3a1898d5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.75 : 2.63064697265625); (11.5 : 2.63064697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Schedule/dnn_Schedule_dnn_ScheduleItemSetting" />
+      <nodes>
+        <classShapeMoniker Id="15c9e312-da80-4ee7-b990-0099e66ba52f" />
+        <classShapeMoniker Id="796f0790-417f-49d2-a80b-5fc0185741ec" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.40625 : 72.7516097005208); (11.40625 : 79.4703597005208); (12.25 : 79.4703597005208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Module/dnn_Module_dnn_SearchItem" />
+      <nodes>
+        <classShapeMoniker Id="3710e8b0-6fb3-439f-aa4f-8d94ff3073ca" />
+        <classShapeMoniker Id="2092659b-3fa1-4fc3-a26f-d95d0a62bd6c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.25 : 79.0392976888021); (15 : 79.0392976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_SearchItem/dnn_SearchItem_dnn_SearchItemWord" />
+      <nodes>
+        <classShapeMoniker Id="2092659b-3fa1-4fc3-a26f-d95d0a62bd6c" />
+        <classShapeMoniker Id="11787d1c-b21e-495b-bdbb-251608e498d1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17 : 79.0681469726563); (17.75 : 79.0681469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_SearchItemWord/dnn_SearchItemWord_dnn_SearchItemWordPosition" />
+      <nodes>
+        <classShapeMoniker Id="11787d1c-b21e-495b-bdbb-251608e498d1" />
+        <classShapeMoniker Id="66a21e17-366d-4835-bf9b-60e25f87f928" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.25 : 76.0392976888021); (16 : 76.0392976888021); (16 : 78.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_SearchWord/dnn_SearchWord_dnn_SearchItemWord" />
+      <nodes>
+        <classShapeMoniker Id="706dc268-2012-4801-9bb7-a6bf92a3a859" />
+        <classShapeMoniker Id="11787d1c-b21e-495b-bdbb-251608e498d1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.679691875 : 69.7419254557292); (2.679691875 : 77.0873527018229); (3.29166666666667 : 77.0873527018229 : JumpStart); (3.45833333333333 : 77.0873527018229 : JumpEnd); (3.5 : 77.0873527018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_SiteLog" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="09080db9-51ef-474d-b955-2521c738c266" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.531252 : 37.3477197265625); (2.531252 : 48.125); (3.54166666666667 : 48.125 : JumpStart); (3.95833333333333 : 48.125 : JumpEnd); (4 : 48.125); (4 : 50.375); (3.375 : 50.375); (3.375 : 92.9623527018229); (3.75 : 92.9623527018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Package/dnn_Package_dnn_SkinControl" />
+      <nodes>
+        <classShapeMoniker Id="b12171f3-4d26-46ea-8341-2a9e4eb395b0" />
+        <classShapeMoniker Id="c84d7190-e821-443e-b8bf-7c01b6a278b8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.1406225 : 32.5); (1.1406225 : 18.8950512695313); (2.91666666666667 : 18.8950512695313 : JumpStart); (3.08333333333333 : 18.8950512695313 : JumpEnd); (3.75 : 18.8950512695313)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Package/dnn_Package_dnn_SkinPackage" />
+      <nodes>
+        <classShapeMoniker Id="b12171f3-4d26-46ea-8341-2a9e4eb395b0" />
+        <classShapeMoniker Id="14f0c6f4-3622-438d-81f4-e595ab3a136a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 18.8181469726563); (6.5 : 18.8181469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_SkinPackage/dnn_SkinPackage_dnn_Skin" />
+      <nodes>
+        <classShapeMoniker Id="14f0c6f4-3622-438d-81f4-e595ab3a136a" />
+        <classShapeMoniker Id="bbbee56e-290f-4608-af8d-96c226c2f47f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.218748 : 64.125); (1.218748 : 59.9247054036458); (1.66666666666667 : 59.9247054036458 : JumpStart); (1.83333333333333 : 59.9247054036458 : JumpEnd); (1.93229291666667 : 59.9247054036458 : JumpStart); (2.09895958333333 : 59.9247054036458 : JumpEnd); (2.875 : 59.9247054036458); (2.875 : 50.0689925130208); (2.91666666666667 : 50.0689925130208 : JumpStart); (3.14583333333333 : 50.0689925130208 : JumpEnd); (3.875 : 50.0689925130208); (3.875 : 45.3958968098958); (3.83333333333333 : 45.3958968098958 : JumpStart); (3.54166666666667 : 45.3958968098958 : JumpEnd); (3 : 45.3958968098958); (3 : 41.5392976888021); (3.29166666666667 : 41.5392976888021 : JumpStart); (3.45833333333333 : 41.5392976888021 : JumpEnd); (3.5 : 41.5392976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_SystemMessage" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="75527459-608e-49ff-990f-a023a8e65674" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.5 : 71.4697560628255); (11.75 : 71.4697560628255); (11.75 : 70.875); (11.9166666666667 : 70.875 : JumpStart); (12.0833333333333 : 70.875 : JumpEnd); (14.75 : 70.875); (14.75 : 69.5); (14.9166666666667 : 69.5 : JumpStart); (15.0833333333333 : 69.5 : JumpEnd); (15.6666671666667 : 69.5 : JumpStart); (15.8333338333333 : 69.5 : JumpEnd); (16.6666661666667 : 69.5 : JumpStart); (16.8333328333333 : 69.5 : JumpEnd); (17.75 : 69.5); (17.75 : 68.5); (18.0104166666667 : 68.5 : JumpStart); (18.1770833333333 : 68.5 : JumpEnd); (19.25 : 68.5); (19.25 : 67.0303369140625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Module/dnn_Module_dnn_TabModule" />
+      <nodes>
+        <classShapeMoniker Id="3710e8b0-6fb3-439f-aa4f-8d94ff3073ca" />
+        <classShapeMoniker Id="19ba362e-d3b4-4701-87ad-90e70d05af96" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(20.25 : 63.4527498372396); (20.5416666666667 : 63.4527498372396 : JumpStart); (20.7083333333333 : 63.4527498372396 : JumpEnd); (21 : 63.4527498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_TabModule/dnn_TabModule_dnn_TabModuleSetting" />
+      <nodes>
+        <classShapeMoniker Id="19ba362e-d3b4-4701-87ad-90e70d05af96" />
+        <classShapeMoniker Id="bee13391-d29a-4fc0-a645-ef4d1feb5baf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 55.8341797549079); (8.57291666666667 : 55.8341797549079 : JumpStart); (8.73958333333333 : 55.8341797549079 : JumpEnd); (8.85416666666667 : 55.8341797549079 : JumpStart); (9.20833333333333 : 55.8341797549079 : JumpEnd); (9.25 : 55.8341797549079)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Permission/dnn_Permission_dnn_TabPermission" />
+      <nodes>
+        <classShapeMoniker Id="26bbeba0-d421-4d87-ac6e-2ae3119446a7" />
+        <classShapeMoniker Id="129eee8c-6ed9-4d73-9000-23368c7a1592" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 59.40625); (5.57291666666667 : 59.40625 : JumpStart); (5.73958333333333 : 59.40625 : JumpEnd); (5.79166666666667 : 59.40625 : JumpStart); (6.20833333333333 : 59.40625 : JumpEnd); (8.57291666666667 : 59.40625 : JumpStart); (8.73958333333333 : 59.40625 : JumpEnd); (8.79166666666667 : 59.40625 : JumpStart); (9.27083333333333 : 59.40625 : JumpEnd); (11.9479166666667 : 59.40625 : JumpStart); (12.1145833333333 : 59.40625 : JumpEnd); (12.2604166666667 : 59.40625 : JumpStart); (12.4583358333333 : 59.40625 : JumpEnd); (14.3229166666667 : 59.40625 : JumpStart); (14.4895833333333 : 59.40625 : JumpEnd); (15.9166666666667 : 59.40625 : JumpStart); (16.0833333333333 : 59.40625 : JumpEnd); (17.1666666666667 : 59.40625 : JumpStart); (17.3333333333333 : 59.40625 : JumpEnd); (17.4166666666667 : 59.40625 : JumpStart); (17.5833333333333 : 59.40625 : JumpEnd); (19.25 : 59.40625); (19.25 : 59.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Tab/dnn_Tab_dnn_TabModule" />
+      <nodes>
+        <classShapeMoniker Id="0c77b495-e4ce-4de1-a287-bc6083e3a8fb" />
+        <classShapeMoniker Id="19ba362e-d3b4-4701-87ad-90e70d05af96" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 56.4912019856771); (5.57291666666667 : 56.4912019856771 : JumpStart); (5.73958333333333 : 56.4912019856771 : JumpEnd); (5.79166666666667 : 56.4912019856771 : JumpStart); (6.20833333333333 : 56.4912019856771 : JumpEnd); (8.57291666666667 : 56.4912019856771 : JumpStart); (8.73958333333333 : 56.4912019856771 : JumpEnd); (8.85416666666667 : 56.4912019856771 : JumpStart); (9.20833333333333 : 56.4912019856771 : JumpEnd); (9.25 : 56.4912019856771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Tab/dnn_Tab_dnn_TabPermission" />
+      <nodes>
+        <classShapeMoniker Id="0c77b495-e4ce-4de1-a287-bc6083e3a8fb" />
+        <classShapeMoniker Id="129eee8c-6ed9-4d73-9000-23368c7a1592" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 57.1686763509115); (2.79166666666667 : 57.1686763509115 : JumpStart); (3.45833333333333 : 57.1686763509115 : JumpEnd); (3.5 : 57.1686763509115)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_ContentItem/dnn_ContentItem_dnn_Tab" />
+      <nodes>
+        <classShapeMoniker Id="d739361d-ee90-4699-a9af-61ecfae50cc8" />
+        <classShapeMoniker Id="0c77b495-e4ce-4de1-a287-bc6083e3a8fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 64.2219220769231); (3.1875 : 63.7844220769231); (3.1875 : 55.6155861754557); (3.29166666666667 : 55.6155861754557 : JumpStart); (3.45833333333333 : 55.6155861754557 : JumpEnd); (3.5 : 55.6155861754557)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_Tab" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="0c77b495-e4ce-4de1-a287-bc6083e3a8fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.20923076923077 : 61.6649397786458); (4.20923076923077 : 61.7899397786458); (4.80461538461539 : 61.7899397786458); (4.80461538461539 : 61.6649397786458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Tab/dnn_Tab_dnn_Tab" />
+      <nodes>
+        <classShapeMoniker Id="0c77b495-e4ce-4de1-a287-bc6083e3a8fb" />
+        <classShapeMoniker Id="0c77b495-e4ce-4de1-a287-bc6083e3a8fb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 57.9527498372396); (5.57291666666667 : 57.9527498372396 : JumpStart); (5.73958333333333 : 57.9527498372396 : JumpEnd); (5.79166666666667 : 57.9527498372396 : JumpStart); (6.20833333333333 : 57.9527498372396 : JumpEnd); (6.25 : 57.9527498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Tab/dnn_Tab_dnn_TabSetting" />
+      <nodes>
+        <classShapeMoniker Id="0c77b495-e4ce-4de1-a287-bc6083e3a8fb" />
+        <classShapeMoniker Id="b465215f-3d60-47c1-83a0-267f486c2a1e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 4.8670068359375); (7.25 : 7.25); (9 : 7.25); (9 : 17.875); (8.75 : 17.875); (8.75 : 30.6462739726563); (9 : 30.6462739726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Taxonomy_Term/dnn_Taxonomy_Term_dnn_ContentItems_Tag" />
+      <nodes>
+        <classShapeMoniker Id="09c8f824-d197-4b5c-8936-730021316559" />
+        <classShapeMoniker Id="ff305dde-5c4c-4b5a-9f4c-3e9e0e920e7b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.95923076923077 : 1.75); (6.95923076923077 : 1.5); (7.55461538461539 : 1.5); (7.55461538461539 : 1.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Taxonomy_Term/dnn_Taxonomy_Term_dnn_Taxonomy_Term" />
+      <nodes>
+        <classShapeMoniker Id="09c8f824-d197-4b5c-8936-730021316559" />
+        <classShapeMoniker Id="09c8f824-d197-4b5c-8936-730021316559" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 3.30850341796875); (6.25 : 3.30850341796875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Taxonomy_Vocabulary/dnn_Taxonomy_Vocabulary_dnn_Taxonomy_Term" />
+      <nodes>
+        <classShapeMoniker Id="d524001c-75c1-4caf-aa16-91acf6900d7a" />
+        <classShapeMoniker Id="09c8f824-d197-4b5c-8936-730021316559" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.34699625651042); (3.5 : 3.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Taxonomy_ScopeType/dnn_Taxonomy_ScopeType_dnn_Taxonomy_Vocabulary" />
+      <nodes>
+        <classShapeMoniker Id="719ef1af-6cfe-45aa-9a2a-756dedf11503" />
+        <classShapeMoniker Id="d524001c-75c1-4caf-aa16-91acf6900d7a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.2499995); (4.5 : 1.2499995); (4.5 : 1.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Taxonomy_VocabularyType/dnn_Taxonomy_VocabularyType_dnn_Taxonomy_Vocabulary" />
+      <nodes>
+        <classShapeMoniker Id="f0320382-6ec0-4f73-a92c-064c9d7ecb22" />
+        <classShapeMoniker Id="d524001c-75c1-4caf-aa16-91acf6900d7a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.01562625 : 64.125); (2.01562625 : 59.7997054036458); (2.79166666666667 : 59.7997054036458 : JumpStart); (2.95833333333333 : 59.7997054036458 : JumpEnd); (3.0625 : 59.7997054036458); (3.0625 : 49.9439925130208); (3.625 : 49.9439925130208); (3.625 : 45.2708968098958); (3.375 : 45.2708968098958); (3.375 : 39.3181469726563); (3.5 : 39.3181469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_Url" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="bfb05def-3886-43a4-be87-15f99916a8ff" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 80.7892976888021); (5.79166666666667 : 80.7892976888021 : JumpStart); (6.20833333333333 : 80.7892976888021 : JumpEnd); (6.25 : 80.7892976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_UrlTracking/dnn_UrlTracking_dnn_UrlLog" />
+      <nodes>
+        <classShapeMoniker Id="b8c51d4c-27c1-49c3-9129-96f73abbcd3b" />
+        <classShapeMoniker Id="77beccd3-9e90-4d2e-9057-df42c80b054a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.414065625 : 69.7419254557292); (2.414065625 : 80.7123527018229); (2.46354541666667 : 80.7123527018229 : JumpStart); (2.63021208333333 : 80.7123527018229 : JumpEnd); (3.29166666666667 : 80.7123527018229 : JumpStart); (3.45833333333333 : 80.7123527018229 : JumpEnd); (3.5 : 80.7123527018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_UrlTracking" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="b8c51d4c-27c1-49c3-9129-96f73abbcd3b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 69.7419254557292); (3.125 : 70.1169254557292); (3.125 : 71.5); (3.29166666666667 : 71.5 : JumpStart); (3.45833333333333 : 71.5 : JumpEnd); (5.79166666666667 : 71.5 : JumpStart); (6.08333333333333 : 71.5 : JumpEnd); (6.12653746153846 : 71.5); (6.50153746153846 : 71.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_UserPortal" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="36a6eaf0-1a32-41d1-94d5-6bc1afae1de3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 111.32774983724); (6.25 : 111.32774983724)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_ProfilePropertyDefinition/dnn_ProfilePropertyDefinition_dnn_UserProfile" />
+      <nodes>
+        <classShapeMoniker Id="bca4ea35-14fb-449c-850a-c507b0a51ef8" />
+        <classShapeMoniker Id="475761c9-05bd-4856-9059-8875c5e3f040" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 62.8886539713542); (14.3229166666667 : 62.8886539713542 : JumpStart); (14.4895833333333 : 62.8886539713542 : JumpEnd); (15 : 62.8886539713542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Role/dnn_Role_dnn_UserRole" />
+      <nodes>
+        <classShapeMoniker Id="9dd08647-cfbf-45e9-b59c-3277711c74ed" />
+        <classShapeMoniker Id="19751d1a-094f-4b4f-a2f5-06083f7b7293" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 51.3205476888021); (8.57291666666667 : 51.3205476888021 : JumpStart); (8.73958333333333 : 51.3205476888021 : JumpEnd); (10.4166666666667 : 51.3205476888021 : JumpStart); (10.5833333333333 : 51.3205476888021 : JumpEnd); (12.3750025 : 51.3205476888021); (12.3750025 : 59.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_User/dnn_User_dnn_DesktopModulePermission" />
+      <nodes>
+        <classShapeMoniker Id="b33206c2-1e8f-4489-b121-2701f4b19e79" />
+        <classShapeMoniker Id="2fdd33f3-fdbb-43c2-b77c-06dc312c470d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.5 : 52.5689111328125); (6.375 : 52.6939111328125); (6.08333333333333 : 52.6939111328125 : JumpStart); (5.91666666666667 : 52.6939111328125 : JumpEnd); (5.875 : 52.6939111328125); (5.875 : 82.9984625384615); (5.94107443490112 : 83.0645369733627 : JumpStart); (6.05892556509888 : 83.1823881035604 : JumpEnd); (6.06607443490112 : 83.1895369733627 : JumpStart); (6.18392556509888 : 83.3073881035604 : JumpEnd); (6.25153746153846 : 83.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DNNDataContext/dnn_User/dnn_User_dnn_FolderPermission" />
+      <nodes>
+        <classShapeMoniker Id="b33206c2-1e8f-4489-b121-2701f4b19e79" />
+        <classShapeMoniker Id="6588e6ac-7c7e-46af-b6ad-e474152d3531" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 50.066521844401); (8.57291666666667 : 50.066521844401 : JumpStart); (8.73958333333333 : 50.066521844401 : JumpEnd); (9.25 : 50.066521844401); (9.25 : 50.9535953776042); (10.4166666666667 : 50.9535953776042 : JumpStart); (10.5833333333333 : 50.9535953776042 : JumpEnd); (17.5 : 50.9535953776042); (17.5 : 65); (17.3333333333333 : 65 : JumpStart); (17.1666666666667 : 65 : JumpEnd); (15.125 : 65); (15.125 : 69.25); (15.6666671666667 : 69.25 : JumpStart); (15.8333338333333 : 69.25 : JumpEnd); (16.1666666666667 : 69.25 : JumpStart); (16.3333333333333 : 69.25 : JumpEnd); (16.7499995 : 69.25); (16.7499995 : 69.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_User/dnn_User_dnn_ModulePermission" />
+      <nodes>
+        <classShapeMoniker Id="b33206c2-1e8f-4489-b121-2701f4b19e79" />
+        <classShapeMoniker Id="f9a9aced-68e0-49bd-b8db-ae03b70704c8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 52.567371671274); (8.59732443490112 : 52.6646961061752 : JumpStart); (8.71517556509888 : 52.7825472363729 : JumpEnd); (8.9375 : 53.004871671274); (8.9375 : 65.6888612283153); (8.93392556509888 : 65.6924356632164 : JumpStart); (8.81607443490112 : 65.8102867934142 : JumpEnd); (8.5 : 66.1263612283153)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DNNDataContext/dnn_User/dnn_User_dnn_Profile" />
+      <nodes>
+        <classShapeMoniker Id="b33206c2-1e8f-4489-b121-2701f4b19e79" />
+        <classShapeMoniker Id="597393f8-bbd1-41de-ae5a-dcca9c080c35" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 51.629026344401); (8.57291666666667 : 51.629026344401 : JumpStart); (8.73958333333333 : 51.629026344401 : JumpEnd); (9.34375 : 51.629026344401); (9.34375 : 55.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_User/dnn_User_dnn_TabPermission" />
+      <nodes>
+        <classShapeMoniker Id="b33206c2-1e8f-4489-b121-2701f4b19e79" />
+        <classShapeMoniker Id="129eee8c-6ed9-4d73-9000-23368c7a1592" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.59375 : 48.875); (6.59375 : 36.6739005533854); (9.25 : 36.6739005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_User/dnn_User_dnn_UserAuthentication" />
+      <nodes>
+        <classShapeMoniker Id="b33206c2-1e8f-4489-b121-2701f4b19e79" />
+        <classShapeMoniker Id="a08c09e9-c57b-49ab-8f2b-591bfadac81b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 52.5181409020433); (8.59732443490112 : 52.6154653369444 : JumpStart); (8.71517556509888 : 52.7333164671422 : JumpEnd); (9.125 : 53.1431409020433); (9.125 : 71.2515374615385); (8.93392556509888 : 71.4426118964396 : JumpStart); (8.81607443490112 : 71.5604630266373 : JumpEnd); (8.71517556509888 : 71.6613618964396 : JumpStart); (8.59732443490112 : 71.7792130266373 : JumpEnd); (8.5 : 71.8765374615385)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DNNDataContext/dnn_User/dnn_User_dnn_UserPortal" />
+      <nodes>
+        <classShapeMoniker Id="b33206c2-1e8f-4489-b121-2701f4b19e79" />
+        <classShapeMoniker Id="36a6eaf0-1a32-41d1-94d5-6bc1afae1de3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.48384615384615 : 52.5689111328125); (7.48384615384615 : 53.25); (6.125 : 53.25); (6.125 : 110.75762291862); (6.25 : 110.75762291862)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_User/dnn_User_dnn_UserProfile" />
+      <nodes>
+        <classShapeMoniker Id="b33206c2-1e8f-4489-b121-2701f4b19e79" />
+        <classShapeMoniker Id="475761c9-05bd-4856-9059-8875c5e3f040" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 51.1058190332031); (8.57291666666667 : 51.1058190332031 : JumpStart); (8.73958333333333 : 51.1058190332031 : JumpEnd); (10.4166666666667 : 51.1058190332031 : JumpStart); (10.5833333333333 : 51.1058190332031 : JumpEnd); (16 : 51.1058190332031); (16 : 60.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_User/dnn_User_dnn_UserRole" />
+      <nodes>
+        <classShapeMoniker Id="b33206c2-1e8f-4489-b121-2701f4b19e79" />
+        <classShapeMoniker Id="19751d1a-094f-4b4f-a2f5-06083f7b7293" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 65.9359244791667); (3 : 65.9359244791667); (3 : 65.375); (3.29166666666667 : 65.375 : JumpStart); (3.45833333333333 : 65.375 : JumpEnd); (5.79166666666667 : 65.375 : JumpStart); (6.20833333333333 : 65.375 : JumpEnd); (7.5 : 65.375); (7.5 : 64.8958968098958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_UsersOnline" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="35b4ff5a-452d-4be0-a1f5-f47044a8427e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.48153846153846 : 52.5689111328125); (8.59732443490112 : 52.6846971061752 : JumpStart); (8.71517556509888 : 52.8025482363729 : JumpEnd); (9.09375 : 53.181122671274); (9.09375 : 62.5326112283153); (9.05892556509888 : 62.5674356632164 : JumpStart); (8.81607443490112 : 62.8102867934142 : JumpEnd); (8.71517556509888 : 62.9111856632164 : JumpStart); (8.59732443490112 : 63.0290367934142 : JumpEnd); (8.5 : 63.1263612283153)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DNNDataContext/dnn_User/dnn_User_dnn_UsersOnline" />
+      <nodes>
+        <classShapeMoniker Id="b33206c2-1e8f-4489-b121-2701f4b19e79" />
+        <classShapeMoniker Id="35b4ff5a-452d-4be0-a1f5-f47044a8427e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 119.318146972656); (10.25 : 119.318146972656); (10.25 : 122.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Classification/dnn_Classification_dnn_VendorClassification" />
+      <nodes>
+        <classShapeMoniker Id="9614c319-6a5f-4625-a860-0d598ead43e4" />
+        <classShapeMoniker Id="e87dffde-4c04-41a6-922c-4c263691ca14" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 122.798900553385); (6.25 : 122.798900553385)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Vendor/dnn_Vendor_dnn_Affiliate" />
+      <nodes>
+        <classShapeMoniker Id="a7eade44-3cde-4af5-9c13-602c42f07923" />
+        <classShapeMoniker Id="ee309061-a204-4b83-9f2d-9a8d57450704" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 125.303661295573); (6.25 : 125.303661295573)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Vendor/dnn_Vendor_dnn_Banner" />
+      <nodes>
+        <classShapeMoniker Id="a7eade44-3cde-4af5-9c13-602c42f07923" />
+        <classShapeMoniker Id="e5bc1b88-fa6d-423f-8694-9bd518182d49" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 124.349397472656); (10.25 : 124.349397472656); (10.25 : 124.011293945313)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Vendor/dnn_Vendor_dnn_VendorClassification" />
+      <nodes>
+        <classShapeMoniker Id="a7eade44-3cde-4af5-9c13-602c42f07923" />
+        <classShapeMoniker Id="e87dffde-4c04-41a6-922c-4c263691ca14" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.148439375 : 69.7419254557292); (2.148439375 : 123.241161295573); (3.5 : 123.241161295573)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Portal/dnn_Portal_dnn_Vendor" />
+      <nodes>
+        <classShapeMoniker Id="d8f5c698-a26d-4242-9533-d53c61c6b865" />
+        <classShapeMoniker Id="a7eade44-3cde-4af5-9c13-602c42f07923" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.75 : 53.0104484049479); (12.2916691666667 : 53.0104484049479 : JumpStart); (12.4583358333333 : 53.0104484049479 : JumpEnd); (12.5 : 53.0104484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DNNDataContext/dnn_Workflow/dnn_Workflow_dnn_WorkflowState" />
+      <nodes>
+        <classShapeMoniker Id="84a4b783-046c-4f0a-a2aa-82a26cd08d16" />
+        <classShapeMoniker Id="361469ca-ae06-458a-adc2-be9f3f72b693" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

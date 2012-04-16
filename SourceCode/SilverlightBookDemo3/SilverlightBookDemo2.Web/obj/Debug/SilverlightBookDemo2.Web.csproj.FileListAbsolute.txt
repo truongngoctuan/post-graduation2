@@ -1,0 +1,10 @@
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2.Web\bin\SilverlightBookDemo2.Web.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2.Web\bin\SilverlightBookDemo2.Web.pdb
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2.Web\obj\Debug\ResolveAssemblyReference.cache
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2.Web\obj\Debug\SilverlightBookDemo2.Web.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2.Web\obj\Debug\SilverlightBookDemo2.Web.pdb
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2.Web\bin\SilverlightBookDemo2.Web.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2.Web\bin\SilverlightBookDemo2.Web.pdb
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2.Web\obj\Debug\SilverlightBookDemo2.Web.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2.Web\obj\Debug\SilverlightBookDemo2.Web.pdb

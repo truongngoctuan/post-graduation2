@@ -1,0 +1,12 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="SilverlightBookDemo2" EntryPointType="SilverlightBookDemo2.App" RuntimeVersion="4.0.50826.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="SilverlightBookDemo2" Source="SilverlightBookDemo2.dll" />
+    <AssemblyPart x:Name="Liquid" Source="Liquid.dll" />
+    <AssemblyPart x:Name="Liquid.HtmlRichTextArea" Source="Liquid.HtmlRichTextArea.dll" />
+    <AssemblyPart x:Name="Liquid.Menu" Source="Liquid.Menu.dll" />
+    <AssemblyPart x:Name="Liquid.Popup" Source="Liquid.Popup.dll" />
+    <AssemblyPart x:Name="Paris.Controls" Source="Paris.Controls.dll" />
+    <AssemblyPart x:Name="SilverlightBookUserControl" Source="SilverlightBookUserControl.dll" />
+    <AssemblyPart x:Name="System.Xml.Linq" Source="System.Xml.Linq.dll" />
+  </Deployment.Parts>
+</Deployment>

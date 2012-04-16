@@ -1,0 +1,62 @@
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookDemo2.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookDemo2.pdb
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\AppManifest.xaml
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookDemo2.xap
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookDemo2TestPage.html
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\Paris.Controls.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\System.Xml.Linq.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\Paris.Controls.pdb
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\System.Xml.Linq.xml
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\de\System.Xml.Linq.resources.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\es\System.Xml.Linq.resources.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\fr\System.Xml.Linq.resources.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\it\System.Xml.Linq.resources.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\ja\System.Xml.Linq.resources.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\ko\System.Xml.Linq.resources.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\ru\System.Xml.Linq.resources.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\ResolveAssemblyReference.cache
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\App.g.i.cs
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\CommentForm.g.i.cs
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\MainPage.g.i.cs
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\SilverlightBookDemo2.g.resources
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\SilverlightBookDemo2.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\SilverlightBookDemo2.pdb
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\XapCacheFile.xml
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookUserControl.dll
+E:\Local Disk D_112020111241\JVN_HKII\silverlight 5\project reference\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookUserControl.pdb
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookDemo2.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookDemo2.pdb
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\AppManifest.xaml
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookDemo2.xap
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookDemo2TestPage.html
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\Paris.Controls.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookUserControl.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\System.Xml.Linq.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\Paris.Controls.pdb
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\SilverlightBookUserControl.pdb
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\System.Xml.Linq.xml
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\de\System.Xml.Linq.resources.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\es\System.Xml.Linq.resources.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\fr\System.Xml.Linq.resources.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\it\System.Xml.Linq.resources.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\ja\System.Xml.Linq.resources.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\ko\System.Xml.Linq.resources.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\ru\System.Xml.Linq.resources.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\App.g.i.cs
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\CommentForm.g.i.cs
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\MainPage.g.i.cs
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\SilverlightBookDemo2.g.resources
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\SilverlightBookDemo2.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\SilverlightBookDemo2.pdb
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\XapCacheFile.xml
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\Liquid.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\Liquid.HtmlRichTextArea.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\Liquid.Menu.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\Liquid.Popup.dll
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\Bin\Debug\Liquid.HtmlRichTextArea.pdb
+C:\Users\HUYNHNGUYEN\Documents\Visual Studio 2010\Projects\svn\post-graduation2\SourceCode\SilverlightBookDemo2\SilverlightBookDemo2\obj\Debug\ArticleLargeIcon\ArticleImage.g.i.cs
