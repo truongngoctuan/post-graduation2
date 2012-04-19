@@ -96,7 +96,7 @@ namespace Paris.Controls
             helper.MouseClick += new MouseEventHandler(this.OnMouseClick);
             helper.MouseDoubleClick += new MouseEventHandler(this.OnMouseDoubleClick);
             this.LayoutUpdated += new EventHandler(OnLayoutUpdated);
-
+            CompositionTarget.Rendering += new EventHandler(CompositionTarget_Rendering); 
         }
 
         void Book_MouseLeave(object sender, MouseEventArgs e)
@@ -127,7 +127,7 @@ namespace Paris.Controls
             {
                 this._lastUpdate = DateTime.Now;
                 this._rendering = true;
-                CompositionTarget.Rendering+=new EventHandler(CompositionTarget_Rendering); 
+                //CompositionTarget.Rendering+=new EventHandler(CompositionTarget_Rendering); 
             }
         }
 
@@ -218,36 +218,42 @@ namespace Paris.Controls
         /// <param name="e"></param>
         private void CompositionTarget_Rendering(object sender, EventArgs e)
         {
-            DateTime now = DateTime.Now;
-            TimeSpan span = (TimeSpan)(now - this._lastUpdate);
-            double totalMilliseconds = span.TotalMilliseconds;
-            this._lastUpdate = now;
-            bool flag = false;
-            bool flag2 = true;
-            for (int i = 0; i < base.Items.Count; i++)
+            if (this._rendering)
             {
-                BookItem element = base.ItemContainerGenerator.ContainerFromIndex(i) as BookItem ;
-                if (element == null)
+                DateTime now = DateTime.Now;
+                TimeSpan span = (TimeSpan)(now - this._lastUpdate);
+                double totalMilliseconds = span.TotalMilliseconds;
+                this._lastUpdate = now;
+                bool flag = false;
+                bool flag2 = true;
+                for (int i = 0; i < base.Items.Count; i++)
                 {
-                    return;
+                    BookItem element = base.ItemContainerGenerator.ContainerFromIndex(i) as BookItem;
+                    if (element == null)
+                    {
+                        return;
+                    }
+                    flag = flag || (element.Path != null);
+                    this.UpdatePosition(element, totalMilliseconds);
+                    flag2 = flag2 && !this.IsTransitioning(element);
                 }
-                flag = flag || (element.Path != null);
-                this.UpdatePosition(element, totalMilliseconds);
-                flag2 = flag2 && !this.IsTransitioning(element);
-            }
-            for (int j = 0; j < base.Items.Count; j++)
-            {
-                BookItem item2 = base.ItemContainerGenerator.ContainerFromIndex(j) as BookItem;
-                this.UpdateTransition(item2);
-            }
-            if (!flag)
-            {
-                this._rendering = false;
-                CompositionTarget.Rendering -= (new EventHandler(this.CompositionTarget_Rendering));
-                if ((this.ShowPageFold == PageFoldVisibility.Always) && flag2)
+                for (int j = 0; j < base.Items.Count; j++)
                 {
-                    this.Fold(BookZone.BottomRight);
+                    BookItem item2 = base.ItemContainerGenerator.ContainerFromIndex(j) as BookItem;
+                    this.UpdateTransition(item2);
                 }
+                if (!flag)
+                {
+                    this._rendering = false;
+                    //CompositionTarget.Rendering -= (new EventHandler(this.CompositionTarget_Rendering));
+                    if ((this.ShowPageFold == PageFoldVisibility.Always) && flag2)
+                    {
+                        this.Fold(BookZone.BottomRight);
+                    }
+                }
+            }
+            else
+            {
             }
         }
 
@@ -336,42 +342,29 @@ namespace Paris.Controls
             BookItem item = this.Top(element);
             return (((this.IsTransitioning(element) || this.IsTransitioning(item)) || this.IsCurrent(element)) || (((item != null) && item.IsTransparent) && this.IsVisible(item)));
         }
-
-        private void LinearTransition(BookItem item, Vector2 start, Vector2 target)
+        
+        private static bool LinearTransition(BookItem item, BookItem backItem, double time, Vector2 target)
         {
-            BookItem item2 = this.Back(item);
-            if (item2 != null)
+            //BookItem backItem = this.Back(item);
+            if (backItem != null)
             {
-                item2.DragCurrent = item.DragCurrent = item2.DragStart = item.DragStart = start;
-                this.LinearTransition(item, (double)0.0, target);
+                //<>c__DisplayClass3 class2;
+                backItem.TransitionFront = true;
+                item.TransitionFront = false;
+                backItem.Time = item.Time = time;
+                Vector2 start = item.DragCurrent;
+                //item2.Path = item.Path = new Func<double, Vector2>(class2, (IntPtr) this.<LinearTransition>b__0);
+                backItem.Path = item.Path = (double t) =>
+                {
+                    return (Vector2)((target * t) + (start * (1.0 - t)));
+
+                };
+                return true;
+                //this.BeginRendering();
             }
+            return false;
         }
-
-        private void LinearTransition(BookItem item, double time, Vector2 target)
-        {
-            BookItem item2 = this.Back(item);
-            if (item2 != null)
-            {
-                LinearTransition(item, item2, time, target);
-                this.BeginRendering();
-            }
-        }
-
-        private static void LinearTransition(BookItem item, BookItem backItem, double time, Vector2 target)
-        {
-            //<>c__DisplayClass3 class2;
-            backItem.TransitionFront = true;
-            item.TransitionFront = false;
-            backItem.Time = item.Time = time;
-            Vector2 start = item.DragCurrent;
-            //item2.Path = item.Path = new Func<double, Vector2>(class2, (IntPtr) this.<LinearTransition>b__0);
-            backItem.Path = item.Path = (double t) =>
-            {
-                return (Vector2)((target * t) + (start * (1.0 - t)));
-
-            };
-        }
-
+        
         private void OnAfterApplyTemplate()
         {
         }
@@ -565,7 +558,11 @@ namespace Paris.Controls
                     dragStart = VectorHelper.Flip(new Size(1.0, 1.0), this._dragged.Direction, dragStart);
                     this.CurrentPage = base.ItemContainerGenerator.IndexFromContainer(item);
                 }
-                this.LinearTransition(this._dragged, (double)0.0, dragStart);
+                BookItem backItem = this.Back(this._dragged);
+                if (LinearTransition(this._dragged, backItem, (double)0.0, dragStart))
+                {
+                    this.BeginRendering();
+                }
                 this._dragged = null;
                 if (this.DragPageFinished != null)
                 {
@@ -681,7 +678,17 @@ namespace Paris.Controls
             {
                 if (this._fold.DragStart != start)
                 {
-                    this.LinearTransition(this._fold, start, target);
+                    BookItem item2 = this.Back(this._fold);
+                    if (item2 != null)
+                    {
+                        item2.DragCurrent = this._fold.DragCurrent = item2.DragStart = this._fold.DragStart = start;
+                        BookItem backItem = this.Back(this._fold);
+                        if (LinearTransition(this._fold, backItem, (double)0.0, target))
+                        {
+                            this.BeginRendering();
+                        }
+                    }
+                    // this.LinearTransition(this._fold, start, target);
                 }
                 else
                 {
@@ -689,7 +696,11 @@ namespace Paris.Controls
                     {
                         this._fold.Time = 0.0;
                     }
-                    this.LinearTransition(this._fold, this._fold.Time, target);
+                    BookItem backItem = this.Back(this._fold);
+                    if (LinearTransition(this._fold, backItem, this._fold.Time, target))
+                    {
+                        this.BeginRendering();
+                    }
                 }
             }
         }
@@ -698,7 +709,11 @@ namespace Paris.Controls
         {
             if (this._fold != null)
             {
-                this.LinearTransition(this._fold, (double)(1.0 - this._fold.Time), this._fold.DragStart);
+                BookItem backItem = this.Back(this._fold);
+                if (LinearTransition(this._fold, backItem, (double)(1.0 - this._fold.Time), this._fold.DragStart))
+                {
+                    this.BeginRendering();
+                }
                 this._fold = null;
             }
         }
@@ -875,8 +890,8 @@ namespace Paris.Controls
             }
             else
             {
-                if (this.IsFirstPageOnTheRight)
-                    return 1;
+                //if (this.IsFirstPageOnTheRight)
+                //    return 1;
                 return 0;
             }
         }
