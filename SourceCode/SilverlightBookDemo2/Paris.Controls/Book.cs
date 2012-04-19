@@ -13,6 +13,7 @@ using System.Threading;
 using System.ComponentModel;
 using System.Globalization;
 using System.Diagnostics.CodeAnalysis;
+using Paris.Controls.FoldManager;
 
 namespace Paris.Controls
 {
@@ -67,6 +68,21 @@ namespace Paris.Controls
             this.MouseEnter += new MouseEventHandler(Book_MouseEnter);
             this.MouseLeave += new MouseEventHandler(Book_MouseLeave);
             this.SetCustomDefaultValues();
+
+            this.Loaded += new RoutedEventHandler(Book_Loaded);
+        }
+
+        void Book_Loaded(object sender, RoutedEventArgs e)
+        {
+            //throw new NotImplementedException();
+
+            //problem: why element == null ??
+            //for (int i = 0; i < base.Items.Count; i++)
+            //{
+            //    BookItem element = BookItemFromIndex(i);
+            //    element.index = i;
+            //}
+
         }
 
         private void SetCustomDefaultValues()
@@ -80,10 +96,8 @@ namespace Paris.Controls
             helper.MouseClick += new MouseEventHandler(this.OnMouseClick);
             helper.MouseDoubleClick += new MouseEventHandler(this.OnMouseDoubleClick);
             this.LayoutUpdated += new EventHandler(OnLayoutUpdated);
+
         }
-
-       
-
 
         void Book_MouseLeave(object sender, MouseEventArgs e)
         {
@@ -196,7 +210,12 @@ namespace Paris.Controls
 
        
 
-
+        /// <summary>
+        /// general update function, has respondsibility for:
+        ///  + update transition
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CompositionTarget_Rendering(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
@@ -232,55 +251,7 @@ namespace Paris.Controls
             }
         }
 
-        private void Fold(BookZone zone)
-        {
-            int index = this.CurrentPage - this.PagePosition(this.CurrentPage);
-            Vector2 start = new Vector2();
-            Vector2 target = new Vector2();
-            Vector2 vector3 = new Vector2(this.FoldSize / base.RenderSize.Width, this.FoldSize / base.RenderSize.Height);
-            switch (zone)
-            {
-                case BookZone.BottomLeft:
-                    index += (this.Orientation == System.Windows.Controls.Orientation.Horizontal) ? 0 : 1;
-                    start = new Vector2(0.0, 1.0);
-                    target = new Vector2(vector3.X, 1.0 - vector3.Y);
-                    break;
-
-                case BookZone.TopLeft:
-                    start = new Vector2();
-                    target = vector3;
-                    break;
-
-                case BookZone.TopRight:
-                    index += (this.Orientation == System.Windows.Controls.Orientation.Horizontal) ? 1 : 0;
-                    start = new Vector2(1.0, 0.0);
-                    target = new Vector2(1.0 - vector3.X, vector3.Y);
-                    break;
-
-                case BookZone.BottomRight:
-                    index++;
-                    start = new Vector2(1.0, 1.0);
-                    target = new Vector2(1.0, 1.0) - vector3;
-                    break;
-            }
-            this.SortPages(this.PagePosition(index) == 1);
-            this._fold = base.ItemContainerGenerator.ContainerFromIndex(index) as BookItem;
-            if (this._fold != null)
-            {
-                if (this._fold.DragStart != start)
-                {
-                    this.LinearTransition(this._fold, start, target);
-                }
-                else
-                {
-                    if (this._fold.Time == 1.0)
-                    {
-                        this._fold.Time = 0.0;
-                    }
-                    this.LinearTransition(this._fold, this._fold.Time, target);
-                }
-            }
-        }
+        
 
         public static ApplyPageTemplate GetApplyPageTemplate(DependencyObject element)
         {
@@ -296,53 +267,6 @@ namespace Paris.Controls
             return new BookItem();
         }
 
-        private BookZone GetZone(Point pos)
-        {
-            Size size = base.RenderSize;
-            if (((pos.X < 0.0) || (pos.X > size.Width)) || ((pos.Y < 0.0) || (pos.Y > size.Height)))
-            {
-                return BookZone.Out;
-            }
-            if (this.Orientation == System.Windows.Controls.Orientation.Horizontal)
-            {
-                if (pos.X > (size.Width - this.FoldSize))
-                {
-                    if (pos.Y >= (size.Height / 2.0))
-                    {
-                        return BookZone.BottomRight;
-                    }
-                    return BookZone.TopRight;
-                }
-                if (pos.X < this.FoldSize)
-                {
-                    if (pos.Y >= (size.Height / 2.0))
-                    {
-                        return BookZone.BottomLeft;
-                    }
-                    return BookZone.TopLeft;
-                }
-            }
-            else
-            {
-                if (pos.Y > (size.Height - this.FoldSize))
-                {
-                    if (pos.X >= (size.Width / 2.0))
-                    {
-                        return BookZone.BottomRight;
-                    }
-                    return BookZone.BottomLeft;
-                }
-                if (pos.Y < this.FoldSize)
-                {
-                    if (pos.X >= (size.Width / 2.0))
-                    {
-                        return BookZone.TopRight;
-                    }
-                    return BookZone.TopLeft;
-                }
-            }
-            return BookZone.Center;
-        }
 
         private void InstantUndoFold()
         {
@@ -368,8 +292,8 @@ namespace Paris.Controls
             {
                 return false;
             }
-            int index = base.ItemContainerGenerator.IndexFromContainer(item);
-            index -= this.PagePosition(index);
+            int index = IndexFromBookItem(item);
+            index -= this.PagePosition(index);//get index of the left page
             if (this.CurrentPage != index)
             {
                 return (this.CurrentPage == (index + 1));
@@ -428,19 +352,24 @@ namespace Paris.Controls
             BookItem item2 = this.Back(item);
             if (item2 != null)
             {
-                //<>c__DisplayClass3 class2;
-                item2.TransitionFront = true;
-                item.TransitionFront = false;
-                item2.Time = item.Time = time;
-                Vector2 start = item.DragCurrent;
-                //item2.Path = item.Path = new Func<double, Vector2>(class2, (IntPtr) this.<LinearTransition>b__0);
-                item2.Path = item.Path = (double t) =>
-                {
-                    return (Vector2)((target * t) + (start * (1.0 - t)));
-
-                };
+                LinearTransition(item, item2, time, target);
                 this.BeginRendering();
             }
+        }
+
+        private static void LinearTransition(BookItem item, BookItem backItem, double time, Vector2 target)
+        {
+            //<>c__DisplayClass3 class2;
+            backItem.TransitionFront = true;
+            item.TransitionFront = false;
+            backItem.Time = item.Time = time;
+            Vector2 start = item.DragCurrent;
+            //item2.Path = item.Path = new Func<double, Vector2>(class2, (IntPtr) this.<LinearTransition>b__0);
+            backItem.Path = item.Path = (double t) =>
+            {
+                return (Vector2)((target * t) + (start * (1.0 - t)));
+
+            };
         }
 
         private void OnAfterApplyTemplate()
@@ -450,6 +379,22 @@ namespace Paris.Controls
         private static void OnApplyPageTemplatePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
         }
+
+        ///2 ham trung nhau --> bo 1 ham, nhung chua biet ham nao tot hon
+        //public override void OnApplyTemplate()
+        //{
+        //    string errors = string.Empty;
+        //    base.OnApplyTemplate();
+        //    this._elementContentControl = this.GetTemplateChild<ContentControl>("ContentControl", true, ref errors);
+        //    if (this._elementContentControl != null)
+        //    {
+        //        this.InitializeContentControlPart();
+        //    }
+        //    if (!string.IsNullOrEmpty(errors) && !DesignerProperties.GetIsInDesignMode(this))
+        //    {
+        //        throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, "Template cannot be applied to BookItem.\nDetails: {0}", new object[] { errors }));
+        //    }
+        //}
 
         public override void OnApplyTemplate()
         {
@@ -475,7 +420,7 @@ namespace Paris.Controls
         {
             if (!this._ignorePageChange)
             {
-                this.SetCurrentPage(Math.Max(0, Math.Min(base.Items.Count, this.CurrentPage)));
+                this.CurrentPage = Math.Max(0, Math.Min(base.Items.Count, this.CurrentPage));
                 this.Reset();
             }
         }
@@ -576,9 +521,16 @@ namespace Paris.Controls
 
         private void OnLayoutUpdated(object sender, EventArgs e)
         {
+            for (int i = 0; i < base.Items.Count; i++)
+            {
+                BookItem element = BookItemFromIndex(i);
+                element.index = i;
+            }
+
             if (base.RenderSize != this._size)
             {
                 this._size = base.RenderSize;
+
                 this.BeginRendering();
             }
         }
@@ -611,7 +563,7 @@ namespace Paris.Controls
                 {
                     dragStart = VectorHelper.Symmetry(new Size(1.0, 1.0), item.Direction, dragStart);
                     dragStart = VectorHelper.Flip(new Size(1.0, 1.0), this._dragged.Direction, dragStart);
-                    this.SetCurrentPage(base.ItemContainerGenerator.IndexFromContainer(item));
+                    this.CurrentPage = base.ItemContainerGenerator.IndexFromContainer(item);
                 }
                 this.LinearTransition(this._dragged, (double)0.0, dragStart);
                 this._dragged = null;
@@ -663,9 +615,115 @@ namespace Paris.Controls
             }
         }
 
+        #region Fold
+
+        public BookZone CurrentZone
+        {
+            get
+            {
+                return (BookZone)base.GetValue(CurrentZoneProperty);
+            }
+            private set
+            {
+                base.SetValue(CurrentZoneProperty, value);
+            }
+        }
+
+        public double FoldSize
+        {
+            get
+            {
+                return (double)base.GetValue(FoldSizeProperty);
+            }
+            set
+            {
+                base.SetValue(FoldSizeProperty, value);
+            }
+        }
+
+        private void Fold(BookZone zone)
+        {
+            ///get the left page index
+            int index = this.CurrentPage - this.PagePosition(this.CurrentPage);
+            Vector2 start = new Vector2();
+            Vector2 target = new Vector2();
+            Vector2 vector3 = new Vector2(this.FoldSize / base.RenderSize.Width, this.FoldSize / base.RenderSize.Height);
+            switch (zone)
+            {
+                case BookZone.BottomLeft:
+                    index += (this.Orientation == System.Windows.Controls.Orientation.Horizontal) ? 0 : 1;
+                    start = new Vector2(0.0, 1.0);
+                    target = new Vector2(vector3.X, 1.0 - vector3.Y);
+                    break;
+
+                case BookZone.TopLeft:
+                    start = new Vector2();
+                    target = vector3;
+                    break;
+
+                case BookZone.TopRight:
+                    index += (this.Orientation == System.Windows.Controls.Orientation.Horizontal) ? 1 : 0;
+                    start = new Vector2(1.0, 0.0);
+                    target = new Vector2(1.0 - vector3.X, vector3.Y);
+                    break;
+
+                case BookZone.BottomRight:
+                    index++;
+                    start = new Vector2(1.0, 1.0);
+                    target = new Vector2(1.0, 1.0) - vector3;
+                    break;
+            }
+            this.SortPages(this.PagePosition(index) == 1);
+
+            //create fold page for animation
+            this._fold = BookItemFromIndex(index);
+            if (this._fold != null)
+            {
+                if (this._fold.DragStart != start)
+                {
+                    this.LinearTransition(this._fold, start, target);
+                }
+                else
+                {
+                    if (this._fold.Time == 1.0)
+                    {
+                        this._fold.Time = 0.0;
+                    }
+                    this.LinearTransition(this._fold, this._fold.Time, target);
+                }
+            }
+        }
+
+        private void UndoFold()
+        {
+            if (this._fold != null)
+            {
+                this.LinearTransition(this._fold, (double)(1.0 - this._fold.Time), this._fold.DragStart);
+                this._fold = null;
+            }
+        }
+
+        private void UpdateZone(BookZone zone)
+        {
+            if ((this.ShowPageFold == PageFoldVisibility.OnMouseOver) && ((this.CurrentZone != zone) || (this._fold == null)))
+            {
+                this.UndoFold();
+                if (((this._dragged == null) && (zone != BookZone.Center)) && (zone != BookZone.Out))
+                {
+                    this.Fold(zone);
+                }
+            }
+            this.CurrentZone = zone;
+        }
+
+        #endregion
+
+        #region mouse event
         protected override void OnMouseEnter(MouseEventArgs e)
         {
-            this.UpdateZone(this.GetZone(e.GetPosition(this)));
+            //this.UpdateZone(this.GetZone(e.GetPosition(this)));
+            BookZone bz = ZoneDetector.GetZone(this.RenderSize, this.FoldSize, e.GetPosition(this), this.Orientation);
+            this.UpdateZone(bz);
         }
 
         protected override void OnMouseLeave(MouseEventArgs e)
@@ -675,8 +733,10 @@ namespace Paris.Controls
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            this.UpdateZone(this.GetZone(e.GetPosition(this)));
+            BookZone bz = ZoneDetector.GetZone(this.RenderSize, this.FoldSize, e.GetPosition(this), this.Orientation);
+            this.UpdateZone(bz);
         }
+        #endregion
 
         [SuppressMessage("Microsoft.Usage", "CA1801")]
         private void OnOrientationChanged(Orientation old)
@@ -734,14 +794,6 @@ namespace Paris.Controls
             book.OnShowPageFoldChanged(oldValue);
         }
 
-        private int PagePosition(int index)
-        {
-            if (this.IsFirstPageOnTheRight)
-            {
-                index++;
-            }
-            return (index % 2);
-        }
 
         protected override void PrepareContainerForItemOverride(DependencyObject element, object item)
         {
@@ -778,7 +830,7 @@ namespace Paris.Controls
                 index += (num2 == 0) ? back : forward;
                 if ((index >= 0) && (index < base.Items.Count))
                 {
-                    return (base.ItemContainerGenerator.ContainerFromIndex(index) as BookItem);
+                    return (BookItemFromIndex(index));
                 }
             }
             return null;
@@ -788,31 +840,78 @@ namespace Paris.Controls
         {
             for (int i = 0; i < base.Items.Count; i++)
             {
-                BookItem element = base.ItemContainerGenerator.ContainerFromIndex(i) as BookItem;
+                BookItem element = BookItemFromIndex(i);
                 if (element != null)
                 {
                     this.Reset(element);
+                    //element.index = i;
                 }
             }
             this.SortPages(true);
             this.BeginRendering();
         }
 
+        #region BookItemLayout
+        bool _bIsLayout1Page = true;
+        private int IndexFromBookItem(BookItem element)
+        {
+            return base.ItemContainerGenerator.IndexFromContainer(element);
+        }
+
+        private BookItem BookItemFromIndex(int index)
+        {
+            return base.ItemContainerGenerator.ContainerFromIndex(index) as BookItem;
+        }
+
+        private int PagePosition(int index)
+        {
+            if (_bIsLayout1Page)
+            {
+                if (this.IsFirstPageOnTheRight)
+                {
+                    index++;
+                }
+                return (index % 2);
+            }
+            else
+            {
+                if (this.IsFirstPageOnTheRight)
+                    return 1;
+                return 0;
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// set the position of BOOKITEMS
+        /// </summary>
+        /// <param name="element"></param>
         private void Reset(BookItem element)
         {
             element.DragStart = element.DragCurrent = new Vector2();
             element.Path = null;
             element.TransitionFront = false;
             element.Time = 0.0;
-            int index = base.ItemContainerGenerator.IndexFromContainer(element);
+            int index = IndexFromBookItem(element);
             int num2 = this.PagePosition(index);
             if (this.Orientation == System.Windows.Controls.Orientation.Horizontal)
             {
-                Grid.SetColumn(element, num2);
-                Grid.SetRowSpan(element, 2);
-                Grid.SetRow(element, 0);
-                Grid.SetColumnSpan(element, 1);
-                element.Direction = (num2 == 0) ? Dock.Right : Dock.Left;
+                if (_bIsLayout1Page)
+                {
+                    Grid.SetColumn(element, num2);
+                    Grid.SetRowSpan(element, 2);
+                    Grid.SetRow(element, 0);
+                    Grid.SetColumnSpan(element, 1);
+                    element.Direction = (num2 == 0) ? Dock.Right : Dock.Left;
+                }
+                else
+                {
+                    Grid.SetColumn(element, num2);
+                    Grid.SetRowSpan(element, 2);
+                    Grid.SetRow(element, 0);
+                    Grid.SetColumnSpan(element, 2);
+                    element.Direction = (num2 == 0) ? Dock.Right : Dock.Left;
+                }
             }
             else
             {
@@ -833,28 +932,42 @@ namespace Paris.Controls
             element.SetValue(ApplyPageTemplateProperty, value);
         }
 
-        private void SetCurrentPage(int value)
-        {
-            this._ignorePageChange = true;
-            this.CurrentPage = value;
-            this._ignorePageChange = false;
-        }
+        //private void SetCurrentPage(int value)
+        //{
+        //    this._ignorePageChange = true;
+        //    this.CurrentPage = value;
+        //    this._ignorePageChange = false;
+        //}
 
        
 
         private void SortPages(bool forward)
         {
-            int num = forward ? base.Items.Count : 0;
-            int num2 = base.Items.Count - num;
-            for (int i = 0; i < base.Items.Count; i++)
+            if (_bIsLayout1Page)
             {
-                BookItem item = base.ItemContainerGenerator.ContainerFromIndex(i) as BookItem;
-                if (item == null)
+                int num = forward ? base.Items.Count : 0;
+                int num2 = base.Items.Count - num;
+                for (int i = 0; i < base.Items.Count; i++)
                 {
-                    return;
+                    BookItem item = BookItemFromIndex(i);
+                    if (item == null)
+                    {
+                        return;
+                    }
+                    int num4 = this.PagePosition(i);
+                    int zindex = (num4 == 0) ? (num + (i / 2)) : (num2 - (i / 2));
+                    Canvas.SetZIndex(item, zindex);
                 }
-                int num4 = this.PagePosition(i);
-                Canvas.SetZIndex(item, (num4 == 0) ? (num + (i / 2)) : (num2 - (i / 2)));
+            }
+            else
+            {//not tested
+                for (int i = 0; i < base.Items.Count; i++)
+                {
+                    BookItem item = BookItemFromIndex(i);
+                    if (item == null) return;
+                    int zindex = i;
+                    Canvas.SetZIndex(item, zindex);
+                }
             }
         }
 
@@ -863,6 +976,7 @@ namespace Paris.Controls
             return this.Relative(item, 2, -2);
         }
 
+        #region Turn page
         private bool TurnPage(BookZone zone)
         {
             bool forward = ((this.Orientation == System.Windows.Controls.Orientation.Horizontal) && ((zone == BookZone.BottomRight) || (zone == BookZone.TopRight))) || ((this.Orientation == null) && ((zone == BookZone.BottomLeft) || (zone == BookZone.BottomRight)));
@@ -873,7 +987,7 @@ namespace Paris.Controls
                 this.InstantUndoFold();
                 this.SortPages(forward);
                 this.CircleTransition(item, zone);
-                this.SetCurrentPage(this.CurrentPage + (forward ? 2 : -2));
+                this.CurrentPage = this.CurrentPage + (forward ? 2 : -2);
                 return true;
             }
             return false;
@@ -896,14 +1010,18 @@ namespace Paris.Controls
             }
         }
 
-        private void UndoFold()
+        public void TurnNextPage()
         {
-            if (this._fold != null)
-            {
-                this.LinearTransition(this._fold, (double)(1.0 - this._fold.Time), this._fold.DragStart);
-                this._fold = null;
-            }
+            this.CurrentZone = BookZone.BottomRight;
+            this.TurnPage(this.CurrentZone);
         }
+        public void TurnPreviousPage()
+        {
+            this.CurrentZone = BookZone.BottomLeft;
+            this.TurnPage(this.CurrentZone);
+        }
+        #endregion
+
 
         private void UpdatePosition(BookItem element, double deltaTime)
         {
@@ -918,6 +1036,11 @@ namespace Paris.Controls
             }
         }
 
+        #region trainsition animation
+        /// <summary>
+        /// main function that update transition animation
+        /// </summary>
+        /// <param name="element"></param>
         private void UpdateTransition(BookItem element)
         {
             BookTransition transition = element.Transition ?? this.Transition;
@@ -932,19 +1055,7 @@ namespace Paris.Controls
                 element.Visibility=System.Windows.Visibility.Collapsed;
             }
         }
-
-        private void UpdateZone(BookZone zone)
-        {
-            if ((this.ShowPageFold == PageFoldVisibility.OnMouseOver) && ((this.CurrentZone != zone) || (this._fold == null)))
-            {
-                this.UndoFold();
-                if (((this._dragged == null) && (zone != BookZone.Center)) && (zone != BookZone.Out))
-                {
-                    this.Fold(zone);
-                }
-            }
-            this.CurrentZone = zone;
-        }
+        #endregion
 
         // Properties
         public int CurrentPage
@@ -955,31 +1066,9 @@ namespace Paris.Controls
             }
             set
             {
+                this._ignorePageChange = true;
                 base.SetValue(CurrentPageProperty, value);
-            }
-        }
-
-        public BookZone CurrentZone
-        {
-            get
-            {
-                return (BookZone)base.GetValue(CurrentZoneProperty);
-            }
-            private set
-            {
-                base.SetValue(CurrentZoneProperty, value);
-            }
-        }
-
-        public double FoldSize
-        {
-            get
-            {
-                return (double)base.GetValue(FoldSizeProperty);
-            }
-            set
-            {
-                base.SetValue(FoldSizeProperty, value);
+                this._ignorePageChange = false;
             }
         }
 
@@ -1031,6 +1120,9 @@ namespace Paris.Controls
             }
         }
 
+        /// <summary>
+        /// this properties decide turn page forward or backward
+        /// </summary>
         public Orientation Orientation
         {
             get

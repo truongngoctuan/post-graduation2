@@ -60,9 +60,12 @@
     <Compile Include="Book.cs" />
     <Compile Include="BookFoldTransition.cs" />
     <Compile Include="BookItem.cs" />
+    <Compile Include="BookItemLayout.cs" />
     <Compile Include="BookTransition.cs" />
     <Compile Include="Dock.cs" />
     <Compile Include="FoldEffect.cs" />
+    <Compile Include="FoldManager\FoldManager.cs" />
+    <Compile Include="FoldManager\ZoneDetector.cs" />
     <Compile Include="MouseDragEventArgs.cs" />
     <Compile Include="MouseHelper.cs" />
     <Compile Include="PlatformIndependent.cs" />
@@ -80,6 +83,7 @@
   <ItemGroup>
     <Resource Include="Effects\foldeffect.ps" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

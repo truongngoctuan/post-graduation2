@@ -24,6 +24,7 @@ namespace Paris.Controls
         public static readonly DependencyProperty IsTransparentProperty = DependencyProperty.Register("IsTransparent", typeof(bool), typeof(BookItem), null);
         internal static readonly DependencyProperty TransitionProperty = DependencyProperty.Register("Transition", typeof(BookTransition), typeof(BookItem), null);
 
+        public int index = -1;
 
         public BookItem()
         {
@@ -57,24 +58,11 @@ namespace Paris.Controls
         {
             if ((this._elementContentControl != null) && (this.ControlTemplate != null))
             {
-                this._elementContentControl.Template=(this.ControlTemplate);
+                this._elementContentControl.Template = (this.ControlTemplate);
             }
         }
 
-        public override void OnApplyTemplate()
-        {
-            string errors = string.Empty;
-            base.OnApplyTemplate();
-            this._elementContentControl = this.GetTemplateChild<ContentControl>("ContentControl", true, ref errors);
-            if (this._elementContentControl != null)
-            {
-                this.InitializeContentControlPart();
-            }
-            if (!string.IsNullOrEmpty(errors) && !DesignerProperties.GetIsInDesignMode(this))
-            {
-                throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, "Template cannot be applied to BookItem.\nDetails: {0}", new object[] { errors }));
-            }
-        }
+
 
         private void SetCustomDefaultValues()
         {

@@ -33,11 +33,11 @@ namespace SilverlightBookDemo2
             //bt.Click += new RoutedEventHandler(bt_Click);
             //slbook1.Items.Add(bt);
 
-            ArticleLargeIcon.ArticleImage articleControl = new ArticleLargeIcon.ArticleImage();
+            ArticleLargeIcon.ArticleImage articleControl = new ArticleLargeIcon.ArticleImage(this);
             //articleControl.Width = 200;
             //articleControl.Height = 200;
-            slbook1.Items.Clear();
-            slbook1.Items.Add(articleControl);
+            ////slbook1.Items.Clear();
+            ////slbook1.Items.Add(articleControl);
         }
     
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -97,6 +97,16 @@ namespace SilverlightBookDemo2
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btPreviousPage_Click(object sender, RoutedEventArgs e)
+        {
+            slbook1.TurnPreviousPage();
+        }
+
+        private void btNextPage_Click(object sender, RoutedEventArgs e)
+        {
+            slbook1.TurnNextPage();
         } 
     }
 }
