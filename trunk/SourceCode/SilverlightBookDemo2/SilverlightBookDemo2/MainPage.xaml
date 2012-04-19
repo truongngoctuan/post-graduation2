@@ -17,14 +17,19 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-            <Button Content="Add dynamic control" Width="300" Height="25" Click="Button_Click_1" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"></Button>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Button Content="Add dynamic control" Width="300" Height="25" Click="Button_Click_1"  HorizontalAlignment="Left"></Button>
+            <Button x:Name="btPreviousPage" Width="100" Height="25" Content="previous page" Click="btPreviousPage_Click"></Button>
+            <Button x:Name="btNextPage" Width="100" Height="25" Content="next page" Click="btNextPage_Click"></Button>
+        </StackPanel>
+            
         <slbook:Book x:Name="slbook1"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                      Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                Margin="30"   IsFirstPageOnTheRight="True" TurnInterval="600" >
+                Margin="30"   IsFirstPageOnTheRight="False" TurnInterval="600" >
                 <slbook:Book.Items>
                     <slbook:BookItem >
 
-                        <Grid>
+                        <Grid Width="500" Height="400" Background="Orange">
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50" >
                                 <TextBlock FontSize="20" HorizontalAlignment="Center" Text="Welcome to Silverlight !"/>
                                 <TextBlock FontSize="16" Margin="10" Text="Future for next generation of applications"/>
@@ -34,14 +39,26 @@
                         </Grid>
                     </slbook:BookItem>
                 
-                    <Grid>
-                    <Image Source='/SilverlightBookDemo2;component/Images/Desert.jpg'/>
+                    <Grid Background="BlueViolet">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Image Source='/SilverlightBookDemo2;component/Images/Desert.jpg' Width="100"/>
+                    <Image Source='/SilverlightBookDemo2;component/Images/Desert.jpg' Width="100"/>
                 </Grid>
-                <Grid>
+                <Grid Background="SaddleBrown">
                     
                     <Image Source='/SilverlightBookDemo2;component/Images/Authors Booxvn (18).jpg' Stretch="None"/>
                     <TextBlock FontFamily="Lucida Sans Unicode" FontSize="24" Foreground="DarkBlue"
                                VerticalAlignment="Center">Authors Booxvn</TextBlock>
+                </Grid>
+
+                <Grid Background="Chartreuse">
+                    <Image Source='/SilverlightBookDemo2;component/Images/Desert.jpg' Width="200"/>
+                </Grid>
+                <Grid Background="DarkMagenta">
+                    <Image Source='/SilverlightBookDemo2;component/Images/Desert.jpg' Width="200"/>
                 </Grid>
             </slbook:Book.Items>
 

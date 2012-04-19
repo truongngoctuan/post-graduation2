@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paris.Controls", "Paris.Con
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverlightBookUserControl", "SilverlightBookUserControl\SilverlightBookUserControl.csproj", "{5427AEA1-D829-4099-8CFB-45DF77AD167C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Liquid.HtmlRichTextArea", "C:\Users\TNT\Desktop\MyRichTextArea\Liquid.HtmlRichTextArea\Liquid.HtmlRichTextArea.csproj", "{3631374F-4860-4C3A-A99B-A27088926FB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{5427AEA1-D829-4099-8CFB-45DF77AD167C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5427AEA1-D829-4099-8CFB-45DF77AD167C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5427AEA1-D829-4099-8CFB-45DF77AD167C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3631374F-4860-4C3A-A99B-A27088926FB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3631374F-4860-4C3A-A99B-A27088926FB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3631374F-4860-4C3A-A99B-A27088926FB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3631374F-4860-4C3A-A99B-A27088926FB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

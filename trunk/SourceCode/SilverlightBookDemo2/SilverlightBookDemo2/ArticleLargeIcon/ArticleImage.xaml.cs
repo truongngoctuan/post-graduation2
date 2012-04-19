@@ -21,9 +21,19 @@ namespace SilverlightBookDemo2.ArticleLargeIcon
         int iHeightImage = 150;
         int iSpaceBetweenImages = 2;
 
-        public ArticleImage()
+        string[] strListImgUrl = new string[] { 
+                "Authors Booxvn (18).jpg", 
+                "../Images/Desert.jpg",
+            "../Images/Hydrangeas.jpg",
+            "../Images/Jellyfish.jpg"};
+
+        MainPage parent2;
+
+        public ArticleImage(MainPage parent)
         {
             InitializeComponent();
+
+            parent2 = parent;
 
             //iCurrentState = Article.ImageOnly;
             LoadStateImageOnly();
@@ -34,12 +44,6 @@ namespace SilverlightBookDemo2.ArticleLargeIcon
         {
             ///init 
             listImg = new List<Image>();
-            string[] strListImgUrl = new string[] { 
-                "Authors Booxvn (18).jpg", 
-                "../Images/Desert.jpg",
-            "../Images/Hydrangeas.jpg",
-            "../Images/Jellyfish.jpg"};
-
 
             ///load
             int nArticle = strListImgUrl.Count();
@@ -99,20 +103,42 @@ namespace SilverlightBookDemo2.ArticleLargeIcon
 
         void OnImageOnlyClick()
         {
-            ///find out what image was clicked
-            ///
-            int r = (int)(clickPosition.Y / (iHeightImage + iSpaceBetweenImages));
-            int c = (int)(clickPosition.X / (iWidthImage + iSpaceBetweenImages));
+            try
+            {
+                ///find out what image was clicked
+                ///
+                int r = (int)(clickPosition.Y / (iHeightImage + iSpaceBetweenImages));
+                int c = (int)(clickPosition.X / (iWidthImage + iSpaceBetweenImages));
 
-            int iImg = r * 3 + c;
-            //MessageBox.Show("X: " +clickPosition.X + 
-            //    " Y: " + clickPosition.Y +
-            //    " image was clicked: " + iImg);
+                int iImg = r * 3 + c;
+                //MessageBox.Show("X: " +clickPosition.X + 
+                //    " Y: " + clickPosition.Y +
+                //    " image was clicked: " + iImg);
 
-            RemoveStateImageOnly();
+                RemoveStateImageOnly();
 
-            iLoadImageWihSummary = iImg;
-            LoadStateImageWithSummary();
+                iLoadImageWihSummary = iImg;
+                LoadStateImageWithSummary();
+
+                for (int i = 1; i < parent2.slbook1.Items.Count; )
+                {
+                    parent2.slbook1.Items.RemoveAt(i);
+                }
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        Liquid.HtmlRichTextArea asd = new Liquid.HtmlRichTextArea();
+                        asd.Width = 300;
+                        asd.Height = 300;
+                        asd.SetDefaultStyles();
+                        asd.Load("<p>asd</p>");
+                        parent2.slbook1.Items.Add(asd);
+                    }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         #endregion
@@ -123,13 +149,18 @@ namespace SilverlightBookDemo2.ArticleLargeIcon
         int iLoadImageWihSummary;
         void LoadStateImageWithSummary()
         {
+            string strSummary = "summary of article!";
             StackPanel spnl = new StackPanel();
             string s = @"
             <StackPanel Orientation='Horizontal'
                 xmlns='http://schemas.microsoft.com/client/2007'
                 xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'>
-            <Image Source='../Images/Desert.jpg' Width='150' Height='150'></Image>
-            <TextBlock Text='Desert image!' VerticalAlignment='Center'></TextBlock>
+            <Image Source='"
+                + strListImgUrl[iLoadImageWihSummary] +
+            @"' Width='150' Height='150'></Image>
+            <TextBlock Text='"
+            + strSummary +
+                @"' VerticalAlignment='Center'></TextBlock>
         </StackPanel>
         ";
             LayoutRoot.Children.Add(System.Windows.Markup.XamlReader.Load(s) as UIElement);
@@ -156,6 +187,9 @@ namespace SilverlightBookDemo2.ArticleLargeIcon
         {
             LayoutRoot.Children.Clear();
         }
+        #endregion
+
+        #region add more page
         #endregion
 
     }
