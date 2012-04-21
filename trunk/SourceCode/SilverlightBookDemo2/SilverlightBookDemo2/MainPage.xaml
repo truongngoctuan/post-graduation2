@@ -44,8 +44,11 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Image Source='/SilverlightBookDemo2;component/Images/Desert.jpg' Width="100"/>
-                    <Image Source='/SilverlightBookDemo2;component/Images/Desert.jpg' Width="100"/>
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                        <Image Source='/SilverlightBookDemo2;component/Images/Desert.jpg' Width="1000" Height="1000"/>
+                    </ScrollViewer>
+                        
+                    <Image Source='/SilverlightBookDemo2;component/Images/Desert.jpg' Width="100" Grid.Column="2"/>
                 </Grid>
                 <Grid Background="SaddleBrown">
                     
