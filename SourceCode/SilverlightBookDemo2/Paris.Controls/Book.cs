@@ -208,7 +208,7 @@ namespace Paris.Controls
         }
     }
 
-       
+        #region Updater
 
         /// <summary>
         /// general update function, has respondsibility for:
@@ -224,8 +224,8 @@ namespace Paris.Controls
                 TimeSpan span = (TimeSpan)(now - this._lastUpdate);
                 double totalMilliseconds = span.TotalMilliseconds;
                 this._lastUpdate = now;
-                bool flag = false;
-                bool flag2 = true;
+                bool bIsAllElementHavePath = false;
+                bool bIsAllElementNoTransition = true;
                 for (int i = 0; i < base.Items.Count; i++)
                 {
                     BookItem element = base.ItemContainerGenerator.ContainerFromIndex(i) as BookItem;
@@ -233,20 +233,20 @@ namespace Paris.Controls
                     {
                         return;
                     }
-                    flag = flag || (element.Path != null);
+                    bIsAllElementHavePath = bIsAllElementHavePath || (element.Path != null);
                     this.UpdatePosition(element, totalMilliseconds);
-                    flag2 = flag2 && !this.IsTransitioning(element);
+                    bIsAllElementNoTransition = bIsAllElementNoTransition && !this.IsTransitioning(element);
                 }
                 for (int j = 0; j < base.Items.Count; j++)
                 {
                     BookItem item2 = base.ItemContainerGenerator.ContainerFromIndex(j) as BookItem;
                     this.UpdateTransition(item2);
                 }
-                if (!flag)
+                if (!bIsAllElementHavePath)
                 {
-                    this._rendering = false;
+                    //this._rendering = false;
                     //CompositionTarget.Rendering -= (new EventHandler(this.CompositionTarget_Rendering));
-                    if ((this.ShowPageFold == PageFoldVisibility.Always) && flag2)
+                    if ((this.ShowPageFold == PageFoldVisibility.Always) && bIsAllElementNoTransition)
                     {
                         this.Fold(BookZone.BottomRight);
                     }
@@ -257,7 +257,7 @@ namespace Paris.Controls
             }
         }
 
-        
+        #endregion
 
         public static ApplyPageTemplate GetApplyPageTemplate(DependencyObject element)
         {
@@ -637,18 +637,83 @@ namespace Paris.Controls
                 base.SetValue(FoldSizeProperty, value);
             }
         }
-
-        private void Fold(BookZone zone)
+        
+        void Fold(BookZone zone)
+            //int index, BookZone zone, double FoldSize, Size RenderSize, System.Windows.Controls.Orientation Orientation)
         {
-            ///get the left page index
             int index = this.CurrentPage - this.PagePosition(this.CurrentPage);
+            if (_bIsLayout1Page)
+            {
+                ///re-layout zindex and find fold page
+                switch (zone)
+                {
+                    case BookZone.BottomLeft:
+                        index += (Orientation == System.Windows.Controls.Orientation.Horizontal) ? 0 : 1;
+                        break;
+
+                    case BookZone.TopLeft:
+                        break;
+
+                    case BookZone.TopRight:
+                        index += (Orientation == System.Windows.Controls.Orientation.Horizontal) ? 1 : 0;
+                        break;
+
+                    case BookZone.BottomRight:
+                        index++;
+                        break;
+                }
+                this.SortPages(this.PagePosition(index) == 1);
+            }
+            else
+            {
+                this.SortPages(zone == BookZone.BottomRight || zone == BookZone.TopRight);
+            }
+            //create fold page for animation
+            this._fold = BookItemFromIndex(index);
+
+            BookItem back_fold = null;
+            if (_bIsLayout1Page)
+            {
+                back_fold = this.Back(this._fold);
+            }
+            else
+            {//not tested
+                int back_fold_index = -1;
+                switch (zone)
+                {
+                    case BookZone.BottomLeft:
+                    case BookZone.TopLeft:
+                        back_fold_index = index - 1;
+                        break;
+
+                    case BookZone.TopRight:
+                    case BookZone.BottomRight:
+                        back_fold_index = index + 1;
+                        break;
+                }
+                if ((index >= 0) && (index < base.Items.Count))
+                {
+                    back_fold = BookItemFromIndex(back_fold_index);
+                }
+            }
+
+            ///calculate start and target point
             Vector2 start = new Vector2();
             Vector2 target = new Vector2();
-            Vector2 vector3 = new Vector2(this.FoldSize / base.RenderSize.Width, this.FoldSize / base.RenderSize.Height);
+            FoldAnimation_CalculateStartAndTargetPoint(zone, FoldSize, base.RenderSize, ref start, ref target);
+
+            if (CreateFoldAnimation(ref this._fold, back_fold, start, target))
+            {
+                this.BeginRendering();
+            }
+        }
+
+        private static void FoldAnimation_CalculateStartAndTargetPoint(BookZone zone, double FoldSize, Size RenderSize, ref Vector2 start, ref Vector2 target)
+        {
+            Vector2 vector3 = new Vector2(FoldSize / RenderSize.Width, FoldSize / RenderSize.Height);
             switch (zone)
             {
                 case BookZone.BottomLeft:
-                    index += (this.Orientation == System.Windows.Controls.Orientation.Horizontal) ? 0 : 1;
                     start = new Vector2(0.0, 1.0);
                     target = new Vector2(vector3.X, 1.0 - vector3.Y);
                     break;
@@ -659,50 +724,51 @@ namespace Paris.Controls
                     break;
 
                 case BookZone.TopRight:
-                    index += (this.Orientation == System.Windows.Controls.Orientation.Horizontal) ? 1 : 0;
                     start = new Vector2(1.0, 0.0);
                     target = new Vector2(1.0 - vector3.X, vector3.Y);
                     break;
 
                 case BookZone.BottomRight:
-                    index++;
                     start = new Vector2(1.0, 1.0);
                     target = new Vector2(1.0, 1.0) - vector3;
                     break;
             }
-            this.SortPages(this.PagePosition(index) == 1);
+        }
 
-            //create fold page for animation
-            this._fold = BookItemFromIndex(index);
-            if (this._fold != null)
+        static bool CreateFoldAnimation(ref BookItem fold, BookItem back_fold, Vector2 start, Vector2 target)
+        {
+            if (fold != null)
             {
-                if (this._fold.DragStart != start)
+                if (fold.DragStart != start)
                 {
-                    BookItem item2 = this.Back(this._fold);
-                    if (item2 != null)
+                    //BookItem back_fold = this.Back(fold);
+                    if (back_fold != null)
                     {
-                        item2.DragCurrent = this._fold.DragCurrent = item2.DragStart = this._fold.DragStart = start;
-                        BookItem backItem = this.Back(this._fold);
-                        if (LinearTransition(this._fold, backItem, (double)0.0, target))
+                        back_fold.DragCurrent = fold.DragCurrent = back_fold.DragStart = fold.DragStart = start;
+                        //BookItem backItem = this.Back(fold);
+                        if (LinearTransition(fold, back_fold, (double)0.0, target))
                         {
-                            this.BeginRendering();
+                            //this.BeginRendering();
+                            return true;
                         }
                     }
-                    // this.LinearTransition(this._fold, start, target);
+                    // this.LinearTransition(fold, start, target);
                 }
                 else
                 {
-                    if (this._fold.Time == 1.0)
+                    if (fold.Time == 1.0)
                     {
-                        this._fold.Time = 0.0;
+                        fold.Time = 0.0;
                     }
-                    BookItem backItem = this.Back(this._fold);
-                    if (LinearTransition(this._fold, backItem, this._fold.Time, target))
+                    //BookItem backItem = this.Back(fold);
+                    if (LinearTransition(fold, back_fold, fold.Time, target))
                     {
-                        this.BeginRendering();
+                        //this.BeginRendering();
+                        return true;
                     }
                 }
             }
+            return false;
         }
 
         private void UndoFold()
@@ -867,7 +933,7 @@ namespace Paris.Controls
         }
 
         #region BookItemLayout
-        bool _bIsLayout1Page = true;
+        public bool _bIsLayout1Page = true;
         private int IndexFromBookItem(BookItem element)
         {
             return base.ItemContainerGenerator.IndexFromContainer(element);
@@ -925,7 +991,8 @@ namespace Paris.Controls
                     Grid.SetRowSpan(element, 2);
                     Grid.SetRow(element, 0);
                     Grid.SetColumnSpan(element, 2);
-                    element.Direction = (num2 == 0) ? Dock.Right : Dock.Left;
+                    //element.Direction = (num2 == 0) ? Dock.Right : Dock.Left;
+                    element.Direction = Dock.Left;
                 }
             }
             else

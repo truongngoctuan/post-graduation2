@@ -107,6 +107,7 @@ namespace Paris.Controls
 
         public override void Turn(BookItem item, bool showOuterShadows, bool showInnerShadows, Size bookSize)
         {
+            
             Size size = item.RenderSize;
             if (size.Width == 0.0)
             {
@@ -122,6 +123,16 @@ namespace Paris.Controls
                     return;
                 }
             }
+
+            if (item.index == 0)
+            {
+                int a = 0;
+            }
+            if (item.index == 1)
+            {
+                int b = 0;
+            }
+
             Dock direction = item.TransitionFront ? item.Direction : this.Opposite(item.Direction);
             Vector2 p = item.DragStart * bookSize;
             p = VectorHelper.Symmetry(bookSize, direction, p);
