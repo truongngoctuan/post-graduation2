@@ -68,6 +68,18 @@ namespace PageFlip
         {
             this.InitializeComponent();
             base.Loaded += new RoutedEventHandler(this.MainPage_Loaded);
+
+            ServiceReference1.Service1Client ws = new ServiceReference1.Service1Client();
+
+            ws.Get_AllArticlesCompleted += new EventHandler<ServiceReference1.Get_AllArticlesCompletedEventArgs>(ws_Get_AllArticlesCompleted);
+            ws.Get_AllArticlesAsync();
+
+
+        }
+
+        void ws_Get_AllArticlesCompleted(object sender, ServiceReference1.Get_AllArticlesCompletedEventArgs e)
+        {
+            MessageBox.Show(e.Result.Count.ToString());
         }
 
         private void checkTransition()

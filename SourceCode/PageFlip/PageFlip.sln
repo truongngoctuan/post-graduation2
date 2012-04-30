@@ -2,6 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageFlip", "PageFlip\PageFlip.csproj", "{03C71443-9691-4550-968B-2770AC586C24}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C6BB062E-7EAB-49F6-AE67-9253AE0DDEDB} = {C6BB062E-7EAB-49F6-AE67-9253AE0DDEDB}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageFlip.Web", "PageFlip.Web\PageFlip.Web.csproj", "{C6BB062E-7EAB-49F6-AE67-9253AE0DDEDB}"
 EndProject
