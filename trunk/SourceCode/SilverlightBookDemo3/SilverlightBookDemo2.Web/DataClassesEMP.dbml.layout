@@ -2,22 +2,22 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClassesEMP">
   <DataContextMoniker Name="/DataClassesEMPDataContext" />
   <nestedChildShapes>
-    <classShape Id="0ebad475-e092-4df1-8079-7d2f0807389a" absoluteBounds="4.25, 2.75, 2, 1.7708968098958331">
-      <DataClassMoniker Name="/DataClassesEMPDataContext/EMP_BASIC_INFO" />
-      <nestedChildShapes>
-        <elementListCompartment Id="b762b293-3ed5-4453-b3e2-aabe66390b93" absoluteBounds="4.265, 3.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="cd444975-a12f-4622-a748-dbce84e25e85" absoluteBounds="4, 0.5, 2, 1.9631982421875">
-      <DataClassMoniker Name="/DataClassesEMPDataContext/Category" />
-      <nestedChildShapes>
-        <elementListCompartment Id="73754e75-037b-4517-8a2d-16399a61c14d" absoluteBounds="4.0150000000000006, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="65f8a2bc-6a75-487e-ae0f-334120fcd437" absoluteBounds="1.5, 1.75, 2, 2.3478011067708335">
+    <classShape Id="da1a9035-c7ab-4618-ba4a-6137b94585f4" absoluteBounds="4.625, 1.125, 2, 2.3478011067708335">
       <DataClassMoniker Name="/DataClassesEMPDataContext/Article" />
       <nestedChildShapes>
-        <elementListCompartment Id="51835382-e31f-48d6-9ab4-1faf312e89b8" absoluteBounds="1.5150000000000001, 2.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6a44ce37-a140-40c5-b0de-fb6dfa2ad05c" absoluteBounds="4.64, 1.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbe0a590-9fde-4da2-b42b-4635efef7869" absoluteBounds="2.125, 1.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DataClassesEMPDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41679f4e-2012-4753-a29c-28963becccb9" absoluteBounds="2.14, 2.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="365df281-5e05-4699-a508-e5e4aa5715a9" absoluteBounds="1.125, 0.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataClassesEMPDataContext/EMP_BASIC_INFO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6337c168-bf2b-419b-a17e-ca3d4c96a09d" absoluteBounds="1.1400000000000001, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

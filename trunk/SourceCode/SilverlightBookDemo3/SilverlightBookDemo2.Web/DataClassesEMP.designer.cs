@@ -30,16 +30,16 @@ namespace SilverlightBookDemo2.Web
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCategory(Category instance);
-    partial void UpdateCategory(Category instance);
-    partial void DeleteCategory(Category instance);
     partial void InsertArticle(Article instance);
     partial void UpdateArticle(Article instance);
     partial void DeleteArticle(Article instance);
+    partial void InsertCategory(Category instance);
+    partial void UpdateCategory(Category instance);
+    partial void DeleteCategory(Category instance);
     #endregion
 		
 		public DataClassesEMPDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["EmployeeDBConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["EmployeeDBConnectionString2"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -68,11 +68,11 @@ namespace SilverlightBookDemo2.Web
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<EMP_BASIC_INFO> EMP_BASIC_INFOs
+		public System.Data.Linq.Table<Article> Articles
 		{
 			get
 			{
-				return this.GetTable<EMP_BASIC_INFO>();
+				return this.GetTable<Article>();
 			}
 		}
 		
@@ -84,292 +84,11 @@ namespace SilverlightBookDemo2.Web
 			}
 		}
 		
-		public System.Data.Linq.Table<Article> Articles
+		public System.Data.Linq.Table<EMP_BASIC_INFO> EMP_BASIC_INFOs
 		{
 			get
 			{
-				return this.GetTable<Article>();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMP_BASIC_INFO")]
-	public partial class EMP_BASIC_INFO
-	{
-		
-		private long _EMP_ID;
-		
-		private string _EMP_FIRST_NAME;
-		
-		private string _EMP_LAST_NAME;
-		
-		private string _EMP_EMAIL_ID;
-		
-		private string _EMP_CONTACT;
-		
-		public EMP_BASIC_INFO()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_ID", DbType="BigInt NOT NULL")]
-		public long EMP_ID
-		{
-			get
-			{
-				return this._EMP_ID;
-			}
-			set
-			{
-				if ((this._EMP_ID != value))
-				{
-					this._EMP_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_FIRST_NAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string EMP_FIRST_NAME
-		{
-			get
-			{
-				return this._EMP_FIRST_NAME;
-			}
-			set
-			{
-				if ((this._EMP_FIRST_NAME != value))
-				{
-					this._EMP_FIRST_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_LAST_NAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string EMP_LAST_NAME
-		{
-			get
-			{
-				return this._EMP_LAST_NAME;
-			}
-			set
-			{
-				if ((this._EMP_LAST_NAME != value))
-				{
-					this._EMP_LAST_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_EMAIL_ID", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string EMP_EMAIL_ID
-		{
-			get
-			{
-				return this._EMP_EMAIL_ID;
-			}
-			set
-			{
-				if ((this._EMP_EMAIL_ID != value))
-				{
-					this._EMP_EMAIL_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_CONTACT", DbType="NVarChar(50)")]
-		public string EMP_CONTACT
-		{
-			get
-			{
-				return this._EMP_CONTACT;
-			}
-			set
-			{
-				if ((this._EMP_CONTACT != value))
-				{
-					this._EMP_CONTACT = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Categories")]
-	public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CatID;
-		
-		private string _Title;
-		
-		private string _Description;
-		
-		private string _Image;
-		
-		private int _CreatedByUser;
-		
-		private System.DateTime _CreatedDate;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCatIDChanging(int value);
-    partial void OnCatIDChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnImageChanging(string value);
-    partial void OnImageChanged();
-    partial void OnCreatedByUserChanging(int value);
-    partial void OnCreatedByUserChanged();
-    partial void OnCreatedDateChanging(System.DateTime value);
-    partial void OnCreatedDateChanged();
-    #endregion
-		
-		public Category()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CatID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int CatID
-		{
-			get
-			{
-				return this._CatID;
-			}
-			set
-			{
-				if ((this._CatID != value))
-				{
-					this.OnCatIDChanging(value);
-					this.SendPropertyChanging();
-					this._CatID = value;
-					this.SendPropertyChanged("CatID");
-					this.OnCatIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(125) NOT NULL", CanBeNull=false)]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedByUser", DbType="Int NOT NULL")]
-		public int CreatedByUser
-		{
-			get
-			{
-				return this._CreatedByUser;
-			}
-			set
-			{
-				if ((this._CreatedByUser != value))
-				{
-					this.OnCreatedByUserChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedByUser = value;
-					this.SendPropertyChanged("CreatedByUser");
-					this.OnCreatedByUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime NOT NULL")]
-		public System.DateTime CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this.OnCreatedDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedDate = value;
-					this.SendPropertyChanged("CreatedDate");
-					this.OnCreatedDateChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<EMP_BASIC_INFO>();
 			}
 		}
 	}
@@ -600,6 +319,287 @@ namespace SilverlightBookDemo2.Web
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Categories")]
+	public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CatID;
+		
+		private string _Title;
+		
+		private string _Description;
+		
+		private string _Image;
+		
+		private int _CreatedByUser;
+		
+		private System.DateTime _CreatedDate;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCatIDChanging(int value);
+    partial void OnCatIDChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
+    partial void OnCreatedByUserChanging(int value);
+    partial void OnCreatedByUserChanged();
+    partial void OnCreatedDateChanging(System.DateTime value);
+    partial void OnCreatedDateChanged();
+    #endregion
+		
+		public Category()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CatID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int CatID
+		{
+			get
+			{
+				return this._CatID;
+			}
+			set
+			{
+				if ((this._CatID != value))
+				{
+					this.OnCatIDChanging(value);
+					this.SendPropertyChanging();
+					this._CatID = value;
+					this.SendPropertyChanged("CatID");
+					this.OnCatIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(125) NOT NULL", CanBeNull=false)]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedByUser", DbType="Int NOT NULL")]
+		public int CreatedByUser
+		{
+			get
+			{
+				return this._CreatedByUser;
+			}
+			set
+			{
+				if ((this._CreatedByUser != value))
+				{
+					this.OnCreatedByUserChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedByUser = value;
+					this.SendPropertyChanged("CreatedByUser");
+					this.OnCreatedByUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMP_BASIC_INFO")]
+	public partial class EMP_BASIC_INFO
+	{
+		
+		private long _EMP_ID;
+		
+		private string _EMP_FIRST_NAME;
+		
+		private string _EMP_LAST_NAME;
+		
+		private string _EMP_EMAIL_ID;
+		
+		private string _EMP_CONTACT;
+		
+		public EMP_BASIC_INFO()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_ID", DbType="BigInt NOT NULL")]
+		public long EMP_ID
+		{
+			get
+			{
+				return this._EMP_ID;
+			}
+			set
+			{
+				if ((this._EMP_ID != value))
+				{
+					this._EMP_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_FIRST_NAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string EMP_FIRST_NAME
+		{
+			get
+			{
+				return this._EMP_FIRST_NAME;
+			}
+			set
+			{
+				if ((this._EMP_FIRST_NAME != value))
+				{
+					this._EMP_FIRST_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_LAST_NAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string EMP_LAST_NAME
+		{
+			get
+			{
+				return this._EMP_LAST_NAME;
+			}
+			set
+			{
+				if ((this._EMP_LAST_NAME != value))
+				{
+					this._EMP_LAST_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_EMAIL_ID", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string EMP_EMAIL_ID
+		{
+			get
+			{
+				return this._EMP_EMAIL_ID;
+			}
+			set
+			{
+				if ((this._EMP_EMAIL_ID != value))
+				{
+					this._EMP_EMAIL_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMP_CONTACT", DbType="NVarChar(50)")]
+		public string EMP_CONTACT
+		{
+			get
+			{
+				return this._EMP_CONTACT;
+			}
+			set
+			{
+				if ((this._EMP_CONTACT != value))
+				{
+					this._EMP_CONTACT = value;
+				}
 			}
 		}
 	}
