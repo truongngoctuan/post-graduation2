@@ -1,0 +1,12 @@
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\Bin\Debug\CustomPixelShader.dll
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\Bin\Debug\CustomPixelShader.pdb
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\Bin\Debug\AppManifest.xaml
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\Bin\Debug\CustomPixelShader.xap
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\Bin\Debug\CustomPixelShaderTestPage.html
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\obj\Debug\App.g.i.cs
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\obj\Debug\MainPage.g.i.cs
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\obj\Debug\CustomPixelShader.g.resources
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\obj\Debug\CustomPixelShader.dll
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\obj\Debug\CustomPixelShader.pdb
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader\obj\Debug\XapCacheFile.xml

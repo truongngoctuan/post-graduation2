@@ -1,0 +1,5 @@
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader.Web\bin\CustomPixelShader.Web.dll
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader.Web\bin\CustomPixelShader.Web.pdb
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader.Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader.Web\obj\Debug\CustomPixelShader.Web.dll
+C:\Users\TNT\Desktop\CustomPixelShader\CustomPixelShader.Web\obj\Debug\CustomPixelShader.Web.pdb
