@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ShaderConstants FileFormatVersion="1.0" Version="2.0" Constants="5" Creator="Microsoft (R) HLSL Shader Compiler 9.29.952.3111">
+  <Constant Index="0" Descriptions="1">
+    <Description>
+      <Name>dark</Name>
+      <RegisterSet>Float4</RegisterSet>
+      <RegisterIndex>1</RegisterIndex>
+      <RegisterCount>1</RegisterCount>
+      <Rows>1</Rows>
+      <Columns>1</Columns>
+      <Elements>1</Elements>
+      <StructMembers>0</StructMembers>
+      <Bytes>4</Bytes>
+      <Class>Scalar</Class>
+      <Type>Float</Type>
+    </Description>
+  </Constant>
+  <Constant Index="1" Descriptions="1">
+    <Description>
+      <Name>darker</Name>
+      <RegisterSet>Float4</RegisterSet>
+      <RegisterIndex>2</RegisterIndex>
+      <RegisterCount>1</RegisterCount>
+      <Rows>1</Rows>
+      <Columns>1</Columns>
+      <Elements>1</Elements>
+      <StructMembers>0</StructMembers>
+      <Bytes>4</Bytes>
+      <Class>Scalar</Class>
+      <Type>Float</Type>
+    </Description>
+  </Constant>
+  <Constant Index="2" Descriptions="1">
+    <Description>
+      <Name>darkest</Name>
+      <RegisterSet>Float4</RegisterSet>
+      <RegisterIndex>3</RegisterIndex>
+      <RegisterCount>1</RegisterCount>
+      <Rows>1</Rows>
+      <Columns>1</Columns>
+      <Elements>1</Elements>
+      <StructMembers>0</StructMembers>
+      <Bytes>4</Bytes>
+      <Class>Scalar</Class>
+      <Type>Float</Type>
+    </Description>
+  </Constant>
+  <Constant Index="3" Descriptions="1">
+    <Description>
+      <Name>fcenter</Name>
+      <RegisterSet>Float4</RegisterSet>
+      <RegisterIndex>0</RegisterIndex>
+      <RegisterCount>1</RegisterCount>
+      <Rows>1</Rows>
+      <Columns>1</Columns>
+      <Elements>1</Elements>
+      <StructMembers>0</StructMembers>
+      <Bytes>4</Bytes>
+      <Class>Scalar</Class>
+      <Type>Float</Type>
+    </Description>
+  </Constant>
+  <Constant Index="4" Descriptions="1">
+    <Description>
+      <Name>input</Name>
+      <RegisterSet>Sampler</RegisterSet>
+      <RegisterIndex>0</RegisterIndex>
+      <RegisterCount>1</RegisterCount>
+      <Rows>1</Rows>
+      <Columns>1</Columns>
+      <Elements>1</Elements>
+      <StructMembers>0</StructMembers>
+      <Bytes>4</Bytes>
+      <Class>Object</Class>
+      <Type>Sampler2D</Type>
+    </Description>
+  </Constant>
+</ShaderConstants>
