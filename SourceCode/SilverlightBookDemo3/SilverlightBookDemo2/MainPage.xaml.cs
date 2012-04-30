@@ -38,9 +38,6 @@ namespace SilverlightBookDemo2
             //bt.Click += new RoutedEventHandler(bt_Click);
             //slbook1.Items.Add(bt);
 
-
-           
-
             ServiceReference1.ServiceDNN3Client ws = new ServiceReference1.ServiceDNN3Client();
           
             ws.Get_AllArticlesCompleted += new EventHandler<ServiceReference1.Get_AllArticlesCompletedEventArgs>(ws_Get_AllArticlesCompleted);

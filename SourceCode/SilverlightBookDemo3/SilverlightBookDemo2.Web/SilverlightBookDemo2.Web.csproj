@@ -55,6 +55,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\EmployeeDB.mdf" />
+    <Content Include="App_Data\EmployeeDB_log.ldf">
+      <DependentUpon>EmployeeDB.mdf</DependentUpon>
+    </Content>
     <Content Include="ClientBin\SilverlightBookDemo2.xap" />
     <Content Include="Data.xml">
       <SubType>Designer</SubType>
@@ -91,7 +95,9 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <None Include="DataClassesEMP.dbml.layout">
+      <DependentUpon>DataClassesEMP.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="DataClassesEMP.dbml">
@@ -108,11 +114,6 @@
   <ItemGroup>
     <None Include="DNN.dbml.layout">
       <DependentUpon>DNN.dbml</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="DataClassesEMP.dbml.layout">
-      <DependentUpon>DataClassesEMP.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
