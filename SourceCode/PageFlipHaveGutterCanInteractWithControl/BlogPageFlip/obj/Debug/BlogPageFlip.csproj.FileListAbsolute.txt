@@ -1,0 +1,26 @@
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\Bin\Debug\BlogPageFlip.dll
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\Bin\Debug\BlogPageFlip.pdb
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\obj\Debug\ResolveAssemblyReference.cache
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\obj\Debug\App.g.cs
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\obj\Debug\MainPage.g.cs
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\obj\Debug\Sheet.g.cs
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\obj\Debug\BlogPageFlip.g.resources
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\obj\Debug\BlogPageFlip.dll
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\obj\Debug\BlogPageFlip.pdb
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\Bin\Debug\AppManifest.xaml
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\Bin\Debug\BlogPageFlip.xap
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\Bin\Debug\TestPage.html
+c:\users\pransha\documents\visual studio 2010\Projects\BlogPageFlip\BlogPageFlip\obj\Debug\XapCacheFile.xml
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\Bin\Debug\BlogPageFlip.dll
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\Bin\Debug\BlogPageFlip.pdb
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\Bin\Debug\AppManifest.xaml
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\Bin\Debug\BlogPageFlip.xap
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\Bin\Debug\TestPage.html
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\obj\Debug\App.g.cs
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\obj\Debug\MainPage.g.cs
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\obj\Debug\Sheet.g.cs
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\obj\Debug\BlogPageFlip.g.resources
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\obj\Debug\BlogPageFlip.dll
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\obj\Debug\BlogPageFlip.pdb
+C:\Users\Pransha\Desktop\BlogPageFlip\BlogPageFlip\obj\Debug\XapCacheFile.xml
