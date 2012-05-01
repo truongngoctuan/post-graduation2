@@ -4,11 +4,11 @@
              xmlns:local="clr-namespace:PageFlip" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
-    <Canvas x:Name="outerWrapper" Width="655" Height="554">
-        <Canvas.Background>
-            <ImageBrush ImageSource="images/pageFlipBkg.png"/>
-        </Canvas.Background>
-        <Canvas x:Name="layoutRoot" Width="600" Height="425" Canvas.Left="28" Canvas.Top="96" Background="White" RenderTransformOrigin=".5,.5">
+        <Canvas x:Name="layoutRoot" Width="600" Height="425" Background="White" RenderTransformOrigin=".5,.5">
+            <!--use this effect make render rate reduce dramatically-->
+            <!--<Canvas.Effect>
+                <DropShadowEffect></DropShadowEffect>
+            </Canvas.Effect>-->
             <Canvas.RenderTransform>
                 <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
             </Canvas.RenderTransform>
@@ -76,5 +76,4 @@
             <!--add more corner here-->
             <Rectangle x:Name="PageCorner" Canvas.Left="250" Canvas.Top="162" Width="100" Height="100" Fill="#00FF0000" Cursor="Hand"/>
         </Canvas>
-    </Canvas>
 </UserControl>
