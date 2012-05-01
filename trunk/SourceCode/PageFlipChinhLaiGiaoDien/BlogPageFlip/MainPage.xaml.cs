@@ -107,7 +107,7 @@ namespace PageFlip
                 this.doubleClickDuration = DateTime.Now.AddSeconds(2.0);
                 //canh theo vi tri chinh giua cuon sach
                 //this.mouse = e.GetPosition(this.rutieow);
-                this.mouse = e.GetPosition(this.traca);
+                this.mouse = e.GetPosition(this.layoutRoot);
                 this.mouse.X -= this.pageWidth;
                 this.mouse.Y -= this.pageHalfHeight;
 
@@ -143,7 +143,7 @@ namespace PageFlip
             {
                 //canh theo vi tri chinh giua cuon sach
                 //this.mouseMovePosition = e.GetPosition(this.rutieow);
-                this.mouseMovePosition = e.GetPosition(this.traca);
+                this.mouseMovePosition = e.GetPosition(this.layoutRoot);
                 this.mouseMovePosition.X -= this.pageWidth;
                 this.mouseMovePosition.Y -= this.pageHalfHeight;
 
@@ -156,7 +156,7 @@ namespace PageFlip
                 {
                     //canh theo vi tri chinh giua cuon sach
                     //this.mouse = e.GetPosition(this.rutieow);
-                    this.mouse = e.GetPosition(this.traca);
+                    this.mouse = e.GetPosition(this.layoutRoot);
                     this.mouse.X -= this.pageWidth;
                     this.mouse.Y -= this.pageHalfHeight;
                 }
