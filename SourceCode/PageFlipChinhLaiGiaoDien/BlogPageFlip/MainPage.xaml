@@ -4,12 +4,15 @@
              xmlns:local="clr-namespace:PageFlip" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
-        <Canvas x:Name="layoutRoot" Width="600" Height="425" Background="White" RenderTransformOrigin=".5,.5">
+        <Canvas x:Name="layoutRoot" Width="600" Height="425" Background="Orange" RenderTransformOrigin=".5,.5">
             <!--use this effect make render rate reduce dramatically-->
             <!--<Canvas.Effect>
                 <DropShadowEffect></DropShadowEffect>
             </Canvas.Effect>-->
-            <Canvas.RenderTransform>
+        <Canvas.Clip>
+            <RectangleGeometry Rect="0,0,600,425"/>
+        </Canvas.Clip>
+        <Canvas.RenderTransform>
                 <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
             </Canvas.RenderTransform>
             <local:Sheet x:Name="Page1Sheet" Canvas.Left="0" Canvas.Top="425"/>
@@ -30,10 +33,8 @@
                 </Canvas.Clip>
                 <local:Sheet x:Name="Page1TraceSheet" X="0" Y="425"/>
             </Canvas>
-            <Canvas>
-                <Canvas.Clip>
-                    <RectangleGeometry Rect="0,0,600,425"/>
-                </Canvas.Clip>
+
+            <!--2 type of shadow: shadow to front page and shadow to back page-->
                 <Image x:Name="dropShadow" Source="images/shadowDrop.png" RenderTransformOrigin="0.0,0.5" Opacity="0.8"
                         Width="300" Height="425" Canvas.Left="0" Canvas.Top="212">
                     <Image.RenderTransform>
@@ -51,7 +52,7 @@
                         </TransformGroup>
                     </Image.RenderTransform>
                 </Image>
-            </Canvas>
+
             <Canvas x:Name="cavBook" Width="600" Height="425">
                 <Canvas.Clip>
                     <PathGeometry x:Name="clipPath">
