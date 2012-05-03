@@ -224,6 +224,7 @@ namespace PageFlip
 		{
 			if (!this.IsTransitionStarted)
 			{
+                if (!bCanTransitionRight) return;
 				this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
 			}
 		}
@@ -232,6 +233,7 @@ namespace PageFlip
 		{
 			if (!this.IsTransitionStarted)
 			{
+                if (!bCanTransitionRight) return;
 				this.doubleClickDuration = DateTime.Now.AddSeconds(2.0);
 				this.mouse = e.GetPosition(this.rutieow);
 				this.PageCorner.CaptureMouse();
@@ -242,6 +244,7 @@ namespace PageFlip
 		{
 			if (!this.IsTransitionStarted)
 			{
+                if (!bCanTransitionRight) return;
 				this.PageCorner.ReleaseMouseCapture();
 				if ((DateTime.Now < this.doubleClickDuration) && ((this.mouse.X > 0.0) && (this.mouse.Y > 0.0)))
 				{
@@ -264,6 +267,7 @@ namespace PageFlip
 		{
 			if (!this.IsTransitionStarted)
 			{
+                if (!bCanTransitionRight) return;
 				this.mouseMovePosition = e.GetPosition(this.rutieow);
 				if ((this.mouseMovePosition.X > this.pageHalfWidth) && (this.mouseMovePosition.Y > this.pageHalfHeight))
 				{
@@ -370,6 +374,8 @@ namespace PageFlip
 		}
 
         UpdatePageTransition TypeTransition = UpdatePageTransition.Default;
+        bool bCanTransitionRight = true;
+
 		private void updateImages()
 		{
             //decide what page will be loaded next or previous
@@ -389,20 +395,35 @@ namespace PageFlip
                             {
                                 bCanUpdateTransition = false;
                             }
+
+                            if (this.iNextPageContent >= this.PageContents.Count)
+                            {
+                                bCanTransitionRight = false;
+                            }
+                            else
+                            {
+                                bCanTransitionRight = true;
+                            }
                         }
                         break;
                     }
                 default://tuong duong nextpage
                     {
-                        if (this.PageContents.Count != 0)
+                        this.iCurrentPageContent++;
+                        this.iNextPageContent = this.iCurrentPageContent + 1;
+                        if (this.iCurrentPageContent >= this.PageContents.Count
+                            || this.iNextPageContent >= this.PageContents.Count)
                         {
-                            this.iCurrentPageContent++;
-                            this.iNextPageContent = this.iCurrentPageContent + 1;
-                            if (this.iCurrentPageContent >= this.PageContents.Count 
-                                || this.iNextPageContent >= this.PageContents.Count)
-                            {
-                                bCanUpdateTransition = false;
-                            }
+                            bCanUpdateTransition = false;
+                        }
+
+                        if (this.iNextPageContent >= this.PageContents.Count)
+                        {
+                            bCanTransitionRight = false;
+                        }
+                        else
+                        {
+                            bCanTransitionRight = true;
                         }
                         break;
                     }
