@@ -1,0 +1,15 @@
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\Bin\Debug\FishEyeSLTest.dll
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\Bin\Debug\FishEyeSLTest.pdb
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\Bin\Debug\AppManifest.xaml
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\Bin\Debug\FishEyeSLTest.xap
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\Bin\Debug\FishEyeSLTestTestPage.html
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\Bin\Debug\FishEyeSL.dll
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\Bin\Debug\FishEyeSL.pdb
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\obj\Debug\ResolveAssemblyReference.cache
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\obj\Debug\App.g.i.cs
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\obj\Debug\MainPage.g.i.cs
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\obj\Debug\FishEyeSLTest.g.resources
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\obj\Debug\FishEyeSLTest.dll
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\obj\Debug\FishEyeSLTest.pdb
+c:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\obj\Debug\XapCacheFile.xml
+C:\Users\TNT\Desktop\turn page some demo\FishEyeSL co code\FishEyeSLTest\obj\Debug\FishEyeButtonContent.g.i.cs
