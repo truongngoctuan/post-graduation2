@@ -29,8 +29,7 @@ namespace PageFlip
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            App.RemovePage(this);
-            App.GoToPage(this.ParentView);
+            App.GoToPage(this, this.LayoutRoot, this.ParentView);
         }
 
     }

@@ -7,7 +7,7 @@
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="HomePage Page">
-    <Canvas x:Name="LayoutRoot" Background="Orange" Width="500" Height="500">
-        <Button Width="100" Height="25" Content="next page" Click="Button_Click" Canvas.Left="192" Canvas.Top="166"></Button>
-    </Canvas>
+    <Grid x:Name="LayoutRoot" Background="Orange">
+        <Button Width="100" Height="25" Content="next page" Click="Button_Click"></Button>
+    </Grid>
 </navigation:Page>
