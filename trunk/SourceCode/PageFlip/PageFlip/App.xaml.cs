@@ -24,11 +24,9 @@ namespace PageFlip
             InitializeComponent();
         }
 
-        private void Application_Startup(object sender, StartupEventArgs e)
-        {
-            this.RootVisual = new MainPage();
-        }
+       
 
+        #region app_event
         private void Application_Exit(object sender, EventArgs e)
         {
 
@@ -64,5 +62,95 @@ namespace PageFlip
             {
             }
         }
+        #endregion
+
+        #region page transition controler
+        Grid mainUI = new Grid();
+        public static UserControl CurrentPage = null;
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            //this.RootVisual = new MainPage();
+            this.RootVisual = mainUI;
+            App.GoToPage(new HomePage());
+        }
+        
+        public static void GoToPage(UserControl nextPg)
+        {
+            if (nextPg == null)
+                return;
+            App app = (App)Application.Current;
+
+            if (app.mainUI.Children.Contains(nextPg) == false)
+            {
+                app.mainUI.Children.Add(nextPg);
+            }
+
+            if (CurrentPage != null)
+            {
+                _3DPresentation.Utils.TransitionEffectHelper.BeginAnimation(CurrentPage, nextPg);
+            }
+
+            // Show only nextPg
+            foreach (UserControl page in app.mainUI.Children)
+            {
+                if (page == nextPg)
+                {
+                    page.Visibility = Visibility.Visible;
+                    page.IsEnabled = true;
+                }
+                else
+                {
+                    page.Visibility = Visibility.Collapsed;
+                    page.IsEnabled = false;
+                }
+            }
+            CurrentPage = nextPg;
+        }
+
+        public static void RemovePage(UserControl page)
+        {
+            if (page == null)
+                return;
+            App app = (App)Application.Current;
+            if (app.mainUI.Children.Contains(page))
+            {
+                app.mainUI.Children.Remove(page);
+                page = null;
+            }
+        }
+
+        public static void GoToPage(UserControl nextPg, UIElement rootLayout)
+        {
+            if (nextPg == null)
+                return;
+            App app = (App)Application.Current;
+
+            if (app.mainUI.Children.Contains(nextPg) == false)
+            {
+                app.mainUI.Children.Add(nextPg);
+            }
+
+            if (CurrentPage != null)
+            {
+                _3DPresentation.Utils.TransitionEffectHelper.BeginAnimation(CurrentPage, nextPg);
+            }
+
+            // Show only nextPg
+            foreach (UserControl page in app.mainUI.Children)
+            {
+                if (page == nextPg)
+                {
+                    page.Visibility = Visibility.Visible;
+                    page.IsEnabled = true;
+                }
+                else
+                {
+                    page.Visibility = Visibility.Collapsed;
+                    page.IsEnabled = false;
+                }
+            }
+            CurrentPage = nextPg;
+        }
+        #endregion
     }
 }
