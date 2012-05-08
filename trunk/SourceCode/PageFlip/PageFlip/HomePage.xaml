@@ -5,9 +5,11 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                 xmlns:customControlEditor="clr-namespace:_3DPresentation.Views.Editor"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="HomePage Page">
     <Grid x:Name="LayoutRoot" Background="Orange">
         <Button Width="100" Height="25" Content="next page" Click="Button_Click"></Button>
+        <customControlEditor:ComboboxCoverFlow x:Name="cbbModel" VerticalAlignment="Bottom" HorizontalAlignment="Center"></customControlEditor:ComboboxCoverFlow>
     </Grid>
 </navigation:Page>
