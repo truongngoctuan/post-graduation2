@@ -152,6 +152,16 @@
     <Resource Include="PrototypeControl\CoverFlow\Images\wmp.png" />
     <Resource Include="PrototypeControl\CoverFlow\Images\wmp_left.png" />
     <Resource Include="PrototypeControl\CoverFlow\Images\blank_facemodel.jpg" />
+    <Resource Include="Images\editor_view_bg.jpg" />
+    <Resource Include="Images\MenuCategory1.jpg" />
+    <Resource Include="Images\MenuCategory2.jpg" />
+    <Resource Include="Images\MenuCategory3.jpg" />
+    <Resource Include="Images\MenuCategory4.jpg" />
+    <Resource Include="Images\MenuCategory5.jpg" />
+    <Resource Include="Images\MenuCategory6.jpg" />
+    <Resource Include="Images\MenuCategory7.jpg" />
+    <Resource Include="Images\MenuCategory8.jpg" />
+    <Resource Include="Images\MenuCategory0.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
