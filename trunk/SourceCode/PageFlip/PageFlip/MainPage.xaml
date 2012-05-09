@@ -4,12 +4,25 @@
              xmlns:local="clr-namespace:PageFlip" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
-    <StackPanel x:Name="outerWrapper" Orientation="Horizontal">
-        <StackPanel.Background>
+    <Grid x:Name="LayoutRoot" SizeChanged="LayoutRoot_SizeChanged">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.Background>
             <ImageBrush ImageSource="/PageFlip;component/Images/wood-texture.jpg"/>
-        </StackPanel.Background>
+        </Grid.Background>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button x:Name="btBack" Width="100" Height="25" Content="Back" Click="btBack_Click"></Button>
+        </StackPanel>
+        
+    <StackPanel x:Name="outerWrapper" Orientation="Horizontal" Grid.Row="1">
+        
         <Button x:Name="btPreviousPage" Content="To Prevous Page" Width="100" Height="100" Margin="5,5,10,5"></Button>
-        <Canvas x:Name="layoutRoot" Width="600" Height="425" Background="White" RenderTransformOrigin=".5,.5">
+        <Canvas x:Name="bookRoot" Width="600" Height="425" Background="White" RenderTransformOrigin=".5,.5">
             <Canvas.Effect>
                 <DropShadowEffect/>
             </Canvas.Effect>
@@ -88,4 +101,5 @@
         <Button x:Name="btNextPage" Content="To Next Page" Width="100" Height="100" Click="btNextPage_Click" Margin="10,5,5,5"></Button>
     </StackPanel>
     <!--outerWrapper-->
+    </Grid>
 </UserControl>
