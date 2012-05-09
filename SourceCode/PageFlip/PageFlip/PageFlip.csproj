@@ -81,6 +81,8 @@
     <Compile Include="ContentPage.xaml.cs">
       <DependentUpon>ContentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataLoader\MenuItemLvl0.cs" />
+    <Compile Include="DataLoader\MenuLoader.cs" />
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>

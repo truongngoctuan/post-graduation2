@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using _3DPresentation.Views.Editor;
 using System.Windows.Media.Imaging;
+using PageFlip.DataLoader;
 
 namespace PageFlip
 {
@@ -45,17 +46,22 @@ namespace PageFlip
         int iSelectedMenuIndex = 0;
         void LoadDataCoverFlow()
         {
-
-            for (int i = 0; i < 9; i++)
+            List<object> listMenuItem = MenuLoader.LoadMenu(0);
+            for (int i = 0; i < listMenuItem.Count; i++)
             {
+                MenuItemLvl0 item = (MenuItemLvl0)listMenuItem[i];
+                Image img = new Image();
+                BitmapImage bmImg = new BitmapImage(new Uri(item.ImagePath, UriKind.RelativeOrAbsolute));
+                img.Source = bmImg;
+
                 Button bt = new Button();
                 bt.Width = 100;
-                bt.Height = 25;
-                bt.Content = i.ToString();
+                bt.Height = 100;
+                bt.Content = img;
                 listDataCoverFlow.Add(bt);
                 bt.Click += new RoutedEventHandler(bt_Click);
 
-                cbbModel.AddImage(listDataCoverFlow[i], new WriteableBitmap(0, 0).FromResource("Images/MenuCategory" + i.ToString() + ".jpg"));
+                cbbModel.AddImage(listDataCoverFlow[i], new WriteableBitmap(0, 0).FromResource(item.ImagePath));
             }
 
         }
