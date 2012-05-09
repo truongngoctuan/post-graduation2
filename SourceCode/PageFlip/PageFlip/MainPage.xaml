@@ -17,6 +17,9 @@
         </Grid.Background>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <Button x:Name="btBack" Width="100" Height="25" Content="Back" Click="btBack_Click"></Button>
+            <Button x:Name="btChapter0" Width="100" Height="25" Content="Chapter 0" Click="btChapter0_Click"></Button>
+            <Button x:Name="btChapter1" Width="100" Height="25" Content="Chapter 1" Click="btChapter1_Click"></Button>
+            <Button x:Name="btChapter2" Width="100" Height="25" Content="Chapter 2" Click="btChapter2_Click"></Button>
         </StackPanel>
         
     <StackPanel x:Name="outerWrapper" Orientation="Horizontal" Grid.Row="1">

@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
 using PageFlipUltis;
+using PageFlip.DataLoader;
 
 namespace PageFlip
 {
@@ -39,12 +40,12 @@ namespace PageFlip
 		private double distanceToFollow;
 		private double dx;
 		private double dy;
-		private int iCurrentPageContent = 0;
+		//private int iCurrentPageContent = 0;
 		private int transMaxCount = 60;
 		private int transCurCount = 0;
 		private bool IsTransitionStarted = false;
 		private Point maskSize = new Point(0.0, 0.0);
-		private int iNextPageContent;
+		//private int iNextPageContent;
 		private double pageHalfHeight;
 		private double pageHeight;
 		private double pageDiagonal;
@@ -60,7 +61,7 @@ namespace PageFlip
 
 		private Point spineTop;
 		//private List<BitmapImage> PageContents = new List<BitmapImage>();
-		private List<string> PageContents = new List<string>();
+		//private List<string> PageContents = new List<string>();
 		private Point bisector;
 		private double fixedRadius;
 		private Point follow;
@@ -72,6 +73,8 @@ namespace PageFlip
 		private DateTime doubleClickDuration;
 		private double bisectorAngle;
 		private int ImageMaxCount = 5;
+
+        BookLoader BookData = new BookLoader();
 		// Methods
 		public MainPage()
 		{
@@ -184,41 +187,6 @@ namespace PageFlip
 			this.checkTransition();
 		}
 
-		private void ChangePageAfterTransition(object sender, EventArgs e)
-		{
-			try
-			{
-				//this.Page1Sheet.sheetImage.Source = this.PageContents[this.iCurrentPageContent];
-				this.Page1Sheet.sheetImage.Children.Clear();
-				this.Page1Sheet.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.iCurrentPageContent]));
-				//this.dtTransationTimer.Start();
-
-				//-----------------------------------------
-				//this.IsTransitionStarted = false;
-				//this.Page2SheetSection2.sheetImage.Source = this.PageContents[this.iNextPageContent];
-				//this.Page1TraceSheet.sheetImage.Source = this.PageContents[this.iNextPageContent];
-
-				//this.Page2SheetSection2.sheetImage = null;
-				//this.Page1TraceSheet.sheetImage = null;
-
-				//this.Page2SheetSection2.sheetImage = (Image)this.PageContents[this.iNextPageContent];
-				//this.Page1TraceSheet.sheetImage = (Image)this.PageContents[this.iNextPageContent];
-
-				this.Page2SheetSection2.sheetImage.Children.Clear();
-				this.Page1TraceSheet.sheetImage.Children.Clear();
-
-				this.Page2SheetSection2.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.iNextPageContent]));
-				this.Page1TraceSheet.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.iNextPageContent]));
-
-				this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
-				this.follow = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
-				//this.dtTransationTimer.Stop();
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("ChangePageAfterTransition: " + ex.Message);
-			}
-		}
 
 		private void PageCorner_MouseLeave(object sender, MouseEventArgs e)
 		{
@@ -281,43 +249,16 @@ namespace PageFlip
 			}
 		}
 
-		private void loadInitialImages()
-		{
-			for (int i = 0; i < this.ImageMaxCount; i++)
-			{
-				string uriString = "images/page" + i.ToString() + ".jpg";
-
-				//this.PageContents.Add(new BitmapImage(new Uri(uriString, UriKind.RelativeOrAbsolute)));
-				//Image img = new Image();
-				//img.Source = new BitmapImage(new Uri(uriString, UriKind.RelativeOrAbsolute));
-				//this.PageContents.Add(img);
-
-				string xaml = string.Format(@"<Image x:Name='imgTest' xmlns='http://schemas.microsoft.com/client/2007'
-	 xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-
-	 Width='1024' 
-	 Source='images/page{0}.jpg' />", i.ToString());
-				this.PageContents.Add(xaml);
-			}
-
-			
-
-			//this.dtTransationTimer.Interval = TimeSpan.FromMilliseconds(20.0);
-			//this.dtTransationTimer.Tick += new EventHandler(this.ChangePageAfterTransition);
-			//this.dtTransationTimer.Start();
-			//ChangePageAfterTransition(this, new EventArgs());
-		}
-
 		private void MainPage_Loaded(object sender, RoutedEventArgs e)
 		{
 			try
 			{
 				this.setupUI();
-				this.loadInitialImages();
+                //this.iCurrentPageContent = -1;
 
-                this.iCurrentPageContent = -1;
-				this.updateImages();
-				ChangePageAfterTransition(this, new EventArgs());
+                BookData.UpdateAfterChangeChapter(0);
+                ChangePageAfterTransition(this, new EventArgs());
+
 				CompositionTarget.Rendering += new EventHandler(this.CompositionTarget_Rendering);
 			}
 			catch (Exception ex)
@@ -379,52 +320,24 @@ namespace PageFlip
 		private void updateImages()
 		{
             //decide what page will be loaded next or previous
-            int ilastCurrentPageContent = iCurrentPageContent;
-            int ilastNextPageContent = iNextPageContent;
+            //int ilastCurrentPageContent = iCurrentPageContent;
+            //int ilastNextPageContent = iNextPageContent;
             bool bCanUpdateTransition = true;
             switch (TypeTransition)
             {
+                case UpdatePageTransition.NextChapter:
+                    {
+                        BookData.UpdateAfterChangeChapter(CurrentChapterIndex);
+                        bCanUpdateTransition = true;
+                        break;
+                    }
                 case UpdatePageTransition.NextPage:
                     {
-                        if (this.PageContents.Count != 0)
-                        {
-                            this.iCurrentPageContent++;
-                            this.iNextPageContent = this.iCurrentPageContent + 1;
-                            if (this.iCurrentPageContent >= this.PageContents.Count
-                                || this.iNextPageContent >= this.PageContents.Count)
-                            {
-                                bCanUpdateTransition = false;
-                            }
-
-                            if (this.iNextPageContent >= this.PageContents.Count)
-                            {
-                                bCanTransitionRight = false;
-                            }
-                            else
-                            {
-                                bCanTransitionRight = true;
-                            }
-                        }
                         break;
                     }
                 default://tuong duong nextpage
                     {
-                        this.iCurrentPageContent++;
-                        this.iNextPageContent = this.iCurrentPageContent + 1;
-                        if (this.iCurrentPageContent >= this.PageContents.Count
-                            || this.iNextPageContent >= this.PageContents.Count)
-                        {
-                            bCanUpdateTransition = false;
-                        }
-
-                        if (this.iNextPageContent >= this.PageContents.Count)
-                        {
-                            bCanTransitionRight = false;
-                        }
-                        else
-                        {
-                            bCanTransitionRight = true;
-                        }
+                        //bCanUpdateTransition = false;
                         break;
                     }
             }
@@ -433,12 +346,6 @@ namespace PageFlip
             {
                 //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
                 Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
-                //ChangePageAfterTransition(this, new EventArgs());
-            }
-            else
-            {
-                iCurrentPageContent = ilastCurrentPageContent;
-                iNextPageContent = ilastNextPageContent;
             }
 		}
 
@@ -480,6 +387,72 @@ namespace PageFlip
             //MessageBox.Show(LayoutRoot.ActualWidth.ToString() + " " + LayoutRoot.ActualHeight.ToString());
         }
 
+        private void ChangePageAfterTransition(object sender, EventArgs e)
+        {
+            try
+            {
+                //this.Page1Sheet.sheetImage.Children.Clear();
+                //this.Page1Sheet.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.iCurrentPageContent]));
+
+                //this.Page2SheetSection2.sheetImage.Children.Clear();
+                //this.Page1TraceSheet.sheetImage.Children.Clear();
+
+                //this.Page2SheetSection2.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.iNextPageContent]));
+                //this.Page1TraceSheet.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.iNextPageContent]));
+
+                this.Page1Sheet.sheetImage.Children.Clear();
+                this.Page1Sheet.sheetImage.Children.Add(BookData.CurrentPage);
+
+                this.Page2SheetSection2.sheetImage.Children.Clear();
+                this.Page1TraceSheet.sheetImage.Children.Clear();
+
+                this.Page2SheetSection2.sheetImage.Children.Add(BookData.NextPageLeftPart);
+                this.Page1TraceSheet.sheetImage.Children.Add(BookData.NextPageRightPart);
+
+                TypeTransition = UpdatePageTransition.Default;
+
+                this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
+                this.follow = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ChangePageAfterTransition: " + ex.Message);
+            }
+        }
+
+        #region ChangeChapter
+        int CurrentChapterIndex;
+        //int CurrentArticleIndex;
+        //int CurrentArticlePageIndex;
+
+        private void NextChapter(int iIndex)
+        {
+            BookData.UpdateBeforeChangeChapter(iIndex);
+            ChangePageAfterTransition(this, new EventArgs());
+
+            TypeTransition = UpdatePageTransition.NextChapter;
+            CurrentChapterIndex = iIndex;
+
+            this.startTransition();
+            this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
+        }
+
+        private void btChapter0_Click(object sender, RoutedEventArgs e)
+        {
+            NextChapter(0);
+        }
+
+        private void btChapter1_Click(object sender, RoutedEventArgs e)
+        {
+            NextChapter(1);
+        }
+
+        private void btChapter2_Click(object sender, RoutedEventArgs e)
+        {
+            NextChapter(2);
+        }
+
+        #endregion
     }
 
 }
