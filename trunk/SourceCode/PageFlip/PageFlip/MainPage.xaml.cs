@@ -216,13 +216,25 @@ namespace PageFlip
 				this.PageCorner.ReleaseMouseCapture();
 				if ((DateTime.Now < this.doubleClickDuration) && ((this.mouse.X > 0.0) && (this.mouse.Y > 0.0)))
 				{
-					this.startTransition();
-					this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
+                    //this.startTransition();
+                    //this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
+
+                    this.TypeTransition = UpdatePageTransition.NextPage;
+                    CurrentArticlePageIndex++;
+
+                    this.startTransition();
+                    this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
 				}
 				else if (this.mouse.X < 0.0)
 				{
-					this.startTransition();
-					this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
+                    //this.startTransition();
+					//this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
+
+                    this.TypeTransition = UpdatePageTransition.NextPage;
+                    CurrentArticlePageIndex++;
+
+                    this.startTransition();
+                    this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
 				}
 				else
 				{
@@ -333,6 +345,7 @@ namespace PageFlip
                     }
                 case UpdatePageTransition.NextPage:
                     {
+                        BookData.UpdateAfterNextArticlePage(CurrentChapterIndex, CurrentArticleIndex, CurrentArticlePageIndex);
                         break;
                     }
                 default://tuong duong nextpage
@@ -367,8 +380,10 @@ namespace PageFlip
 
 		private void btNextPage_Click(object sender, RoutedEventArgs e)
 		{
-			this.startTransition();
             this.TypeTransition = UpdatePageTransition.NextPage;
+            CurrentArticlePageIndex++;
+
+			this.startTransition();
 			this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
 		}
 
@@ -401,11 +416,10 @@ namespace PageFlip
                 //this.Page1TraceSheet.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.iNextPageContent]));
 
                 this.Page1Sheet.sheetImage.Children.Clear();
-                this.Page1Sheet.sheetImage.Children.Add(BookData.CurrentPage);
-
                 this.Page2SheetSection2.sheetImage.Children.Clear();
                 this.Page1TraceSheet.sheetImage.Children.Clear();
 
+                this.Page1Sheet.sheetImage.Children.Add(BookData.CurrentPage);
                 this.Page2SheetSection2.sheetImage.Children.Add(BookData.NextPageLeftPart);
                 this.Page1TraceSheet.sheetImage.Children.Add(BookData.NextPageRightPart);
 
@@ -420,11 +434,11 @@ namespace PageFlip
             }
         }
 
-        #region ChangeChapter
-        int CurrentChapterIndex;
-        //int CurrentArticleIndex;
-        //int CurrentArticlePageIndex;
+        int CurrentChapterIndex = 0;
+        int CurrentArticleIndex = 0;
+        int CurrentArticlePageIndex = -1;
 
+        #region ChangeChapter
         private void NextChapter(int iIndex)
         {
             BookData.UpdateBeforeChangeChapter(iIndex);
@@ -432,6 +446,8 @@ namespace PageFlip
 
             TypeTransition = UpdatePageTransition.NextChapter;
             CurrentChapterIndex = iIndex;
+            CurrentArticleIndex = 0;
+            CurrentArticlePageIndex = -1;
 
             this.startTransition();
             this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);

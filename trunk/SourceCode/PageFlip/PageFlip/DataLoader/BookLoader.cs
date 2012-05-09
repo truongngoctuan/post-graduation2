@@ -90,6 +90,7 @@ namespace PageFlip.DataLoader
                 }
         }
 
+        //change next next chapter
         public void UpdateBeforeChangeChapter(int iNextChapterIndex)
         {
             NextPageLeftPart = listChapter[iNextChapterIndex].CreateChapterFromArticleName();
@@ -103,11 +104,14 @@ namespace PageFlip.DataLoader
             NextPageLeftPart = listChapter[iChapterIndex].Articles[0].CreateArticlePage(0);
             NextPageRightPart = listChapter[iChapterIndex].Articles[0].CreateArticlePage(0);
         }
-        
-//        public void toArticle(int iChapterIndex, int iArticleIndex);//animation RToL//return article first page
 
-////change 1 article page
-//        public void nextArticlePage(int iArticleIndex, int iCurrentPageIndex);// can return a article page or next chapter page
-//        public void previousArticlePage(int iArticleIndex, int iCurrentPageIndex);// can return a article page or current chapter page
+        //next page
+        public void UpdateAfterNextArticlePage(int iCurrentChapterIndex, int CurrentArticleIndex, int CurrentArticlePageIndex)
+        {
+            //load 1 current page ad 2 more next page
+            CurrentPage = NextPageLeftPart;
+            NextPageLeftPart = listChapter[iCurrentChapterIndex].Articles[CurrentArticleIndex].CreateArticlePage(CurrentArticlePageIndex + 1);
+            NextPageRightPart = listChapter[iCurrentChapterIndex].Articles[CurrentArticleIndex].CreateArticlePage(CurrentArticlePageIndex + 1);
+        }
     }
 }
