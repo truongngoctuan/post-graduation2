@@ -8,8 +8,9 @@
                  xmlns:customControlEditor="clr-namespace:_3DPresentation.Views.Editor"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="HomePage Page">
-    <Grid x:Name="LayoutRoot" Background="Orange">
-        <Button Width="100" Height="25" Content="next page" Click="Button_Click"></Button>
+    <Grid x:Name="LayoutRoot" SizeChanged="LayoutRoot_SizeChanged">
+        <Image Source="Images/editor_view_bg.jpg" Stretch="Fill"></Image>
+        <Grid x:Name="ctnMenuDescriptor"></Grid>
         <customControlEditor:ComboboxCoverFlow x:Name="cbbModel" VerticalAlignment="Bottom" HorizontalAlignment="Center"></customControlEditor:ComboboxCoverFlow>
     </Grid>
 </navigation:Page>

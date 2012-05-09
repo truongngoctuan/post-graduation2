@@ -22,12 +22,12 @@ namespace PageFlip
             InitializeComponent();
 
             this.cbbModel.ImageSelected += new ImageSelectedEventHandler(cbbModel_ImageSelected);
-            
-            for (int i = 0; i < 5; i++)
-            {
-                cbbModel.AddImage("img" + i.ToString(), new WriteableBitmap(0, 0).FromResource("PrototypeControl/CoverFlow/Images/" + "blank_facemodel.jpg"));
-            }
-            
+
+            LoadDataCoverFlow();
+
+            iSelectedMenuIndex = 0;
+            ctnMenuDescriptor.Children.Clear();
+            ctnMenuDescriptor.Children.Add(listDataCoverFlow[iSelectedMenuIndex]);
         }
 
         // Executes when the user navigates to this page.
@@ -35,17 +35,53 @@ namespace PageFlip
         {
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            App.GoToPage(this, this.LayoutRoot, new ContentPage() { ParentView = this });
+            cbbModel.SetActualWidthAndHeight(LayoutRoot.ActualWidth, LayoutRoot.ActualHeight);
         }
 
+        #region coverflow data
+        List<UIElement> listDataCoverFlow = new List<UIElement>();
+        int iSelectedMenuIndex = 0;
+        void LoadDataCoverFlow()
+        {
 
+            for (int i = 0; i < 9; i++)
+            {
+                Button bt = new Button();
+                bt.Width = 100;
+                bt.Height = 25;
+                bt.Content = i.ToString();
+                listDataCoverFlow.Add(bt);
+                bt.Click += new RoutedEventHandler(bt_Click);
+
+                cbbModel.AddImage(listDataCoverFlow[i], new WriteableBitmap(0, 0).FromResource("Images/MenuCategory" + i.ToString() + ".jpg"));
+            }
+
+        }
 
         void cbbModel_ImageSelected(object sender, ImageSelectedEventArgs e)
         {
-            //SetTarget((BaseModel)e.SelectedItem);
-            MessageBox.Show(e.SelectedIndex.ToString());
+            iSelectedMenuIndex = e.SelectedIndex;
+            ctnMenuDescriptor.Children.Clear();
+            ctnMenuDescriptor.Children.Add(listDataCoverFlow[iSelectedMenuIndex]);
         }
+
+        void bt_Click(object sender, RoutedEventArgs e)
+        {
+            GoToContentPage(iSelectedMenuIndex);
+        }
+
+        
+
+        void GoToContentPage(int idx)
+        {
+            App.GoToPage(this, this.LayoutRoot, 
+                new ContentPage() { 
+                    ParentView = this,
+                    ContentPageIndex = idx
+                });
+        }
+        #endregion
     }
 }
