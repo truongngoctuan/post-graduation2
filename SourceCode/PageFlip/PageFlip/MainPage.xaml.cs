@@ -78,10 +78,10 @@ namespace PageFlip
 			this.InitializeComponent();
 			base.Loaded += new RoutedEventHandler(this.MainPage_Loaded);
 
-			ServiceReference1.Service1Client ws = new ServiceReference1.Service1Client();
+            //ServiceReference1.Service1Client ws = new ServiceReference1.Service1Client();
 
-			ws.Get_AllArticlesCompleted += new EventHandler<ServiceReference1.Get_AllArticlesCompletedEventArgs>(ws_Get_AllArticlesCompleted);
-			ws.Get_AllArticlesAsync();
+            //ws.Get_AllArticlesCompleted += new EventHandler<ServiceReference1.Get_AllArticlesCompletedEventArgs>(ws_Get_AllArticlesCompleted);
+            //ws.Get_AllArticlesAsync();
 
 
 		}
@@ -464,6 +464,22 @@ namespace PageFlip
             this.TypeTransition = UpdatePageTransition.NextPage;
 			this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
 		}
-	}
+
+        public UserControl ParentView { get; set; }
+        public int ContentPageIndex { get; set; }
+
+        private void btBack_Click(object sender, RoutedEventArgs e)
+        {
+            CompositionTarget.Rendering -= this.CompositionTarget_Rendering;
+            App.GoToPage(this, this.LayoutRoot, this.ParentView);
+        }
+
+        private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            //StillWait = false;
+            //MessageBox.Show(LayoutRoot.ActualWidth.ToString() + " " + LayoutRoot.ActualHeight.ToString());
+        }
+
+    }
 
 }

@@ -83,7 +83,7 @@ namespace PageFlip
         void GoToContentPage(int idx)
         {
             App.GoToPage(this, this.LayoutRoot, 
-                new ContentPage() { 
+                new MainPage() { 
                     ParentView = this,
                     ContentPageIndex = idx
                 });
