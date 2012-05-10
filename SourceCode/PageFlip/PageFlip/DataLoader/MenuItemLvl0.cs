@@ -14,6 +14,7 @@ namespace PageFlip.DataLoader
     public class MenuItemLvl0
     {
         public string ImagePath { get; set; }
-        public string Description { get; set; }
+        public string ImagePathDescription { get; set; }
+        //public string Description { get; set; }
     }
 }

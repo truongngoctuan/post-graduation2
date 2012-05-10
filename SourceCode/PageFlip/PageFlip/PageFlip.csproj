@@ -114,6 +114,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,15 +160,16 @@
     <Resource Include="PrototypeControl\CoverFlow\Images\wmp_left.png" />
     <Resource Include="PrototypeControl\CoverFlow\Images\blank_facemodel.jpg" />
     <Resource Include="Images\editor_view_bg.jpg" />
-    <Resource Include="Images\MenuCategory1.jpg" />
-    <Resource Include="Images\MenuCategory2.jpg" />
-    <Resource Include="Images\MenuCategory3.jpg" />
-    <Resource Include="Images\MenuCategory4.jpg" />
-    <Resource Include="Images\MenuCategory5.jpg" />
-    <Resource Include="Images\MenuCategory6.jpg" />
-    <Resource Include="Images\MenuCategory7.jpg" />
-    <Resource Include="Images\MenuCategory8.jpg" />
-    <Resource Include="Images\MenuCategory0.jpg" />
+    <Resource Include="Images\MenuLvl0.png" />
+    <Resource Include="Images\MenuLvl1.png" />
+    <Resource Include="Images\MenuLvl2.png" />
+    <Resource Include="Images\MenuLvl3.png" />
+    <Resource Include="Images\MenuLvl4.png" />
+    <Resource Include="Images\MenuThumLvl0.jpg" />
+    <Resource Include="Images\MenuThumLvl1.jpg" />
+    <Resource Include="Images\MenuThumLvl2.jpg" />
+    <Resource Include="Images\MenuThumLvl3.jpg" />
+    <Resource Include="Images\MenuThumLvl4.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

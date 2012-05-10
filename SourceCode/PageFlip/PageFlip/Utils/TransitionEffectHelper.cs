@@ -46,8 +46,8 @@ namespace _3DPresentation.Utils
 
             if(transitionEffects == null)
                 return null;
-            return transitionEffects[1];
-            //return transitionEffects[Convert.ToInt32(r.NextDouble() * transitionEffects.Length) % transitionEffects.Length];
+            //return transitionEffects[1];
+            return transitionEffects[Convert.ToInt32(r.NextDouble() * transitionEffects.Length) % transitionEffects.Length];
         }
 
         public static void BeginAnimation(UserControl oldControl, UserControl newControl)
@@ -81,7 +81,7 @@ namespace _3DPresentation.Utils
             System.Windows.Media.Animation.DoubleAnimation da = new System.Windows.Media.Animation.DoubleAnimation();
             da.From = 0;
             da.To = 1;
-            da.Duration = TimeSpan.FromSeconds(2);
+            da.Duration = TimeSpan.FromSeconds(1.5);
             da.AutoReverse = false;
             //da.RepeatBehavior = System.Windows.Media.Animation.RepeatBehavior.Forever;
 

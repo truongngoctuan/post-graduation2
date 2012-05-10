@@ -393,7 +393,7 @@ namespace PageFlip
         private void btBack_Click(object sender, RoutedEventArgs e)
         {
             CompositionTarget.Rendering -= this.CompositionTarget_Rendering;
-            App.GoToPage(this, this.LayoutRoot, this.ParentView);
+            App.GoToPage(this, this.root, this.ParentView);
         }
 
         private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)
