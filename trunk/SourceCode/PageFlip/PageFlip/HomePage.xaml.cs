@@ -51,13 +51,15 @@ namespace PageFlip
             {
                 MenuItemLvl0 item = (MenuItemLvl0)listMenuItem[i];
                 Image img = new Image();
-                BitmapImage bmImg = new BitmapImage(new Uri(item.ImagePath, UriKind.RelativeOrAbsolute));
+                BitmapImage bmImg = new BitmapImage(new Uri(item.ImagePathDescription, UriKind.RelativeOrAbsolute));
                 img.Source = bmImg;
 
                 Button bt = new Button();
-                bt.Width = 100;
-                bt.Height = 100;
+                bt.Width = 600;
+                bt.Height = 307;
+                bt.Margin = new Thickness(0, 0, 0, 100);
                 bt.Content = img;
+                bt.Style= App.Current.Resources["customButtonNoStyle"] as Style;
                 listDataCoverFlow.Add(bt);
                 bt.Click += new RoutedEventHandler(bt_Click);
 

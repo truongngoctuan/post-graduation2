@@ -48,10 +48,11 @@ namespace PageFlip.DataLoader
             }
 
             List<object> listMenuItem = new List<object>();
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 5; i++)
             {
                 MenuItemLvl0 item = new MenuItemLvl0();
-                item.ImagePath = "Images/MenuCategory" + i.ToString() + ".jpg";
+                item.ImagePath = "Images/MenuThumLvl" + i.ToString() + ".jpg";
+                item.ImagePathDescription = "Images/MenuLvl" + i.ToString() + ".png";
                 listMenuItem.Add(item);
             }
 
