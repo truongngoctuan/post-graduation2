@@ -62,6 +62,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
+    <Reference Include="ShaderEffectsLibrary">
+      <HintPath>..\ShaderEffectsLibrary\Bin\Debug\ShaderEffectsLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
@@ -82,6 +85,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BookSizes.cs" />
     <Compile Include="ContentPage.xaml.cs">
       <DependentUpon>ContentPage.xaml</DependentUpon>
     </Compile>
@@ -174,6 +178,13 @@
     <Resource Include="Images\MenuThumLvl2.jpg" />
     <Resource Include="Images\MenuThumLvl3.jpg" />
     <Resource Include="Images\MenuThumLvl4.jpg" />
+    <Resource Include="Images\may12-schiap.jpg" />
+    <Resource Include="Images\Chap0.jpg" />
+    <Resource Include="Images\Chap1.jpg" />
+    <Resource Include="Images\Chap2.jpg" />
+    <Resource Include="Images\may12AbSh_Schick.jpg" />
+    <Resource Include="Images\may12Downton1.jpg" />
+    <Resource Include="Images\oct11TFW_CALA22.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
@@ -214,12 +225,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ShaderEffectsLibrary\ShaderEffectsLibrary.csproj">
-      <Project>{A933FC48-0061-4994-881F-2146B5B407C3}</Project>
-      <Name>ShaderEffectsLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

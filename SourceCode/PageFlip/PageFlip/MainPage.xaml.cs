@@ -16,206 +16,259 @@ using PageFlip.DataLoader;
 
 namespace PageFlip
 {
-	public enum UpdatePageTransition
-	{
+    public enum UpdatePageTransition
+    {
         Default,
-		NextChapter, NextContent,
-		NextPage,
+        NextChapter, NextContent,
+        NextPage,
 
-		PreviousChapter, PreviousContent,
-		PreviousPage
-	}
-	public partial class MainPage : UserControl
-	{
-		private double angleSB2RF; //Angle Spine Bottom two Raw Flow
-		private double angleST2C; //Angle Spine Top two Centre
+        PreviousChapter, PreviousContent,
+        PreviousPage
+    }
+    public partial class MainPage : UserControl
+    {
+        private double angleSB2RF; //Angle Spine Bottom two Raw Flow
+        private double angleST2C; //Angle Spine Top two Centre
 
-		private double tangentToCornerAngle;
-		private double tanAngle;
+        private double tangentToCornerAngle;
+        private double tanAngle;
 
-		private GeneralTransform transform;
+        private GeneralTransform transform;
 
-		private Point corner;
-		//private DispatcherTimer dtTransationTimer = new DispatcherTimer();
-		private double distanceToFollow;
-		private double dx;
-		private double dy;
-		//private int iCurrentPageContent = 0;
-		private int transMaxCount = 60;
-		private int transCurCount = 0;
-		private bool IsTransitionStarted = false;
-		private Point maskSize = new Point(0.0, 0.0);
-		//private int iNextPageContent;
-		private double pageHalfHeight;
-		private double pageHeight;
-		private double pageDiagonal;
+        private Point corner;
+        //private DispatcherTimer dtTransationTimer = new DispatcherTimer();
+        private double distanceToFollow;
+        private double dx;
+        private double dy;
+        //private int iCurrentPageContent = 0;
+        private int transMaxCount = 60;
+        private int transCurCount = 0;
+        private bool IsTransitionStarted = false;
+        private Point maskSize = new Point(0.0, 0.0);
+        //private int iNextPageContent;
+        private double pageHalfHeight;
+        private double pageHeight;
+        private double pageDiagonal;
 
-		private double pageWidth;
-		private double pageHalfWidth;
+        private double pageWidth;
+        private double pageHalfWidth;
 
-		//fixed point ofpages such as topleft, topbottom, cornerposition...
-		private Point FixedPoint_CornerBottomRight;
+        //fixed point ofpages such as topleft, topbottom, cornerposition...
+        private Point FixedPoint_CornerBottomRight;
 
-		private Point spineBottom;
-		private double sbScale = 1.0;
+        private Point spineBottom;
+        private double sbScale = 1.0;
 
-		private Point spineTop;
-		//private List<BitmapImage> PageContents = new List<BitmapImage>();
-		//private List<string> PageContents = new List<string>();
-		private Point bisector;
-		private double fixedRadius;
-		private Point follow;
-		private Point radius1;
-		private Point mouseMovePosition;
-		private double bisectorTanget;
-		private Point mouse;
-		private Point tangentBottom;
-		private DateTime doubleClickDuration;
-		private double bisectorAngle;
-		private int ImageMaxCount = 5;
+        private Point spineTop;
+        //private List<BitmapImage> PageContents = new List<BitmapImage>();
+        //private List<string> PageContents = new List<string>();
+        private Point bisector;
+        private double fixedRadius;
+        private Point follow;
+        private Point radius1;
+        private Point mouseMovePosition;
+        private double bisectorTanget;
+        private Point mouse;
+        private Point tangentBottom;
+        private DateTime doubleClickDuration;
+        private double bisectorAngle;
+        private int ImageMaxCount = 5;
 
         BookLoader BookData = new BookLoader();
-		// Methods
-		public MainPage()
-		{
-			this.InitializeComponent();
-			base.Loaded += new RoutedEventHandler(this.MainPage_Loaded);
+        // Methods
+        public MainPage()
+        {
+            this.InitializeComponent();
+            base.Loaded += new RoutedEventHandler(this.MainPage_Loaded);
 
             //ServiceReference1.Service1Client ws = new ServiceReference1.Service1Client();
 
             //ws.Get_AllArticlesCompleted += new EventHandler<ServiceReference1.Get_AllArticlesCompletedEventArgs>(ws_Get_AllArticlesCompleted);
             //ws.Get_AllArticlesAsync();
+        }
+
+        void ws_Get_AllArticlesCompleted(object sender, ServiceReference1.Get_AllArticlesCompletedEventArgs e)
+        {
+            //MessageBox.Show(e.Result.Count.ToString());
+        }
+
+        private void checkTransition()
+        {
+            if (this.IsTransitionStarted && (this.transCurCount++ == this.transMaxCount))
+            {
+                //this.endTransition();
+                this.updateImages();
+                this.IsTransitionStarted = false;
+            }
+        }
+
+        private void setupUI()
+        {
+            this.pageWidth = 900;
+            this.pageHeight = 600;
+
+            this.pageHalfWidth = this.pageWidth * 0.5;
+            this.pageHalfHeight = this.pageHeight * 0.5;
+
+            BookSizes bs = new BookSizes()
+            {
+                layoutRootW = pageWidth,
+                layoutRootH = pageHeight,
+                layoutRootHalfH = pageHeight / 2,
+                layoutRootHalfW = pageHalfWidth
+            };
+
+            this.LayoutRoot.DataContext = bs;
+
+            this.rutieow.SetValue(Canvas.LeftProperty, this.pageHalfWidth);
+            this.rutieow.SetValue(Canvas.TopProperty, this.pageHalfHeight);
+
+            this.PageCorner.SetValue(Canvas.LeftProperty, this.pageHalfWidth - 100.0);
+            this.PageCorner.SetValue(Canvas.TopProperty, this.pageHalfHeight - 100.0);
+
+            this.spineTop = new Point(0.0, -this.pageHalfHeight);
 
 
-		}
+            this.spineBottom = new Point(0.0, this.pageHalfHeight);
+            this.fixedRadius = this.pageHalfWidth;
 
-		void ws_Get_AllArticlesCompleted(object sender, ServiceReference1.Get_AllArticlesCompletedEventArgs e)
-		{
-			//MessageBox.Show(e.Result.Count.ToString());
-		}
+            this.maskSize.X = this.pageHalfWidth;
+            this.maskSize.Y = this.pageHeight * 1.6;
+            this.mainMask.Width = this.maskSize.X;
+            this.mainMask.Height = this.maskSize.Y;
+            this.mainMask.SetValue(Canvas.TopProperty, this.pageHeight - (this.maskSize.Y * 0.8));
 
-		private void checkTransition()
-		{
-			if (this.IsTransitionStarted && (this.transCurCount++ == this.transMaxCount))
-			{
-				//this.endTransition();
-				this.updateImages();
-				this.IsTransitionStarted = false;
-			}
-		}
+            this.mouse.X = this.pageHalfWidth - 1.0;
+            this.mouse.Y = this.pageHalfHeight - 1.0;
 
-		private void CompositionTarget_Rendering(object sender, EventArgs e)
-		{//this is the updater
-			// THIS IS THE RAW FOLLOW
-			this.follow.X += (this.mouse.X - this.follow.X) * 0.12;
-			this.follow.Y += (this.mouse.Y - this.follow.Y) * 0.12;
+            this.follow.X = this.mouse.X;
+            this.follow.Y = this.mouse.Y;
+            this.corner.X = this.mouse.X;
+            this.corner.Y = this.mouse.Y;
 
-			// DETERMINE ANGLE FROM SPINE BOTTOM TO RAW FOLLOW
-			this.angleSB2RF = Math.Atan2(this.spineBottom.Y - this.follow.Y, this.follow.X);
+            this.PageCorner.MouseLeftButtonDown += new MouseButtonEventHandler(this.PageCorner_MouseLeftButtonDown);
+            this.PageCorner.MouseMove += new MouseEventHandler(this.PageCorner_MouseMove);
+            this.PageCorner.MouseLeftButtonUp += new MouseButtonEventHandler(this.PageCorner_MouseLeftButtonUp);
+            this.PageCorner.MouseLeave += new MouseEventHandler(this.PageCorner_MouseLeave);
 
-			// PLOT THE FIXED RADIUS FOLLOW
-			this.radius1.X = Math.Cos(this.angleSB2RF) * this.fixedRadius;
-			this.radius1.Y = this.spineBottom.Y - (Math.Sin(this.angleSB2RF) * this.fixedRadius);
+        }
 
-			// DETERMINE THE SHORTER OF THE TWO DISTANCES
-			double distanceToFollow = Math.Sqrt(((this.spineBottom.Y - this.follow.Y) * (this.spineBottom.Y - this.follow.Y)) + (this.follow.X * this.follow.X));
-			double distToRadius1 = Math.Sqrt(((this.spineBottom.Y - this.radius1.Y) * (this.spineBottom.Y - this.radius1.Y)) + (this.radius1.X * this.radius1.X));
-			if (distToRadius1 < distanceToFollow)
-			{
-				this.corner.X = this.radius1.X;
-				this.corner.Y = this.radius1.Y;
-			}
-			else
-			{
-				this.corner.X = this.follow.X;
-				this.corner.Y = this.follow.Y;
-			}
+        private void CompositionTarget_Rendering(object sender, EventArgs e)
+        {//this is the updater
 
-			// NOW CHECK FOR THE OTHER CONSTRAINT, FROM THE SPINE TOP TO THE RADIUS OF THE PAGE DIAMETER...
-			this.dx = this.spineTop.X - this.corner.X;
-			this.dy = this.corner.Y + this.pageHalfHeight;
+            // THIS IS THE RAW FOLLOW
+            this.follow.X += (this.mouse.X - this.follow.X) * 0.12;
+            this.follow.Y += (this.mouse.Y - this.follow.Y) * 0.12;
 
-			this.distanceToFollow = Math.Sqrt((this.dx * this.dx) + (this.dy * this.dy));
-			this.pageDiagonal = Math.Sqrt((this.pageHalfWidth * this.pageHalfWidth) + (this.pageHeight * this.pageHeight));
-			if (this.distanceToFollow > this.pageDiagonal)
-			{
-				this.angleST2C = Math.Atan2(this.dy, this.dx);
-				this.corner.X = -Math.Cos(this.angleST2C) * this.pageDiagonal;
-				this.corner.Y = this.spineTop.Y + (Math.Sin(this.angleST2C) * this.pageDiagonal);
-			}
+            // DETERMINE ANGLE FROM SPINE BOTTOM TO RAW FOLLOW
+            this.angleSB2RF = Math.Atan2(this.spineBottom.Y - this.follow.Y, this.follow.X);
 
-			// CALCULATE THE BISECTOR AND CREATE THE CRITICAL TRIANGLE
-			// DETERMINE THE MIDSECTION POINT
+            // PLOT THE FIXED RADIUS FOLLOW
+            this.radius1.X = Math.Cos(this.angleSB2RF) * this.fixedRadius;
+            this.radius1.Y = this.spineBottom.Y - (Math.Sin(this.angleSB2RF) * this.fixedRadius);
 
-			this.bisector.X = this.corner.X + (0.5 * (this.pageHalfWidth - this.corner.X));
-			this.bisector.Y = this.corner.Y + (0.5 * (this.pageHalfHeight - this.corner.Y));
-			this.bisectorAngle = Math.Atan2(this.pageHalfHeight - this.bisector.Y, this.pageHalfWidth - this.bisector.X);
-			this.bisectorTanget = this.bisector.X - (Math.Tan(this.bisectorAngle) * (this.pageHalfHeight - this.bisector.Y));
-			if (this.bisectorTanget < 0.0)
-			{
-				this.bisectorTanget = 0.0;
-			}
+            // DETERMINE THE SHORTER OF THE TWO DISTANCES
+            double distanceToFollow = Math.Sqrt(((this.spineBottom.Y - this.follow.Y) * (this.spineBottom.Y - this.follow.Y)) + (this.follow.X * this.follow.X));
+            double distToRadius1 = Math.Sqrt(((this.spineBottom.Y - this.radius1.Y) * (this.spineBottom.Y - this.radius1.Y)) + (this.radius1.X * this.radius1.X));
+            if (distToRadius1 < distanceToFollow)
+            {
+                this.corner.X = this.radius1.X;
+                this.corner.Y = this.radius1.Y;
+            }
+            else
+            {
+                this.corner.X = this.follow.X;
+                this.corner.Y = this.follow.Y;
+            }
 
-			this.tangentBottom.X = this.bisectorTanget;
-			this.tangentBottom.Y = this.pageHalfHeight;
+            // NOW CHECK FOR THE OTHER CONSTRAINT, FROM THE SPINE TOP TO THE RADIUS OF THE PAGE DIAMETER...
+            this.dx = this.spineTop.X - this.corner.X;
+            this.dy = this.corner.Y + this.pageHalfHeight;
 
-			this.tanAngle = Math.Atan2(this.pageHalfHeight - this.bisector.Y, this.bisector.X - this.bisectorTanget);
+            this.distanceToFollow = Math.Sqrt((this.dx * this.dx) + (this.dy * this.dy));
+            this.pageDiagonal = Math.Sqrt((this.pageHalfWidth * this.pageHalfWidth) + (this.pageHeight * this.pageHeight));
+            if (this.distanceToFollow > this.pageDiagonal)
+            {
+                this.angleST2C = Math.Atan2(this.dy, this.dx);
+                this.corner.X = -Math.Cos(this.angleST2C) * this.pageDiagonal;
+                this.corner.Y = this.spineTop.Y + (Math.Sin(this.angleST2C) * this.pageDiagonal);
+            }
 
-			// DETERMINE THE tangentToCorner FOR THE ANGLE OF THE PAGE
-			this.tangentToCornerAngle = Math.Atan2(this.tangentBottom.Y - this.corner.Y, this.tangentBottom.X - this.corner.X);
+            // CALCULATE THE BISECTOR AND CREATE THE CRITICAL TRIANGLE
+            // DETERMINE THE MIDSECTION POINT
 
-			// VISUALIZE THE CLIPPING RECTANGLE
-			this.maskAngle.Angle = (90.0 * (this.tanAngle / Math.Abs(this.tanAngle))) - ((this.tanAngle * 180.0) / Math.PI);
-			this.mainMask.SetValue(Canvas.LeftProperty, this.pageHalfWidth + (this.bisectorTanget - this.maskSize.X));
+            this.bisector.X = this.corner.X + (0.5 * (this.pageHalfWidth - this.corner.X));
+            this.bisector.Y = this.corner.Y + (0.5 * (this.pageHalfHeight - this.corner.Y));
+            this.bisectorAngle = Math.Atan2(this.pageHalfHeight - this.bisector.Y, this.pageHalfWidth - this.bisector.X);
+            this.bisectorTanget = this.bisector.X - (Math.Tan(this.bisectorAngle) * (this.pageHalfHeight - this.bisector.Y));
+            if (this.bisectorTanget < 0.0)
+            {
+                this.bisectorTanget = 0.0;
+            }
 
-			this.Page2SheetSection2.X = this.pageHalfWidth + this.corner.X;
-			this.Page2SheetSection2.Y = this.pageHalfHeight + this.corner.Y;
-			this.Page2SheetSection2.Angle.Angle = (this.tangentToCornerAngle * 180.0) / Math.PI;
+            this.tangentBottom.X = this.bisectorTanget;
+            this.tangentBottom.Y = this.pageHalfHeight;
 
-			this.transform = this.mainMask.TransformToVisual(this.cavBook);
-			this.ClipPathCloseFigure.StartPoint = this.transform.Transform(new Point(0.0, -100.0));
-			this.cpp20.Point = this.transform.Transform(new Point(this.mainMask.Width, -100.0));
-			this.cpp02.Point = this.transform.Transform(new Point(this.mainMask.Width, this.mainMask.Height));
-			this.cpp101.Point = this.transform.Transform(new Point(0.0, this.mainMask.Height));
-			this.UpdatePage();
+            this.tanAngle = Math.Atan2(this.pageHalfHeight - this.bisector.Y, this.bisector.X - this.bisectorTanget);
 
-			this.transform = this.dropShadow.TransformToVisual(this.cavBook);
-			this.baclpz.StartPoint = this.transform.Transform(new Point(-2.0, 0.0));
-			this.baclzz.Point = this.transform.Transform(new Point(600.0, 0.0));
-			this.baclzyy.Point = this.transform.Transform(new Point(600.0, this.pageHeight));
-			this.baclzyrq.Point = this.transform.Transform(new Point(-2.0, this.pageHeight));
-			this.checkTransition();
-		}
+            // DETERMINE THE tangentToCorner FOR THE ANGLE OF THE PAGE
+            this.tangentToCornerAngle = Math.Atan2(this.tangentBottom.Y - this.corner.Y, this.tangentBottom.X - this.corner.X);
+
+            // VISUALIZE THE CLIPPING RECTANGLE
+            this.maskAngle.Angle = (90.0 * (this.tanAngle / Math.Abs(this.tanAngle))) - ((this.tanAngle * 180.0) / Math.PI);
+            this.mainMask.SetValue(Canvas.LeftProperty, this.pageHalfWidth + (this.bisectorTanget - this.maskSize.X));
+
+            this.Page2SheetSection2.X = this.pageHalfWidth + this.corner.X;
+            this.Page2SheetSection2.Y = this.pageHalfHeight + this.corner.Y;
+            this.Page2SheetSection2.Angle.Angle = (this.tangentToCornerAngle * 180.0) / Math.PI;
+
+            this.transform = this.mainMask.TransformToVisual(this.cavBook);
+            this.ClipPathCloseFigure.StartPoint = this.transform.Transform(new Point(0.0, -100.0));
+            this.cpp20.Point = this.transform.Transform(new Point(this.mainMask.Width, -100.0));
+            this.cpp02.Point = this.transform.Transform(new Point(this.mainMask.Width, this.mainMask.Height));
+            this.cpp101.Point = this.transform.Transform(new Point(0.0, this.mainMask.Height));
+            this.UpdatePage();
+
+            this.transform = this.dropShadow.TransformToVisual(this.cavBook);
+            this.baclpz.StartPoint = this.transform.Transform(new Point(-2.0, 0.0));
+            //this.baclzz.Point = this.transform.Transform(new Point(600.0, 0.0));
+            //this.baclzyy.Point = this.transform.Transform(new Point(600.0, this.pageHeight));
+            this.baclzz.Point = this.transform.Transform(new Point(this.pageWidth, 0.0));
+            this.baclzyy.Point = this.transform.Transform(new Point(this.pageWidth, this.pageHeight));
+            this.baclzyrq.Point = this.transform.Transform(new Point(-2.0, this.pageHeight));
+            this.checkTransition();
+
+        }
 
 
-		private void PageCorner_MouseLeave(object sender, MouseEventArgs e)
-		{
-			if (!this.IsTransitionStarted)
-			{
+        private void PageCorner_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (!this.IsTransitionStarted)
+            {
                 if (!bCanTransitionRight) return;
-				this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
-			}
-		}
+                this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
+            }
+        }
 
-		private void PageCorner_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-		{
-			if (!this.IsTransitionStarted)
-			{
+        private void PageCorner_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!this.IsTransitionStarted)
+            {
                 if (!bCanTransitionRight) return;
-				this.doubleClickDuration = DateTime.Now.AddSeconds(2.0);
-				this.mouse = e.GetPosition(this.rutieow);
-				this.PageCorner.CaptureMouse();
-			}
-		}
+                this.doubleClickDuration = DateTime.Now.AddSeconds(2.0);
+                this.mouse = e.GetPosition(this.rutieow);
+                this.PageCorner.CaptureMouse();
+            }
+        }
 
-		private void PageCorner_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-		{
-			if (!this.IsTransitionStarted)
-			{
+        private void PageCorner_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (!this.IsTransitionStarted)
+            {
                 if (!bCanTransitionRight) return;
-				this.PageCorner.ReleaseMouseCapture();
-				if ((DateTime.Now < this.doubleClickDuration) && ((this.mouse.X > 0.0) && (this.mouse.Y > 0.0)))
-				{
+                this.PageCorner.ReleaseMouseCapture();
+                if ((DateTime.Now < this.doubleClickDuration) && ((this.mouse.X > 0.0) && (this.mouse.Y > 0.0)))
+                {
                     //this.startTransition();
                     //this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
 
@@ -224,113 +277,74 @@ namespace PageFlip
 
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
-				}
-				else if (this.mouse.X < 0.0)
-				{
+                }
+                else if (this.mouse.X < 0.0)
+                {
                     //this.startTransition();
-					//this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
+                    //this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
 
                     this.TypeTransition = UpdatePageTransition.NextPage;
                     CurrentArticlePageIndex++;
 
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
-				}
-				else
-				{
-					this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
-				}
-			}
-		}
+                }
+                else
+                {
+                    this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
+                }
+            }
+        }
 
-		private void PageCorner_MouseMove(object sender, MouseEventArgs e)
-		{
-			if (!this.IsTransitionStarted)
-			{
+        private void PageCorner_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!this.IsTransitionStarted)
+            {
                 if (!bCanTransitionRight) return;
-				this.mouseMovePosition = e.GetPosition(this.rutieow);
-				if ((this.mouseMovePosition.X > this.pageHalfWidth) && (this.mouseMovePosition.Y > this.pageHalfHeight))
-				{
-					this.PageCorner.ReleaseMouseCapture();
-					this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
-				}
-				else
-				{
-					this.mouse = e.GetPosition(this.rutieow);
-				}
-			}
-		}
+                this.mouseMovePosition = e.GetPosition(this.rutieow);
+                if ((this.mouseMovePosition.X > this.pageHalfWidth) && (this.mouseMovePosition.Y > this.pageHalfHeight))
+                {
+                    this.PageCorner.ReleaseMouseCapture();
+                    this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
+                }
+                else
+                {
+                    this.mouse = e.GetPosition(this.rutieow);
+                }
+            }
+        }
 
-		private void MainPage_Loaded(object sender, RoutedEventArgs e)
-		{
-			try
-			{
-				this.setupUI();
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.setupUI();
                 //this.iCurrentPageContent = -1;
 
                 BookData.UpdateAfterChangeChapter(0);
                 ChangePageAfterTransition(this, new EventArgs());
 
-				CompositionTarget.Rendering += new EventHandler(this.CompositionTarget_Rendering);
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("MainPage_Loaded: " + ex.Message);
-			}
-		}
-
-		private void setupUI()
-		{
-			this.pageWidth = 600.0;
-			this.pageHeight = 425.0;
-
-			this.pageHalfWidth = this.pageWidth * 0.5;
-			this.pageHalfHeight = this.pageHeight * 0.5;
-
-			this.rutieow.SetValue(Canvas.LeftProperty, this.pageHalfWidth);
-			this.rutieow.SetValue(Canvas.TopProperty, this.pageHalfHeight);
-
-			this.PageCorner.SetValue(Canvas.LeftProperty, this.pageHalfWidth - 100.0);
-			this.PageCorner.SetValue(Canvas.TopProperty, this.pageHalfHeight - 100.0);
-
-			this.spineTop = new Point(0.0, -this.pageHalfHeight);
+                CompositionTarget.Rendering += new EventHandler(this.CompositionTarget_Rendering);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("MainPage_Loaded: " + ex.Message);
+            }
+        }
 
 
-			this.spineBottom = new Point(0.0, this.pageHalfHeight);
-			this.fixedRadius = this.pageHalfWidth;
 
-			this.maskSize.X = this.pageHalfWidth;
-			this.maskSize.Y = this.pageHeight * 1.6;
-			this.mainMask.Width = this.maskSize.X;
-			this.mainMask.Height = this.maskSize.Y;
-			this.mainMask.SetValue(Canvas.TopProperty, this.pageHeight - (this.maskSize.Y * 0.8));
-
-			this.mouse.X = this.pageHalfWidth - 1.0;
-			this.mouse.Y = this.pageHalfHeight - 1.0;
-
-			this.follow.X = this.mouse.X;
-			this.follow.Y = this.mouse.Y;
-			this.corner.X = this.mouse.X;
-			this.corner.Y = this.mouse.Y;
-
-			this.PageCorner.MouseLeftButtonDown += new MouseButtonEventHandler(this.PageCorner_MouseLeftButtonDown);
-			this.PageCorner.MouseMove += new MouseEventHandler(this.PageCorner_MouseMove);
-			this.PageCorner.MouseLeftButtonUp += new MouseButtonEventHandler(this.PageCorner_MouseLeftButtonUp);
-			this.PageCorner.MouseLeave += new MouseEventHandler(this.PageCorner_MouseLeave);
-			
-		}
-
-		private void startTransition()
-		{
-			this.IsTransitionStarted = true;
-			this.transCurCount = 0;
-		}
+        private void startTransition()
+        {
+            this.IsTransitionStarted = true;
+            this.transCurCount = 0;
+        }
 
         UpdatePageTransition TypeTransition = UpdatePageTransition.Default;
         bool bCanTransitionRight = true;
 
-		private void updateImages()
-		{
+        private void updateImages()
+        {
             //decide what page will be loaded next or previous
             //int ilastCurrentPageContent = iCurrentPageContent;
             //int ilastNextPageContent = iNextPageContent;
@@ -360,32 +374,32 @@ namespace PageFlip
                 //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
                 Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
             }
-		}
+        }
 
-		private void UpdatePage()
-		{
-			this.shadowspineAngle.Angle = this.maskAngle.Angle;
-			this.sbScale = (this.pageHalfWidth - this.corner.X) / this.pageHalfWidth;
-			this.sbScale = Math.Min(1.0, Math.Max(this.sbScale, 0.02));
-			this.shadowspineImage.Opacity = 0.9 - (this.sbScale * 0.5);
-			this.shadowspineScale.ScaleX = 0.8 * this.sbScale;
-			this.shadowspineImage.SetValue(Canvas.LeftProperty, this.bisectorTanget);
-			this.dropShadow.SetValue(Canvas.LeftProperty, this.bisectorTanget + this.pageHalfWidth);
-			this.dropShadowAngle.Angle = this.shadowspineAngle.Angle;
-			this.dropShadow.Opacity = 1.0 + (this.corner.X / this.pageHalfWidth);
-			this.Page2SheetSection2.curlShadowRotate.Angle = this.maskAngle.Angle - this.Page2SheetSection2.Angle.Angle;
-			this.Page2SheetSection2.curlShadow.SetValue(Canvas.LeftProperty, -this.bisectorTanget - 5.0);
-			this.Page2SheetSection2.curlShadow.Opacity = this.dropShadow.Opacity * 2.0;
-		}
+        private void UpdatePage()
+        {
+            this.shadowspineAngle.Angle = this.maskAngle.Angle;
+            this.sbScale = (this.pageHalfWidth - this.corner.X) / this.pageHalfWidth;
+            this.sbScale = Math.Min(1.0, Math.Max(this.sbScale, 0.02));
+            this.mainMask.Opacity = 0.9 - (this.sbScale * 0.5);
+            this.shadowspineScale.ScaleX = 0.8 * this.sbScale;
+            this.shadowspineImage.SetValue(Canvas.LeftProperty, this.bisectorTanget);
+            this.dropShadow.SetValue(Canvas.LeftProperty, this.bisectorTanget + this.pageHalfWidth);
+            this.dropShadowAngle.Angle = this.shadowspineAngle.Angle;
+            this.dropShadow.Opacity = 1.0 + (this.corner.X / this.pageHalfWidth);
+            this.Page2SheetSection2.curlShadowRotate.Angle = this.maskAngle.Angle - this.Page2SheetSection2.Angle.Angle;
+            this.Page2SheetSection2.curlShadow.SetValue(Canvas.LeftProperty, -this.bisectorTanget - 5.0);
+            this.Page2SheetSection2.curlShadow.Opacity = this.dropShadow.Opacity * 2.0;
+        }
 
-		private void btNextPage_Click(object sender, RoutedEventArgs e)
-		{
+        private void btNextPage_Click(object sender, RoutedEventArgs e)
+        {
             this.TypeTransition = UpdatePageTransition.NextPage;
             CurrentArticlePageIndex++;
 
-			this.startTransition();
-			this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
-		}
+            this.startTransition();
+            this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
+        }
 
         public UserControl ParentView { get; set; }
         public int ContentPageIndex { get; set; }
@@ -393,7 +407,7 @@ namespace PageFlip
         private void btBack_Click(object sender, RoutedEventArgs e)
         {
             CompositionTarget.Rendering -= this.CompositionTarget_Rendering;
-            App.GoToPage(this, this.root, this.ParentView);
+            App.GoToPage(this, this.LayoutRoot, this.ParentView);
         }
 
         private void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -469,6 +483,30 @@ namespace PageFlip
         }
 
         #endregion
+
+
+
+        private void btnFontPlus_Click(object sender, RoutedEventArgs e)
+        {
+            Grid grd = Ultis.FindVisualChildByName<Grid>(this.LayoutRoot, "pageRoot");
+
+            if (grd != null)
+            {
+                RichTextBlock rtb = Ultis.FindVisualChildByName<RichTextBlock>(grd, "rtb_01");
+                rtb.FontSize++;
+            }
+        }
+
+        private void btnFontMinus_Click(object sender, RoutedEventArgs e)
+        {
+            Grid grd = Ultis.FindVisualChildByName<Grid>(this.LayoutRoot, "pageRoot");
+
+            if (grd != null)
+            {
+                RichTextBlock rtb = Ultis.FindVisualChildByName<RichTextBlock>(grd, "rtb_01");
+                rtb.FontSize--;
+            }
+        }
     }
 
 }
