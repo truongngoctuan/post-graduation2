@@ -49,11 +49,31 @@ namespace PageFlipUltis
 
         public static UIElement LoadXamlFromString(string xaml)
         {
-                //            XDocument doc = XDocument.Load(s);
-                //OutputTextBlock.Text = doc.ToString(SaveOptions.OmitDuplicateNamespaces);
-                //string xaml = doc.ToString(SaveOptions.OmitDuplicateNamespaces);
+            //            XDocument doc = XDocument.Load(s);
+            //OutputTextBlock.Text = doc.ToString(SaveOptions.OmitDuplicateNamespaces);
+            //string xaml = doc.ToString(SaveOptions.OmitDuplicateNamespaces);
 
-                return System.Windows.Markup.XamlReader.Load(xaml) as UIElement;
+            return System.Windows.Markup.XamlReader.Load(xaml) as UIElement;
+        }
+
+        public static T FindVisualChildByName<T>(DependencyObject parent, string name) where T : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                string controlName = child.GetValue(Control.NameProperty) as string;
+                if (controlName == name)
+                {
+                    return child as T;
+                }
+                else
+                {
+                    T result = FindVisualChildByName<T>(child, name);
+                    if (result != null)
+                        return result;
+                }
+            }
+            return null;
         }
     }
 }
