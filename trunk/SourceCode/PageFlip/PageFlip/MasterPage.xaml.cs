@@ -13,30 +13,16 @@ using System.Windows.Navigation;
 
 namespace PageFlip
 {
-    public partial class ContentPage : Page
+    public partial class MasterPage : Page
     {
-        public ContentPage()
+        public MasterPage()
         {
             InitializeComponent();
-
-            Loaded += new RoutedEventHandler(ContentPage_Loaded);
-        }
-
-        void ContentPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            //btBack.Content = "Back" + ContentPageIndex.ToString();
         }
 
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-        }
-
-        public UserControl ParentView { get; set; }
-        public int ContentPageIndex { get; set; }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            App.GoToPage(this, this.LayoutRoot, this.ParentView);
         }
 
     }

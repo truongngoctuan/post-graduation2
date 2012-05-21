@@ -98,6 +98,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MasterPage.xaml.cs">
+      <DependentUpon>MasterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PrototypeControl\CoverFlow\ComboboxCoverFlow.xaml.cs">
       <DependentUpon>ComboboxCoverFlow.xaml</DependentUpon>
@@ -131,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MasterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,6 +192,11 @@
     <Resource Include="Images\may12AbSh_Schick.jpg" />
     <Resource Include="Images\may12Downton1.jpg" />
     <Resource Include="Images\oct11TFW_CALA22.jpg" />
+    <Resource Include="Images\MasterPage\HeaderLeft.jpg" />
+    <Resource Include="Images\MasterPage\HeaderRight.jpg" />
+    <Resource Include="Images\MasterPage\background.jpg" />
+    <Resource Include="Images\MasterPage\FooterLeft.png" />
+    <Resource Include="Images\MasterPage\FooterRight.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

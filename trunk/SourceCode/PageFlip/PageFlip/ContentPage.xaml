@@ -7,8 +7,11 @@
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            d:DesignWidth="640" d:DesignHeight="480"
            Title="ContentPage Page">
-    <Grid x:Name="LayoutRoot" Background="BlueViolet">
-        <Image Source="Images/editor_view_bg.jpg" Stretch="Fill"></Image>
-        <Button x:Name="btBack" Width="100" Height="25" Content="Back" Click="Button_Click"></Button>
-    </Grid>
+    <Canvas x:Name="LayoutRoot" Background="BlueViolet" Width="500" Height="500">
+        <Canvas.Clip>
+            <RectangleGeometry Rect="0, 0 , 500, 500"></RectangleGeometry>
+        </Canvas.Clip>
+        <Image Source="Images/editor_view_bg.jpg" Width="800" Height="800" Canvas.Top="0" Canvas.Left="0"></Image>
+        <!--<Button x:Name="btBack" Width="100" Height="25" Content="Back" Click="Button_Click"></Button>-->
+    </Canvas>
 </navigation:Page>
