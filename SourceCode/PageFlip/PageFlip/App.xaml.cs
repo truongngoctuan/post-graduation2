@@ -25,7 +25,7 @@ namespace PageFlip
             InitializeComponent();
         }
 
-       
+
 
         #region app_event
         private void Application_Exit(object sender, EventArgs e)
@@ -66,13 +66,29 @@ namespace PageFlip
         #endregion
 
         #region page transition controler
-        Grid mainUI = new Grid();
+        MasterPage mPage = new MasterPage();
+        Canvas mainUI = new Canvas();
         public static UserControl CurrentPage = null;
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            //this.RootVisual = new MainPage();
-            this.RootVisual = mainUI;
-            App.GoToPage(new HomePage(), null);
+            mainUI = mPage.containerContent;
+            //this.RootVisual = mainUI;
+            this.RootVisual = mPage;
+            //App.GoToPage(new HomePage(), null);
+
+            MainPage mainP = new MainPage()
+                {
+                    ParentView = null,
+                    ContentPageIndex = 0
+                };
+
+            App app = (App)Application.Current;
+
+            if (app.mainUI.Children.Contains(mainP) == false)
+            {
+                app.mainUI.Children.Add(mainP);
+                //System.Threading.Thread.Sleep(2000);
+            }
         }
 
         public static void GoToPage(UserControl nextPg, System.Windows.Media.Imaging.WriteableBitmap rootLayout)
@@ -84,6 +100,7 @@ namespace PageFlip
             if (app.mainUI.Children.Contains(nextPg) == false)
             {
                 app.mainUI.Children.Add(nextPg);
+                //System.Threading.Thread.Sleep(2000);
             }
 
             if (CurrentPage != null)

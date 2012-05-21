@@ -1,0 +1,39 @@
+﻿<navigation:Page x:Class="PageFlip.MasterPage" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="1000" d:DesignHeight="480"
+           Title="MasterPage Page">
+    <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="65"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/MasterPage/background.jpg" Stretch="UniformToFill"></ImageBrush>
+        </Grid.Background>
+        <Grid VerticalAlignment="Top" Grid.Row="0" Grid.Column="1"
+                  Name="containerHeader" Background="White">
+            <Grid.Effect>
+                <DropShadowEffect Direction="-90" Opacity="0.05" BlurRadius="10"></DropShadowEffect>
+            </Grid.Effect>
+                <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/MasterPage/HeaderLeft.jpg" Stretch="None"></Image>
+                <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/HeaderRight.jpg" Stretch="None"></Image>
+            </Grid>
+        <Canvas Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
+                Name="containerContent">
+            </Canvas>
+        <Grid VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="1"
+                  Name="containerFooter">
+            <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/MasterPage/FooterLeft.png" Stretch="None"></Image>
+            <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/FooterRight.png" Stretch="None"></Image>
+        </Grid>
+    </Grid>
+</navigation:Page>

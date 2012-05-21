@@ -9,10 +9,10 @@
 			<ColumnDefinition></ColumnDefinition>
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="58"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
 			<RowDefinition Height="*"></RowDefinition>
 		</Grid.RowDefinitions>
-		<Grid.Background>
+		<!--<Grid.Background>
 			<ImageBrush ImageSource="/PageFlip;component/Images/editor_view_bg.jpg"/>
 		</Grid.Background>
 		<StackPanel Orientation="Horizontal" Grid.Row="0">
@@ -22,7 +22,7 @@
 			<Button x:Name="btChapter2" Width="100" Height="25" Content="Chapter 2" Click="btChapter2_Click"></Button>
 			<Button x:Name="btnFontMinus" Width="100" Height="25" Click="btnFontMinus_Click">-</Button>
 			<Button x:Name="btnFontPlus" Width="100" Height="25" Click="btnFontPlus_Click">+</Button>
-		</StackPanel>
+		</StackPanel>-->
 
 		<StackPanel x:Name="outerWrapper" Orientation="Horizontal" Grid.Row="1">
 
