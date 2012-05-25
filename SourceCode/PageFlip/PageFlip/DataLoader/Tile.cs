@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using PageFlipUltis;
 
 namespace PageFlip.DataLoader
 {
@@ -28,13 +29,16 @@ namespace PageFlip.DataLoader
 
     public class TileMenu : Tile
     {//tile when click vao open new menu
+        public string xamlImage;
         public override UIElement generate()
         {
-            Button bt = new Button() { Width = 100, Height = 100, Content = "Test Menu Tile" };
+            return Ultis.LoadXamlFromString(xamlImage);
 
-            bt.Click += new RoutedEventHandler(bt_Click);
+            //Button bt = new Button() { Width = 100, Height = 100, Content = "Test Menu Tile" };
 
-            return bt;
+            //bt.Click += new RoutedEventHandler(bt_Click);
+
+            //return bt;
         }
 
         void bt_Click(object sender, RoutedEventArgs e)

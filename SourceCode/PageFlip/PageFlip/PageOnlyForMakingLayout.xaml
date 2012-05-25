@@ -1,0 +1,30 @@
+﻿<navigation:Page x:Class="PageFlip.Page1" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="1263" d:DesignHeight="646"
+           Title="Page1 Page">
+    <Grid x:Name="tilepage">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Width="628" Height="646" Source="Images\HomeMenuPage\home_01.jpg"></Image>
+        <Image Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" Width="297" Height="359" Source="Images\HomeMenuPage\home_02.jpg"></Image>
+        <Image Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="2" Width="287" Height="219" Source="Images\HomeMenuPage\home_03.jpg"></Image>
+        <Image Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="2" Width="296" Height="232" Source="Images\HomeMenuPage\home_04.jpg"></Image>
+        <Image Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="3" Width="286" Height="316" Source="Images\HomeMenuPage\home_05.jpg"></Image>
+    </Grid>
+</navigation:Page>
