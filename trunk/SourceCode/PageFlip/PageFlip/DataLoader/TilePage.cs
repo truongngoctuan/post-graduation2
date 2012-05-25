@@ -75,18 +75,86 @@ namespace PageFlip.DataLoader
         {
             TilePageMenu pg = new TilePageMenu();
 
-            for (int i = 0; i < 4; i++)
-            {
-                pg.Tiles.Add(new TileMenu());
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    pg.Tiles.Add(new TileMenu());
+            //}
 
+            pg.Tiles.Add(new TileMenu()
+            {
+                xamlImage = @"
+<Image xmlns='http://schemas.microsoft.com/client/2007'
+    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+	Grid.Row='0' Grid.Column='0' Grid.ColumnSpan='2' Grid.RowSpan='5' Width='628' Height='646' Source='/PageFlip;component/Images/HomeMenuPage/home_01.jpg'></Image>
+"
+            });
+
+            pg.Tiles.Add(new TileMenu()
+            {
+                xamlImage = @"
+<Image xmlns='http://schemas.microsoft.com/client/2007'
+    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+	Grid.Row='0' Grid.Column='2' Grid.ColumnSpan='1' Grid.RowSpan='3' Width='297' Height='359' Source='/PageFlip;component/Images/HomeMenuPage/home_02.jpg'></Image>
+"
+            });
+
+            pg.Tiles.Add(new TileMenu()
+            {
+                xamlImage = @"
+<Image xmlns='http://schemas.microsoft.com/client/2007'
+    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+	Grid.Row='0' Grid.Column='3' Grid.ColumnSpan='1' Grid.RowSpan='2' Width='287' Height='219' Source='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'></Image>
+"
+            });
+
+            pg.Tiles.Add(new TileMenu()
+            {
+                xamlImage = @"
+<Image xmlns='http://schemas.microsoft.com/client/2007'
+    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+	Grid.Row='3' Grid.Column='2' Grid.ColumnSpan='1' Grid.RowSpan='2' Width='296' Height='232' Source='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'></Image>
+"
+            });
+
+            pg.Tiles.Add(new TileMenu()
+            {
+                xamlImage = @"
+<Image xmlns='http://schemas.microsoft.com/client/2007'
+    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+	Grid.Row='2' Grid.Column='3' Grid.ColumnSpan='1' Grid.RowSpan='3' Width='286' Height='316' Source='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'></Image>
+"
+            });
             return pg;
         }
 
         public override UIElement generatePage()
         {
-            StackPanel grd = new StackPanel();
-            grd.Orientation = Orientation.Horizontal;
+            //StackPanel grd = new StackPanel();
+            //grd.Orientation = Orientation.Horizontal;
+
+            string xaml = @"
+	<Grid 
+xmlns='http://schemas.microsoft.com/client/2007'
+    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+x:Name='tilepage'>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width='*'></ColumnDefinition>
+            <ColumnDefinition Width='*'></ColumnDefinition>
+            <ColumnDefinition Width='*'></ColumnDefinition>
+            <ColumnDefinition Width='*'></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height='*'></RowDefinition>
+            <RowDefinition Height='*'></RowDefinition>
+            <RowDefinition Height='*'></RowDefinition>
+            <RowDefinition Height='*'></RowDefinition>
+            <RowDefinition Height='*'></RowDefinition>
+        </Grid.RowDefinitions>
+    </Grid>
+
+";
+
+            Grid grd = (Grid)PageFlipUltis.Ultis.LoadXamlFromString(xaml);
             foreach (Tile item in Tiles)
             {
                 grd.Children.Add(item.generate());

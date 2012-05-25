@@ -95,10 +95,10 @@
     <Compile Include="MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PrototypeControl\CoverFlow\ComboboxCoverFlow.xaml.cs">
-      <DependentUpon>ComboboxCoverFlow.xaml</DependentUpon>
+    <Compile Include="PageOnlyForMakingLayout.xaml.cs">
+      <DependentUpon>PageOnlyForMakingLayout.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,9 +127,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PrototypeControl\CoverFlow\ComboboxCoverFlow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="PageOnlyForMakingLayout.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Sheet.xaml">
       <SubType>Designer</SubType>
@@ -155,22 +155,6 @@
     <None Include="Service References\ServiceReference1\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Resource Include="PrototypeControl\CoverFlow\Images\blank.jpg" />
-    <Resource Include="PrototypeControl\CoverFlow\Images\ImageSelectorBgTop.png" />
-    <Resource Include="PrototypeControl\CoverFlow\Images\wmp.png" />
-    <Resource Include="PrototypeControl\CoverFlow\Images\wmp_left.png" />
-    <Resource Include="PrototypeControl\CoverFlow\Images\blank_facemodel.jpg" />
-    <Resource Include="Images\editor_view_bg.jpg" />
-    <Resource Include="Images\MenuLvl0.png" />
-    <Resource Include="Images\MenuLvl1.png" />
-    <Resource Include="Images\MenuLvl2.png" />
-    <Resource Include="Images\MenuLvl3.png" />
-    <Resource Include="Images\MenuLvl4.png" />
-    <Resource Include="Images\MenuThumLvl0.jpg" />
-    <Resource Include="Images\MenuThumLvl1.jpg" />
-    <Resource Include="Images\MenuThumLvl2.jpg" />
-    <Resource Include="Images\MenuThumLvl3.jpg" />
-    <Resource Include="Images\MenuThumLvl4.jpg" />
     <Resource Include="Images\may12-schiap.jpg" />
     <Resource Include="Images\Chap0.jpg" />
     <Resource Include="Images\Chap1.jpg" />
@@ -183,24 +167,18 @@
     <Resource Include="Images\MasterPage\background.jpg" />
     <Resource Include="Images\MasterPage\FooterLeft.png" />
     <Resource Include="Images\MasterPage\FooterRight.png" />
+    <Resource Include="Images\HomeMenuPage\home_01.jpg" />
+    <Resource Include="Images\HomeMenuPage\home_02.jpg" />
+    <Resource Include="Images\HomeMenuPage\home_03.jpg" />
+    <Resource Include="Images\HomeMenuPage\home_04.jpg" />
+    <Resource Include="Images\HomeMenuPage\home_05.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Page3.jpg" />
-    <Resource Include="Images\Page4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\curlshadow.png" />
-    <Resource Include="Images\Page0.jpg" />
-    <Resource Include="Images\Page1.jpg" />
-    <Resource Include="Images\Page2.jpg" />
-    <Resource Include="Images\pageflipbkg.png" />
     <Resource Include="Images\shadowback.png" />
     <Resource Include="Images\shadowdrop.png" />
     <Resource Include="Images\shadowspine.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\wood-texture.jpg" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
