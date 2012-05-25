@@ -89,6 +89,7 @@
     <Compile Include="DataLoader\BookLoader.cs" />
     <Compile Include="DataLoader\MenuItemLvl0.cs" />
     <Compile Include="DataLoader\MenuLoader.cs" />
+    <Compile Include="DataLoader\UITilePage.cs" />
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>

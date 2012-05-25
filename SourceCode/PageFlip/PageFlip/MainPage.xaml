@@ -26,7 +26,7 @@
 
 		<StackPanel x:Name="outerWrapper" Orientation="Horizontal" Grid.Row="1">
 
-			<Button x:Name="btPreviousPage" Content="To Prevous Page" Width="100" Height="100" Margin="5,5,10,5"></Button>
+			<!--<Button x:Name="btPreviousPage" Content="To Prevous Page" Width="100" Height="100" Margin="5,5,10,5"></Button>-->
 			<Canvas x:Name="bookRoot" Width="950" Height="650" RenderTransformOrigin=".5,.5" Margin="100,0,0,0">
 				<Canvas.Background>
 					<ImageBrush ImageSource="/PageFlip;component/Images/pageflipbkg.png"/>
@@ -116,7 +116,7 @@
 
 			</Canvas>
 			<!--Book root-->
-			<Button x:Name="btNextPage" Content="To Next Page" Width="100" Height="100" Click="btNextPage_Click" Margin="10,5,5,5"></Button>
+			<!--<Button x:Name="btNextPage" Content="To Next Page" Width="100" Height="100" Click="btNextPage_Click" Margin="10,5,5,5"></Button>-->
 		</StackPanel>
 		<!--outerWrapper-->
 	</Grid>

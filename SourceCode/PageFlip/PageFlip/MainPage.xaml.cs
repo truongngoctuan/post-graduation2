@@ -19,10 +19,7 @@ namespace PageFlip
     public enum UpdatePageTransition
     {
         Default,
-        NextChapter, NextContent,
         NextPage,
-
-        PreviousChapter, PreviousContent,
         PreviousPage
     }
     public partial class MainPage : UserControl
@@ -273,7 +270,7 @@ namespace PageFlip
                     //this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
 
                     this.TypeTransition = UpdatePageTransition.NextPage;
-                    CurrentArticlePageIndex++;
+                    //CurrentArticlePageIndex++;
 
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
@@ -284,7 +281,7 @@ namespace PageFlip
                     //this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
 
                     this.TypeTransition = UpdatePageTransition.NextPage;
-                    CurrentArticlePageIndex++;
+                    //CurrentArticlePageIndex++;
 
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
@@ -321,7 +318,8 @@ namespace PageFlip
                 this.setupUI();
                 //this.iCurrentPageContent = -1;
 
-                BookData.UpdateAfterChangeChapter(0);
+                //BookData.UpdateAfterChangeChapter(0);
+                BookData.LoadMainMenu(0);
                 ChangePageAfterTransition(this, new EventArgs());
 
                 CompositionTarget.Rendering += new EventHandler(this.CompositionTarget_Rendering);
@@ -346,33 +344,21 @@ namespace PageFlip
         private void updateImages()
         {
             //decide what page will be loaded next or previous
-            //int ilastCurrentPageContent = iCurrentPageContent;
-            //int ilastNextPageContent = iNextPageContent;
-            bool bCanUpdateTransition = true;
             switch (TypeTransition)
             {
-                case UpdatePageTransition.NextChapter:
-                    {
-                        BookData.UpdateAfterChangeChapter(CurrentChapterIndex);
-                        bCanUpdateTransition = true;
-                        break;
-                    }
                 case UpdatePageTransition.NextPage:
                     {
-                        BookData.UpdateAfterNextArticlePage(CurrentChapterIndex, CurrentArticleIndex, CurrentArticlePageIndex);
+                        BookData.NextPage();
+                        bCanTransitionRight = BookData.IsCanTransitionRight();
+
+                        //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
+                        Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
                         break;
                     }
                 default://tuong duong nextpage
                     {
-                        //bCanUpdateTransition = false;
                         break;
                     }
-            }
-
-            if (bCanUpdateTransition)
-            {
-                //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
-                Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
             }
         }
 
@@ -395,7 +381,7 @@ namespace PageFlip
         private void btNextPage_Click(object sender, RoutedEventArgs e)
         {
             this.TypeTransition = UpdatePageTransition.NextPage;
-            CurrentArticlePageIndex++;
+            //CurrentArticlePageIndex++;
 
             this.startTransition();
             this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
@@ -433,8 +419,11 @@ namespace PageFlip
                 this.Page2SheetSection2.sheetImage.Children.Clear();
                 this.Page1TraceSheet.sheetImage.Children.Clear();
 
+                if (BookData.CurrentPage != null)
                 this.Page1Sheet.sheetImage.Children.Add(BookData.CurrentPage);
+                if (BookData.NextPageLeftPart != null)
                 this.Page2SheetSection2.sheetImage.Children.Add(BookData.NextPageLeftPart);
+                if (BookData.NextPageRightPart != null)
                 this.Page1TraceSheet.sheetImage.Children.Add(BookData.NextPageRightPart);
 
                 TypeTransition = UpdatePageTransition.Default;
@@ -448,41 +437,41 @@ namespace PageFlip
             }
         }
 
-        int CurrentChapterIndex = 0;
-        int CurrentArticleIndex = 0;
-        int CurrentArticlePageIndex = -1;
+        //int CurrentChapterIndex = 0;
+        //int CurrentArticleIndex = 0;
+        //int CurrentArticlePageIndex = -1;
 
-        #region ChangeChapter
-        private void NextChapter(int iIndex)
-        {
-            BookData.UpdateBeforeChangeChapter(iIndex);
-            ChangePageAfterTransition(this, new EventArgs());
+        //#region ChangeChapter
+        //private void NextChapter(int iIndex)
+        //{
+        //    BookData.UpdateBeforeChangeChapter(iIndex);
+        //    ChangePageAfterTransition(this, new EventArgs());
 
-            TypeTransition = UpdatePageTransition.NextChapter;
-            CurrentChapterIndex = iIndex;
-            CurrentArticleIndex = 0;
-            CurrentArticlePageIndex = -1;
+        //    TypeTransition = UpdatePageTransition.NextMenuPage;
+        //    CurrentChapterIndex = iIndex;
+        //    CurrentArticleIndex = 0;
+        //    CurrentArticlePageIndex = -1;
 
-            this.startTransition();
-            this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
-        }
+        //    this.startTransition();
+        //    this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
+        //}
 
-        private void btChapter0_Click(object sender, RoutedEventArgs e)
-        {
-            NextChapter(0);
-        }
+        //private void btChapter0_Click(object sender, RoutedEventArgs e)
+        //{
+        //    NextChapter(0);
+        //}
 
-        private void btChapter1_Click(object sender, RoutedEventArgs e)
-        {
-            NextChapter(1);
-        }
+        //private void btChapter1_Click(object sender, RoutedEventArgs e)
+        //{
+        //    NextChapter(1);
+        //}
 
-        private void btChapter2_Click(object sender, RoutedEventArgs e)
-        {
-            NextChapter(2);
-        }
+        //private void btChapter2_Click(object sender, RoutedEventArgs e)
+        //{
+        //    NextChapter(2);
+        //}
 
-        #endregion
+        //#endregion
 
 
 
