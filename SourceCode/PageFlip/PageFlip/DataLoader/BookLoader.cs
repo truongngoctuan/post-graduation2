@@ -429,84 +429,15 @@ namespace PageFlip.DataLoader
 			
 		}
 
-		public void AddParent(MenuPage chr)
+		public void AddParent(TilePageMenu chr)
 		{
-			this.ParentIndex = chr.Index;
-		}
-	}
-
-	public class MenuPage
-	{
-		public List<Article> Articles;
-		public int Index;
-
-		public UIElement CreateMenuPageFromTiles()
-		{
-			if (Index == 0)
-			{
-				string xaml = @"<Grid x:Name=""pageRoot"" 
-								xmlns='http://schemas.microsoft.com/client/2007'
-								xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-							Width='900' Height='620'>
-								<Image Source=""/PageFlip;component/Images/Chap0.jpg""></Image>
-							</Grid>";
-
-				return Ultis.LoadXamlFromString(xaml);
-			}
-			else
-				if (Index == 1)
-				{
-					string xaml = @"<Grid x:Name=""pageRoot"" 
-								xmlns='http://schemas.microsoft.com/client/2007'
-								xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-							Width='900' Height='620'>
-								<Image Source=""/PageFlip;component/Images/Chap1.jpg""></Image>
-							</Grid>";
-
-					return Ultis.LoadXamlFromString(xaml);
-				}
-				else
-				{
-					string xaml = @"<Grid x:Name=""pageRoot"" 
-								xmlns='http://schemas.microsoft.com/client/2007'
-								xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-							Width='900' Height='620'>
-								 <Image Source=""/PageFlip;component/Images/Chap2.jpg""></Image>
-							</Grid>";
-
-					return Ultis.LoadXamlFromString(xaml);
-				}
-		   
-		}
-
-		public static MenuPage LoadMenuPage(int idx)
-		{
-			MenuPage chp = new MenuPage();
-			chp.Index = idx;
-
-			List<Article> list = new List<Article>();
-			for (int i = 0; i < 2; i++)
-			{
-				Article ar = new Article();
-				ar.ArticleName = "ArticleName" + i.ToString();
-				ar.Index = i;
-				ar.AddParent(chp);
-
-				list.Add(ar);
-			}
-
-			chp.Articles = list;
-
-			return chp;
+			//this.ParentIndex = chr.Index;
 		}
 	}
 
 	public class BookLoader
 	{
-		List<MenuPage> listMenuPage;
-		//int CurrentChapterIndex;
-		//int CurrentArticleIndex;
-		//int CurrentArticlePageIndex;
+		List<TilePage> listMenuPage;
 
 		public UIElement CurrentPage;
 		public UIElement NextPageLeftPart;
@@ -514,11 +445,11 @@ namespace PageFlip.DataLoader
 
 		public BookLoader()
 		{
-			listMenuPage = new List<MenuPage>();
+			listMenuPage = new List<TilePage>();
 			//load all chapter infomation
 			for (int i = 0; i < 3; i++)
 			{
-				MenuPage MnPg = MenuPage.LoadMenuPage(i);
+				TilePage MnPg = TilePageMenu.Load(i);
 				listMenuPage.Add(MnPg);
 			}
 		}
@@ -537,12 +468,12 @@ namespace PageFlip.DataLoader
                 //previous page = listMenuPage[idx - 1].CreateMenuPageFromTiles();
             }
 
-            CurrentPage = listMenuPage[idx].CreateMenuPageFromTiles();
+            CurrentPage = listMenuPage[idx].generatePage();
 
             if (idx + 1 < listMenuPage.Count)
             {
-                NextPageRightPart = listMenuPage[idx + 1].CreateMenuPageFromTiles();
-                NextPageLeftPart = listMenuPage[idx + 1].CreateMenuPageFromTiles();
+                NextPageRightPart = listMenuPage[idx + 1].generatePage();
+                NextPageLeftPart = listMenuPage[idx + 1].generatePage();
             }
             else
             {
@@ -559,8 +490,8 @@ namespace PageFlip.DataLoader
             iCurrentMenuIndex++;
             if (iCurrentMenuIndex + 1 < listMenuPage.Count)
             {
-                NextPageLeftPart = listMenuPage[iCurrentMenuIndex + 1].CreateMenuPageFromTiles();
-                NextPageRightPart = listMenuPage[iCurrentMenuIndex + 1].CreateMenuPageFromTiles();
+                NextPageLeftPart = listMenuPage[iCurrentMenuIndex + 1].generatePage();
+                NextPageRightPart = listMenuPage[iCurrentMenuIndex + 1].generatePage();
             }
             else
             {
@@ -585,30 +516,5 @@ namespace PageFlip.DataLoader
                 return false;
             return true;
         }
-        ////change next next chapter
-        //public void UpdateBeforeChangeChapter(int iNextChapterIndex)
-        //{
-        //    NextPageLeftPart = listMenuPage[iNextChapterIndex].CreateMenuPageFromTiles();
-        //    NextPageRightPart = listMenuPage[iNextChapterIndex].CreateMenuPageFromTiles();
-        //}
-
-        //public void UpdateAfterChangeChapter(int iChapterIndex)
-        //{
-        //    //load 1 current page ad 2 more next page
-        //    CurrentPage = listMenuPage[iChapterIndex].CreateMenuPageFromTiles();
-        //    NextPageLeftPart = listMenuPage[iChapterIndex].Articles[0].CreateArticlePage(0, "");
-        //    NextPageRightPart = listMenuPage[iChapterIndex].Articles[0].CreateArticlePage(0, "");
-        //}
-
-		//next page
-        //public void UpdateAfterNextArticlePage(int iCurrentChapterIndex, int CurrentArticleIndex, int CurrentArticlePageIndex)
-        //{
-        //    //load 1 current page ad 2 more next page
-        //    CurrentPage = NextPageLeftPart;
-        //    NextPageLeftPart = listMenuPage[iCurrentChapterIndex].Articles[CurrentArticleIndex].CreateArticlePage(CurrentArticlePageIndex + 1, "");
-        //    NextPageRightPart = listMenuPage[iCurrentChapterIndex].Articles[CurrentArticleIndex].CreateArticlePage(CurrentArticlePageIndex + 1, "");
-        //}
-
-        
     }
 }

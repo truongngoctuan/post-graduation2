@@ -87,12 +87,8 @@
     </Compile>
     <Compile Include="BookSizes.cs" />
     <Compile Include="DataLoader\BookLoader.cs" />
-    <Compile Include="DataLoader\MenuItemLvl0.cs" />
-    <Compile Include="DataLoader\MenuLoader.cs" />
-    <Compile Include="DataLoader\UITilePage.cs" />
-    <Compile Include="HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="DataLoader\Tile.cs" />
+    <Compile Include="DataLoader\TilePage.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -120,10 +116,6 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="Generic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
