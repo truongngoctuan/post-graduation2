@@ -429,18 +429,18 @@ namespace PageFlip.DataLoader
 			
 		}
 
-		public void AddParent(Chapter chr)
+		public void AddParent(MenuPage chr)
 		{
 			this.ParentIndex = chr.Index;
 		}
 	}
 
-	public class Chapter
+	public class MenuPage
 	{
 		public List<Article> Articles;
 		public int Index;
 
-		public UIElement CreateChapterFromArticleName()
+		public UIElement CreateMenuPageFromTiles()
 		{
 			if (Index == 0)
 			{
@@ -479,10 +479,10 @@ namespace PageFlip.DataLoader
 		   
 		}
 
-		public static Chapter LoadChapter(int iNextChapterIndex)
+		public static MenuPage LoadMenuPage(int idx)
 		{
-			Chapter chp = new Chapter();
-			chp.Index = iNextChapterIndex;
+			MenuPage chp = new MenuPage();
+			chp.Index = idx;
 
 			List<Article> list = new List<Article>();
 			for (int i = 0; i < 2; i++)
@@ -503,7 +503,7 @@ namespace PageFlip.DataLoader
 
 	public class BookLoader
 	{
-		List<Chapter> listChapter;
+		List<MenuPage> listMenuPage;
 		//int CurrentChapterIndex;
 		//int CurrentArticleIndex;
 		//int CurrentArticlePageIndex;
@@ -514,37 +514,101 @@ namespace PageFlip.DataLoader
 
 		public BookLoader()
 		{
-			listChapter = new List<Chapter>();
+			listMenuPage = new List<MenuPage>();
 			//load all chapter infomation
 			for (int i = 0; i < 3; i++)
 			{
-				Chapter nextChap = Chapter.LoadChapter(i);
-				listChapter.Add(nextChap);
+				MenuPage MnPg = MenuPage.LoadMenuPage(i);
+				listMenuPage.Add(MnPg);
 			}
 		}
 
-		//change next next chapter
-		public void UpdateBeforeChangeChapter(int iNextChapterIndex)
-		{
-			NextPageLeftPart = listChapter[iNextChapterIndex].CreateChapterFromArticleName();
-			NextPageRightPart = listChapter[iNextChapterIndex].CreateChapterFromArticleName();
-		}
+        #region MainMenuPage
+        int iCurrentMenuIndex = 0;
+        int iCurrentMenuLevel = 0;
 
-		public void UpdateAfterChangeChapter(int iChapterIndex)
-		{
-			//load 1 current page ad 2 more next page
-			CurrentPage = listChapter[iChapterIndex].CreateChapterFromArticleName();
-			NextPageLeftPart = listChapter[iChapterIndex].Articles[0].CreateArticlePage(0, "");
-			NextPageRightPart = listChapter[iChapterIndex].Articles[0].CreateArticlePage(0, "");
-		}
+        public void LoadMainMenu(int idx)
+        {
+            iCurrentMenuIndex = idx;
+            iCurrentMenuLevel = 0;
+
+            if (idx - 1 >= 0)
+            {
+                //previous page = listMenuPage[idx - 1].CreateMenuPageFromTiles();
+            }
+
+            CurrentPage = listMenuPage[idx].CreateMenuPageFromTiles();
+
+            if (idx + 1 < listMenuPage.Count)
+            {
+                NextPageRightPart = listMenuPage[idx + 1].CreateMenuPageFromTiles();
+                NextPageLeftPart = listMenuPage[idx + 1].CreateMenuPageFromTiles();
+            }
+            else
+            {
+                NextPageRightPart = null;
+                NextPageLeftPart = null;
+            }
+        }
+
+        public void UpdateAfter_NextMainMenuPage()
+        {
+            //previous page = CurrentPage;
+            CurrentPage = NextPageLeftPart;
+
+            iCurrentMenuIndex++;
+            if (iCurrentMenuIndex + 1 < listMenuPage.Count)
+            {
+                NextPageLeftPart = listMenuPage[iCurrentMenuIndex + 1].CreateMenuPageFromTiles();
+                NextPageRightPart = listMenuPage[iCurrentMenuIndex + 1].CreateMenuPageFromTiles();
+            }
+            else
+            {
+                NextPageRightPart = null;
+                NextPageLeftPart = null;
+            }
+        }
+
+        public void UpdateAfter_PreviousMainMenuPage()
+        {
+
+        }
+        #endregion
+        public void NextPage()
+        {
+            UpdateAfter_NextMainMenuPage();
+        }
+
+        public bool IsCanTransitionRight()
+        {
+            if (NextPageRightPart == null && NextPageLeftPart == null) 
+                return false;
+            return true;
+        }
+        ////change next next chapter
+        //public void UpdateBeforeChangeChapter(int iNextChapterIndex)
+        //{
+        //    NextPageLeftPart = listMenuPage[iNextChapterIndex].CreateMenuPageFromTiles();
+        //    NextPageRightPart = listMenuPage[iNextChapterIndex].CreateMenuPageFromTiles();
+        //}
+
+        //public void UpdateAfterChangeChapter(int iChapterIndex)
+        //{
+        //    //load 1 current page ad 2 more next page
+        //    CurrentPage = listMenuPage[iChapterIndex].CreateMenuPageFromTiles();
+        //    NextPageLeftPart = listMenuPage[iChapterIndex].Articles[0].CreateArticlePage(0, "");
+        //    NextPageRightPart = listMenuPage[iChapterIndex].Articles[0].CreateArticlePage(0, "");
+        //}
 
 		//next page
-		public void UpdateAfterNextArticlePage(int iCurrentChapterIndex, int CurrentArticleIndex, int CurrentArticlePageIndex)
-		{
-			//load 1 current page ad 2 more next page
-			CurrentPage = NextPageLeftPart;
-			NextPageLeftPart = listChapter[iCurrentChapterIndex].Articles[CurrentArticleIndex].CreateArticlePage(CurrentArticlePageIndex + 1, "");
-			NextPageRightPart = listChapter[iCurrentChapterIndex].Articles[CurrentArticleIndex].CreateArticlePage(CurrentArticlePageIndex + 1, "");
-		}
-	}
+        //public void UpdateAfterNextArticlePage(int iCurrentChapterIndex, int CurrentArticleIndex, int CurrentArticlePageIndex)
+        //{
+        //    //load 1 current page ad 2 more next page
+        //    CurrentPage = NextPageLeftPart;
+        //    NextPageLeftPart = listMenuPage[iCurrentChapterIndex].Articles[CurrentArticleIndex].CreateArticlePage(CurrentArticlePageIndex + 1, "");
+        //    NextPageRightPart = listMenuPage[iCurrentChapterIndex].Articles[CurrentArticleIndex].CreateArticlePage(CurrentArticlePageIndex + 1, "");
+        //}
+
+        
+    }
 }
