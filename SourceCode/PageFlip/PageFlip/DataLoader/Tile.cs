@@ -9,6 +9,9 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using PageFlipUltis;
+using System.Collections.Generic;
+using System.IO;
+using System.Xml;
 
 namespace PageFlip.DataLoader
 {
@@ -31,6 +34,9 @@ namespace PageFlip.DataLoader
         //to load new sub menu.
         public int CurrentLvl;
         public int CurrentIndexMenu;
+
+        public List<TileMenu> listSubMenu = new List<TileMenu>();
+
         public override UIElement generate()
         {
             string xaml = @"
@@ -51,6 +57,82 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
         void bt_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("bt_Click " + CurrentLvl.ToString() + " " + CurrentIndexMenu.ToString());
+        }
+
+        public static TileMenu ReadTile(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        {
+            TileMenu tile = new TileMenu();
+            if (true == reader.MoveToFirstAttribute())
+            {
+                //Page='0' GridRow='0' GridColumn='0' 
+                //GridColumnSpan='2' GridRowSpan='5' 
+                //ImageSource='/PageFlip;component/Images/HomeMenuPage/home_01.jpg'
+                tile.Page = int.Parse(reader.Value);
+                reader.MoveToNextAttribute();
+
+                tile.GridRow = int.Parse(reader.Value);
+                reader.MoveToNextAttribute();
+                tile.GridColumn = int.Parse(reader.Value);
+                reader.MoveToNextAttribute();
+
+                tile.GridColumnSpan = int.Parse(reader.Value);
+                reader.MoveToNextAttribute();
+                tile.GridRowSpan = int.Parse(reader.Value);
+                reader.MoveToNextAttribute();
+
+                tile.ImageSource = reader.Value;
+
+                tile.CurrentLvl = CurrentLevel;
+                tile.CurrentIndexMenu = CurrentIndex;
+
+
+                reader.MoveToElement();
+            }
+
+            return tile;
+        }
+
+        public static List<TileMenu> ReadDeeper(ref XmlReader reader, int CurrentLevel)
+        {
+            if (reader.ReadToDescendant("tile"))
+            {
+                List<TileMenu> Tiles = new List<TileMenu>();
+                int CurrentIndex = 0;
+
+                //read current tile
+                TileMenu item = TileMenu.ReadTile(reader, CurrentLevel, CurrentIndex);
+                item.listSubMenu = TileMenu.ReadDeeper(ref reader, CurrentLevel + 1);
+                Tiles.Add(item);
+                CurrentIndex++;
+
+                while (reader.ReadToNextSibling("tile"))
+                {
+                    TileMenu item2 = TileMenu.ReadTile(reader, CurrentLevel, CurrentIndex);
+                    item2.listSubMenu = TileMenu.ReadDeeper(ref reader, CurrentLevel + 1);
+                    Tiles.Add(item2);
+                    CurrentIndex++;
+                }
+                return Tiles;
+            }
+            return null;
+        }
+
+        public static List<TileMenu> Load(StringReader stream)
+        {
+            XmlReader reader = XmlReader.Create(stream);
+
+            while (reader.Read())
+            {
+                if (reader.NodeType == XmlNodeType.Element)
+                {
+                    if (reader.Name == "menu")
+                    {
+                        return ReadDeeper(ref reader, 0);
+                    }
+                }
+            }
+
+            return null;
         }
     }
     

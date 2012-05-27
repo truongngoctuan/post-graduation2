@@ -439,7 +439,7 @@ namespace PageFlip.DataLoader
 
 	public class BookLoader:Subject
 	{
-		List<TilePage> listMenuPage;
+        List<TileMenu> Tiles;
 
 		public UIElement CurrentPage;
 		public UIElement NextPageLeftPart;
@@ -447,9 +447,6 @@ namespace PageFlip.DataLoader
 
 		public BookLoader()
 		{
-			listMenuPage = new List<TilePage>();
-
-
             //load data from menudata.xml
             Uri url = new Uri("menudata.xml", UriKind.Relative);
 
@@ -475,9 +472,11 @@ namespace PageFlip.DataLoader
             if (e.Error == null)
             {
                 StringReader stream = new StringReader(e.Result);
-                TilePage MnPg = TilePageMenu.Load(stream, 0, 0);
+                //TilePage MnPg = TilePageMenu.Load(stream, 0, 0);
 
-                listMenuPage.Add(MnPg);
+                Tiles = TileMenu.Load(stream);
+
+                //listMenuPage.Add(MnPg);
                 LoadMainMenu(0);
                 Notify();
             }
@@ -486,50 +485,27 @@ namespace PageFlip.DataLoader
 
 
         #region MainMenuPage
-        int iCurrentMenuIndex = 0;
+        int iCurrentMenuPage = 0;
         int iCurrentMenuLevel = 0;
 
         public void LoadMainMenu(int idx)
         {
-            if (listMenuPage.Count == 0) return;
-            iCurrentMenuIndex = idx;
+            if (Tiles.Count == 0) return;
+            iCurrentMenuPage = idx;
             iCurrentMenuLevel = 0;
 
-            if (idx - 1 >= 0)
-            {
-                //previous page = listMenuPage[idx - 1].CreateMenuPageFromTiles();
-            }
-
-            CurrentPage = listMenuPage[idx].generatePage();
-
-            if (idx + 1 < listMenuPage.Count)
-            {
-                NextPageRightPart = listMenuPage[idx + 1].generatePage();
-                NextPageLeftPart = listMenuPage[idx + 1].generatePage();
-            }
-            else
-            {
-                NextPageRightPart = null;
-                NextPageLeftPart = null;
-            }
+            CurrentPage = TilePageMenu.createPage(Tiles, idx);
+            NextPageRightPart = TilePageMenu.createPage(Tiles, idx + 1);
+            NextPageLeftPart = TilePageMenu.createPage(Tiles, idx + 1);
         }
 
         public void UpdateAfter_NextMainMenuPage()
         {
-            //previous page = CurrentPage;
-            CurrentPage = NextPageLeftPart;
+            iCurrentMenuPage++;
 
-            iCurrentMenuIndex++;
-            if (iCurrentMenuIndex + 1 < listMenuPage.Count)
-            {
-                NextPageLeftPart = listMenuPage[iCurrentMenuIndex + 1].generatePage();
-                NextPageRightPart = listMenuPage[iCurrentMenuIndex + 1].generatePage();
-            }
-            else
-            {
-                NextPageRightPart = null;
-                NextPageLeftPart = null;
-            }
+            CurrentPage = NextPageLeftPart;
+            NextPageRightPart = TilePageMenu.createPage(Tiles, iCurrentMenuPage + 1);
+            NextPageLeftPart = TilePageMenu.createPage(Tiles, iCurrentMenuPage + 1);
         }
 
         public void UpdateAfter_PreviousMainMenuPage()

@@ -152,6 +152,8 @@ namespace PageFlip
             this.PageCorner.MouseLeave += new MouseEventHandler(this.PageCorner_MouseLeave);
 
             this.Page1Sheet.Effect = new CustomPixelShader.Effects.GutterBookEffect();
+            this.Page2SheetSection2.Effect = new CustomPixelShader.Effects.GutterBookEffect();
+            this.Page1TraceSheet.Effect = new CustomPixelShader.Effects.GutterBookEffect();
         }
 
         public void UpdateInterface()
