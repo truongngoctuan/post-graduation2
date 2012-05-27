@@ -154,9 +154,12 @@ namespace PageFlip
         }
 
         public void UpdateInterface()
-        {
+        {//update book layout if something change in bookdata
             //throw new NotImplementedException();
-            ChangePageAfterTransition(this, new EventArgs());
+            bCanTransitionRight = BookData.IsCanTransitionRight();
+
+            //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
+            Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
         }
 
         private void CompositionTarget_Rendering(object sender, EventArgs e)
@@ -360,10 +363,11 @@ namespace PageFlip
                 case UpdatePageTransition.NextPage:
                     {
                         BookData.NextPage();
-                        bCanTransitionRight = BookData.IsCanTransitionRight();
+                        UpdateInterface();
+                        //bCanTransitionRight = BookData.IsCanTransitionRight();
 
-                        //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
-                        Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
+                        ////http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
+                        //Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
                         break;
                     }
                 default://tuong duong nextpage
