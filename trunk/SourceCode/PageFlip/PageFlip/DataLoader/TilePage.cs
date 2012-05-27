@@ -169,9 +169,6 @@ namespace PageFlip.DataLoader
 
         public override UIElement generatePage()
         {
-            //StackPanel grd = new StackPanel();
-            //grd.Orientation = Orientation.Horizontal;
-
             string xaml = @"
 	<Grid 
 xmlns='http://schemas.microsoft.com/client/2007'
@@ -197,10 +194,53 @@ x:Name='tilepage'>
             Grid grd = (Grid)PageFlipUltis.Ultis.LoadXamlFromString(xaml);
             foreach (Tile item in Tiles)
             {
+                //if (item.Page == iPage)
                 grd.Children.Add(item.generate());
             }
 
             return grd;
+        }
+
+
+        public static UIElement createPage(List<TileMenu> Tiles, int iPage)
+        {
+            string xaml = @"
+	<Grid 
+xmlns='http://schemas.microsoft.com/client/2007'
+    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+x:Name='tilepage'>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width='*'></ColumnDefinition>
+            <ColumnDefinition Width='*'></ColumnDefinition>
+            <ColumnDefinition Width='*'></ColumnDefinition>
+            <ColumnDefinition Width='*'></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height='*'></RowDefinition>
+            <RowDefinition Height='*'></RowDefinition>
+            <RowDefinition Height='*'></RowDefinition>
+            <RowDefinition Height='*'></RowDefinition>
+            <RowDefinition Height='*'></RowDefinition>
+        </Grid.RowDefinitions>
+    </Grid>
+
+";
+
+            int iCounter = 0;
+            Grid grd = (Grid)PageFlipUltis.Ultis.LoadXamlFromString(xaml);
+            foreach (Tile item in Tiles)
+            {
+                if (item.Page == iPage)
+                {
+                    grd.Children.Add(item.generate());
+                    iCounter++;
+                }
+            }
+
+            if (iCounter > 0)
+                return grd;
+            else
+                return null;
         }
     }
 }
