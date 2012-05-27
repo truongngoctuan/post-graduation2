@@ -445,6 +445,8 @@ namespace PageFlip
 
                 this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
                 this.follow = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
+
+                this.Page1Sheet.Effect = new CustomPixelShader.Effects.GutterBookEffect();
             }
             catch (Exception ex)
             {
