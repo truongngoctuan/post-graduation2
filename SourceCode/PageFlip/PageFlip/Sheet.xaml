@@ -12,7 +12,7 @@
             <!--<Image x:Name="sheetImage" Source="images/page0.jpg" Width="600" Height="425" Stretch="Fill"/>-->
             <Canvas x:Name="sheetImage" Width="900" Height="600" Background="White"></Canvas>
 
-            <Image x:Name="shadowSpine" Source="images/shadowSpine.png" Canvas.Left="350" Canvas.Top="0"/>
+            <!--<Image x:Name="shadowSpine" Source="images/shadowSpine.png" Canvas.Left="350" Canvas.Top="0"/>-->
             <Image x:Name="curlShadow" Opacity="0.0" Source="images/curlShadow.png" Canvas.Top="0" Canvas.Left="-50" Width="450" Height="960" Stretch="Fill"
                    RenderTransformOrigin="1.0,0.66">
                 <Image.RenderTransform>

@@ -36,8 +36,8 @@
 						<ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
 					</Canvas.RenderTransform>
 
-					<local:Sheet x:Name="Page1Sheet" Canvas.Left="0" Canvas.Top="600"/>
-					<!-- changes-->
+                    <local:Sheet x:Name="Page1Sheet" Canvas.Left="0" Canvas.Top="600"/>
+                    <!-- changes-->
 					<Canvas x:Name="traca" Width="{Binding layoutRootW}" Height="{Binding layoutRootH}">
 						<Canvas x:Name="catrabs" Width="{Binding layoutRootW}" Height="{Binding layoutRootH}" Canvas.Top="0">
 							<Canvas.Clip >

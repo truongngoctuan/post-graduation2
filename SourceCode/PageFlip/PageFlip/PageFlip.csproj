@@ -91,6 +91,7 @@
     <Compile Include="DataLoader\IObserver.cs" />
     <Compile Include="DataLoader\Tile.cs" />
     <Compile Include="DataLoader\TilePage.cs" />
+    <Compile Include="Effects\GutterBookEffect.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -139,6 +140,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Effects\GutterBook.ps" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Service References\ServiceReference1\PageFlip.ServiceReference1.Article.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
