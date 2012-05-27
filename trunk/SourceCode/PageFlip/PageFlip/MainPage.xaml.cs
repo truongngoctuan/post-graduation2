@@ -151,6 +151,7 @@ namespace PageFlip
             this.PageCorner.MouseLeftButtonUp += new MouseButtonEventHandler(this.PageCorner_MouseLeftButtonUp);
             this.PageCorner.MouseLeave += new MouseEventHandler(this.PageCorner_MouseLeave);
 
+            this.Page1Sheet.Effect = new CustomPixelShader.Effects.GutterBookEffect();
         }
 
         public void UpdateInterface()
@@ -421,15 +422,6 @@ namespace PageFlip
         {
             try
             {
-                //this.Page1Sheet.sheetImage.Children.Clear();
-                //this.Page1Sheet.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.iCurrentPageContent]));
-
-                //this.Page2SheetSection2.sheetImage.Children.Clear();
-                //this.Page1TraceSheet.sheetImage.Children.Clear();
-
-                //this.Page2SheetSection2.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.iNextPageContent]));
-                //this.Page1TraceSheet.sheetImage.Children.Add(Ultis.LoadXamlFromString(this.PageContents[this.iNextPageContent]));
-
                 this.Page1Sheet.sheetImage.Children.Clear();
                 this.Page2SheetSection2.sheetImage.Children.Clear();
                 this.Page1TraceSheet.sheetImage.Children.Clear();
@@ -445,8 +437,6 @@ namespace PageFlip
 
                 this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
                 this.follow = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
-
-                this.Page1Sheet.Effect = new CustomPixelShader.Effects.GutterBookEffect();
             }
             catch (Exception ex)
             {
