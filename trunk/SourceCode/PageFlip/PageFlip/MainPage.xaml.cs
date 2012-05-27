@@ -22,7 +22,7 @@ namespace PageFlip
         NextPage,
         PreviousPage
     }
-    public partial class MainPage : UserControl
+    public partial class MainPage : UserControl, IObserver
     {
         private double angleSB2RF; //Angle Spine Bottom two Raw Flow
         private double angleST2C; //Angle Spine Top two Centre
@@ -71,7 +71,7 @@ namespace PageFlip
         private double bisectorAngle;
         private int ImageMaxCount = 5;
 
-        BookLoader BookData = new BookLoader();
+        BookLoader BookData;
         // Methods
         public MainPage()
         {
@@ -101,6 +101,9 @@ namespace PageFlip
 
         private void setupUI()
         {
+            BookData = new BookLoader();
+            BookData.Attach(this);
+
             this.pageWidth = 900;
             this.pageHeight = 600;
 
@@ -148,6 +151,12 @@ namespace PageFlip
             this.PageCorner.MouseLeftButtonUp += new MouseButtonEventHandler(this.PageCorner_MouseLeftButtonUp);
             this.PageCorner.MouseLeave += new MouseEventHandler(this.PageCorner_MouseLeave);
 
+        }
+
+        public void UpdateInterface()
+        {
+            //throw new NotImplementedException();
+            ChangePageAfterTransition(this, new EventArgs());
         }
 
         private void CompositionTarget_Rendering(object sender, EventArgs e)
@@ -319,8 +328,10 @@ namespace PageFlip
                 //this.iCurrentPageContent = -1;
 
                 //BookData.UpdateAfterChangeChapter(0);
-                BookData.LoadMainMenu(0);
-                ChangePageAfterTransition(this, new EventArgs());
+
+
+                //BookData.LoadMainMenu(0);
+//                ChangePageAfterTransition(this, new EventArgs());
 
                 CompositionTarget.Rendering += new EventHandler(this.CompositionTarget_Rendering);
             }

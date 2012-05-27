@@ -59,6 +59,7 @@
     <Content Include="App_Data\EmployeeDB_log.ldf">
       <DependentUpon>EmployeeDB.mdf</DependentUpon>
     </Content>
+    <Content Include="ClientBin\menudata.xml" />
     <Content Include="ClientBin\PageFlip.xap" />
     <Content Include="PageFlipTestPage.aspx" />
     <Content Include="PageFlipTestPage.html" />

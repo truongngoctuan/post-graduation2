@@ -14,13 +14,11 @@ namespace PageFlip.DataLoader
 {
     public class Tile
     {
-        //string strImageSource;//...
-        //double dWidth;
-        //double dHeight;
+        public string ImageSource;//...
+        public int GridColumn, GridRow, GridColumnSpan, GridRowSpan;
+        public int Page;
         //margin
         //border
-        //gridcol, gridrow
-
         public virtual UIElement generate()
         {
             return new Button() { Width = 100, Height = 25, Content = "Test Tile" };
@@ -29,21 +27,30 @@ namespace PageFlip.DataLoader
 
     public class TileMenu : Tile
     {//tile when click vao open new menu
-        public string xamlImage;
+        //use 2 variable to indicate position of his item in global menu
+        //to load new sub menu.
+        public int CurrentLvl;
+        public int CurrentIndexMenu;
         public override UIElement generate()
         {
-            return Ultis.LoadXamlFromString(xamlImage);
+            string xaml = @"
+<Button 
+xmlns='http://schemas.microsoft.com/client/2007'
+xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
+            <Image Source='{4}'></Image>
+        </Button>
+";
+            xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, ImageSource);
+            Button bt = (Button)Ultis.LoadXamlFromString(xaml);
+            bt.Click += new RoutedEventHandler(bt_Click);
 
-            //Button bt = new Button() { Width = 100, Height = 100, Content = "Test Menu Tile" };
-
-            //bt.Click += new RoutedEventHandler(bt_Click);
-
-            //return bt;
+            return bt;
         }
 
         void bt_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("bt_Click " + " ");
+            MessageBox.Show("bt_Click " + CurrentLvl.ToString() + " " + CurrentIndexMenu.ToString());
         }
     }
     

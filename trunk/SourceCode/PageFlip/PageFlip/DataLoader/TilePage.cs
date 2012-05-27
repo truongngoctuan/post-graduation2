@@ -9,6 +9,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Collections.Generic;
+using System.Xml;
+using System.IO;
 
 namespace PageFlip.DataLoader
 {
@@ -71,59 +73,97 @@ namespace PageFlip.DataLoader
         {
             Tiles = new List<Tile>();
         }
-        public static TilePage Load(int idx)
+        public static TilePage Load(StringReader stream, int lvl, int idx)
         {
+//            TilePageMenu pg = new TilePageMenu();
+
+//            //for (int i = 0; i < 4; i++)
+//            //{
+//            //    pg.Tiles.Add(new TileMenu());
+//            //}
+
+//            pg.Tiles.Add(new TileMenu()
+//            {
+//                xamlImage = @"
+//<Image xmlns='http://schemas.microsoft.com/client/2007'
+//    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+//	Grid.Row='0' Grid.Column='0' Grid.ColumnSpan='2' Grid.RowSpan='5' Stretch='Fill' Source='/PageFlip;component/Images/HomeMenuPage/home_01.jpg'></Image>
+//"
+//            });
+
+//            pg.Tiles.Add(new TileMenu()
+//            {
+//                xamlImage = @"
+//<Image xmlns='http://schemas.microsoft.com/client/2007'
+//    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+//	Grid.Row='0' Grid.Column='2' Grid.ColumnSpan='1' Grid.RowSpan='3' Stretch='None' Source='/PageFlip;component/Images/HomeMenuPage/home_02.jpg'></Image>
+//"
+//            });
+
+//            pg.Tiles.Add(new TileMenu()
+//            {
+//                xamlImage = @"
+//<Image xmlns='http://schemas.microsoft.com/client/2007'
+//    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+//	Grid.Row='0' Grid.Column='3' Grid.ColumnSpan='1' Grid.RowSpan='2' Stretch='None' Source='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'></Image>
+//"
+//            });
+
+//            pg.Tiles.Add(new TileMenu()
+//            {
+//                xamlImage = @"
+//<Image xmlns='http://schemas.microsoft.com/client/2007'
+//    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+//	Grid.Row='3' Grid.Column='2' Grid.ColumnSpan='1' Grid.RowSpan='2' Stretch='None' Source='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'></Image>
+//"
+//            });
+
+//            pg.Tiles.Add(new TileMenu()
+//            {
+//                xamlImage = @"
+//<Image xmlns='http://schemas.microsoft.com/client/2007'
+//    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+//	Grid.Row='2' Grid.Column='3' Grid.ColumnSpan='1' Grid.RowSpan='3' Stretch='None' Source='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'></Image>
+//"
+//            });
+//            return pg;
+
             TilePageMenu pg = new TilePageMenu();
+            XmlReader reader = XmlReader.Create(stream);
 
-            //for (int i = 0; i < 4; i++)
-            //{
-            //    pg.Tiles.Add(new TileMenu());
-            //}
-
-            pg.Tiles.Add(new TileMenu()
+            while (reader.Read())
             {
-                xamlImage = @"
-<Image xmlns='http://schemas.microsoft.com/client/2007'
-    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-	Grid.Row='0' Grid.Column='0' Grid.ColumnSpan='2' Grid.RowSpan='5' Width='628' Height='646' Source='/PageFlip;component/Images/HomeMenuPage/home_01.jpg'></Image>
-"
-            });
+                if (reader.NodeType == XmlNodeType.Element)
+                {
+                    if (reader.Name == "menu") continue;
+                    if (reader.Name == "tile")
+                    {
+                        TileMenu tile = new TileMenu();
+                        if (true == reader.MoveToFirstAttribute())
+                        {
+                            //Page='0' GridRow='0' GridColumn='0' 
+                            //GridColumnSpan='2' GridRowSpan='5' 
+                            //ImageSource='/PageFlip;component/Images/HomeMenuPage/home_01.jpg'
+                            tile.Page = int.Parse(reader.Value);
+                            reader.MoveToNextAttribute();
 
-            pg.Tiles.Add(new TileMenu()
-            {
-                xamlImage = @"
-<Image xmlns='http://schemas.microsoft.com/client/2007'
-    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-	Grid.Row='0' Grid.Column='2' Grid.ColumnSpan='1' Grid.RowSpan='3' Width='297' Height='359' Source='/PageFlip;component/Images/HomeMenuPage/home_02.jpg'></Image>
-"
-            });
+                            tile.GridRow = int.Parse(reader.Value);
+                            reader.MoveToNextAttribute();
+                            tile.GridColumn = int.Parse(reader.Value);
+                            reader.MoveToNextAttribute();
 
-            pg.Tiles.Add(new TileMenu()
-            {
-                xamlImage = @"
-<Image xmlns='http://schemas.microsoft.com/client/2007'
-    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-	Grid.Row='0' Grid.Column='3' Grid.ColumnSpan='1' Grid.RowSpan='2' Width='287' Height='219' Source='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'></Image>
-"
-            });
+                            tile.GridColumnSpan = int.Parse(reader.Value);
+                            reader.MoveToNextAttribute();
+                            tile.GridRowSpan = int.Parse(reader.Value);
+                            reader.MoveToNextAttribute();
 
-            pg.Tiles.Add(new TileMenu()
-            {
-                xamlImage = @"
-<Image xmlns='http://schemas.microsoft.com/client/2007'
-    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-	Grid.Row='3' Grid.Column='2' Grid.ColumnSpan='1' Grid.RowSpan='2' Width='296' Height='232' Source='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'></Image>
-"
-            });
+                            tile.ImageSource = reader.Value;
+                        }
 
-            pg.Tiles.Add(new TileMenu()
-            {
-                xamlImage = @"
-<Image xmlns='http://schemas.microsoft.com/client/2007'
-    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-	Grid.Row='2' Grid.Column='3' Grid.ColumnSpan='1' Grid.RowSpan='3' Width='286' Height='316' Source='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'></Image>
-"
-            });
+                        pg.Tiles.Add(tile);
+                    }
+                }
+            }            
             return pg;
         }
 

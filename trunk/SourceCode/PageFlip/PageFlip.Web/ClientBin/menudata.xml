@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+	<tile Page='0' GridRow='0' GridColumn='0' GridColumnSpan='2' GridRowSpan='5' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_01.jpg'/>
+	<tile Page='0' GridRow='0' GridColumn='2' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_02.jpg'/>
+	<tile Page='0' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'/>
+	<tile Page='0' GridRow='3' GridColumn='2' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'/>
+	<tile Page='0' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'/>
+</menu>

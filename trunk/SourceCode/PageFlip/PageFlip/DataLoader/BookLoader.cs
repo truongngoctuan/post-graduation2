@@ -10,6 +10,8 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Collections.Generic;
 using PageFlipUltis;
+using System.IO;
+using System.Xml;
 namespace PageFlip.DataLoader
 {
 	public class Article
@@ -435,7 +437,7 @@ namespace PageFlip.DataLoader
 		}
 	}
 
-	public class BookLoader
+	public class BookLoader:Subject
 	{
 		List<TilePage> listMenuPage;
 
@@ -446,13 +448,42 @@ namespace PageFlip.DataLoader
 		public BookLoader()
 		{
 			listMenuPage = new List<TilePage>();
+
+
+            //load data from menudata.xml
+            Uri url = new Uri("menudata.xml", UriKind.Relative);
+
+            WebClient client = new WebClient();
+
+            client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);
+
+            client.DownloadStringAsync(url);
+
+            //TilePage MnPg = TilePageMenu.Load(0, 0);
 			//load all chapter infomation
-			for (int i = 0; i < 3; i++)
-			{
-				TilePage MnPg = TilePageMenu.Load(i);
-				listMenuPage.Add(MnPg);
-			}
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    TilePage MnPg = TilePageMenu.Load(i);
+            //    listMenuPage.Add(MnPg);
+            //}
+
+
 		}
+
+        public void client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                StringReader stream = new StringReader(e.Result);
+                TilePage MnPg = TilePageMenu.Load(stream, 0, 0);
+
+                listMenuPage.Add(MnPg);
+                LoadMainMenu(0);
+                Notify();
+            }
+
+        }
+
 
         #region MainMenuPage
         int iCurrentMenuIndex = 0;
@@ -460,6 +491,7 @@ namespace PageFlip.DataLoader
 
         public void LoadMainMenu(int idx)
         {
+            if (listMenuPage.Count == 0) return;
             iCurrentMenuIndex = idx;
             iCurrentMenuLevel = 0;
 
@@ -516,5 +548,10 @@ namespace PageFlip.DataLoader
                 return false;
             return true;
         }
+
+        #region Update Data
+        //observer tamplate for control tile signal: to submenu page, to list tiles of article and article content
+
+        #endregion
     }
 }
