@@ -28,9 +28,9 @@
 
 			<!--<Button x:Name="btPreviousPage" Content="To Prevous Page" Width="100" Height="100" Margin="5,5,10,5"></Button>-->
 			<Canvas x:Name="bookRoot" Width="950" Height="650" RenderTransformOrigin=".5,.5" Margin="100,0,0,0">
-				<Canvas.Background>
+				<!--<Canvas.Background>
 					<ImageBrush ImageSource="/PageFlip;component/Images/pageflipbkg.png"/>
-				</Canvas.Background>
+				</Canvas.Background>-->
 				<Canvas x:Name="layoutRoot" Width="{Binding layoutRootW}" Height="{Binding layoutRootH}" Canvas.Left="22" Canvas.Top="20" Background="White" RenderTransformOrigin=".5,.5">
 					<Canvas.RenderTransform>
 						<ScaleTransform ScaleX="1.0" ScaleY="1.0"/>

@@ -5,7 +5,7 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           d:DesignWidth="1263" d:DesignHeight="646"
+           d:DesignWidth="1000" d:DesignHeight="646"
            Title="Page1 Page">
     <Grid x:Name="tilepage">
         <Grid.ColumnDefinitions>
@@ -21,10 +21,14 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Width="628" Height="646" Source="Images\HomeMenuPage\home_01.jpg"></Image>
-        <Image Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" Width="297" Height="359" Source="Images\HomeMenuPage\home_02.jpg"></Image>
-        <Image Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="2" Width="287" Height="219" Source="Images\HomeMenuPage\home_03.jpg"></Image>
-        <Image Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="2" Width="296" Height="232" Source="Images\HomeMenuPage\home_04.jpg"></Image>
-        <Image Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="3" Width="286" Height="316" Source="Images\HomeMenuPage\home_05.jpg"></Image>
+        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5"
+                >
+            <Image Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_01.jpg"></Image>
+        </Button>
+        <!--<Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_01.jpg"></Image>-->
+        <Image Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_02.jpg"></Image>
+        <Image Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="2" Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_03.jpg"></Image>
+        <Image Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="2" Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_04.jpg"></Image>
+        <Image Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="3" Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_05.jpg"></Image>
     </Grid>
 </navigation:Page>
