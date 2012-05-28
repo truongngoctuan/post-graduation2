@@ -337,7 +337,7 @@ namespace PageFlip
                 //BookData.UpdateAfterChangeChapter(0);
 
 
-                //BookData.LoadMainMenu(0);
+                //BookData.LoadMenu(0);
 //                ChangePageAfterTransition(this, new EventArgs());
 
                 CompositionTarget.Rendering += new EventHandler(this.CompositionTarget_Rendering);

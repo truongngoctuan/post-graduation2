@@ -439,9 +439,9 @@ namespace PageFlip.DataLoader
 
 	public class BookLoader:Subject
     {
-
         //List<TileMenu> Tiles;
-        TilePageMenu MenuPage;
+        TilePageMenu MenuPage;//global menu, unchange, keep all menu
+        TilePageMenu CurrentMenuPage;//only keep current lvl menu
 
         public UIElement CurrentPage;
         public UIElement NextPageLeftPart;
@@ -463,6 +463,7 @@ namespace PageFlip.DataLoader
         protected BookLoader()
 		{
             MenuPage = new TilePageMenu();
+            CurrentMenuPage = new TilePageMenu();
             //load data from menudata.xml
             Uri url = new Uri("menudata.xml", UriKind.Relative);
 
@@ -471,16 +472,6 @@ namespace PageFlip.DataLoader
             client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);
 
             client.DownloadStringAsync(url);
-
-            //TilePage MnPg = TilePageMenu.Load(0, 0);
-			//load all chapter infomation
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    TilePage MnPg = TilePageMenu.Load(i);
-            //    listMenuPage.Add(MnPg);
-            //}
-
-
 		}
 
         public void client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
@@ -488,31 +479,33 @@ namespace PageFlip.DataLoader
             if (e.Error == null)
             {
                 StringReader stream = new StringReader(e.Result);
-                //TilePage MnPg = TilePageMenu.Load(stream, 0, 0);
-
                 MenuPage.Tiles = TileMenu.Load(stream);
-
-                //listMenuPage.Add(MnPg);
-                LoadMainMenu(0);
+                CurrentMenuPage.Tiles = MenuPage.Tiles;
+                LoadMenu(0);
                 Notify();
             }
 
         }
 
-
         #region MainMenuPage
         int iCurrentMenuPage = 0;
-        int iCurrentMenuLevel = 0;
+        //int iCurrentMenuLevel = 0;
 
-        public void LoadMainMenu(int idx)
+        public void LoadMenu(int idx)
         {
-            if (MenuPage.Tiles.Count == 0) return;
+            if (CurrentMenuPage.Tiles.Count == 0)
+            {
+                CurrentPage = null;
+                NextPageRightPart = null;
+                NextPageLeftPart = null;
+                return;
+            }
             iCurrentMenuPage = idx;
-            iCurrentMenuLevel = 0;
+            //iCurrentMenuLevel = 0;
 
-            CurrentPage = MenuPage.generatePage(idx);
-            NextPageRightPart = MenuPage.generatePage(idx + 1);
-            NextPageLeftPart = MenuPage.generatePage(idx + 1);
+            CurrentPage = CurrentMenuPage.generatePage(idx);
+            NextPageRightPart = CurrentMenuPage.generatePage(idx + 1);
+            NextPageLeftPart = CurrentMenuPage.generatePage(idx + 1);
         }
 
         public void UpdateAfter_NextMainMenuPage()
@@ -520,8 +513,8 @@ namespace PageFlip.DataLoader
             iCurrentMenuPage++;
 
             CurrentPage = NextPageLeftPart;
-            NextPageRightPart = MenuPage.generatePage(iCurrentMenuPage + 1);
-            NextPageLeftPart = MenuPage.generatePage(iCurrentMenuPage + 1);
+            NextPageRightPart = CurrentMenuPage.generatePage(iCurrentMenuPage + 1);
+            NextPageLeftPart = CurrentMenuPage.generatePage(iCurrentMenuPage + 1);
         }
 
         public void UpdateAfter_PreviousMainMenuPage()
@@ -543,7 +536,30 @@ namespace PageFlip.DataLoader
 
         #region Update Data
         //observer tamplate for control tile signal: to submenu page, to list tiles of article and article content
+        //List<int> listMenuLvl = new List<int>();
+        List<int> listMenuIdx = new List<int>();//current lvl in here too
+        public void OnClickedTile(int Lvl, int Idx)
+        {
+            listMenuIdx.Add(Idx);
 
+            //get currentTiles
+            List<Tile> tiles = MenuPage.Tiles;
+            for (int i = 0; i < listMenuIdx.Count; i++)
+            {
+                tiles = tiles[listMenuIdx[i]].listSubMenu;
+            }
+
+            //update data
+            CurrentMenuPage.Tiles = tiles;
+
+            //if (CurrentMenuPage.Tiles == null)
+            //{
+            //    CurrentMenuPage.Tiles = new List<Tile>();
+            //}
+            //else
+                LoadMenu(0);
+                Notify();
+        }
         #endregion
     }
 }

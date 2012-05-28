@@ -22,6 +22,8 @@ namespace PageFlip.DataLoader
         public int Page;
         //margin
         //border
+
+        public List<Tile> listSubMenu = new List<Tile>();
         public virtual UIElement generate()
         {
             return new Button() { Width = 100, Height = 25, Content = "Test Tile" };
@@ -35,7 +37,7 @@ namespace PageFlip.DataLoader
         public int CurrentLvl;
         public int CurrentIndexMenu;
 
-        public List<Tile> listSubMenu = new List<Tile>();
+        
 
         public override UIElement generate()
         {
@@ -56,7 +58,8 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
 
         void bt_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("bt_Click " + CurrentLvl.ToString() + " " + CurrentIndexMenu.ToString());
+            //MessageBox.Show("bt_Click " + CurrentLvl.ToString() + " " + CurrentIndexMenu.ToString());
+            BookLoader.Instance().OnClickedTile(CurrentLvl, CurrentIndexMenu);
         }
 
         public static TileMenu ReadTile(XmlReader reader, int CurrentLevel, int CurrentIndex)
@@ -114,7 +117,7 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
                 }
                 return Tiles;
             }
-            return null;
+            return new List<Tile>();
         }
 
         public static List<Tile> Load(StringReader stream)

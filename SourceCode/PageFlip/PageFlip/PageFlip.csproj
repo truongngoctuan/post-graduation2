@@ -87,7 +87,6 @@
     </Compile>
     <Compile Include="BookSizes.cs" />
     <Compile Include="DataLoader\BookLoader.cs" />
-    <Compile Include="DataLoader\GlobalData.cs" />
     <Compile Include="DataLoader\IObserver.cs" />
     <Compile Include="DataLoader\Tile.cs" />
     <Compile Include="DataLoader\TilePage.cs" />
