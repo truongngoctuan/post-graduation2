@@ -35,7 +35,7 @@ namespace PageFlip.DataLoader
         public int CurrentLvl;
         public int CurrentIndexMenu;
 
-        public List<TileMenu> listSubMenu = new List<TileMenu>();
+        public List<Tile> listSubMenu = new List<Tile>();
 
         public override UIElement generate()
         {
@@ -92,11 +92,11 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
             return tile;
         }
 
-        public static List<TileMenu> ReadDeeper(ref XmlReader reader, int CurrentLevel)
+        public static List<Tile> ReadDeeper(ref XmlReader reader, int CurrentLevel)
         {
             if (reader.ReadToDescendant("tile"))
             {
-                List<TileMenu> Tiles = new List<TileMenu>();
+                List<Tile> Tiles = new List<Tile>();
                 int CurrentIndex = 0;
 
                 //read current tile
@@ -117,7 +117,7 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
             return null;
         }
 
-        public static List<TileMenu> Load(StringReader stream)
+        public static List<Tile> Load(StringReader stream)
         {
             XmlReader reader = XmlReader.Create(stream);
 
