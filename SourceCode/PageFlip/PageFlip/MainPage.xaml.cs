@@ -71,7 +71,7 @@ namespace PageFlip
         private double bisectorAngle;
         private int ImageMaxCount = 5;
 
-        BookLoader BookData;
+        //BookLoader BookData;
         // Methods
         public MainPage()
         {
@@ -101,8 +101,9 @@ namespace PageFlip
 
         private void setupUI()
         {
-            BookData = new BookLoader();
-            BookData.Attach(this);
+            //BookData = new BookLoader();
+            BookLoader.Instance();//force init data, and download menudata.xml
+            BookLoader.Instance().Attach(this);
 
             this.pageWidth = 1200;// 900;
             this.pageHeight = 600;
@@ -159,7 +160,7 @@ namespace PageFlip
         public void UpdateInterface()
         {//update book layout if something change in bookdata
             //throw new NotImplementedException();
-            bCanTransitionRight = BookData.IsCanTransitionRight();
+            bCanTransitionRight = BookLoader.Instance().IsCanTransitionRight();
 
             //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
             Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
@@ -365,7 +366,7 @@ namespace PageFlip
             {
                 case UpdatePageTransition.NextPage:
                     {
-                        BookData.NextPage();
+                        BookLoader.Instance().NextPage();
                         UpdateInterface();
                         //bCanTransitionRight = BookData.IsCanTransitionRight();
 
@@ -428,12 +429,12 @@ namespace PageFlip
                 this.Page2SheetSection2.sheetImage.Children.Clear();
                 this.Page1TraceSheet.sheetImage.Children.Clear();
 
-                if (BookData.CurrentPage != null)
-                this.Page1Sheet.sheetImage.Children.Add(BookData.CurrentPage);
-                if (BookData.NextPageLeftPart != null)
-                this.Page2SheetSection2.sheetImage.Children.Add(BookData.NextPageLeftPart);
-                if (BookData.NextPageRightPart != null)
-                this.Page1TraceSheet.sheetImage.Children.Add(BookData.NextPageRightPart);
+                if (BookLoader.Instance().CurrentPage != null)
+                    this.Page1Sheet.sheetImage.Children.Add(BookLoader.Instance().CurrentPage);
+                if (BookLoader.Instance().NextPageLeftPart != null)
+                    this.Page2SheetSection2.sheetImage.Children.Add(BookLoader.Instance().NextPageLeftPart);
+                if (BookLoader.Instance().NextPageRightPart != null)
+                    this.Page1TraceSheet.sheetImage.Children.Add(BookLoader.Instance().NextPageRightPart);
 
                 TypeTransition = UpdatePageTransition.Default;
 

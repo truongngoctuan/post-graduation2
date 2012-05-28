@@ -438,15 +438,29 @@ namespace PageFlip.DataLoader
 	}
 
 	public class BookLoader:Subject
-	{
+    {
+
         //List<TileMenu> Tiles;
         TilePageMenu MenuPage;
 
-		public UIElement CurrentPage;
-		public UIElement NextPageLeftPart;
-		public UIElement NextPageRightPart;
+        public UIElement CurrentPage;
+        public UIElement NextPageLeftPart;
+        public UIElement NextPageRightPart;
 
-		public BookLoader()
+        private static BookLoader _instance;
+        public static BookLoader Instance()
+        {
+            // Uses lazy initialization.
+            // Note: this is not thread safe.
+            if (_instance == null)
+            {
+                _instance = new BookLoader();
+            }
+
+            return _instance;
+        }
+
+        protected BookLoader()
 		{
             MenuPage = new TilePageMenu();
             //load data from menudata.xml
