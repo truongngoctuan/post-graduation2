@@ -447,6 +447,13 @@ namespace PageFlip.DataLoader
         public UIElement NextPageLeftPart;
         public UIElement NextPageRightPart;
 
+        //three these pages will be update two times:
+        //1st: before transition page: update PrecurrentPage to nextpage
+        //2nd: after transition page: update to 3 current page
+        //public UIElement PreCurrentPage; PreCurrentPage == NextPageLeftPart == NextPageRightPart
+        public UIElement PreNextPageLeftPart;
+        public UIElement PreNextPageRightPart;
+
         private static BookLoader _instance;
         public static BookLoader Instance()
         {
@@ -487,6 +494,15 @@ namespace PageFlip.DataLoader
 
         }
 
+        public void UpdatePrePageToCurrentPage()
+        {//finished transition, after this function is called, update interface 2nd times.
+            CurrentPage = NextPageLeftPart;
+            NextPageLeftPart = PreNextPageLeftPart;
+            NextPageRightPart = PreNextPageRightPart;
+
+            PreNextPageLeftPart = null;
+            PreNextPageRightPart = null;
+        }
         #region MainMenuPage
         int iCurrentMenuPage = 0;
         //int iCurrentMenuLevel = 0;
@@ -503,9 +519,15 @@ namespace PageFlip.DataLoader
             iCurrentMenuPage = idx;
             //iCurrentMenuLevel = 0;
 
-            CurrentPage = CurrentMenuPage.generatePage(idx);
-            NextPageRightPart = CurrentMenuPage.generatePage(idx + 1);
-            NextPageLeftPart = CurrentMenuPage.generatePage(idx + 1);
+            //CurrentPage = CurrentMenuPage.generatePage(idx);
+            //NextPageRightPart = CurrentMenuPage.generatePage(idx + 1);
+            //NextPageLeftPart = CurrentMenuPage.generatePage(idx + 1);
+
+            NextPageRightPart = CurrentMenuPage.generatePage(idx);
+            NextPageLeftPart = CurrentMenuPage.generatePage(idx);
+
+            PreNextPageRightPart = CurrentMenuPage.generatePage(idx + 1);
+            PreNextPageLeftPart = CurrentMenuPage.generatePage(idx + 1);
         }
 
         public void UpdateAfter_NextMainMenuPage()

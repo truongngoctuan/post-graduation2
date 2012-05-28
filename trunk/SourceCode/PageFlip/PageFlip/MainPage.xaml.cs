@@ -157,13 +157,13 @@ namespace PageFlip
             this.Page1TraceSheet.Effect = new CustomPixelShader.Effects.GutterBookEffect();
         }
 
+
         public void UpdateInterface()
         {//update book layout if something change in bookdata
-            //throw new NotImplementedException();
-            bCanTransitionRight = BookLoader.Instance().IsCanTransitionRight();
-
-            //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
-            Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
+            Dispatcher.BeginInvoke(() => ChangePageBeforeTransition(this, new EventArgs()));
+            TypeTransition = UpdatePageTransition.NextPage;
+            this.startTransition();
+            this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
         }
 
         private void CompositionTarget_Rendering(object sender, EventArgs e)
@@ -366,12 +366,11 @@ namespace PageFlip
             {
                 case UpdatePageTransition.NextPage:
                     {
-                        BookLoader.Instance().NextPage();
-                        UpdateInterface();
-                        //bCanTransitionRight = BookData.IsCanTransitionRight();
+                        //BookLoader.Instance().NextPage();
 
-                        ////http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
-                        //Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
+                        bCanTransitionRight = BookLoader.Instance().IsCanTransitionRight();
+                        //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
+                        Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
                         break;
                     }
                 default://tuong duong nextpage
@@ -421,10 +420,30 @@ namespace PageFlip
             //MessageBox.Show(LayoutRoot.ActualWidth.ToString() + " " + LayoutRoot.ActualHeight.ToString());
         }
 
+        private void ChangePageBeforeTransition(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Page2SheetSection2.sheetImage.Children.Clear();
+                this.Page1TraceSheet.sheetImage.Children.Clear();
+
+                if (BookLoader.Instance().NextPageLeftPart != null)
+                    this.Page2SheetSection2.sheetImage.Children.Add(BookLoader.Instance().NextPageLeftPart);
+                if (BookLoader.Instance().NextPageRightPart != null)
+                    this.Page1TraceSheet.sheetImage.Children.Add(BookLoader.Instance().NextPageRightPart);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ChangePageBeforeTransition: " + ex.Message);
+            }
+        }
+
         private void ChangePageAfterTransition(object sender, EventArgs e)
         {
             try
             {
+                BookLoader.Instance().UpdatePrePageToCurrentPage();
+
                 this.Page1Sheet.sheetImage.Children.Clear();
                 this.Page2SheetSection2.sheetImage.Children.Clear();
                 this.Page1TraceSheet.sheetImage.Children.Clear();
@@ -482,8 +501,6 @@ namespace PageFlip
         //}
 
         //#endregion
-
-
 
         private void btnFontPlus_Click(object sender, RoutedEventArgs e)
         {
