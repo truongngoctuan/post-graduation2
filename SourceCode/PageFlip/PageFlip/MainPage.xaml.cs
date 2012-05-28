@@ -104,7 +104,7 @@ namespace PageFlip
             BookData = new BookLoader();
             BookData.Attach(this);
 
-            this.pageWidth = 900;
+            this.pageWidth = 1200;// 900;
             this.pageHeight = 600;
 
             this.pageHalfWidth = this.pageWidth * 0.5;

@@ -27,7 +27,7 @@
 		<StackPanel x:Name="outerWrapper" Orientation="Horizontal" Grid.Row="1">
 
 			<!--<Button x:Name="btPreviousPage" Content="To Prevous Page" Width="100" Height="100" Margin="5,5,10,5"></Button>-->
-			<Canvas x:Name="bookRoot" Width="950" Height="650" RenderTransformOrigin=".5,.5" Margin="100,0,0,0">
+			<Canvas x:Name="bookRoot" Width="1250" Height="600" RenderTransformOrigin=".5,.5" Margin="0,0,0,0">
 				<!--<Canvas.Background>
 					<ImageBrush ImageSource="/PageFlip;component/Images/pageflipbkg.png"/>
 				</Canvas.Background>-->
@@ -62,7 +62,7 @@
 						</Canvas>
 						<Canvas>
 							<Canvas.Clip>
-								<RectangleGeometry Rect="0,0,900,600"/>
+								<RectangleGeometry Rect="0,0,1250,600"/>
 								<!-- Change -->
 							</Canvas.Clip>
 							<Image  x:Name="dropShadow" Source="/PageFlip;component/Images/shadowdrop.png" RenderTransformOrigin="0.0,0.5" Opacity="0.8"
