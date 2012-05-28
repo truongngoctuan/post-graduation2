@@ -439,7 +439,8 @@ namespace PageFlip.DataLoader
 
 	public class BookLoader:Subject
 	{
-        List<TileMenu> Tiles;
+        //List<TileMenu> Tiles;
+        TilePageMenu MenuPage;
 
 		public UIElement CurrentPage;
 		public UIElement NextPageLeftPart;
@@ -447,6 +448,7 @@ namespace PageFlip.DataLoader
 
 		public BookLoader()
 		{
+            MenuPage = new TilePageMenu();
             //load data from menudata.xml
             Uri url = new Uri("menudata.xml", UriKind.Relative);
 
@@ -474,7 +476,7 @@ namespace PageFlip.DataLoader
                 StringReader stream = new StringReader(e.Result);
                 //TilePage MnPg = TilePageMenu.Load(stream, 0, 0);
 
-                Tiles = TileMenu.Load(stream);
+                MenuPage.Tiles = TileMenu.Load(stream);
 
                 //listMenuPage.Add(MnPg);
                 LoadMainMenu(0);
@@ -490,13 +492,13 @@ namespace PageFlip.DataLoader
 
         public void LoadMainMenu(int idx)
         {
-            if (Tiles.Count == 0) return;
+            if (MenuPage.Tiles.Count == 0) return;
             iCurrentMenuPage = idx;
             iCurrentMenuLevel = 0;
 
-            CurrentPage = TilePageMenu.createPage(Tiles, idx);
-            NextPageRightPart = TilePageMenu.createPage(Tiles, idx + 1);
-            NextPageLeftPart = TilePageMenu.createPage(Tiles, idx + 1);
+            CurrentPage = MenuPage.generatePage(idx);
+            NextPageRightPart = MenuPage.generatePage(idx + 1);
+            NextPageLeftPart = MenuPage.generatePage(idx + 1);
         }
 
         public void UpdateAfter_NextMainMenuPage()
@@ -504,8 +506,8 @@ namespace PageFlip.DataLoader
             iCurrentMenuPage++;
 
             CurrentPage = NextPageLeftPart;
-            NextPageRightPart = TilePageMenu.createPage(Tiles, iCurrentMenuPage + 1);
-            NextPageLeftPart = TilePageMenu.createPage(Tiles, iCurrentMenuPage + 1);
+            NextPageRightPart = MenuPage.generatePage(iCurrentMenuPage + 1);
+            NextPageLeftPart = MenuPage.generatePage(iCurrentMenuPage + 1);
         }
 
         public void UpdateAfter_PreviousMainMenuPage()
