@@ -124,6 +124,8 @@ namespace PageFlip.DataLoader
                 tiles = tiles[listMenuIdx[i]].listSubMenu;
             }
 
+            CurrentMenuPage.Tiles = tiles;
+
             LoadMenu(0);
             Notify();
         }
