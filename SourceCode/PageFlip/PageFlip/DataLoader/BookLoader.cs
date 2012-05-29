@@ -139,18 +139,28 @@ namespace PageFlip.DataLoader
 
         public void OnBackMenu()
         {
-            //IsRightToLeftTransition = false;
-            ////get currentTiles
-            //List<Tile> tiles = MenuPage.Tiles;
-            //for (int i = 0; i < listMenuIdx.Count - 1; i++)
-            //{
-            //    tiles = tiles[listMenuIdx[i]].listSubMenu;
-            //}
+            try
+            {
+                if (listMenuIdx.Count == 0) return;
+                IsRightToLeftTransition = false;
+                //get currentTiles
+                List<Tile> tiles = MenuPage.Tiles;
+                for (int i = 0; i < listMenuIdx.Count - 1; i++)
+                {
+                    tiles = tiles[listMenuIdx[i]].listSubMenu;
+                }
 
-            //listMenuIdx.RemoveAt(listMenuIdx.Count - 1);
+                listMenuIdx.RemoveAt(listMenuIdx.Count - 1);
+                CurrentMenuPage.Tiles = tiles;
 
-            ////LoadMenu(0);
-            //Notify();
+                LoadMenu(0);
+                Notify();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("OnBackMenu: "+ ex.Message);
+            }
+            
         }
         #endregion
     }
