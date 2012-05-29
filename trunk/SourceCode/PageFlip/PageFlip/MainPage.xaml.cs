@@ -170,7 +170,10 @@ namespace PageFlip
             }
             else
             {
+                Dispatcher.BeginInvoke(() => ChangePageBeforeTransition(this, new EventArgs()));
                 TypeTransition = UpdatePageTransition.PreviousPage;
+                this.startTransition();
+                this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
             }
             
         }
