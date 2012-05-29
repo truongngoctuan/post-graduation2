@@ -26,6 +26,7 @@
             </Grid.Effect>
                 <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/MasterPage/HeaderLeft.jpg" Stretch="None"></Image>
                 <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/HeaderRight.jpg" Stretch="None"></Image>
+            <Button Name="btBack" Width="100" Height="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btBack_Click">Back</Button>
             </Grid>
         <Canvas Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
                 Name="containerContent">

@@ -101,6 +101,7 @@ namespace PageFlip
 
         private void setupUI()
         {
+            mainMask.Visibility = Visibility.Collapsed;
             //BookData = new BookLoader();
             BookLoader.Instance();//force init data, and download menudata.xml
             BookLoader.Instance().Attach(this);
@@ -160,10 +161,18 @@ namespace PageFlip
 
         public void UpdateInterface()
         {//update book layout if something change in bookdata
-            Dispatcher.BeginInvoke(() => ChangePageBeforeTransition(this, new EventArgs()));
-            TypeTransition = UpdatePageTransition.NextPage;
-            this.startTransition();
-            this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
+            if (BookLoader.Instance().IsLeftToRightTansition)
+            {
+                Dispatcher.BeginInvoke(() => ChangePageBeforeTransition(this, new EventArgs()));
+                TypeTransition = UpdatePageTransition.NextPage;
+                this.startTransition();
+                this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
+            }
+            else
+            {
+                TypeTransition = UpdatePageTransition.PreviousPage;
+            }
+            
         }
 
         private void CompositionTarget_Rendering(object sender, EventArgs e)
@@ -311,6 +320,7 @@ namespace PageFlip
 
         private void PageCorner_MouseMove(object sender, MouseEventArgs e)
         {
+            mainMask.Visibility = Visibility.Visible;
             if (!this.IsTransitionStarted)
             {
                 if (!bCanTransitionRight) return;
@@ -369,6 +379,12 @@ namespace PageFlip
                         //BookLoader.Instance().NextPage();
 
                         bCanTransitionRight = BookLoader.Instance().IsCanTransitionRight();
+                        //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
+                        Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
+                        break;
+                    }
+                case UpdatePageTransition.PreviousPage:
+                    {
                         //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
                         Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
                         break;
@@ -459,6 +475,8 @@ namespace PageFlip
 
                 this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
                 this.follow = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
+
+                mainMask.Visibility = Visibility.Collapsed;
             }
             catch (Exception ex)
             {
