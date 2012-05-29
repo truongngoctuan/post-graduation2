@@ -161,7 +161,7 @@ namespace PageFlip
 
         public void UpdateInterface()
         {//update book layout if something change in bookdata
-            if (BookLoader.Instance().IsLeftToRightTansition)
+            if (BookLoader.Instance().IsRightToLeftTransition)
             {
                 Dispatcher.BeginInvoke(() => ChangePageBeforeTransition(this, new EventArgs()));
                 TypeTransition = UpdatePageTransition.NextPage;
@@ -291,23 +291,15 @@ namespace PageFlip
                 this.PageCorner.ReleaseMouseCapture();
                 if ((DateTime.Now < this.doubleClickDuration) && ((this.mouse.X > 0.0) && (this.mouse.Y > 0.0)))
                 {
-                    //this.startTransition();
-                    //this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
-
+                    BookLoader.Instance().OnNextpage();
                     this.TypeTransition = UpdatePageTransition.NextPage;
-                    //CurrentArticlePageIndex++;
-
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
                 }
                 else if (this.mouse.X < 0.0)
                 {
-                    //this.startTransition();
-                    //this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
-
+                    BookLoader.Instance().OnNextpage();
                     this.TypeTransition = UpdatePageTransition.NextPage;
-                    //CurrentArticlePageIndex++;
-
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
                 }
@@ -395,7 +387,7 @@ namespace PageFlip
             //        }
             //}
 
-            bCanTransitionRight = BookLoader.Instance().IsCanTransitionRight();
+            
             //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
             Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
         }
@@ -463,6 +455,7 @@ namespace PageFlip
             try
             {
                 BookLoader.Instance().UpdatePrePageToCurrentPage();
+                bCanTransitionRight = BookLoader.Instance().IsCanTransitionRight();
 
                 this.Page1Sheet.sheetImage.Children.Clear();
                 this.Page2SheetSection2.sheetImage.Children.Clear();

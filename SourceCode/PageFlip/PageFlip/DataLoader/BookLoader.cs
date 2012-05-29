@@ -30,7 +30,7 @@ namespace PageFlip.DataLoader
         public UIElement PreNextPageLeftPart;
         public UIElement PreNextPageRightPart;
 
-        public bool IsLeftToRightTansition;
+        public bool IsRightToLeftTransition;
         private static BookLoader _instance;
         public static BookLoader Instance()
         {
@@ -64,7 +64,7 @@ namespace PageFlip.DataLoader
                 MenuPage.Tiles = TileMenu.Load(stream);
                 CurrentMenuPage.Tiles = MenuPage.Tiles;
 
-                IsLeftToRightTansition = true;
+                IsRightToLeftTransition = true;
                 LoadMenu(0);
                 Notify();
             }
@@ -114,7 +114,7 @@ namespace PageFlip.DataLoader
         List<int> listMenuIdx = new List<int>();//current lvl in here too
         public void OnClickedTile(int Lvl, int Idx)
         {
-            IsLeftToRightTansition = true;
+            IsRightToLeftTransition = true;
             listMenuIdx.Add(Idx);
 
             //get currentTiles
@@ -130,9 +130,16 @@ namespace PageFlip.DataLoader
             Notify();
         }
 
+        public void OnNextpage()
+        {
+            IsRightToLeftTransition = true;
+            LoadMenu(iCurrentMenuPage + 1);
+            Notify();
+        }
+
         public void OnBackMenu()
         {
-            //IsLeftToRightTansition = false;
+            //IsRightToLeftTransition = false;
             ////get currentTiles
             //List<Tile> tiles = MenuPage.Tiles;
             //for (int i = 0; i < listMenuIdx.Count - 1; i++)
