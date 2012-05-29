@@ -164,14 +164,14 @@ namespace PageFlip
             if (BookLoader.Instance().IsRightToLeftTransition)
             {
                 Dispatcher.BeginInvoke(() => ChangePageBeforeTransition(this, new EventArgs()));
-                TypeTransition = UpdatePageTransition.NextPage;
+                //TypeTransition = UpdatePageTransition.NextPage;
                 this.startTransition();
                 this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
             }
             else
             {
                 Dispatcher.BeginInvoke(() => ChangePageBeforeTransition(this, new EventArgs()));
-                TypeTransition = UpdatePageTransition.PreviousPage;
+                //TypeTransition = UpdatePageTransition.PreviousPage;
                 this.startTransition();
                 this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
             }
@@ -295,14 +295,14 @@ namespace PageFlip
                 if ((DateTime.Now < this.doubleClickDuration) && ((this.mouse.X > 0.0) && (this.mouse.Y > 0.0)))
                 {
                     BookLoader.Instance().OnNextpage();
-                    this.TypeTransition = UpdatePageTransition.NextPage;
+                    //this.TypeTransition = UpdatePageTransition.NextPage;
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
                 }
                 else if (this.mouse.X < 0.0)
                 {
                     BookLoader.Instance().OnNextpage();
-                    this.TypeTransition = UpdatePageTransition.NextPage;
+                    //this.TypeTransition = UpdatePageTransition.NextPage;
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
                 }
@@ -361,7 +361,7 @@ namespace PageFlip
             this.transCurCount = 0;
         }
 
-        UpdatePageTransition TypeTransition = UpdatePageTransition.Default;
+        //UpdatePageTransition TypeTransition = UpdatePageTransition.Default;
         bool bCanTransitionRight = true;
 
         private void updateImages()
@@ -413,7 +413,7 @@ namespace PageFlip
 
         private void btNextPage_Click(object sender, RoutedEventArgs e)
         {
-            this.TypeTransition = UpdatePageTransition.NextPage;
+            //this.TypeTransition = UpdatePageTransition.NextPage;
             //CurrentArticlePageIndex++;
 
             this.startTransition();
@@ -471,7 +471,7 @@ namespace PageFlip
                 if (BookLoader.Instance().NextPageRightPart != null)
                     this.Page1TraceSheet.sheetImage.Children.Add(BookLoader.Instance().NextPageRightPart);
 
-                TypeTransition = UpdatePageTransition.Default;
+                //TypeTransition = UpdatePageTransition.Default;
 
                 this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
                 this.follow = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
