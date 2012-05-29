@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using PageFlip.DataLoader;
 
 namespace PageFlip
 {
@@ -23,6 +24,11 @@ namespace PageFlip
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+        }
+
+        private void btBack_Click(object sender, RoutedEventArgs e)
+        {
+            BookLoader.Instance().OnBackMenu();
         }
 
     }

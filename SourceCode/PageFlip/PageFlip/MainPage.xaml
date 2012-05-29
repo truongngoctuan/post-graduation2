@@ -65,7 +65,7 @@
 								<RectangleGeometry Rect="0,0,1250,600"/>
 								<!-- Change -->
 							</Canvas.Clip>
-							<Image  x:Name="dropShadow" Source="/PageFlip;component/Images/shadowdrop.png" RenderTransformOrigin="0.0,0.5" Opacity="0.8"
+							<Image  x:Name="dropShadow" Visibility="Collapsed" Source="/PageFlip;component/Images/shadowdrop.png" RenderTransformOrigin="0.0,0.5" Opacity="0.8"
 						Width="{Binding layoutRootHalfW}" Height="{Binding layoutRootH}" Canvas.Left="0" Canvas.Top="212">
 								<Image.RenderTransform>
 									<TransformGroup>
@@ -102,7 +102,7 @@
 							<local:Sheet x:Name="Page2SheetSection2" X="300" Y="212"></local:Sheet>
 
 							<!--#00FF00FF-->
-							<Rectangle Fill="#00FF00FF" x:Name="mainMask" Canvas.Left="0" Canvas.Top="0" Width="{Binding layoutRootHalfW}" Height="2000" RenderTransformOrigin="1.0,0.8" >
+							<Rectangle Fill="#00FF00FF" x:Name="mainMask" Visibility="Collapsed" Canvas.Left="0" Canvas.Top="0" Width="{Binding layoutRootHalfW}" Height="2000" RenderTransformOrigin="1.0,0.8" >
 								<Rectangle.RenderTransform>
 									<RotateTransform x:Name="maskAngle" Angle="0"/>
 								</Rectangle.RenderTransform>
