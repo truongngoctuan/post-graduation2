@@ -371,29 +371,33 @@ namespace PageFlip
 
         private void updateImages()
         {
-            //decide what page will be loaded next or previous
-            switch (TypeTransition)
-            {
-                case UpdatePageTransition.NextPage:
-                    {
-                        //BookLoader.Instance().NextPage();
+            ////decide what page will be loaded next or previous
+            //switch (TypeTransition)
+            //{
+            //    case UpdatePageTransition.NextPage:
+            //        {
+            //            //BookLoader.Instance().NextPage();
 
-                        bCanTransitionRight = BookLoader.Instance().IsCanTransitionRight();
-                        //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
-                        Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
-                        break;
-                    }
-                case UpdatePageTransition.PreviousPage:
-                    {
-                        //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
-                        Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
-                        break;
-                    }
-                default://tuong duong nextpage
-                    {
-                        break;
-                    }
-            }
+            //            bCanTransitionRight = BookLoader.Instance().IsCanTransitionRight();
+            //            //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
+            //            Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
+            //            break;
+            //        }
+            //    case UpdatePageTransition.PreviousPage:
+            //        {
+            //            //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
+            //            Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
+            //            break;
+            //        }
+            //    default://tuong duong nextpage
+            //        {
+            //            break;
+            //        }
+            //}
+
+            bCanTransitionRight = BookLoader.Instance().IsCanTransitionRight();
+            //http://www.silverlightshow.net/items/Tip-Asynchronous-Silverlight-Execute-on-the-UI-thread.aspx
+            Dispatcher.BeginInvoke(() => ChangePageAfterTransition(this, new EventArgs()));
         }
 
         private void UpdatePage()
