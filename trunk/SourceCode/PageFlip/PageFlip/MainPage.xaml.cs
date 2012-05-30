@@ -309,6 +309,8 @@ namespace PageFlip
                 }
                 else
                 {
+                    mainMask.Visibility = Visibility.Collapsed;
+                    Page1Sheet.curlShadow.Visibility = Visibility.Collapsed;
                     this.mouse = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
                 }
             }
@@ -317,7 +319,7 @@ namespace PageFlip
         private void PageCorner_MouseMove(object sender, MouseEventArgs e)
         {
             mainMask.Visibility = Visibility.Visible;
-            Page1Sheet.curlShadow.Visibility = Visibility.Collapsed;
+            Page1Sheet.curlShadow.Visibility = Visibility.Visible;
             if (!this.IsTransitionStarted)
             {
                 if (!bCanTransitionRight) return;
