@@ -62,6 +62,10 @@ namespace PageFlip.DataLoader
             {
                 StringReader stream = new StringReader(e.Result);
                 MenuPage.Tiles = TileMenu.Load(stream);
+                CurrentMenuPage.InitParams(new List<object>(){
+                    ((TileMenu)MenuPage.Tiles[0]).NGridRows,
+                    ((TileMenu)MenuPage.Tiles[0]).NGridColumns
+                });
                 CurrentMenuPage.Tiles = MenuPage.Tiles[0].listSubMenu;
 
                 IsRightToLeftTransition = true;
@@ -119,11 +123,20 @@ namespace PageFlip.DataLoader
 
             //get currentTiles
             List<Tile> tiles = MenuPage.Tiles[0].listSubMenu;
+            int NGridRows = ((TileMenu)MenuPage.Tiles[0]).NGridRows;
+            int NGridColumns = ((TileMenu)MenuPage.Tiles[0]).NGridColumns;
             for (int i = 0; i < listMenuIdx.Count; i++)
             {
+                NGridRows = ((TileMenu)tiles[listMenuIdx[i]]).NGridRows;
+                NGridColumns = ((TileMenu)tiles[listMenuIdx[i]]).NGridColumns;
+
                 tiles = tiles[listMenuIdx[i]].listSubMenu;
             }
 
+            CurrentMenuPage.InitParams(new List<object>(){
+                    NGridRows,
+                    NGridColumns
+                });
             CurrentMenuPage.Tiles = tiles;
 
             LoadMenu(0);
@@ -145,12 +158,22 @@ namespace PageFlip.DataLoader
                 IsRightToLeftTransition = false;
                 //get currentTiles
                 List<Tile> tiles = MenuPage.Tiles[0].listSubMenu;
+                int NGridRows = ((TileMenu)MenuPage.Tiles[0]).NGridRows;
+                int NGridColumns = ((TileMenu)MenuPage.Tiles[0]).NGridColumns;
                 for (int i = 0; i < listMenuIdx.Count - 1; i++)
                 {
+                    NGridRows = ((TileMenu)tiles[listMenuIdx[i]]).NGridRows;
+                    NGridColumns = ((TileMenu)tiles[listMenuIdx[i]]).NGridColumns;
+
                     tiles = tiles[listMenuIdx[i]].listSubMenu;
                 }
 
                 listMenuIdx.RemoveAt(listMenuIdx.Count - 1);
+
+                CurrentMenuPage.InitParams(new List<object>(){
+                    NGridRows,
+                    NGridColumns
+                });
                 CurrentMenuPage.Tiles = tiles;
 
                 LoadMenu(0);

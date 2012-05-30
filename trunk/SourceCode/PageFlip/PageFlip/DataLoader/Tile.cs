@@ -73,6 +73,16 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
                 {
                     switch (reader.Name)
                     {
+                        case "NGridRows":
+                            {
+                                tile.NGridRows = int.Parse(reader.Value);
+                                break;
+                            }
+                        case "NGridColumns":
+                            {
+                                tile.NGridColumns = int.Parse(reader.Value);
+                                break;
+                            }
                         case "Name":
                             {
                                 tile.Name = reader.Value;
@@ -152,20 +162,7 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
         public static List<Tile> Load(StringReader stream)
         {
             XmlReader reader = XmlReader.Create(stream);
-
-            //while (reader.Read())
-            {
-                return ReadDeeper(ref reader, -1);
-                //if (reader.NodeType == XmlNodeType.Element)
-                //{
-                //    if (reader.Name == "tile")
-                //    {
-                //        return ReadDeeper(ref reader, 0);
-                //    }
-                //}
-            }
-
-            return null;
+            return ReadDeeper(ref reader, -1);
         }
     }
     
