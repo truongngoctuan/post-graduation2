@@ -189,13 +189,15 @@ namespace PageFlip.DataLoader
 <Button 
 xmlns='http://schemas.microsoft.com/client/2007'
 xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
+Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
+>
             <Image Source='{4}'></Image>
         </Button>
 ";
             xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, ImageSource);
             Button bt = (Button)Ultis.LoadXamlFromString(xaml);
             bt.Click += new RoutedEventHandler(bt_Click);
+            bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
 
             return bt;
         }
