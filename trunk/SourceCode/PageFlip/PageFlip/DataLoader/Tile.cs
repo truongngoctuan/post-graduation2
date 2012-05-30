@@ -15,18 +15,94 @@ using System.Xml;
 
 namespace PageFlip.DataLoader
 {
-    public class Tile
+    public abstract class MenuItem
+    {
+        public List<MenuItem> listSubMenu = new List<MenuItem>();
+
+        public abstract void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex);
+        public static MenuItem ReadFromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        {
+            MenuItem item = null;
+            if (true == reader.MoveToFirstAttribute())
+            {
+                if (reader.Name == "Type")
+                {
+                    switch (reader.Value)
+                    {
+                        case "Menu":
+                            {
+                                item = new TileMenu();
+                                
+                                break;
+                            }
+                        case "Page":
+                            {
+                                item = new TilePageMenu();
+                                break;
+                            }
+                        default:
+                            {
+                                break;
+                            }
+                    }
+                    reader.MoveToNextAttribute();
+                    item.FromXml(reader, CurrentLevel, CurrentIndex);
+                }
+
+                reader.MoveToElement();
+            }
+
+            return item;
+        }
+
+        public static List<MenuItem> ReadDeeper(ref XmlReader reader, int CurrentLevel)
+        {
+            if (reader.ReadToDescendant("item"))
+            {
+                List<MenuItem> Tiles = new List<MenuItem>();
+                int CurrentIndex = 0;
+
+                //read current tile
+                MenuItem item = MenuItem.ReadFromXml(reader, CurrentLevel, CurrentIndex);
+                item.listSubMenu = MenuItem.ReadDeeper(ref reader, CurrentLevel + 1);
+                Tiles.Add(item);
+                CurrentIndex++;
+
+                while (reader.ReadToNextSibling("item"))
+                {
+                    MenuItem item2 = MenuItem.ReadFromXml(reader, CurrentLevel, CurrentIndex);
+                    item2.listSubMenu = MenuItem.ReadDeeper(ref reader, CurrentLevel + 1);
+                    Tiles.Add(item2);
+                    CurrentIndex++;
+                }
+                return Tiles;
+            }
+            return new List<MenuItem>();
+        }
+
+        public static List<MenuItem> Load(StringReader stream)
+        {
+            XmlReader reader = XmlReader.Create(stream);
+            return ReadDeeper(ref reader, -1);
+        }
+    }
+    public class Tile : MenuItem
     {
         public string ImageSource;//...
         public int GridColumn, GridRow, GridColumnSpan, GridRowSpan;
-        public int Page;
+        //public int Page;
         //margin
         //border
 
-        public List<Tile> listSubMenu = new List<Tile>();
+        
         public virtual UIElement generate()
         {
             return new Button() { Width = 100, Height = 25, Content = "Test Tile" };
+        }
+
+        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        {
+            //return new Tile();
         }
     }
 
@@ -40,6 +116,72 @@ namespace PageFlip.DataLoader
         public string Name;
         public int NGridRows;
         public int NGridColumns;
+
+        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        {
+            //TileMenu tile = new TileMenu();
+            for (int i = 0; i < reader.AttributeCount - 1; i++)
+            {
+                switch (reader.Name)
+                {
+                    case "NGridRows":
+                        {
+                            this.NGridRows = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "NGridColumns":
+                        {
+                            this.NGridColumns = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "Name":
+                        {
+                            this.Name = reader.Value;
+                            break;
+                        }
+                    //case "Page":
+                    //    {
+                    //        tile.Page = int.Parse(reader.Value);
+                    //        break;
+                    //    }
+                    case "GridRow":
+                        {
+                            this.GridRow = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "GridColumn":
+                        {
+                            this.GridColumn = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "GridColumnSpan":
+                        {
+                            this.GridColumnSpan = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "GridRowSpan":
+                        {
+                            this.GridRowSpan = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "ImageSource":
+                        {
+                            this.ImageSource = reader.Value;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+                reader.MoveToNextAttribute();
+            }
+
+            this.CurrentLvl = CurrentLevel;
+            this.CurrentIndexMenu = CurrentIndex;
+
+            //return tile;
+        }
 
         public override UIElement generate()
         {
@@ -58,119 +200,119 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
             return bt;
         }
 
-        void bt_Click(object sender, RoutedEventArgs e)
+        public void bt_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("bt_Click " + CurrentLvl.ToString() + " " + CurrentIndexMenu.ToString());
             BookLoader.Instance().OnClickedTile(CurrentLvl, CurrentIndexMenu);
         }
 
-        public static TileMenu ReadTile(XmlReader reader, int CurrentLevel, int CurrentIndex)
-        {
-            TileMenu tile = new TileMenu();
-            if (true == reader.MoveToFirstAttribute())
-            {
-                for (int i = 0; i < reader.AttributeCount; i++)
-                {
-                    switch (reader.Name)
-                    {
-                        case "NGridRows":
-                            {
-                                tile.NGridRows = int.Parse(reader.Value);
-                                break;
-                            }
-                        case "NGridColumns":
-                            {
-                                tile.NGridColumns = int.Parse(reader.Value);
-                                break;
-                            }
-                        case "Name":
-                            {
-                                tile.Name = reader.Value;
-                                break;
-                            }
-                        case "Page":
-                            {
-                                tile.Page = int.Parse(reader.Value);
-                                break;
-                            }
-                        case "GridRow":
-                            {
-                                tile.GridRow = int.Parse(reader.Value);
-                                break;
-                            }
-                        case "GridColumn":
-                            {
-                                tile.GridColumn = int.Parse(reader.Value);
-                                break;
-                            }
-                        case "GridColumnSpan":
-                            {
-                                tile.GridColumnSpan = int.Parse(reader.Value);
-                                break;
-                            }
-                        case "GridRowSpan":
-                            {
-                                tile.GridRowSpan = int.Parse(reader.Value);
-                                break;
-                            }
-                        case "ImageSource":
-                            {
-                                tile.ImageSource = reader.Value;
-                                break;
-                            }
-                        default:
-                            {
-                                break;
-                            }
-                    }
-                    reader.MoveToNextAttribute();
-                }
+        //public static TileMenu ReadTile(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        //{
+        //    TileMenu tile = new TileMenu();
+        //    if (true == reader.MoveToFirstAttribute())
+        //    {
+        //        for (int i = 0; i < reader.AttributeCount; i++)
+        //        {
+        //            switch (reader.Name)
+        //            {
+        //                case "NGridRows":
+        //                    {
+        //                        tile.NGridRows = int.Parse(reader.Value);
+        //                        break;
+        //                    }
+        //                case "NGridColumns":
+        //                    {
+        //                        tile.NGridColumns = int.Parse(reader.Value);
+        //                        break;
+        //                    }
+        //                case "Name":
+        //                    {
+        //                        tile.Name = reader.Value;
+        //                        break;
+        //                    }
+        //                case "Page":
+        //                    {
+        //                        tile.Page = int.Parse(reader.Value);
+        //                        break;
+        //                    }
+        //                case "GridRow":
+        //                    {
+        //                        tile.GridRow = int.Parse(reader.Value);
+        //                        break;
+        //                    }
+        //                case "GridColumn":
+        //                    {
+        //                        tile.GridColumn = int.Parse(reader.Value);
+        //                        break;
+        //                    }
+        //                case "GridColumnSpan":
+        //                    {
+        //                        tile.GridColumnSpan = int.Parse(reader.Value);
+        //                        break;
+        //                    }
+        //                case "GridRowSpan":
+        //                    {
+        //                        tile.GridRowSpan = int.Parse(reader.Value);
+        //                        break;
+        //                    }
+        //                case "ImageSource":
+        //                    {
+        //                        tile.ImageSource = reader.Value;
+        //                        break;
+        //                    }
+        //                default:
+        //                    {
+        //                        break;
+        //                    }
+        //            }
+        //            reader.MoveToNextAttribute();
+        //        }
 
-                tile.CurrentLvl = CurrentLevel;
-                tile.CurrentIndexMenu = CurrentIndex;
-                reader.MoveToElement();
-            }
+        //        tile.CurrentLvl = CurrentLevel;
+        //        tile.CurrentIndexMenu = CurrentIndex;
+        //        reader.MoveToElement();
+        //    }
 
-            return tile;
-        }
+        //    return tile;
+        //}
 
-        public static List<Tile> ReadDeeper(ref XmlReader reader, int CurrentLevel)
-        {
-            if (reader.ReadToDescendant("tile"))
-            {
-                List<Tile> Tiles = new List<Tile>();
-                int CurrentIndex = 0;
+        //public static List<Tile> ReadDeeper(ref XmlReader reader, int CurrentLevel)
+        //{
+        //    if (reader.ReadToDescendant("tile"))
+        //    {
+        //        List<Tile> Tiles = new List<Tile>();
+        //        int CurrentIndex = 0;
 
-                //read current tile
-                TileMenu item = TileMenu.ReadTile(reader, CurrentLevel, CurrentIndex);
-                item.listSubMenu = TileMenu.ReadDeeper(ref reader, CurrentLevel + 1);
-                Tiles.Add(item);
-                CurrentIndex++;
+        //        //read current tile
+        //        TileMenu item = TileMenu.ReadTile(reader, CurrentLevel, CurrentIndex);
+        //        item.listSubMenu = TileMenu.ReadDeeper(ref reader, CurrentLevel + 1);
+        //        Tiles.Add(item);
+        //        CurrentIndex++;
 
-                while (reader.ReadToNextSibling("tile"))
-                {
-                    TileMenu item2 = TileMenu.ReadTile(reader, CurrentLevel, CurrentIndex);
-                    item2.listSubMenu = TileMenu.ReadDeeper(ref reader, CurrentLevel + 1);
-                    Tiles.Add(item2);
-                    CurrentIndex++;
-                }
-                return Tiles;
-            }
-            return new List<Tile>();
-        }
+        //        while (reader.ReadToNextSibling("tile"))
+        //        {
+        //            TileMenu item2 = TileMenu.ReadTile(reader, CurrentLevel, CurrentIndex);
+        //            item2.listSubMenu = TileMenu.ReadDeeper(ref reader, CurrentLevel + 1);
+        //            Tiles.Add(item2);
+        //            CurrentIndex++;
+        //        }
+        //        return Tiles;
+        //    }
+        //    return new List<Tile>();
+        //}
 
-        public static List<Tile> Load(StringReader stream)
-        {
-            XmlReader reader = XmlReader.Create(stream);
-            return ReadDeeper(ref reader, -1);
-        }
+        //public static List<Tile> Load(StringReader stream)
+        //{
+        //    XmlReader reader = XmlReader.Create(stream);
+        //    return ReadDeeper(ref reader, -1);
+        //}
     }
     
-    public class TileArticle : Tile
-    {//tile that click open new article
-        public override UIElement generate()
-        {
-            return base.generate();
-        }
-    }
+    //public class TileArticle : Tile
+    //{//tile that click open new article
+    //    public override UIElement generate()
+    //    {
+    //        return base.generate();
+    //    }
+    //}
 }

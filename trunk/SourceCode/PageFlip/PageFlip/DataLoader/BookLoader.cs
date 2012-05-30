@@ -16,8 +16,8 @@ namespace PageFlip.DataLoader
 {
 	public class BookLoader:Subject
     {
-        TilePageMenu MenuPage;//global menu, unchange, keep all menu
-        TilePageMenu CurrentMenuPage;//only keep current lvl menu
+        TileMenu MenuPage;//global menu, unchange, keep all menu
+        TileMenu CurrentMenuPage;//only keep current lvl menu
 
         public UIElement CurrentPage;
         public UIElement NextPageLeftPart;
@@ -46,11 +46,11 @@ namespace PageFlip.DataLoader
 
         protected BookLoader()
 		{
-            MenuPage = new TilePageMenu();
-            CurrentMenuPage = new TilePageMenu();
+            MenuPage = new TileMenu();
+            CurrentMenuPage = new TileMenu();
 
             //load data from menudata.xml
-            Uri url = new Uri("menudata.xml", UriKind.Relative);
+            Uri url = new Uri("menudata2.xml", UriKind.Relative);
             WebClient client = new WebClient();
             client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);
             client.DownloadStringAsync(url);
@@ -61,16 +61,18 @@ namespace PageFlip.DataLoader
             if (e.Error == null)
             {
                 StringReader stream = new StringReader(e.Result);
-                MenuPage.Tiles = TileMenu.Load(stream);
-                CurrentMenuPage.InitParams(new List<object>(){
-                    ((TileMenu)MenuPage.Tiles[0]).NGridRows,
-                    ((TileMenu)MenuPage.Tiles[0]).NGridColumns
-                });
-                CurrentMenuPage.Tiles = MenuPage.Tiles[0].listSubMenu;
+                MenuPage = (TileMenu)MenuItem.Load(stream)[0];
+                //CurrentMenuPage.InitParams(new List<object>(){
+                //    ((TileMenu)MenuPage.Tiles[0]).NGridRows,
+                //    ((TileMenu)MenuPage.Tiles[0]).NGridColumns
+                //});
+                CurrentMenuPage = MenuPage;
 
-                IsRightToLeftTransition = true;
-                LoadMenu(0);
-                Notify();
+                //IsRightToLeftTransition = true;
+                //LoadMenu(0);
+                //OnClickedTile(0, 0);
+                CurrentMenuPage.bt_Click(new object(), new RoutedEventArgs());
+                //Notify();
             }
 
         }
@@ -89,20 +91,32 @@ namespace PageFlip.DataLoader
 
         void LoadMenu(int idx)
         {
-            if (CurrentMenuPage.Tiles.Count == 0)
+            iCurrentMenuPage = idx;
+
+            if (iCurrentMenuPage < CurrentMenuPage.listSubMenu.Count)
+            {
+                
+                NextPageRightPart = ((TilePageMenu)CurrentMenuPage.listSubMenu[iCurrentMenuPage]).generatePage();
+                NextPageLeftPart = ((TilePageMenu)CurrentMenuPage.listSubMenu[iCurrentMenuPage]).generatePage();
+            }
+            else
             {
                 CurrentPage = null;
                 NextPageRightPart = null;
                 NextPageLeftPart = null;
-                return;
             }
-            iCurrentMenuPage = idx;
 
-            NextPageRightPart = CurrentMenuPage.generatePage(idx);
-            NextPageLeftPart = CurrentMenuPage.generatePage(idx);
-
-            PreNextPageRightPart = CurrentMenuPage.generatePage(idx + 1);
-            PreNextPageLeftPart = CurrentMenuPage.generatePage(idx + 1);
+            if (iCurrentMenuPage + 1 < CurrentMenuPage.listSubMenu.Count)
+            {
+                PreNextPageRightPart = ((TilePageMenu)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 1]).generatePage();
+                PreNextPageLeftPart = ((TilePageMenu)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 1]).generatePage();
+            }
+            else
+            {
+                PreNextPageRightPart = null;
+                PreNextPageLeftPart = null;
+            }
+            
         }
         #endregion
 
@@ -116,28 +130,28 @@ namespace PageFlip.DataLoader
         #region Control Events From Outside
         //observer tamplate for control tile signal: to submenu page, to list tiles of article and article content
         List<int> listMenuIdx = new List<int>();//current lvl in here too
+        List<int> listMenuPage = new List<int>();
         public void OnClickedTile(int Lvl, int Idx)
         {
             IsRightToLeftTransition = true;
-            listMenuIdx.Add(Idx);
+            if (Lvl == -1)
+            {
 
+            }
+            else
+            {
+                listMenuIdx.Add(Idx);
+                listMenuPage.Add(iCurrentMenuPage);
+            }
+            
             //get currentTiles
-            List<Tile> tiles = MenuPage.Tiles[0].listSubMenu;
-            int NGridRows = ((TileMenu)MenuPage.Tiles[0]).NGridRows;
-            int NGridColumns = ((TileMenu)MenuPage.Tiles[0]).NGridColumns;
+            CurrentMenuPage = MenuPage;
             for (int i = 0; i < listMenuIdx.Count; i++)
             {
-                NGridRows = ((TileMenu)tiles[listMenuIdx[i]]).NGridRows;
-                NGridColumns = ((TileMenu)tiles[listMenuIdx[i]]).NGridColumns;
-
-                tiles = tiles[listMenuIdx[i]].listSubMenu;
+                CurrentMenuPage = (TileMenu)(CurrentMenuPage.listSubMenu[listMenuPage[i]].listSubMenu[listMenuIdx[i]]);
             }
 
-            CurrentMenuPage.InitParams(new List<object>(){
-                    NGridRows,
-                    NGridColumns
-                });
-            CurrentMenuPage.Tiles = tiles;
+            
 
             LoadMenu(0);
             Notify();
@@ -157,24 +171,13 @@ namespace PageFlip.DataLoader
                 if (listMenuIdx.Count == 0) return;
                 IsRightToLeftTransition = false;
                 //get currentTiles
-                List<Tile> tiles = MenuPage.Tiles[0].listSubMenu;
-                int NGridRows = ((TileMenu)MenuPage.Tiles[0]).NGridRows;
-                int NGridColumns = ((TileMenu)MenuPage.Tiles[0]).NGridColumns;
+                CurrentMenuPage = MenuPage;
                 for (int i = 0; i < listMenuIdx.Count - 1; i++)
                 {
-                    NGridRows = ((TileMenu)tiles[listMenuIdx[i]]).NGridRows;
-                    NGridColumns = ((TileMenu)tiles[listMenuIdx[i]]).NGridColumns;
-
-                    tiles = tiles[listMenuIdx[i]].listSubMenu;
+                    CurrentMenuPage = (TileMenu)(CurrentMenuPage.listSubMenu[listMenuPage[i]].listSubMenu[listMenuIdx[i]]);
                 }
-
                 listMenuIdx.RemoveAt(listMenuIdx.Count - 1);
-
-                CurrentMenuPage.InitParams(new List<object>(){
-                    NGridRows,
-                    NGridColumns
-                });
-                CurrentMenuPage.Tiles = tiles;
+                listMenuPage.RemoveAt(listMenuPage.Count - 1);
 
                 LoadMenu(0);
                 Notify();
