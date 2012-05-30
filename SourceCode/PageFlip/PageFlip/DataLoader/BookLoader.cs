@@ -62,17 +62,8 @@ namespace PageFlip.DataLoader
             {
                 StringReader stream = new StringReader(e.Result);
                 MenuPage = (TileMenu)MenuItem.Load(stream)[0];
-                //CurrentMenuPage.InitParams(new List<object>(){
-                //    ((TileMenu)MenuPage.Tiles[0]).NGridRows,
-                //    ((TileMenu)MenuPage.Tiles[0]).NGridColumns
-                //});
                 CurrentMenuPage = MenuPage;
-
-                //IsRightToLeftTransition = true;
-                //LoadMenu(0);
-                //OnClickedTile(0, 0);
                 CurrentMenuPage.bt_Click(new object(), new RoutedEventArgs());
-                //Notify();
             }
 
         }
@@ -150,8 +141,6 @@ namespace PageFlip.DataLoader
             {
                 CurrentMenuPage = (TileMenu)(CurrentMenuPage.listSubMenu[listMenuPage[i]].listSubMenu[listMenuIdx[i]]);
             }
-
-            
 
             LoadMenu(0);
             Notify();
