@@ -23,10 +23,6 @@ namespace PageFlip.DataLoader
             return new Button() { Width = 100, Height = 25, Content = "Test Tile Page "};
         }
 
-        public virtual void InitParams(List<object> Params)
-        {
-
-        }
         public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
         {
         }
@@ -34,13 +30,11 @@ namespace PageFlip.DataLoader
     
     public class TilePageMenu : TilePage
     {
-        //public List<Tile> Tiles;
         public int NGridRows;
         public int NGridColumns;
 
         public TilePageMenu()
         {
-            //Tiles = new List<Tile>();
         }
 
         public override UIElement generatePage()
@@ -76,11 +70,8 @@ x:Name='tilepage'>
             //load item
             foreach (Tile item in listSubMenu)
             {
-                //if (item.Page == iPage)
-                {
-                    grd.Children.Add(item.generate());
-                    iCounter++;
-                }
+                grd.Children.Add(item.generate());
+                iCounter++;
             }
 
             if (iCounter > 0)
@@ -88,13 +79,7 @@ x:Name='tilepage'>
             else
                 return null;
         }
-
-        public override void InitParams(List<object> Params)
-        {
-            NGridRows = int.Parse(Params[0].ToString());
-            NGridColumns = int.Parse(Params[1].ToString());
-        }
-
+        
         public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
         {
             //TilePageMenu tile = new TilePageMenu();
@@ -119,11 +104,6 @@ x:Name='tilepage'>
                 }
                 reader.MoveToNextAttribute();
             }
-
-            //tile.CurrentLvl = CurrentLevel;
-            //tile.CurrentIndexMenu = CurrentIndex;
-
-            //return tile;
         }
 
         
