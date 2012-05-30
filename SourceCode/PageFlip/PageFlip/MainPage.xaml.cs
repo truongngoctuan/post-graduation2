@@ -102,6 +102,7 @@ namespace PageFlip
         private void setupUI()
         {
             mainMask.Visibility = Visibility.Collapsed;
+            Page1Sheet.curlShadow.Visibility = Visibility.Collapsed;
             //BookData = new BookLoader();
             BookLoader.Instance();//force init data, and download menudata.xml
             BookLoader.Instance().Attach(this);
@@ -316,6 +317,7 @@ namespace PageFlip
         private void PageCorner_MouseMove(object sender, MouseEventArgs e)
         {
             mainMask.Visibility = Visibility.Visible;
+            Page1Sheet.curlShadow.Visibility = Visibility.Collapsed;
             if (!this.IsTransitionStarted)
             {
                 if (!bCanTransitionRight) return;
@@ -477,6 +479,7 @@ namespace PageFlip
                 this.follow = new Point(this.pageHalfWidth - 1.0, this.pageHalfHeight - 1.0);
 
                 mainMask.Visibility = Visibility.Collapsed;
+                Page1Sheet.curlShadow.Visibility = Visibility.Collapsed;
             }
             catch (Exception ex)
             {
