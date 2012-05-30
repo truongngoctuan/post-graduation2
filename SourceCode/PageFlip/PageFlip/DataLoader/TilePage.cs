@@ -15,51 +15,36 @@ using System.IO;
 namespace PageFlip.DataLoader
 {
    
-    public abstract class TilePage
+    public class TilePage:MenuItem
     {//generate a page from multiple tiles
         //tiles in this case mean chapter thumnails
-        public virtual UIElement generatePage(int iPage)
+        public virtual UIElement generatePage()
         {
-            return new Button() { Width = 100, Height = 25, Content = "Test Tile Page " +iPage.ToString() };
+            return new Button() { Width = 100, Height = 25, Content = "Test Tile Page "};
         }
 
-        public abstract void InitParams(List<object> Params);
+        public virtual void InitParams(List<object> Params)
+        {
+
+        }
+        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        {
+        }
     }
     
     public class TilePageMenu : TilePage
     {
-        public List<Tile> Tiles;
+        //public List<Tile> Tiles;
         public int NGridRows;
         public int NGridColumns;
 
         public TilePageMenu()
         {
-            Tiles = new List<Tile>();
+            //Tiles = new List<Tile>();
         }
 
-        public override UIElement generatePage(int iPage)
+        public override UIElement generatePage()
         {
-//            string xaml = @"
-//	<Grid 
-//xmlns='http://schemas.microsoft.com/client/2007'
-//    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-//x:Name='tilepage'>
-//        <Grid.ColumnDefinitions>
-//            <ColumnDefinition Width='*'></ColumnDefinition>
-//            <ColumnDefinition Width='*'></ColumnDefinition>
-//            <ColumnDefinition Width='*'></ColumnDefinition>
-//            <ColumnDefinition Width='*'></ColumnDefinition>
-//        </Grid.ColumnDefinitions>
-//        <Grid.RowDefinitions>
-//            <RowDefinition Height='*'></RowDefinition>
-//            <RowDefinition Height='*'></RowDefinition>
-//            <RowDefinition Height='*'></RowDefinition>
-//            <RowDefinition Height='*'></RowDefinition>
-//            <RowDefinition Height='*'></RowDefinition>
-//        </Grid.RowDefinitions>
-//    </Grid>
-//
-//";
             string xamlColumns = string.Empty;
             for (int i = 0; i < NGridColumns; i++)
             {
@@ -88,9 +73,10 @@ x:Name='tilepage'>
 
             int iCounter = 0;
             Grid grd = (Grid)PageFlipUltis.Ultis.LoadXamlFromString(xaml);
-            foreach (Tile item in Tiles)
+            //load item
+            foreach (Tile item in listSubMenu)
             {
-                if (item.Page == iPage)
+                //if (item.Page == iPage)
                 {
                     grd.Children.Add(item.generate());
                     iCounter++;
@@ -108,6 +94,38 @@ x:Name='tilepage'>
             NGridRows = int.Parse(Params[0].ToString());
             NGridColumns = int.Parse(Params[1].ToString());
         }
+
+        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        {
+            //TilePageMenu tile = new TilePageMenu();
+            for (int i = 0; i < reader.AttributeCount - 1; i++)
+            {
+                switch (reader.Name)
+                {
+                    case "NGridRows":
+                        {
+                            this.NGridRows = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "NGridColumns":
+                        {
+                            this.NGridColumns = int.Parse(reader.Value);
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+                reader.MoveToNextAttribute();
+            }
+
+            //tile.CurrentLvl = CurrentLevel;
+            //tile.CurrentIndexMenu = CurrentIndex;
+
+            //return tile;
+        }
+
         
     }
 }

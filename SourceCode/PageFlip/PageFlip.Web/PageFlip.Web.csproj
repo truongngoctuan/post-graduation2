@@ -60,6 +60,7 @@
       <DependentUpon>EmployeeDB.mdf</DependentUpon>
     </Content>
     <Content Include="ClientBin\menudata.xml" />
+    <Content Include="ClientBin\menudata2.xml" />
     <Content Include="ClientBin\PageFlip.xap" />
     <Content Include="PageFlipTestPage.aspx" />
     <Content Include="PageFlipTestPage.html" />
