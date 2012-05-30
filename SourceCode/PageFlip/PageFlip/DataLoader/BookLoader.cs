@@ -62,7 +62,7 @@ namespace PageFlip.DataLoader
             {
                 StringReader stream = new StringReader(e.Result);
                 MenuPage.Tiles = TileMenu.Load(stream);
-                CurrentMenuPage.Tiles = MenuPage.Tiles;
+                CurrentMenuPage.Tiles = MenuPage.Tiles[0].listSubMenu;
 
                 IsRightToLeftTransition = true;
                 LoadMenu(0);
@@ -118,7 +118,7 @@ namespace PageFlip.DataLoader
             listMenuIdx.Add(Idx);
 
             //get currentTiles
-            List<Tile> tiles = MenuPage.Tiles;
+            List<Tile> tiles = MenuPage.Tiles[0].listSubMenu;
             for (int i = 0; i < listMenuIdx.Count; i++)
             {
                 tiles = tiles[listMenuIdx[i]].listSubMenu;
@@ -144,7 +144,7 @@ namespace PageFlip.DataLoader
                 if (listMenuIdx.Count == 0) return;
                 IsRightToLeftTransition = false;
                 //get currentTiles
-                List<Tile> tiles = MenuPage.Tiles;
+                List<Tile> tiles = MenuPage.Tiles[0].listSubMenu;
                 for (int i = 0; i < listMenuIdx.Count - 1; i++)
                 {
                     tiles = tiles[listMenuIdx[i]].listSubMenu;

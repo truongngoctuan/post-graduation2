@@ -37,7 +37,9 @@ namespace PageFlip.DataLoader
         public int CurrentLvl;
         public int CurrentIndexMenu;
 
-        
+        public string Name;
+        public int NGridRows;
+        public int NGridColumns;
 
         public override UIElement generate()
         {
@@ -67,28 +69,55 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
             TileMenu tile = new TileMenu();
             if (true == reader.MoveToFirstAttribute())
             {
-                //Page='0' GridRow='0' GridColumn='0' 
-                //GridColumnSpan='2' GridRowSpan='5' 
-                //ImageSource='/PageFlip;component/Images/HomeMenuPage/home_01.jpg'
-                tile.Page = int.Parse(reader.Value);
-                reader.MoveToNextAttribute();
-
-                tile.GridRow = int.Parse(reader.Value);
-                reader.MoveToNextAttribute();
-                tile.GridColumn = int.Parse(reader.Value);
-                reader.MoveToNextAttribute();
-
-                tile.GridColumnSpan = int.Parse(reader.Value);
-                reader.MoveToNextAttribute();
-                tile.GridRowSpan = int.Parse(reader.Value);
-                reader.MoveToNextAttribute();
-
-                tile.ImageSource = reader.Value;
+                for (int i = 0; i < reader.AttributeCount; i++)
+                {
+                    switch (reader.Name)
+                    {
+                        case "Name":
+                            {
+                                tile.Name = reader.Value;
+                                break;
+                            }
+                        case "Page":
+                            {
+                                tile.Page = int.Parse(reader.Value);
+                                break;
+                            }
+                        case "GridRow":
+                            {
+                                tile.GridRow = int.Parse(reader.Value);
+                                break;
+                            }
+                        case "GridColumn":
+                            {
+                                tile.GridColumn = int.Parse(reader.Value);
+                                break;
+                            }
+                        case "GridColumnSpan":
+                            {
+                                tile.GridColumnSpan = int.Parse(reader.Value);
+                                break;
+                            }
+                        case "GridRowSpan":
+                            {
+                                tile.GridRowSpan = int.Parse(reader.Value);
+                                break;
+                            }
+                        case "ImageSource":
+                            {
+                                tile.ImageSource = reader.Value;
+                                break;
+                            }
+                        default:
+                            {
+                                break;
+                            }
+                    }
+                    reader.MoveToNextAttribute();
+                }
 
                 tile.CurrentLvl = CurrentLevel;
                 tile.CurrentIndexMenu = CurrentIndex;
-
-
                 reader.MoveToElement();
             }
 
@@ -124,15 +153,16 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'>
         {
             XmlReader reader = XmlReader.Create(stream);
 
-            while (reader.Read())
+            //while (reader.Read())
             {
-                if (reader.NodeType == XmlNodeType.Element)
-                {
-                    if (reader.Name == "menu")
-                    {
-                        return ReadDeeper(ref reader, 0);
-                    }
-                }
+                return ReadDeeper(ref reader, -1);
+                //if (reader.NodeType == XmlNodeType.Element)
+                //{
+                //    if (reader.Name == "tile")
+                //    {
+                //        return ReadDeeper(ref reader, 0);
+                //    }
+                //}
             }
 
             return null;
