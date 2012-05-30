@@ -175,6 +175,14 @@
     <Resource Include="Images\HomeMenuPage\home_03.jpg" />
     <Resource Include="Images\HomeMenuPage\home_04.jpg" />
     <Resource Include="Images\HomeMenuPage\home_05.jpg" />
+    <Resource Include="Images\SubMenuPage\submenu_01.jpg" />
+    <Resource Include="Images\SubMenuPage\submenu_02.jpg" />
+    <Resource Include="Images\SubMenuPage\submenu_03.jpg" />
+    <Resource Include="Images\SubMenuPage\submenu_04.jpg" />
+    <Resource Include="Images\SubMenuPage\submenu_05.jpg" />
+    <Resource Include="Images\SubMenuPage\submenu_06.jpg" />
+    <Resource Include="Images\SubMenuPage\submenu_07.jpg" />
+    <Resource Include="Images\SubMenuPage\submenu_08.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
