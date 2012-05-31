@@ -32,10 +32,19 @@ namespace PageFlip.DataLoader
                         case "Menu":
                             {
                                 item = new TileMenu();
-                                
                                 break;
                             }
-                        case "Page":
+                        case "Article":
+                            {
+                                item = new TileArticle();
+                                break;
+                            }
+                        case "MenuPage":
+                            {
+                                item = new TilePageMenu();
+                                break;
+                            }
+                        case "ArticlePage":
                             {
                                 item = new TilePageMenu();
                                 break;
@@ -208,12 +217,97 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
             BookLoader.Instance().OnClickedTile(CurrentLvl, CurrentIndexMenu);
         }
     }
-    
-    //public class TileArticle : Tile
-    //{//tile that click open new article
-    //    public override UIElement generate()
-    //    {
-    //        return base.generate();
-    //    }
-    //}
+
+    public class TileArticle : Tile
+    {//tile that click open new article
+        public string ArticleID;
+
+        public string Name;
+        public int NGridRows;
+        public int NGridColumns;
+
+        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        {
+            for (int i = 0; i < reader.AttributeCount - 1; i++)
+            {
+                switch (reader.Name)
+                {
+                    case "ArticleID":
+                        {
+                            this.ArticleID = reader.Value;
+                            break;
+                        }
+                    case "NGridRows":
+                        {
+                            this.NGridRows = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "NGridColumns":
+                        {
+                            this.NGridColumns = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "Name":
+                        {
+                            this.Name = reader.Value;
+                            break;
+                        }
+                    case "GridRow":
+                        {
+                            this.GridRow = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "GridColumn":
+                        {
+                            this.GridColumn = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "GridColumnSpan":
+                        {
+                            this.GridColumnSpan = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "GridRowSpan":
+                        {
+                            this.GridRowSpan = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "ImageSource":
+                        {
+                            this.ImageSource = reader.Value;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+                reader.MoveToNextAttribute();
+            }
+        }
+
+        public override UIElement generate()
+        {
+            string xaml = @"
+<Button 
+xmlns='http://schemas.microsoft.com/client/2007'
+xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
+>
+            <Image Source='{4}'></Image>
+        </Button>
+";
+            xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, ImageSource);
+            Button bt = (Button)Ultis.LoadXamlFromString(xaml);
+            bt.Click += new RoutedEventHandler(bt_Click);
+            bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
+
+            return bt;
+        }
+
+        public void bt_Click(object sender, RoutedEventArgs e)
+        {
+            BookLoader.Instance().OnClickToArticle(ArticleID);
+        }
+    }
 }

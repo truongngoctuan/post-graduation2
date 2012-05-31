@@ -7,7 +7,7 @@
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            d:DesignWidth="1000" d:DesignHeight="646"
            Title="Page1 Page">
-    <Grid x:Name="tilepage">
+    <Grid x:Name="tilepage" Background="Orange">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -21,15 +21,29 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5"
+        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" 
                 >
-            <Border BorderThickness="1">
-            <Image Margin="5"
+            <!--http://stackoverflow.com/questions/2929143/how-to-make-a-dotted-border-on-a-border-element-in-silverlight-->
+            <!--<Rectangle Stroke="Red" StrokeDashArray="10,2" Width="100" Height="100"></Rectangle>-->
+                <Border BorderThickness="0,1,0,0" >
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="12,0"
+                         SpreadMethod="Repeat" MappingMode="Absolute">
+                        <GradientStop Color="Transparent" Offset="0" />
+                        <GradientStop Color="Transparent" Offset="0.166" />
+                        <GradientStop Color="Red" Offset="0.167" />
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Image Margin="5"
                 Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_01.jpg"></Image>
-            </Border>
+                </Border>
+            
         </Button>
         <!--<Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_01.jpg"></Image>-->
-        <Image Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_02.jpg"></Image>
+        <RichTextBlock Name="asd" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" >
+            <Paragraph>asd</Paragraph>
+        </RichTextBlock>
+        <!--<Image Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_02.jpg"></Image>-->
         <Image Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="2" Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_03.jpg"></Image>
         <Image Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="2" Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_04.jpg"></Image>
         <Image Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="3" Stretch="None" Source="/PageFlip;component/Images/HomeMenuPage/home_05.jpg"></Image>

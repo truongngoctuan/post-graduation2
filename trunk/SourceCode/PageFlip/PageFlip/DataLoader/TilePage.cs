@@ -108,4 +108,79 @@ x:Name='tilepage'>
 
         
     }
+
+    public class TilePageArticle : TilePage
+    {
+        public int NGridRows;
+        public int NGridColumns;
+
+        public override UIElement generatePage()
+        {
+            string xamlColumns = string.Empty;
+            for (int i = 0; i < NGridColumns; i++)
+            {
+                xamlColumns += "<ColumnDefinition Width='*'></ColumnDefinition>\r\n";
+            }
+
+            string xamlRows = string.Empty;
+            for (int i = 0; i < NGridRows; i++)
+            {
+                xamlRows += "<RowDefinition Height='*'></RowDefinition>\r\n";
+            }
+
+            string xaml = string.Format(@"
+<Grid 
+xmlns='http://schemas.microsoft.com/client/2007'
+    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+x:Name='tilepage'>
+        <Grid.ColumnDefinitions>
+            {0}
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            {1}
+        </Grid.RowDefinitions>
+    </Grid>
+", xamlColumns, xamlRows);
+
+            int iCounter = 0;
+            Grid grd = (Grid)PageFlipUltis.Ultis.LoadXamlFromString(xaml);
+            //load item
+            foreach (Tile item in listSubMenu)
+            {
+                grd.Children.Add(item.generate());
+                iCounter++;
+            }
+
+            if (iCounter > 0)
+                return grd;
+            else
+                return null;
+        }
+
+        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        {
+            for (int i = 0; i < reader.AttributeCount - 1; i++)
+            {
+                switch (reader.Name)
+                {
+                    case "NGridRows":
+                        {
+                            this.NGridRows = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "NGridColumns":
+                        {
+                            this.NGridColumns = int.Parse(reader.Value);
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+                reader.MoveToNextAttribute();
+            }
+        }
+    }
+
 }

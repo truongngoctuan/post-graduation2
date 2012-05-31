@@ -86,9 +86,9 @@ namespace PageFlip.DataLoader
 
             if (iCurrentMenuPage < CurrentMenuPage.listSubMenu.Count)
             {
-                
-                NextPageRightPart = ((TilePageMenu)CurrentMenuPage.listSubMenu[iCurrentMenuPage]).generatePage();
-                NextPageLeftPart = ((TilePageMenu)CurrentMenuPage.listSubMenu[iCurrentMenuPage]).generatePage();
+
+                NextPageRightPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage]).generatePage();
+                NextPageLeftPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage]).generatePage();
             }
             else
             {
@@ -99,8 +99,8 @@ namespace PageFlip.DataLoader
 
             if (iCurrentMenuPage + 1 < CurrentMenuPage.listSubMenu.Count)
             {
-                PreNextPageRightPart = ((TilePageMenu)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 1]).generatePage();
-                PreNextPageLeftPart = ((TilePageMenu)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 1]).generatePage();
+                PreNextPageRightPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 1]).generatePage();
+                PreNextPageLeftPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 1]).generatePage();
             }
             else
             {
@@ -124,6 +124,7 @@ namespace PageFlip.DataLoader
         List<int> listMenuPage = new List<int>();
         public void OnClickedTile(int Lvl, int Idx)
         {
+            //if (((TileMenu)(CurrentMenuPage.listSubMenu[iCurrentMenuPage].listSubMenu[Idx])).listSubMenu.Count == 0) return;
             IsRightToLeftTransition = true;
             if (Lvl == -1)
             {
@@ -177,6 +178,72 @@ namespace PageFlip.DataLoader
             }
             
         }
+
+
+        #endregion 
+        #region Control Events From Article
+        MenuItem CurrentArticle;
+        int CurrentArticlePage;
+        public void OnClickToArticle(string ArticleID)
+        {
+            //load new article with ID
+            //apply to interface
+            CurrentArticle = new TileArticle();
+            Uri url = new Uri("Articles/" + ArticleID + ".xml", UriKind.Relative);
+            WebClient client = new WebClient();
+            client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(Article_DownloadStringCompleted);
+            client.DownloadStringAsync(url);
+        }
+
+        void Article_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                StringReader stream = new StringReader(e.Result);
+                CurrentArticle = (MenuItem)MenuItem.Load(stream)[0];
+                CurrentArticlePage = 0;
+                LoadArticlePage(0);
+                Notify();
+            }
+        }
+
+        void LoadArticlePage(int iPage)
+        {
+            CurrentArticlePage = iPage;
+
+            if (CurrentArticlePage < CurrentArticle.listSubMenu.Count)
+            {
+
+                NextPageRightPart = ((TilePage)CurrentArticle.listSubMenu[CurrentArticlePage]).generatePage();
+                NextPageLeftPart = ((TilePage)CurrentArticle.listSubMenu[CurrentArticlePage]).generatePage();
+            }
+            else
+            {
+                CurrentPage = null;
+                NextPageRightPart = null;
+                NextPageLeftPart = null;
+            }
+
+            if (CurrentArticlePage + 1 < CurrentArticle.listSubMenu.Count)
+            {
+                PreNextPageRightPart = ((TilePage)CurrentArticle.listSubMenu[CurrentArticlePage + 1]).generatePage();
+                PreNextPageLeftPart = ((TilePage)CurrentArticle.listSubMenu[CurrentArticlePage + 1]).generatePage();
+            }
+            else
+            {
+                PreNextPageRightPart = null;
+                PreNextPageLeftPart = null;
+            }
+        }
+
+        public void OnBackArticle()
+        {
+        }
+
+        public void OnNextpageArticle()
+        {
+        }
         #endregion
+
     }
 }
