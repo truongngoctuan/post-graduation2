@@ -183,6 +183,11 @@
     <Resource Include="Images\SubMenuPage\submenu_06.jpg" />
     <Resource Include="Images\SubMenuPage\submenu_07.jpg" />
     <Resource Include="Images\SubMenuPage\submenu_08.jpg" />
+    <Resource Include="Images\SubContent\subcontent_01.jpg" />
+    <Resource Include="Images\SubContent\subcontent_02.jpg" />
+    <Resource Include="Images\SubContent\subcontent_03.jpg" />
+    <Resource Include="Images\SubContent\subcontent_04.jpg" />
+    <Resource Include="Images\SubContent\subcontent_05.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
