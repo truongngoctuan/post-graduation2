@@ -124,7 +124,7 @@ namespace PageFlip.DataLoader
         List<int> listMenuPage = new List<int>();
         public void OnClickedTile(int Lvl, int Idx)
         {
-            //if (((TileMenu)(CurrentMenuPage.listSubMenu[iCurrentMenuPage].listSubMenu[Idx])).listSubMenu.Count == 0) return;
+            if (Lvl != -1 && ((MenuItem)(CurrentMenuPage.listSubMenu[iCurrentMenuPage].listSubMenu[Idx])).listSubMenu.Count == 0) return;
             IsRightToLeftTransition = true;
             if (Lvl == -1)
             {
