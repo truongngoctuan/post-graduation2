@@ -76,11 +76,13 @@ namespace PageFlip
             this.RootVisual = mPage;
             //App.GoToPage(new HomePage(), null);
 
+            //Page1 mainP = new Page1();
+
             MainPage mainP = new MainPage()
-                {
-                    ParentView = null,
-                    ContentPageIndex = 0
-                };
+            {
+                ParentView = null,
+                ContentPageIndex = 0
+            };
 
             App app = (App)Application.Current;
 
