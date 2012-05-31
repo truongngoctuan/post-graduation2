@@ -34,7 +34,17 @@
   </item>
 
   <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
-    <item Type='Menu' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'/>
+    <item Type='Menu' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'>
+      <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
+        <item Type='Menu' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'/>
+        <item Type='Menu' GridRow='3' GridColumn='2' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'/>
+        <item Type='Menu' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'/>
+      </item>
+      <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
+        <item Type='Menu' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'/>
+        <item Type='Menu' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'/>
+      </item>
+    </item>
     <item Type='Menu' GridRow='3' GridColumn='2' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'/>
   </item>
 
