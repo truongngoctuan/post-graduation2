@@ -11,7 +11,7 @@
         <item Type='Menu' GridRow='3' GridColumn='0' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_04.jpg'/>
         <item Type='Menu' GridRow='3' GridColumn='1' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_05.jpg'/>
 
-        <item Type='Menu' GridRow='1' GridColumn='2' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_06.jpg'/>
+        <item Type='Article' ArticleID='0001' GridRow='1' GridColumn='2' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_06.jpg'/>
 
         <item Type='Menu' GridRow='1' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_07.jpg'/>
         <item Type='Menu' GridRow='3' GridColumn='3' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_08.jpg'/>
