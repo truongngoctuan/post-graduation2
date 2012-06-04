@@ -78,11 +78,13 @@ namespace PageFlip
 
             //Page1 mainP = new Page1();
 
-            MainPage mainP = new MainPage()
-            {
-                ParentView = null,
-                ContentPageIndex = 0
-            };
+            //MainPage mainP = new MainPage()
+            //{
+            //    ParentView = null,
+            //    ContentPageIndex = 0
+            //};
+
+            MainPage2 mainP = new MainPage2();
 
             App app = (App)Application.Current;
 
