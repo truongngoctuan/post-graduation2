@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<item Type='Menu'>
+  <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
+    <item Type='Article' ArticleID='0001' Name='Story' GridRow='0' GridColumn='0' GridColumnSpan='2' GridRowSpan='5' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_01.jpg'/>
+    <item Type='Menu' Name='FASHION' GridRow='0' GridColumn='2' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_02.jpg'>
+      <item Type='MenuPage' NGridRows='4' NGridColumns='4'>
+        <item Type='Menu' GridRow='0' GridColumn='0' GridColumnSpan='2' GridRowSpan='3' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_01.jpg'/>
+        <item Type='Menu' GridRow='0' GridColumn='2' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_02.jpg'/>
+        <item Type='Menu' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_03.jpg'/>
+
+        <item Type='Menu' GridRow='3' GridColumn='0' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_04.jpg'/>
+        <item Type='Menu' GridRow='3' GridColumn='1' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_05.jpg'/>
+
+        <item Type='Article' ArticleID='0001' GridRow='1' GridColumn='2' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_06.jpg'/>
+
+        <item Type='Menu' GridRow='1' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_07.jpg'/>
+        <item Type='Menu' GridRow='3' GridColumn='3' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/SubMenuPage/submenu_08.jpg'/>
+      </item>
+      <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
+        <item Type='Menu' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'/>
+        <item Type='Menu' GridRow='3' GridColumn='2' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'/>
+        <item Type='Menu' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'/>
+      </item>
+    </item>
+    <item Type='Menu' Name='LIFESTYLE' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'/>
+    <item Type='Menu' Name='ART' GridRow='3' GridColumn='2' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'>
+      <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
+        <item Type='Menu' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'/>
+        <item Type='Menu' GridRow='3' GridColumn='2' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'/>
+        <item Type='Menu' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'/>
+      </item>
+    </item>
+    <item Type='Menu' Name='DESIGN' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'/>
+  </item>
+
+  <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
+    <item Type='Menu' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'>
+      <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
+        <item Type='Menu' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'/>
+        <item Type='Menu' GridRow='3' GridColumn='2' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'/>
+        <item Type='Menu' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'/>
+      </item>
+      <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
+        <item Type='Menu' GridRow='0' GridColumn='3' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'/>
+        <item Type='Menu' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'/>
+      </item>
+    </item>
+    <item Type='Menu' GridRow='3' GridColumn='2' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'/>
+  </item>
+
+  <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
+    <item Type='Menu' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'/>
+  </item>
+  <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
+    <item Type='Menu' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_04.jpg'/>
+  </item>
+  <item Type='MenuPage' NGridRows='5' NGridColumns='4'>
+    <item Type='Menu' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_03.jpg'/>
+  </item>
+</item>

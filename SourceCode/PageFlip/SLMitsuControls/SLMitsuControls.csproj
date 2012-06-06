@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SLMitsuControls</RootNamespace>
     <AssemblyName>SLMitsuControls</AssemblyName>
-    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
     <SilverlightApplication>true</SilverlightApplication>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
@@ -55,6 +55,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -86,7 +87,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
-    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Xml.Linq.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -123,33 +127,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ClientBin\AppManifest.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UCBook.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ClientBin\de\System.Xml.Linq.resources.dll" />
-    <Content Include="ClientBin\es\System.Xml.Linq.resources.dll" />
-    <Content Include="ClientBin\fr\System.Xml.Linq.resources.dll" />
-    <Content Include="ClientBin\it\System.Xml.Linq.resources.dll" />
-    <Content Include="ClientBin\ja\System.Xml.Linq.resources.dll" />
-    <Content Include="ClientBin\ko\System.Xml.Linq.resources.dll" />
-    <Content Include="ClientBin\SLMitsuControls.dll" />
-    <Content Include="ClientBin\SLMitsuControls.pdb" />
-    <Content Include="ClientBin\SLMitsuControls.xap" />
-    <Content Include="ClientBin\System.Xml.Linq.dll" />
-    <Content Include="ClientBin\System.Xml.Linq.xml" />
-    <Content Include="ClientBin\TestPage.html" />
-    <Content Include="ClientBin\zh-hans\System.Xml.Linq.resources.dll" />
-    <Content Include="ClientBin\zh-hant\System.Xml.Linq.resources.dll" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -167,6 +149,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataManager\DataManager.csproj">
+      <Project>{16865105-7BB0-47FE-95BA-1D29A68D76E2}</Project>
+      <Name>DataManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
