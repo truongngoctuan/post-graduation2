@@ -79,28 +79,22 @@ namespace PageFlip
 
         private void book_Loaded(object sender, RoutedEventArgs e)
         {
-            book.UpdateLeftRightPage(BookLoader.Instance().CurrentPageLeftPage,
-    BookLoader.Instance().PreviousPageLeftPart,
-    BookLoader.Instance().PreviousPageRightPart,
-    
-    BookLoader.Instance().CurrentPageRightPage,
-                BookLoader.Instance().NextPageLeftPart,
-                BookLoader.Instance().NextPageRightPart);
+            book.UpdateLeftRightPage(BookLoader.Instance().PreviousPageLeftPart, BookLoader.Instance().PreviousPageRightPart, BookLoader.Instance().CurrentPageLeftPage, BookLoader.Instance().CurrentPageRightPage, BookLoader.Instance().NextPageLeftPart, BookLoader.Instance().NextPageRightPart);
         }
 
         private void btNext_Click(object sender, RoutedEventArgs e)
         {
             if (BookLoader.Instance().OnNextMenu())
             {
-                book.AnimateToNextPage(500);
+                //book.AnimateToNextPage(500);
             }
         }
 
         private void btPrevious_Click(object sender, RoutedEventArgs e)
         {
-            //if (BookLoader.Instance().OnPreviouspage())
+            if (BookLoader.Instance().OnPreviousMenu())
             {
-                book.AnimateToPreviousPage(500);
+                //book.AnimateToPreviousPage(500);
             }
         }
 

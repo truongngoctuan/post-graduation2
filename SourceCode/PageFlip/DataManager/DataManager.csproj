@@ -58,6 +58,7 @@
     <Compile Include="BookData.cs" />
     <Compile Include="BookLoader.cs" />
     <Compile Include="DataEventController\DataEventNextMenu.cs" />
+    <Compile Include="DataEventController\DataEventPreviousMenu.cs" />
     <Compile Include="DataEventController\IDataEvent.cs" />
     <Compile Include="DataEventController\DataEventLoadMenu.cs" />
     <Compile Include="IBasicTurnPageEffect.cs" />

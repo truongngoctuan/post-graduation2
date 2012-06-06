@@ -33,7 +33,13 @@ namespace DataManager
         public UIElement PreNextPageLeftPart;
         public UIElement PreNextPageRightPart;
 
+        public UIElement PrePreviousPageLeftPart;
+        public UIElement PrePreviousPageRightPart;
+
         //variables for menu
         public int iCurrentMenuPage;
+
+        //turn type
+        public TurnType TurnTypeManager;
     }
 }

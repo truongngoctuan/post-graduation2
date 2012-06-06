@@ -26,16 +26,7 @@ namespace SLMitsuControls
 
         public void UpdateInterface(UpdateInterfaceParams pars)
         {
-            //throw new NotImplementedException();
-            //MessageBox.Show("MainPage2 - UpdateInterface");
-            //rightPagePage0Content = BookLoader.Instance().pa
-            UpdateLeftRightPage(BookLoader.Instance().CurrentPageLeftPage,
-                BookLoader.Instance().PreviousPageLeftPart,
-                BookLoader.Instance().PreviousPageRightPart,
-                
-                BookLoader.Instance().CurrentPageRightPage,
-                BookLoader.Instance().NextPageLeftPart,
-                BookLoader.Instance().NextPageRightPart);
+            UpdateLeftRightPage(BookLoader.Instance().PreviousPageLeftPart, BookLoader.Instance().PreviousPageRightPart, BookLoader.Instance().CurrentPageLeftPage, BookLoader.Instance().CurrentPageRightPage, BookLoader.Instance().NextPageLeftPart, BookLoader.Instance().NextPageRightPart);
 
             switch (pars.Type)
             {
@@ -62,13 +53,7 @@ namespace SLMitsuControls
             {
                 BookLoader.Instance().UpdatePrePageToCurrentPage();
 
-                UpdateLeftRightPage(BookLoader.Instance().CurrentPageLeftPage,
-                    BookLoader.Instance().PreviousPageLeftPart,
-                    BookLoader.Instance().PreviousPageRightPart,
-                    
-                    BookLoader.Instance().CurrentPageRightPage,
-                    BookLoader.Instance().NextPageLeftPart,
-                    BookLoader.Instance().NextPageRightPart);
+                UpdateLeftRightPage(BookLoader.Instance().PreviousPageLeftPart, BookLoader.Instance().PreviousPageRightPart, BookLoader.Instance().CurrentPageLeftPage, BookLoader.Instance().CurrentPageRightPage, BookLoader.Instance().NextPageLeftPart, BookLoader.Instance().NextPageRightPart);
             }
             catch (Exception ex)
             {
@@ -232,6 +217,7 @@ namespace SLMitsuControls
             {
                 Canvas.SetZIndex(leftPage, 0);
                 Canvas.SetZIndex(rightPage, 1);
+
                 rightPage.AutoTurnPage(CornerOrigin.BottomRight, duration);
             }
         }
@@ -251,8 +237,7 @@ namespace SLMitsuControls
             Canvas cv = new Canvas() { Width = Width, Height = Height, Background = new SolidColorBrush(Colors.White) };
             return cv;
         }
-        public void UpdateLeftRightPage(UIElement P0, UIElement P1, UIElement P2,
-            UIElement RightP0, UIElement RightP1, UIElement RightP2)
+        public void UpdateLeftRightPage(UIElement previousLeft, UIElement previousRight, UIElement currentLeft, UIElement currentRight, UIElement nextLeft, UIElement nextRight)
         {
             leftPage.Page0.Children.Clear();// = null;
             leftPage.Page1.Children.Clear();// = null;
@@ -262,23 +247,23 @@ namespace SLMitsuControls
             rightPage.Page1.Children.Clear();// = null;
             rightPage.Page2.Children.Clear();// = null;
 
-            if (P0 == null) P0 = createBlankPage(this.ActualWidth / 2, this.ActualHeight);
-            if (P1 == null) P1 = createBlankPage(this.ActualWidth / 2, this.ActualHeight);
-            if (P2 == null) P2 = createBlankPage(this.ActualWidth / 2, this.ActualHeight);
+            if (currentLeft == null) currentLeft = createBlankPage(this.Width / 2, this.Height);
+            if (previousLeft == null) previousLeft = createBlankPage(this.Width / 2, this.Height);
+            if (previousRight == null) previousRight = createBlankPage(this.Width / 2, this.Height);
 
-            if (RightP0 == null) RightP0 = createBlankPage(this.Width / 2, this.Height);
-            if (RightP1 == null) RightP1 = createBlankPage(this.Width / 2, this.Height);
-            if (RightP2 == null) RightP2 = createBlankPage(this.Width / 2, this.Height);
+            if (currentRight == null) currentRight = createBlankPage(this.Width / 2, this.Height);
+            if (nextLeft == null) nextLeft = createBlankPage(this.Width / 2, this.Height);
+            if (nextRight == null) nextRight = createBlankPage(this.Width / 2, this.Height);
 
-            
+            leftPage.Page0.Children.Add(currentLeft);
 
-            leftPage.Page0.Children.Add(P0);
-            leftPage.Page1.Children.Add(P1);
-            leftPage.Page2.Children.Add(P2);
+            leftPage.Page1.Children.Add(previousRight);
+            leftPage.Page2.Children.Add(previousLeft);
 
-            rightPage.Page0.Children.Add(RightP0);
-            rightPage.Page1.Children.Add(RightP1);
-            rightPage.Page2.Children.Add(RightP2);
+            rightPage.Page0.Children.Add(currentRight);
+
+            rightPage.Page1.Children.Add(nextLeft);
+            rightPage.Page2.Children.Add(nextRight);
         }
         
     }
