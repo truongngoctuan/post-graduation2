@@ -9,7 +9,7 @@
                  xmlns:local="clr-namespace:SLMitsuControls;assembly=SLMitsuControls"
            Title="MainPage2 Page"
                  Loaded="UserControl_Loaded">
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRootOfMainPage">
             <local:UCBook x:Name="book" Margin="50" Width="1000" Height="400" Loaded="book_Loaded"/>
     </Grid>
 </navigation:Page>

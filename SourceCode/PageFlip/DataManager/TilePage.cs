@@ -55,7 +55,7 @@ namespace DataManager
 <Grid 
 xmlns='http://schemas.microsoft.com/client/2007'
     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-x:Name='tilepage' Background='White'>
+Background='White'>
         <Grid.ColumnDefinitions>
             {0}
         </Grid.ColumnDefinitions>

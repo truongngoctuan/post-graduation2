@@ -19,11 +19,13 @@ namespace DataManager
         TileMenu MenuPage;//global menu, unchange, keep all menu
         TileMenu CurrentMenuPage;//only keep current lvl menu
 
-        public UIElement CurrentPageLeftPage = null;
+        
         public UIElement PreviousPageLeftPart = null;
         public UIElement PreviousPageRightPart = null;
 
+        public UIElement CurrentPageLeftPage = null;
         public UIElement CurrentPageRightPage;
+
         public UIElement NextPageLeftPart;
         public UIElement NextPageRightPart;
 
@@ -54,7 +56,7 @@ namespace DataManager
             CurrentMenuPage = new TileMenu();
 
             //load data from menudata.xml
-            Uri url = new Uri("menudata2.xml", UriKind.Relative);
+            Uri url = new Uri("menudata3.xml", UriKind.Relative);
             WebClient client = new WebClient();
             client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);
             client.DownloadStringAsync(url);
@@ -74,7 +76,9 @@ namespace DataManager
 
         public void UpdatePrePageToCurrentPage()
         {//finished transition, after this function is called, update interface 2nd times.
-            CurrentPageRightPage = NextPageLeftPart;
+            CurrentPageLeftPage = NextPageLeftPart;
+            CurrentPageRightPage = NextPageRightPart;
+
             NextPageLeftPart = PreNextPageLeftPart;
             NextPageRightPart = PreNextPageRightPart;
 
@@ -87,12 +91,25 @@ namespace DataManager
         void LoadMenu(int idx)
         {
             iCurrentMenuPage = idx;
-
-            if (iCurrentMenuPage < CurrentMenuPage.listSubMenu.Count)
+            #region Previous Effect
+            #endregion
+            #region Next Effect
+            if (iCurrentMenuPage - 2 >= 0)
             {
+                PreviousPageLeftPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage - 2]).generatePage();
+                PreviousPageRightPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage - 1]).generatePage();
+            }
+            else
+            {
+                PreviousPageLeftPart = null;
+                PreviousPageRightPart = null;
+            }
 
-                NextPageRightPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage]).generatePage();
+            if (iCurrentMenuPage + 1 < CurrentMenuPage.listSubMenu.Count)
+            {//have 2 left, right pages
                 NextPageLeftPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage]).generatePage();
+                NextPageRightPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 1]).generatePage();
+                
             }
             else
             {
@@ -101,16 +118,43 @@ namespace DataManager
                 NextPageLeftPart = null;
             }
 
-            if (iCurrentMenuPage + 1 < CurrentMenuPage.listSubMenu.Count)
+            if (iCurrentMenuPage + 3 < CurrentMenuPage.listSubMenu.Count)
             {
-                PreNextPageRightPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 1]).generatePage();
-                PreNextPageLeftPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 1]).generatePage();
+                PreNextPageLeftPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 2]).generatePage();
+                PreNextPageRightPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 3]).generatePage();
             }
             else
             {
                 PreNextPageRightPart = null;
                 PreNextPageLeftPart = null;
             }
+            #endregion
+
+            //iCurrentMenuPage = idx;
+
+            //if (iCurrentMenuPage < CurrentMenuPage.listSubMenu.Count)
+            //{
+
+            //    NextPageRightPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage]).generatePage();
+            //    NextPageLeftPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage]).generatePage();
+            //}
+            //else
+            //{
+            //    CurrentPageRightPage = null;
+            //    NextPageRightPart = null;
+            //    NextPageLeftPart = null;
+            //}
+
+            //if (iCurrentMenuPage + 1 < CurrentMenuPage.listSubMenu.Count)
+            //{
+            //    PreNextPageRightPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 1]).generatePage();
+            //    PreNextPageLeftPart = ((TilePage)CurrentMenuPage.listSubMenu[iCurrentMenuPage + 1]).generatePage();
+            //}
+            //else
+            //{
+            //    PreNextPageRightPart = null;
+            //    PreNextPageLeftPart = null;
+            //}
             
         }
         #endregion
