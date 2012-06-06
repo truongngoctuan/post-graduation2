@@ -60,6 +60,9 @@
       <DependentUpon>EmployeeDB.mdf</DependentUpon>
     </Content>
     <Content Include="ClientBin\Articles\0001.xml" />
+    <Content Include="ClientBin\menudata3.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ClientBin\menudata2.xml">
       <SubType>Designer</SubType>
     </Content>

@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Xml;
 using System.IO;
 
-namespace PageFlip.DataLoader
+namespace DataManager
 {
    
     public class TilePage:MenuItem
@@ -55,7 +55,7 @@ namespace PageFlip.DataLoader
 <Grid 
 xmlns='http://schemas.microsoft.com/client/2007'
     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-x:Name='tilepage'>
+x:Name='tilepage' Background='White'>
         <Grid.ColumnDefinitions>
             {0}
         </Grid.ColumnDefinitions>
@@ -66,7 +66,7 @@ x:Name='tilepage'>
 ", xamlColumns, xamlRows);
 
             int iCounter = 0;
-            Grid grd = (Grid)PageFlipUltis.Ultis.LoadXamlFromString(xaml);
+            Grid grd = (Grid)Ultis.LoadXamlFromString(xaml);
             //load item
             foreach (Tile item in listSubMenu)
             {
@@ -143,7 +143,7 @@ x:Name='tilepage'>
 ", xamlColumns, xamlRows);
 
             int iCounter = 0;
-            Grid grd = (Grid)PageFlipUltis.Ultis.LoadXamlFromString(xaml);
+            Grid grd = (Grid)Ultis.LoadXamlFromString(xaml);
             //load item
             foreach (Tile item in listSubMenu)
             {

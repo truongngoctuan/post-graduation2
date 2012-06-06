@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Diagnostics;
 using System.Text;
+using DataManager;
 
 namespace SLMitsuControls
 {
@@ -41,6 +42,13 @@ namespace SLMitsuControls
             ApplyParameters(new PageParameters(this.RenderSize));
         }
 
+        #region OnComplete
+        IBasicTurnPageEffect Obj = null;
+        public void Attach(IBasicTurnPageEffect obj)
+        {
+            Obj = obj;
+        }
+        
         void anim_Completed(object sender, EventArgs e)
         {
             ApplyParameters(new PageParameters(this.RenderSize));
@@ -53,8 +61,11 @@ namespace SLMitsuControls
             }
             else
                 Status = PageStatus.None;
-        }
 
+            if (Obj != null)
+                Obj.OnCompleteAnimation();
+        }
+        #endregion
         void anim_CurrentTimeInvalidated(object sender, EventArgs e)
         {
             CornerPointRefreshed();
@@ -607,6 +618,8 @@ namespace SLMitsuControls
             if ((Status == PageStatus.DropAnimation) || (Status == PageStatus.TurnAnimation))
                 anim_CurrentTimeInvalidated(this, new EventArgs());
         }
+
+
     }
 
     public class TimerAnimation<T>
@@ -671,7 +684,6 @@ namespace SLMitsuControls
             if (Completed != null)
                 Completed(this, new RoutedEventArgs());
         }
-
         public EventHandler Completed;
         public Action<T> CurrentTimeInvalidated;
         private ComputeCurrentValueHandler<T> ComputeCurrentValue;

@@ -11,8 +11,9 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Windows.Media.Imaging;
-using PageFlipUltis;
-using PageFlip.DataLoader;
+using DataManager;
+//using PageFlipUltis;
+//using PageFlip.DataLoader;
 
 namespace PageFlip
 {
@@ -468,8 +469,8 @@ namespace PageFlip
                 this.Page2SheetSection2.sheetImage.Children.Clear();
                 this.Page1TraceSheet.sheetImage.Children.Clear();
 
-                if (BookLoader.Instance().CurrentPage != null)
-                    this.Page1Sheet.sheetImage.Children.Add(BookLoader.Instance().CurrentPage);
+                if (BookLoader.Instance().CurrentPageRightPage != null)
+                    this.Page1Sheet.sheetImage.Children.Add(BookLoader.Instance().CurrentPageRightPage);
                 if (BookLoader.Instance().NextPageLeftPart != null)
                     this.Page2SheetSection2.sheetImage.Children.Add(BookLoader.Instance().NextPageLeftPart);
                 if (BookLoader.Instance().NextPageRightPart != null)

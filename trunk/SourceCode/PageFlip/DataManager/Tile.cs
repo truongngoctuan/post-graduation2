@@ -8,12 +8,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using PageFlipUltis;
+//using PageFlipUltis;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 
-namespace PageFlip.DataLoader
+namespace DataManager
 {
     public abstract class MenuItem
     {
@@ -206,7 +206,7 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
             xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, ImageSource);
             Button bt = (Button)Ultis.LoadXamlFromString(xaml);
             bt.Click += new RoutedEventHandler(bt_Click);
-            bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
+            //bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
 
             return bt;
         }
@@ -300,7 +300,7 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
             xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, ImageSource);
             Button bt = (Button)Ultis.LoadXamlFromString(xaml);
             bt.Click += new RoutedEventHandler(bt_Click);
-            bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
+            //bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
 
             return bt;
         }

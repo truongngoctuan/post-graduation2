@@ -11,10 +11,11 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
 using SLMitsuControls;
+using DataManager;
 
 namespace PageFlip
 {
-    public partial class MainPage2 : Page, IDataProvider
+    public partial class MainPage2 : Page
     {
         public MainPage2()
         {
@@ -27,44 +28,44 @@ namespace PageFlip
         }
 
 
-        private List<Button> pages;
+        //private List<Button> pages;
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            pages = new List<Button>
-            {
-                new Button { Content = "Page 0"},
-                new Button { Content = "Page 1", Background = new SolidColorBrush(Colors.Green) },
-                new Button { Content = "Page 2", Background = new SolidColorBrush(Colors.Yellow) },
-                new Button { Content = "Page 3", Background = new SolidColorBrush(Colors.Red) }
-            };
+            //pages = new List<Button>
+            //{
+            //    new Button { Content = "Page 0"},
+            //    new Button { Content = "Page 1", Background = new SolidColorBrush(Colors.Green) },
+            //    new Button { Content = "Page 2", Background = new SolidColorBrush(Colors.Yellow) },
+            //    new Button { Content = "Page 3", Background = new SolidColorBrush(Colors.Red) }
+            //};
 
-            int i = 0;
-            foreach (var b in pages)
-            {
-                if (i % 2 == 0)
-                    b.Click += Button_Click;
-                else
-                    b.Click += Button_Click_1;
-                i++;
-            }
+            //int i = 0;
+            //foreach (var b in pages)
+            //{
+            //    if (i % 2 == 0)
+            //        b.Click += Button_Click;
+            //    else
+            //        b.Click += Button_Click_1;
+            //    i++;
+            //}
 
-            book.SetData(this);
+            //book.SetData(this);
         }
 
-        #region IDataProvider Members
+        //#region IDataProvider Members
 
-        public object GetItem(int index)
-        {
-            return pages[index];
-        }
+        //public object GetItem(int index)
+        //{
+        //    return pages[index];
+        //}
 
-        public int GetCount()
-        {
-            return pages.Count;
-        }
+        //public int GetCount()
+        //{
+        //    return pages.Count;
+        //}
 
-        #endregion
+        //#endregion
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -75,5 +76,18 @@ namespace PageFlip
         {
             book.AnimateToPreviousPage(500);
         }
+
+        private void book_Loaded(object sender, RoutedEventArgs e)
+        {
+            book.UpdateLeftPage(BookLoader.Instance().CurrentPageLeftPage,
+    BookLoader.Instance().PreviousPageLeftPart,
+    BookLoader.Instance().PreviousPageRightPart);
+
+            book.UpdateRightPage(BookLoader.Instance().CurrentPageRightPage,
+                BookLoader.Instance().NextPageLeftPart,
+                BookLoader.Instance().NextPageRightPart);
+        }
+
+
     }
 }

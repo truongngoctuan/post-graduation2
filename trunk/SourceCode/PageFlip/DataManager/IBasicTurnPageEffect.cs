@@ -9,12 +9,13 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace PageFlip.DataLoader
+namespace DataManager
 {
-    public class MenuItemLvl0
+    public interface IBasicTurnPageEffect
     {
-        public string ImagePath { get; set; }
-        public string ImagePathDescription { get; set; }
-        //public string Description { get; set; }
+        //public void UpdateInterfaceBeforeAnimation();
+        //public void UpdateInterfaceAfterAnimation();
+
+        void OnCompleteAnimation();
     }
 }

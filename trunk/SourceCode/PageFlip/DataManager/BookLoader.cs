@@ -9,17 +9,21 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Collections.Generic;
-using PageFlipUltis;
+//using PageFlipUltis;
 using System.IO;
 using System.Xml;
-namespace PageFlip.DataLoader
+namespace DataManager
 {
 	public class BookLoader:Subject
     {
         TileMenu MenuPage;//global menu, unchange, keep all menu
         TileMenu CurrentMenuPage;//only keep current lvl menu
 
-        public UIElement CurrentPage;
+        public UIElement CurrentPageLeftPage = null;
+        public UIElement PreviousPageLeftPart = null;
+        public UIElement PreviousPageRightPart = null;
+
+        public UIElement CurrentPageRightPage;
         public UIElement NextPageLeftPart;
         public UIElement NextPageRightPart;
 
@@ -70,7 +74,7 @@ namespace PageFlip.DataLoader
 
         public void UpdatePrePageToCurrentPage()
         {//finished transition, after this function is called, update interface 2nd times.
-            CurrentPage = NextPageLeftPart;
+            CurrentPageRightPage = NextPageLeftPart;
             NextPageLeftPart = PreNextPageLeftPart;
             NextPageRightPart = PreNextPageRightPart;
 
@@ -92,7 +96,7 @@ namespace PageFlip.DataLoader
             }
             else
             {
-                CurrentPage = null;
+                CurrentPageRightPage = null;
                 NextPageRightPart = null;
                 NextPageLeftPart = null;
             }
@@ -219,7 +223,7 @@ namespace PageFlip.DataLoader
             }
             else
             {
-                CurrentPage = null;
+                CurrentPageRightPage = null;
                 NextPageRightPart = null;
                 NextPageLeftPart = null;
             }
