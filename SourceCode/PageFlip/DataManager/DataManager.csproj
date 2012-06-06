@@ -55,7 +55,11 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookData.cs" />
     <Compile Include="BookLoader.cs" />
+    <Compile Include="DataEventController\DataEventNextMenu.cs" />
+    <Compile Include="DataEventController\IDataEvent.cs" />
+    <Compile Include="DataEventController\DataEventLoadMenu.cs" />
     <Compile Include="IBasicTurnPageEffect.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +67,7 @@
     <Compile Include="TilePage.cs" />
     <Compile Include="Ultis.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

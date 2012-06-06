@@ -62,6 +62,24 @@ namespace SLMitsuControls
             else
                 Status = PageStatus.None;
 
+            //if (Obj != null)
+            //    Obj.OnCompleteAnimation();
+        }
+
+
+        void animAutoTurnPage_Completed(object sender, EventArgs e)
+        {
+            ApplyParameters(new PageParameters(this.RenderSize));
+
+            if (Status == PageStatus.TurnAnimation)
+            {
+                Status = PageStatus.None;
+                if (PageTurned != null)
+                    PageTurned(this, new RoutedEventArgs());
+            }
+            else
+                Status = PageStatus.None;
+
             if (Obj != null)
                 Obj.OnCompleteAnimation();
         }
@@ -478,6 +496,7 @@ namespace SLMitsuControls
 
         public void TurnPage() 
         {
+            //BookLoader.Instance().OnNextMenu();
             TurnPage(animationDuration);
         }
 
@@ -540,7 +559,7 @@ namespace SLMitsuControls
             var anim = new TimerAnimation<Point>(this, UCPage.CornerPointProperty,
                 endPoint, new Duration(TimeSpan.FromMilliseconds(duration)),
                 (from, to, percent) => ComputeAutoAnimationPoints(from, to, percent));
-            anim.Completed += new EventHandler(anim_Completed);
+            anim.Completed += new EventHandler(animAutoTurnPage_Completed);
             anim.Begin();
         }
 

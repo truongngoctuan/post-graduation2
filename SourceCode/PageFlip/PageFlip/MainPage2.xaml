@@ -10,6 +10,10 @@
            Title="MainPage2 Page"
                  Loaded="UserControl_Loaded">
     <Grid x:Name="LayoutRootOfMainPage">
+        <StackPanel Orientation="Horizontal">
+            <Button Name="btPrevious" Width="100" Height="25" Content="previous" Click="btPrevious_Click"></Button>
             <local:UCBook x:Name="book" Margin="50" Width="1000" Height="400" Loaded="book_Loaded"/>
+            <Button Name="btNext" Width="100" Height="25" Content="next" Click="btNext_Click"></Button>
+        </StackPanel>
     </Grid>
 </navigation:Page>

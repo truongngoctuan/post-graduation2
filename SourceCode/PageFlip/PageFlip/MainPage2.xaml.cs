@@ -88,6 +88,22 @@ namespace PageFlip
                 BookLoader.Instance().NextPageRightPart);
         }
 
+        private void btNext_Click(object sender, RoutedEventArgs e)
+        {
+            if (BookLoader.Instance().OnNextMenu())
+            {
+                book.AnimateToNextPage(500);
+            }
+        }
+
+        private void btPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            //if (BookLoader.Instance().OnPreviouspage())
+            {
+                book.AnimateToPreviousPage(500);
+            }
+        }
+
 
     }
 }

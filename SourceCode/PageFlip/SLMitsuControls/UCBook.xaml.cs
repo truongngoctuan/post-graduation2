@@ -24,7 +24,7 @@ namespace SLMitsuControls
             BookLoader.Instance().Attach(this);
         }
 
-        public void UpdateInterface()
+        public void UpdateInterface(UpdateInterfaceParams pars)
         {
             //throw new NotImplementedException();
             //MessageBox.Show("MainPage2 - UpdateInterface");
@@ -37,7 +37,23 @@ namespace SLMitsuControls
                 BookLoader.Instance().NextPageLeftPart,
                 BookLoader.Instance().NextPageRightPart);
 
-            this.AnimateToNextPage(500);
+            switch (pars.Type)
+            {
+                case TurnType.TurnRight:
+                    {
+                        this.AnimateToNextPage(500);
+                        break;
+                    }
+                case TurnType.TurnLeft:
+                    {
+                        this.AnimateToPreviousPage(500);
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
         }
 
         public void OnCompleteAnimation()
