@@ -68,7 +68,7 @@ Background='White'>
             int iCounter = 0;
             Grid grd = (Grid)Ultis.LoadXamlFromString(xaml);
             //load item
-            foreach (Tile item in listSubMenu)
+            foreach (Tile item in ListSubMenu)
             {
                 grd.Children.Add(item.generate());
                 iCounter++;
@@ -145,7 +145,7 @@ x:Name='tilepage'>
             int iCounter = 0;
             Grid grd = (Grid)Ultis.LoadXamlFromString(xaml);
             //load item
-            foreach (Tile item in listSubMenu)
+            foreach (Tile item in ListSubMenu)
             {
                 grd.Children.Add(item.generate());
                 iCounter++;

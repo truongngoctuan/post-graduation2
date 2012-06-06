@@ -74,9 +74,6 @@ namespace DataManager
         
         public bool IsRightToLeftTransition;
 
-        #region Update Params
-        TurnType TurnTypeManager;
-        #endregion
         IDataEvent DataEventState;
         private static BookLoader _instance;
         public static BookLoader Instance()
@@ -122,9 +119,9 @@ namespace DataManager
 
         protected override void PrepareNotify()
         {
-            UpdateParams = new UpdateInterfaceParams() { Type = TurnTypeManager };
-
             DataEventState.BeforeAnimation(ref Data);
+
+            UpdateParams = new UpdateInterfaceParams() { Type = Data.TurnTypeManager };
         }
         
         public bool IsCanTransitionRight()
@@ -138,11 +135,13 @@ namespace DataManager
         //observer tamplate for control tile signal: to submenu page, to list tiles of article and article content
         List<int> listMenuIdx = new List<int>();//current lvl in here too
         List<int> listMenuPage = new List<int>();
-        public void OnClickedTile(int Lvl, int Idx)
-        {
-            if (Lvl != -1 && ((MenuItem)(Data.CurrentMenuPage.listSubMenu[Data.iCurrentMenuPage].listSubMenu[Idx])).listSubMenu.Count == 0) return;
+        public void OnClickedTile(int Lvl, int PageIdx, int Idx)
+        {//OnForwadMenu
+            //if (Lvl != -1 && ((MenuItem)(Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage].ListSubMenu[Idx])).ListSubMenu.Count == 0) return;
+            if (Lvl != -1 && ((MenuItem)(Data.CurrentMenuPage.ListSubMenu[PageIdx].ListSubMenu[Idx])).ListSubMenu.Count == 0) return;
+            
             IsRightToLeftTransition = true;
-            TurnTypeManager = TurnType.TurnRight;
+            
             if (Lvl == -1)
             {
 
@@ -150,28 +149,26 @@ namespace DataManager
             else
             {
                 listMenuIdx.Add(Idx);
-                listMenuPage.Add(Data.iCurrentMenuPage);
+                //listMenuPage.Add(Data.iCurrentMenuPage);
+                listMenuPage.Add(PageIdx);
             }
             
             //get currentTiles
             Data.CurrentMenuPage = Data.MenuPage;
             for (int i = 0; i < listMenuIdx.Count; i++)
             {
-                Data.CurrentMenuPage = (TileMenu)(Data.CurrentMenuPage.listSubMenu[listMenuPage[i]].listSubMenu[listMenuIdx[i]]);
+                Data.CurrentMenuPage = (TileMenu)(Data.CurrentMenuPage.ListSubMenu[listMenuPage[i]].ListSubMenu[listMenuIdx[i]]);
             }
 
             Data.iCurrentMenuPage = 0;
             DataEventState = new DataEventLoadMenu();
-            //DataEventState.BeforeAnimation(ref Data);
-            //LoadMenu(0);
             Notify();
         }
 
         public bool OnNextMenu()
         {
-            if (Data.iCurrentMenuPage + 3 < Data.CurrentMenuPage.listSubMenu.Count)
+            if (Data.iCurrentMenuPage + 3 < Data.CurrentMenuPage.ListSubMenu.Count)
             {
-                TurnTypeManager = TurnType.TurnRight;
                 IsRightToLeftTransition = true;
                 DataEventState = new DataEventNextMenu();
                 Notify();
@@ -180,13 +177,13 @@ namespace DataManager
             return false;
         }
 
-        public bool OnPreviouspage()
+        public bool OnPreviousMenu()
         {
             //IsRightToLeftTransition = true;
             if (Data.iCurrentMenuPage - 2 >= 0)
             {
-                TurnTypeManager = TurnType.TurnLeft;
-                //LoadMenu(Data.iCurrentMenuPage - 2);
+                
+                DataEventState = new DataEventPreviousMenu();
                 Notify();
                 return true;
             }
@@ -203,7 +200,7 @@ namespace DataManager
                 Data.CurrentMenuPage = Data.MenuPage;
                 for (int i = 0; i < listMenuIdx.Count - 1; i++)
                 {
-                    Data.CurrentMenuPage = (TileMenu)(Data.CurrentMenuPage.listSubMenu[listMenuPage[i]].listSubMenu[listMenuIdx[i]]);
+                    Data.CurrentMenuPage = (TileMenu)(Data.CurrentMenuPage.ListSubMenu[listMenuPage[i]].ListSubMenu[listMenuIdx[i]]);
                 }
                 listMenuIdx.RemoveAt(listMenuIdx.Count - 1);
                 listMenuPage.RemoveAt(listMenuPage.Count - 1);
@@ -217,8 +214,6 @@ namespace DataManager
             }
             
         }
-
-
         #endregion 
         #region Control Events From Article
         MenuItem CurrentArticle;
@@ -250,11 +245,11 @@ namespace DataManager
         {
             CurrentArticlePage = iPage;
 
-            if (CurrentArticlePage < CurrentArticle.listSubMenu.Count)
+            if (CurrentArticlePage < CurrentArticle.ListSubMenu.Count)
             {
 
-                Data._nextPageRightPart = ((TilePage)CurrentArticle.listSubMenu[CurrentArticlePage]).generatePage();
-                Data._nextPageLeftPart = ((TilePage)CurrentArticle.listSubMenu[CurrentArticlePage]).generatePage();
+                Data._nextPageRightPart = ((TilePage)CurrentArticle.ListSubMenu[CurrentArticlePage]).generatePage();
+                Data._nextPageLeftPart = ((TilePage)CurrentArticle.ListSubMenu[CurrentArticlePage]).generatePage();
             }
             else
             {
@@ -263,10 +258,10 @@ namespace DataManager
                 Data._nextPageLeftPart = null;
             }
 
-            if (CurrentArticlePage + 1 < CurrentArticle.listSubMenu.Count)
+            if (CurrentArticlePage + 1 < CurrentArticle.ListSubMenu.Count)
             {
-                Data.PreNextPageRightPart = ((TilePage)CurrentArticle.listSubMenu[CurrentArticlePage + 1]).generatePage();
-                Data.PreNextPageLeftPart = ((TilePage)CurrentArticle.listSubMenu[CurrentArticlePage + 1]).generatePage();
+                Data.PreNextPageRightPart = ((TilePage)CurrentArticle.ListSubMenu[CurrentArticlePage + 1]).generatePage();
+                Data.PreNextPageLeftPart = ((TilePage)CurrentArticle.ListSubMenu[CurrentArticlePage + 1]).generatePage();
             }
             else
             {

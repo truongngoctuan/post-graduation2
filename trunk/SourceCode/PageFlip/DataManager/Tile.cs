@@ -17,7 +17,20 @@ namespace DataManager
 {
     public abstract class MenuItem
     {
-        public List<MenuItem> listSubMenu = new List<MenuItem>();
+        public MenuItem Parent;
+        public int currentIndex;
+
+        public List<MenuItem> _listSubMenu = new List<MenuItem>();
+        public List<MenuItem> ListSubMenu
+        {
+            get { return _listSubMenu; }
+            set { _listSubMenu = value;
+            for (int i = 0; i < _listSubMenu.Count; i++)
+            {
+                _listSubMenu[i].Parent = this;
+            }
+            }
+        }
 
         public abstract void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex);
         public static MenuItem ReadFromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
@@ -73,14 +86,16 @@ namespace DataManager
 
                 //read current tile
                 MenuItem item = MenuItem.ReadFromXml(reader, CurrentLevel, CurrentIndex);
-                item.listSubMenu = MenuItem.ReadDeeper(ref reader, CurrentLevel + 1);
+                item.currentIndex = CurrentIndex;
+                item.ListSubMenu = MenuItem.ReadDeeper(ref reader, CurrentLevel + 1);
                 Tiles.Add(item);
                 CurrentIndex++;
 
                 while (reader.ReadToNextSibling("item"))
                 {
                     MenuItem item2 = MenuItem.ReadFromXml(reader, CurrentLevel, CurrentIndex);
-                    item2.listSubMenu = MenuItem.ReadDeeper(ref reader, CurrentLevel + 1);
+                    item2.currentIndex = CurrentIndex;
+                    item2.ListSubMenu = MenuItem.ReadDeeper(ref reader, CurrentLevel + 1);
                     Tiles.Add(item2);
                     CurrentIndex++;
                 }
@@ -120,7 +135,7 @@ namespace DataManager
         //use 2 variable to indicate position of his item in global menu
         //to load new sub menu.
         public int CurrentLvl;
-        public int CurrentIndexMenu;
+        
 
         public string Name;
         public int NGridRows;
@@ -187,7 +202,7 @@ namespace DataManager
             }
 
             this.CurrentLvl = CurrentLevel;
-            this.CurrentIndexMenu = CurrentIndex;
+            this.currentIndex = CurrentIndex;
 
             //return tile;
         }
@@ -213,8 +228,15 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
 
         public void bt_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("bt_Click " + CurrentLvl.ToString() + " " + CurrentIndexMenu.ToString());
-            BookLoader.Instance().OnClickedTile(CurrentLvl, CurrentIndexMenu);
+            //MessageBox.Show("bt_Click " + CurrentLvl.ToString() + " " + currentIndex.ToString());
+            if (this.Parent == null)
+            {
+                BookLoader.Instance().OnClickedTile(CurrentLvl, -1, currentIndex);
+            }
+            else
+            { 
+                BookLoader.Instance().OnClickedTile(CurrentLvl, this.Parent.currentIndex, currentIndex);
+            }
         }
     }
 

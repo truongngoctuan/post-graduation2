@@ -15,13 +15,13 @@ namespace DataManager.DataEventController
     {//chua chinh xac, can kiem tra lai sau
         public void BeforeAnimation(ref BookData Data)
         {
-            //Data.iCurrentMenuPage = idx;
+            Data.TurnTypeManager = TurnType.TurnRight;
             #region Next Effect
 
             if (Data.iCurrentMenuPage - 2 >= 0)
             {
-                Data._previousPageLeftPart = ((TilePage)Data.CurrentMenuPage.listSubMenu[Data.iCurrentMenuPage - 2]).generatePage();
-                Data._previousPageRightPart = ((TilePage)Data.CurrentMenuPage.listSubMenu[Data.iCurrentMenuPage - 1]).generatePage();
+                Data._previousPageLeftPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage - 2]).generatePage();
+                Data._previousPageRightPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage - 1]).generatePage();
             }
             else
             {
@@ -29,28 +29,31 @@ namespace DataManager.DataEventController
                 Data._previousPageRightPart = null;
             }
 
-            if (Data.iCurrentMenuPage + 1 < Data.CurrentMenuPage.listSubMenu.Count)
+            if (Data.iCurrentMenuPage + 1 < Data.CurrentMenuPage.ListSubMenu.Count)
             {//have 2 left, right pages
-                Data._nextPageLeftPart = ((TilePage)Data.CurrentMenuPage.listSubMenu[Data.iCurrentMenuPage]).generatePage();
-                Data._nextPageRightPart = ((TilePage)Data.CurrentMenuPage.listSubMenu[Data.iCurrentMenuPage + 1]).generatePage();
+                Data._nextPageLeftPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage]).generatePage();
+                Data._nextPageRightPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage + 1]).generatePage();
 
             }
             else
             {
+                Data._currentPageLeftPage = null;
                 Data._currentPageRightPage = null;
-                Data._nextPageRightPart = null;
                 Data._nextPageLeftPart = null;
+                Data._nextPageRightPart = null;
+                
             }
 
-            if (Data.iCurrentMenuPage + 3 < Data.CurrentMenuPage.listSubMenu.Count)
+            if (Data.iCurrentMenuPage + 3 < Data.CurrentMenuPage.ListSubMenu.Count)
             {
-                Data.PreNextPageLeftPart = ((TilePage)Data.CurrentMenuPage.listSubMenu[Data.iCurrentMenuPage + 2]).generatePage();
-                Data.PreNextPageRightPart = ((TilePage)Data.CurrentMenuPage.listSubMenu[Data.iCurrentMenuPage + 3]).generatePage();
+                Data.PreNextPageLeftPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage + 2]).generatePage();
+                Data.PreNextPageRightPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage + 3]).generatePage();
             }
             else
             {
-                Data.PreNextPageRightPart = null;
                 Data.PreNextPageLeftPart = null;
+                Data.PreNextPageRightPart = null;
+                
             }
             #endregion
         }

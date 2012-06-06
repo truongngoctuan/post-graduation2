@@ -15,19 +15,23 @@ namespace DataManager.DataEventController
     {
         public void BeforeAnimation(ref BookData Data)
         {
-            //Data.iCurrentMenuPage = idx;
-            #region Next Effect
-            Data._nextPageLeftPart = ((TilePage)Data.CurrentMenuPage.listSubMenu[Data.iCurrentMenuPage + 2]).generatePage();
-            Data._nextPageRightPart = ((TilePage)Data.CurrentMenuPage.listSubMenu[Data.iCurrentMenuPage + 3]).generatePage();
+            Data.TurnTypeManager = TurnType.TurnRight;
 
-            if (Data.iCurrentMenuPage + 5 < Data.CurrentMenuPage.listSubMenu.Count)
+            Data._nextPageLeftPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage + 2]).generatePage();
+            Data._nextPageRightPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage + 3]).generatePage();
+
+            if (Data.iCurrentMenuPage + 5 < Data.CurrentMenuPage.ListSubMenu.Count)
             {
-                Data.PreNextPageLeftPart = ((TilePage)Data.CurrentMenuPage.listSubMenu[Data.iCurrentMenuPage + 4]).generatePage();
-                Data.PreNextPageRightPart = ((TilePage)Data.CurrentMenuPage.listSubMenu[Data.iCurrentMenuPage + 5]).generatePage();
+                Data.PreNextPageLeftPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage + 4]).generatePage();
+                Data.PreNextPageRightPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage + 5]).generatePage();
+            }
+            else
+            {
+                Data.PreNextPageLeftPart = null;
+                Data.PreNextPageRightPart = null;
             }
 
             Data.iCurrentMenuPage += 2;
-            #endregion
         }
 
         public void AfterAnimation(ref BookData Data)
