@@ -161,7 +161,7 @@ namespace PageFlip
         }
 
 
-        public void UpdateInterface()
+        public void UpdateInterface(UpdateInterfaceParams pars)
         {//update book layout if something change in bookdata
             if (BookLoader.Instance().IsRightToLeftTransition)
             {
@@ -296,14 +296,14 @@ namespace PageFlip
                 this.PageCorner.ReleaseMouseCapture();
                 if ((DateTime.Now < this.doubleClickDuration) && ((this.mouse.X > 0.0) && (this.mouse.Y > 0.0)))
                 {
-                    BookLoader.Instance().OnNextpage();
+                    BookLoader.Instance().OnNextMenu();
                     //this.TypeTransition = UpdatePageTransition.NextPage;
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
                 }
                 else if (this.mouse.X < 0.0)
                 {
-                    BookLoader.Instance().OnNextpage();
+                    BookLoader.Instance().OnNextMenu();
                     //this.TypeTransition = UpdatePageTransition.NextPage;
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);

@@ -19,6 +19,7 @@ namespace DataManager
     public abstract class Subject
     {
         private List<IObserver> _observers = new List<IObserver>();
+        protected UpdateInterfaceParams UpdateParams;
 
         public void Attach(IObserver observer)
         {
@@ -32,10 +33,17 @@ namespace DataManager
 
         public void Notify()
         {
+            PrepareNotify();
+
             foreach (IObserver o in _observers)
             {
-                o.UpdateInterface();
+                o.UpdateInterface(UpdateParams);
             }
+        }
+
+        protected virtual void PrepareNotify()
+        {
+
         }
     }
 
@@ -44,7 +52,11 @@ namespace DataManager
     /// </summary>
     public interface IObserver
     {
-        void UpdateInterface();
+        void UpdateInterface(UpdateInterfaceParams pars);
     }
 
+    public struct UpdateInterfaceParams
+    {
+        public TurnType Type;
+    }
 }
