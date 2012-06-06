@@ -29,11 +29,11 @@ namespace SLMitsuControls
             //throw new NotImplementedException();
             //MessageBox.Show("MainPage2 - UpdateInterface");
             //rightPagePage0Content = BookLoader.Instance().pa
-            UpdateLeftPage(BookLoader.Instance().CurrentPageLeftPage,
+            UpdateLeftRightPage(BookLoader.Instance().CurrentPageLeftPage,
                 BookLoader.Instance().PreviousPageLeftPart,
-                BookLoader.Instance().PreviousPageRightPart);
-
-            UpdateRightPage(BookLoader.Instance().CurrentPageRightPage,
+                BookLoader.Instance().PreviousPageRightPart,
+                
+                BookLoader.Instance().CurrentPageRightPage,
                 BookLoader.Instance().NextPageLeftPart,
                 BookLoader.Instance().NextPageRightPart);
 
@@ -46,11 +46,11 @@ namespace SLMitsuControls
             {
                 BookLoader.Instance().UpdatePrePageToCurrentPage();
 
-                UpdateLeftPage(BookLoader.Instance().CurrentPageLeftPage,
+                UpdateLeftRightPage(BookLoader.Instance().CurrentPageLeftPage,
                     BookLoader.Instance().PreviousPageLeftPart,
-                    BookLoader.Instance().PreviousPageRightPart);
-
-                UpdateRightPage(BookLoader.Instance().CurrentPageRightPage,
+                    BookLoader.Instance().PreviousPageRightPart,
+                    
+                    BookLoader.Instance().CurrentPageRightPage,
                     BookLoader.Instance().NextPageLeftPart,
                     BookLoader.Instance().NextPageRightPart);
             }
@@ -235,35 +235,36 @@ namespace SLMitsuControls
             Canvas cv = new Canvas() { Width = Width, Height = Height, Background = new SolidColorBrush(Colors.White) };
             return cv;
         }
-        public void UpdateLeftPage(UIElement P0, UIElement P1, UIElement P2)
+        public void UpdateLeftRightPage(UIElement P0, UIElement P1, UIElement P2,
+            UIElement RightP0, UIElement RightP1, UIElement RightP2)
         {
-            leftPage.Page0.Content = null;
-            leftPage.Page1.Content = null;
-            leftPage.Page2.Content = null;
+            leftPage.Page0.Children.Clear();// = null;
+            leftPage.Page1.Children.Clear();// = null;
+            leftPage.Page2.Children.Clear();// = null;
+
+            rightPage.Page0.Children.Clear();// = null;
+            rightPage.Page1.Children.Clear();// = null;
+            rightPage.Page2.Children.Clear();// = null;
 
             if (P0 == null) P0 = createBlankPage(this.ActualWidth / 2, this.ActualHeight);
             if (P1 == null) P1 = createBlankPage(this.ActualWidth / 2, this.ActualHeight);
             if (P2 == null) P2 = createBlankPage(this.ActualWidth / 2, this.ActualHeight);
 
-            leftPage.Page0.Content = P0;
-            leftPage.Page1.Content = P1;
-            leftPage.Page2.Content = P2;
+            if (RightP0 == null) RightP0 = createBlankPage(this.Width / 2, this.Height);
+            if (RightP1 == null) RightP1 = createBlankPage(this.Width / 2, this.Height);
+            if (RightP2 == null) RightP2 = createBlankPage(this.Width / 2, this.Height);
+
+            
+
+            leftPage.Page0.Children.Add(P0);
+            leftPage.Page1.Children.Add(P1);
+            leftPage.Page2.Children.Add(P2);
+
+            rightPage.Page0.Children.Add(RightP0);
+            rightPage.Page1.Children.Add(RightP1);
+            rightPage.Page2.Children.Add(RightP2);
         }
-        public void UpdateRightPage(UIElement P0, UIElement P1, UIElement P2)
-        {
-            rightPage.Page0.Content = null;
-            rightPage.Page1.Content = null;
-            rightPage.Page2.Content = null;
-
-            if (P0 == null) P0 = createBlankPage(this.Width / 2, this.Height);
-            if (P1 == null) P1 = createBlankPage(this.Width / 2, this.Height);
-            if (P2 == null) P2 = createBlankPage(this.Width / 2, this.Height);
-
-            rightPage.Page0.Content = P0;
-            rightPage.Page1.Content = P1;
-            rightPage.Page2.Content = P2;
-
-        }
+        
     }
     //public interface IDataProvider
     //{

@@ -79,11 +79,11 @@ namespace PageFlip
 
         private void book_Loaded(object sender, RoutedEventArgs e)
         {
-            book.UpdateLeftPage(BookLoader.Instance().CurrentPageLeftPage,
+            book.UpdateLeftRightPage(BookLoader.Instance().CurrentPageLeftPage,
     BookLoader.Instance().PreviousPageLeftPart,
-    BookLoader.Instance().PreviousPageRightPart);
-
-            book.UpdateRightPage(BookLoader.Instance().CurrentPageRightPage,
+    BookLoader.Instance().PreviousPageRightPart,
+    
+    BookLoader.Instance().CurrentPageRightPage,
                 BookLoader.Instance().NextPageLeftPart,
                 BookLoader.Instance().NextPageRightPart);
         }

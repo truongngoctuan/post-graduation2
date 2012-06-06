@@ -22,15 +22,15 @@ namespace SLMitsuControls
             InitializeComponent();
         }
 
-        public ContentControl Page0
+        public Grid Page0
         {
             get { return page0; }
         }
-        public ContentControl Page1
+        public Grid Page1
         {
             get { return page1; }
         }
-        public ContentControl Page2
+        public Grid Page2
         {
             get { return page2; }
         }
