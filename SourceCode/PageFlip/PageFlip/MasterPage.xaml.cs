@@ -43,6 +43,7 @@ namespace PageFlip
                 /*MessageBox.Show("asdf");
                 MainPage2 page = FindControl<MainPage2>(containerContent, typeof(MainPage2),"");
                 page.MoveRight();*/
+                BookLoader.Instance().GoToFirstMenuPage();
             }
         }
 

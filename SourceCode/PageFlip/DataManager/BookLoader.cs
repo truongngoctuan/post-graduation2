@@ -17,6 +17,7 @@ namespace DataManager
 {
     public enum TurnType
     {
+        NoTurn,
         TurnFromLeft,
         TurnFromRight
     }
@@ -107,7 +108,7 @@ namespace DataManager
                 StringReader stream = new StringReader(e.Result);
                 Data.MenuPage = (TileMenu)MenuItem.Load(stream)[0];
                 Data.CurrentMenuPage = Data.MenuPage;
-                Data.CurrentMenuPage.bt_Click(new object(), new RoutedEventArgs());
+                //Data.CurrentMenuPage.bt_Click(new object(), new RoutedEventArgs());
             }
 
         }
@@ -279,6 +280,20 @@ namespace DataManager
         {
         }
         #endregion
+
+        public void FirstCover()
+        {
+            DataEventState = new DataEventInitFirstCoverPage();
+            Notify();
+        }
+
+        //Data.CurrentMenuPage.bt_Click(new object(), new RoutedEventArgs());
+        public void GoToFirstMenuPage()
+        {
+            Data.CurrentMenuPage.bt_Click(new object(), new RoutedEventArgs());
+            //DataEventState = new DataEventInitFirstCoverPage();
+            //Notify();
+        }
 
         //bool IsMenuState;
     }

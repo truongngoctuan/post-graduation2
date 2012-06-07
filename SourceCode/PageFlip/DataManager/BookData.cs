@@ -43,6 +43,9 @@ namespace DataManager
         public MenuItem CurrentArticle;
         public int CurrentArticlePage;
 
+        //variables for First cover
+        public string FirstCoverImageSource;// = "/PageFlip;component/Images/HomeMenuPage/home_01.jpg";
+
         //turn type
         public TurnType TurnTypeManager;
     }

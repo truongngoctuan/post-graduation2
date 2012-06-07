@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="BookData.cs" />
     <Compile Include="BookLoader.cs" />
+    <Compile Include="DataEventController\DataEventInitFirstCoverPage.cs" />
     <Compile Include="DataEventController\DataEventLoadArticlePage.cs" />
     <Compile Include="DataEventController\DataEventLoadBasic.cs" />
     <Compile Include="DataEventController\DataEventNextArticlePage.cs" />

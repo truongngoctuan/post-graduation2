@@ -27,8 +27,8 @@ namespace PageFlip
             image.MouseEnter += new MouseEventHandler(image_MouseEnter);
             //InlineUIContainer container = new InlineUIContainer(image);
             Canvas cv = new Canvas();
-            cv.Width = 400;
-            cv.Height = 400;
+            //cv.Width = 400;
+            //cv.Height = 400;
             cv.Background = new SolidColorBrush(Colors.White);
             cv.Children.Add(image);
 
