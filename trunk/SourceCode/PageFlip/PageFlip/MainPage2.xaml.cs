@@ -51,6 +51,7 @@ namespace PageFlip
             //}
 
             //book.SetData(this);
+
         }
 
         //#region IDataProvider Members
@@ -86,7 +87,7 @@ namespace PageFlip
         {
             if (BookLoader.Instance().OnNextMenu())
             {
-                //book.AnimateToNextPage(500);
+                book.AnimateToNextPage(500);
             }
         }
 
@@ -94,7 +95,7 @@ namespace PageFlip
         {
             if (BookLoader.Instance().OnPreviousMenu())
             {
-                //book.AnimateToPreviousPage(500);
+                book.AnimateToPreviousPage(500);
             }
         }
 
