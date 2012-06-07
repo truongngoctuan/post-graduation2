@@ -11,19 +11,19 @@ using System.Windows.Shapes;
 
 namespace DataManager.DataEventController
 {
-    public class DataEventNextMenu: IDataEvent
+    public class DataEventNextArticlePage : IDataEvent
     {
         public void BeforeAnimation(ref BookData Data)
         {
             Data.TurnTypeManager = TurnType.TurnFromRight;
 
-            Data._nextPageLeftPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage + 2]).generatePage();
-            Data._nextPageRightPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage + 3]).generatePage();
+            Data._nextPageLeftPart = ((TilePage)Data.CurrentArticle.ListSubMenu[Data.CurrentArticlePage + 2]).generatePage();
+            Data._nextPageRightPart = ((TilePage)Data.CurrentArticle.ListSubMenu[Data.CurrentArticlePage + 3]).generatePage();
 
-            if (Data.iCurrentMenuPage + 5 < Data.CurrentMenuPage.ListSubMenu.Count)
+            if (Data.CurrentArticlePage + 5 < Data.CurrentArticle.ListSubMenu.Count)
             {
-                Data.PreNextPageLeftPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage + 4]).generatePage();
-                Data.PreNextPageRightPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage + 5]).generatePage();
+                Data.PreNextPageLeftPart = ((TilePage)Data.CurrentArticle.ListSubMenu[Data.CurrentArticlePage + 4]).generatePage();
+                Data.PreNextPageRightPart = ((TilePage)Data.CurrentArticle.ListSubMenu[Data.CurrentArticlePage + 5]).generatePage();
             }
             else
             {
@@ -31,7 +31,7 @@ namespace DataManager.DataEventController
                 Data.PreNextPageRightPart = null;
             }
 
-            Data.iCurrentMenuPage += 2;
+            Data.CurrentArticlePage += 2;
         }
 
         public void AfterAnimation(ref BookData Data)

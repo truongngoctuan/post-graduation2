@@ -17,8 +17,8 @@ namespace DataManager
 {
     public enum TurnType
     {
-        TurnLeft,
-        TurnRight
+        TurnFromLeft,
+        TurnFromRight
     }
 
 	public class BookLoader:Subject
@@ -72,7 +72,7 @@ namespace DataManager
         }
         #endregion
         
-        public bool IsRightToLeftTransition;
+        //public bool IsRightToLeftTransition;
 
         IDataEvent DataEventState;
         private static BookLoader _instance;
@@ -140,7 +140,7 @@ namespace DataManager
             //if (Lvl != -1 && ((MenuItem)(Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage].ListSubMenu[Idx])).ListSubMenu.Count == 0) return;
             if (Lvl != -1 && ((MenuItem)(Data.CurrentMenuPage.ListSubMenu[PageIdx].ListSubMenu[Idx])).ListSubMenu.Count == 0) return;
             
-            IsRightToLeftTransition = true;
+//            IsRightToLeftTransition = true;
             
             if (Lvl == -1)
             {
@@ -165,19 +165,17 @@ namespace DataManager
             Notify();
         }
 
-        public bool OnNextMenu()
+        public void OnNextMenu()
         {
             if (Data.iCurrentMenuPage + 3 < Data.CurrentMenuPage.ListSubMenu.Count)
             {
-                IsRightToLeftTransition = true;
+                //IsRightToLeftTransition = true;
                 DataEventState = new DataEventNextMenu();
                 Notify();
-                return true;
             }
-            return false;
         }
 
-        public bool OnPreviousMenu()
+        public void OnPreviousMenu()
         {
             //IsRightToLeftTransition = true;
             if (Data.iCurrentMenuPage - 2 >= 0)
@@ -185,9 +183,7 @@ namespace DataManager
                 
                 DataEventState = new DataEventPreviousMenu();
                 Notify();
-                return true;
             }
-            return false;
         }
 
         public void OnBackMenu()
@@ -195,7 +191,7 @@ namespace DataManager
             try
             {
                 if (listMenuIdx.Count == 0) return;
-                IsRightToLeftTransition = false;
+                //IsRightToLeftTransition = false;
                 //get currentTiles
                 Data.CurrentMenuPage = Data.MenuPage;
                 for (int i = 0; i < listMenuIdx.Count - 1; i++)
@@ -216,13 +212,11 @@ namespace DataManager
         }
         #endregion 
         #region Control Events From Article
-        MenuItem CurrentArticle;
-        int CurrentArticlePage;
         public void OnClickToArticle(string ArticleID)
         {
             //load new article with ID
             //apply to interface
-            CurrentArticle = new TileArticle();
+            Data.CurrentArticle = new TileArticle();
             Uri url = new Uri("Articles/" + ArticleID + ".xml", UriKind.Relative);
             WebClient client = new WebClient();
             client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(Article_DownloadStringCompleted);
@@ -234,22 +228,23 @@ namespace DataManager
             if (e.Error == null)
             {
                 StringReader stream = new StringReader(e.Result);
-                CurrentArticle = (MenuItem)MenuItem.Load(stream)[0];
-                CurrentArticlePage = 0;
-                LoadArticlePage(0);
+                Data.CurrentArticle = (MenuItem)MenuItem.Load(stream)[0];
+                Data.CurrentArticlePage = 0;
+                //LoadArticlePage(0);
+                DataEventState = new DataEventLoadArticlePage();
                 Notify();
             }
         }
 
         void LoadArticlePage(int iPage)
         {
-            CurrentArticlePage = iPage;
+            Data.CurrentArticlePage = iPage;
 
-            if (CurrentArticlePage < CurrentArticle.ListSubMenu.Count)
+            if (Data.CurrentArticlePage < Data.CurrentArticle.ListSubMenu.Count)
             {
 
-                Data._nextPageRightPart = ((TilePage)CurrentArticle.ListSubMenu[CurrentArticlePage]).generatePage();
-                Data._nextPageLeftPart = ((TilePage)CurrentArticle.ListSubMenu[CurrentArticlePage]).generatePage();
+                Data._nextPageRightPart = ((TilePage)Data.CurrentArticle.ListSubMenu[Data.CurrentArticlePage]).generatePage();
+                Data._nextPageLeftPart = ((TilePage)Data.CurrentArticle.ListSubMenu[Data.CurrentArticlePage]).generatePage();
             }
             else
             {
@@ -258,10 +253,10 @@ namespace DataManager
                 Data._nextPageLeftPart = null;
             }
 
-            if (CurrentArticlePage + 1 < CurrentArticle.ListSubMenu.Count)
+            if (Data.CurrentArticlePage + 1 < Data.CurrentArticle.ListSubMenu.Count)
             {
-                Data.PreNextPageRightPart = ((TilePage)CurrentArticle.ListSubMenu[CurrentArticlePage + 1]).generatePage();
-                Data.PreNextPageLeftPart = ((TilePage)CurrentArticle.ListSubMenu[CurrentArticlePage + 1]).generatePage();
+                Data.PreNextPageRightPart = ((TilePage)Data.CurrentArticle.ListSubMenu[Data.CurrentArticlePage + 1]).generatePage();
+                Data.PreNextPageLeftPart = ((TilePage)Data.CurrentArticle.ListSubMenu[Data.CurrentArticlePage + 1]).generatePage();
             }
             else
             {
@@ -270,13 +265,21 @@ namespace DataManager
             }
         }
 
+        public void OnNextArticlePage()
+        {
+            if (Data.CurrentArticlePage + 3 < Data.CurrentArticle.ListSubMenu.Count)
+            {
+                //IsRightToLeftTransition = true;
+                DataEventState = new DataEventNextMenu();
+                Notify();
+            }
+        }
+
         public void OnBackArticle()
         {
         }
-
-        public void OnNextpageArticle()
-        {
-        }
         #endregion
+
+        //bool IsMenuState;
     }
 }

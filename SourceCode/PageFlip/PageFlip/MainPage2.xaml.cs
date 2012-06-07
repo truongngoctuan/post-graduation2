@@ -85,18 +85,12 @@ namespace PageFlip
 
         private void btNext_Click(object sender, RoutedEventArgs e)
         {
-            if (BookLoader.Instance().OnNextMenu())
-            {
-                book.AnimateToNextPage(500);
-            }
+            BookLoader.Instance().OnNextMenu();
         }
 
         private void btPrevious_Click(object sender, RoutedEventArgs e)
         {
-            if (BookLoader.Instance().OnPreviousMenu())
-            {
-                book.AnimateToPreviousPage(500);
-            }
+            BookLoader.Instance().OnPreviousMenu();
         }
 
 

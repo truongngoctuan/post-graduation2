@@ -163,14 +163,14 @@ namespace PageFlip
 
         public void UpdateInterface(UpdateInterfaceParams pars)
         {//update book layout if something change in bookdata
-            if (BookLoader.Instance().IsRightToLeftTransition)
-            {
+            //if (BookLoader.Instance().IsRightToLeftTransition)
+            {//FIXBUG
                 Dispatcher.BeginInvoke(() => ChangePageBeforeTransition(this, new EventArgs()));
                 //TypeTransition = UpdatePageTransition.NextPage;
                 this.startTransition();
                 this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
             }
-            else
+            //else
             {
                 Dispatcher.BeginInvoke(() => ChangePageBeforeTransition(this, new EventArgs()));
                 //TypeTransition = UpdatePageTransition.PreviousPage;

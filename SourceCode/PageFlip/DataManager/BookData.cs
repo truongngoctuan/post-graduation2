@@ -39,6 +39,10 @@ namespace DataManager
         //variables for menu
         public int iCurrentMenuPage;
 
+        //variables for Article
+        public MenuItem CurrentArticle;
+        public int CurrentArticlePage;
+
         //turn type
         public TurnType TurnTypeManager;
     }

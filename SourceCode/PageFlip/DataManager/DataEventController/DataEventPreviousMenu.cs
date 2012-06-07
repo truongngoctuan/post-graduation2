@@ -15,7 +15,7 @@ namespace DataManager.DataEventController
     {
         public void BeforeAnimation(ref BookData Data)
         {
-            Data.TurnTypeManager = TurnType.TurnLeft;
+            Data.TurnTypeManager = TurnType.TurnFromLeft;
 
             Data._previousPageLeftPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage - 2]).generatePage();
             Data._previousPageRightPart = ((TilePage)Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage - 1]).generatePage();

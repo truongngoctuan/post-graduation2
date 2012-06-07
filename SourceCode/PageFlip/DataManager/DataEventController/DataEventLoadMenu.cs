@@ -11,11 +11,13 @@ using System.Windows.Shapes;
 
 namespace DataManager.DataEventController
 {
-    public class DataEventLoadMenu: IDataEvent
+    public class DataEventLoadMenu: DataEventLoadBasic
     {//chua chinh xac, can kiem tra lai sau
-        public void BeforeAnimation(ref BookData Data)
+        public override void BeforeAnimation(ref BookData Data)
         {
-            Data.TurnTypeManager = TurnType.TurnRight;
+            BeforeAnimationBasic(ref Data, Data.iCurrentMenuPage, ref Data.CurrentMenuPage);
+
+            Data.TurnTypeManager = TurnType.TurnFromRight;
             #region Next Effect
 
             if (Data.iCurrentMenuPage - 2 >= 0)
@@ -58,16 +60,5 @@ namespace DataManager.DataEventController
             #endregion
         }
 
-        public void AfterAnimation(ref BookData Data)
-        {
-            Data._currentPageLeftPage = Data._nextPageLeftPart;
-            Data._currentPageRightPage = Data._nextPageRightPart;
-
-            Data._nextPageLeftPart = Data.PreNextPageLeftPart;
-            Data._nextPageRightPart = Data.PreNextPageRightPart;
-
-            Data.PreNextPageLeftPart = null;
-            Data.PreNextPageRightPart = null;
-        }
     }
 }
