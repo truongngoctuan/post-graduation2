@@ -39,11 +39,17 @@ namespace DataManager.DataEventController
             }
             else
             {
-                Data._currentPageLeftPage = null;
-                Data._currentPageRightPage = null;
-                Data._nextPageLeftPart = null;
-                Data._nextPageRightPart = null;
-
+                if (CurrentMenuItem.ListSubMenu.Count == 1)
+                {
+                    Data._nextPageRightPart = ((TilePage)CurrentMenuItem.ListSubMenu[iCurrenPage]).generatePage();
+                }
+                else
+                {
+                    Data._currentPageLeftPage = null;
+                    Data._currentPageRightPage = null;
+                    Data._nextPageLeftPart = null;
+                    Data._nextPageRightPart = null;
+                }
             }
 
             if (iCurrenPage + 3 < CurrentMenuItem.ListSubMenu.Count)

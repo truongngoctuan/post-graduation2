@@ -22,6 +22,15 @@ namespace SLMitsuControls
 
             BookLoader.Instance();//force init data, and download menudata.xml
             BookLoader.Instance().Attach(this);
+
+            this.Loaded += new RoutedEventHandler(UCBook_Loaded);
+            
+        }
+
+        void UCBook_Loaded(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("asd");
+            BookLoader.Instance().FirstCover();
         }
 
         public void UpdateInterface(UpdateInterfaceParams pars)
@@ -38,6 +47,10 @@ namespace SLMitsuControls
                 case TurnType.TurnFromLeft:
                     {
                         this.AnimateToPreviousPage(500);
+                        break;
+                    }
+                case TurnType.NoTurn:
+                    {
                         break;
                     }
                 default:
@@ -247,22 +260,28 @@ namespace SLMitsuControls
             rightPage.Page1.Children.Clear();// = null;
             rightPage.Page2.Children.Clear();// = null;
 
-            if (currentLeft == null) currentLeft = createBlankPage(this.Width / 2, this.Height);
-            if (previousLeft == null) previousLeft = createBlankPage(this.Width / 2, this.Height);
-            if (previousRight == null) previousRight = createBlankPage(this.Width / 2, this.Height);
+            //if (currentLeft == null) currentLeft = createBlankPage(this.Width / 2, this.Height);
+            //if (previousLeft == null) previousLeft = createBlankPage(this.Width / 2, this.Height);
+            //if (previousRight == null) previousRight = createBlankPage(this.Width / 2, this.Height);
 
-            if (currentRight == null) currentRight = createBlankPage(this.Width / 2, this.Height);
-            if (nextLeft == null) nextLeft = createBlankPage(this.Width / 2, this.Height);
-            if (nextRight == null) nextRight = createBlankPage(this.Width / 2, this.Height);
+            //if (currentRight == null) currentRight = createBlankPage(this.Width / 2, this.Height);
+            //if (nextLeft == null) nextLeft = createBlankPage(this.Width / 2, this.Height);
+            //if (nextRight == null) nextRight = createBlankPage(this.Width / 2, this.Height);
 
+            if (currentLeft != null)
             leftPage.Page0.Children.Add(currentLeft);
 
+            if (previousRight != null)
             leftPage.Page1.Children.Add(previousRight);
+            if (previousLeft != null)
             leftPage.Page2.Children.Add(previousLeft);
 
+            if (currentRight != null)
             rightPage.Page0.Children.Add(currentRight);
 
+            if (nextLeft != null)
             rightPage.Page1.Children.Add(nextLeft);
+            if (nextRight != null)
             rightPage.Page2.Children.Add(nextRight);
         }
         
