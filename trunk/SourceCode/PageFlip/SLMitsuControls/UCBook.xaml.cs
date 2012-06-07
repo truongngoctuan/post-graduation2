@@ -30,12 +30,12 @@ namespace SLMitsuControls
 
             switch (pars.Type)
             {
-                case TurnType.TurnRight:
+                case TurnType.TurnFromRight:
                     {
                         this.AnimateToNextPage(500);
                         break;
                     }
-                case TurnType.TurnLeft:
+                case TurnType.TurnFromLeft:
                     {
                         this.AnimateToPreviousPage(500);
                         break;

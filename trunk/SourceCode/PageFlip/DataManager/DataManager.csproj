@@ -57,6 +57,9 @@
   <ItemGroup>
     <Compile Include="BookData.cs" />
     <Compile Include="BookLoader.cs" />
+    <Compile Include="DataEventController\DataEventLoadArticlePage.cs" />
+    <Compile Include="DataEventController\DataEventLoadBasic.cs" />
+    <Compile Include="DataEventController\DataEventNextArticlePage.cs" />
     <Compile Include="DataEventController\DataEventNextMenu.cs" />
     <Compile Include="DataEventController\DataEventPreviousMenu.cs" />
     <Compile Include="DataEventController\IDataEvent.cs" />
