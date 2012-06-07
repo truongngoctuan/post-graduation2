@@ -5,15 +5,25 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           d:DesignWidth="640" d:DesignHeight="480"
+         
                  xmlns:local="clr-namespace:SLMitsuControls;assembly=SLMitsuControls"
            Title="MainPage2 Page"
                  Loaded="UserControl_Loaded">
-    <Grid x:Name="LayoutRootOfMainPage">
-        <StackPanel Orientation="Horizontal">
-            <Button Name="btPrevious" Width="100" Height="25" Content="previous" Click="btPrevious_Click"></Button>
-            <local:UCBook x:Name="book" Margin="50" Width="1000" Height="400" Loaded="book_Loaded"/>
-            <Button Name="btNext" Width="100" Height="25" Content="next" Click="btNext_Click"></Button>
-        </StackPanel>
+    <Grid x:Name="LayoutRootOfMainPage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row="1" Grid.Column="0" Name="btPrevious" Height="25" Content="previous" Click="btPrevious_Click"></Button>
+        <Grid x:Name="bookContainer" Grid.Row="1" Grid.Column="1" Width="1000" Height="400" Margin="0,0,52,0">
+
+            <local:UCBook x:Name="book"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Loaded="book_Loaded"/>
+        </Grid>
+        <Button Name="btNext" Height="25" Content="next" Click="btNext_Click" Margin="0,218,0,157" Grid.Row="1"></Button>
     </Grid>
 </navigation:Page>

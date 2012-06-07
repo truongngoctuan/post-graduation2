@@ -67,11 +67,12 @@ namespace PageFlip
 
         #region page transition controler
         MasterPage mPage = new MasterPage();
-        Canvas mainUI = new Canvas();
+        Grid mainUI = new Grid();
         public static UserControl CurrentPage = null;
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             mainUI = mPage.containerContent;
+           
             //this.RootVisual = mainUI;
             this.RootVisual = mPage;
             //App.GoToPage(new HomePage(), null);
@@ -90,6 +91,7 @@ namespace PageFlip
 
             if (app.mainUI.Children.Contains(mainP) == false)
             {
+                mainP.SetValue(Grid.RowProperty, 1);
                 app.mainUI.Children.Add(mainP);
                 //System.Threading.Thread.Sleep(2000);
             }
@@ -110,11 +112,11 @@ namespace PageFlip
             if (CurrentPage != null)
             {
                 //_3DPresentation.Utils.TransitionEffectHelper.BeginAnimation(CurrentPage, nextPg);
-                _3DPresentation.Utils.TransitionEffectHelper.BeginAnimation(rootLayout, nextPg);
+                //_3DPresentation.Utils.TransitionEffectHelper.BeginAnimation(rootLayout, nextPg);
             }
 
             // Show only nextPg
-            foreach (UserControl page in app.mainUI.Children)
+        /*    foreach (UserControl page in app.mainUI.Children)
             {
                 if (page == nextPg)
                 {
@@ -127,7 +129,7 @@ namespace PageFlip
                     page.IsEnabled = false;
                 }
             }
-            CurrentPage = nextPg;
+            CurrentPage = nextPg;*/
         }
 
         public static void GoToPage(UserControl parentPage, UIElement rootLayout,

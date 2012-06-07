@@ -7,13 +7,124 @@
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            d:DesignWidth="1000" d:DesignHeight="480"
            Title="MasterPage Page">
-    <Grid x:Name="LayoutRoot">
+
+    <UserControl.Resources>
+        <Style x:Key="ProgressBarStyle1" TargetType="ProgressBar">
+            <Setter Property="Foreground" Value="#FF027DB8"/>
+            <Setter Property="Background" Value="#FFD2D5D8"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Maximum" Value="100"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint=".5,1" StartPoint=".5,0">
+                        <GradientStop Color="#FFAEB7BF" Offset="0"/>
+                        <GradientStop Color="#FF919EA7" Offset="0.35"/>
+                        <GradientStop Color="#FF7A8A99" Offset="0.35"/>
+                        <GradientStop Color="#FF647480" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ProgressBar">
+                        <Grid x:Name="Root">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Determinate"/>
+                                    <VisualState x:Name="Indeterminate">
+                                        <Storyboard RepeatBehavior="Forever">
+                                            <DoubleAnimation Duration="00:00:.5" From="0" To="20" Storyboard.TargetProperty="(Shape.Fill).(LinearGradientBrush.Transform).(TransformGroup.Children)[0].X" Storyboard.TargetName="IndeterminateGradientFill"/>
+                                            <ObjectAnimationUsingKeyFrames Duration="00:00:00" Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="IndeterminateRoot">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Duration="00:00:00" Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DeterminateRoot">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Collapsed</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border x:Name="ProgressBarTrack" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="0"/>
+                            <Grid x:Name="ProgressBarRootGrid">
+                                <Rectangle x:Name="ProgressBarRootGradient" Margin="{TemplateBinding BorderThickness}" RadiusY="0" RadiusX="0" Stroke="#FFFFFFFF" StrokeThickness="0" Canvas.ZIndex="1">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+                                            <GradientStop Color="#00000000" Offset="0"/>
+                                            <GradientStop Color="#00000000" Offset="0.15"/>
+                                            <GradientStop Color="#00000000" Offset="0.275"/>
+                                            <GradientStop Color="#00000000" Offset="0.4"/>
+                                            <GradientStop Color="#00000000" Offset="0.65"/>
+                                            <GradientStop Color="#00000000" Offset="0.75"/>
+                                            <GradientStop Color="#00000000" Offset="0.85"/>
+                                            <GradientStop Color="#00000000" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <Grid x:Name="IndeterminateRoot" Visibility="Collapsed">
+                                    <Rectangle x:Name="IndeterminateSolidFill" Fill="Black" Margin="0" Opacity="0" RadiusY="0" RadiusX="0" RenderTransformOrigin="0.5,0.5" Stroke="#FF448DCA" StrokeThickness="0"/>
+                                    <Rectangle x:Name="IndeterminateGradientFill" Margin="0" Opacity="0.7" RadiusY="0" RadiusX="0" StrokeThickness="0">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush EndPoint="0,1" MappingMode="Absolute" SpreadMethod="Repeat" StartPoint="20,1">
+                                                <LinearGradientBrush.Transform>
+                                                    <TransformGroup>
+                                                        <TranslateTransform X="0"/>
+                                                        <SkewTransform AngleX="-30"/>
+                                                    </TransformGroup>
+                                                </LinearGradientBrush.Transform>
+                                                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                                <GradientStop Color="#00FFFFFF" Offset=".25"/>
+                                                <GradientStop Color="#FFFFFFFF" Offset="0.85"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </Grid>
+                                <Grid x:Name="DeterminateRoot" Margin="1">
+                                    <Rectangle x:Name="ProgressBarIndicator" Fill="Black" HorizontalAlignment="Left" Margin="0" RadiusY="0" RadiusX="0" StrokeThickness="0"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:2">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <BackEase EasingMode="EaseOut"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="Center"/>
+                <VisualState x:Name="Right">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="288" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" 
+                                         Storyboard.TargetName="containerContent" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="65"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="4"></RowDefinition>
+            <RowDefinition Height="329*" />
             <RowDefinition Height="65"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.Background>
@@ -26,13 +137,19 @@
             </Grid.Effect>
                 <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/MasterPage/HeaderLeft.jpg" Stretch="None"></Image>
                 <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/HeaderRight.jpg" Stretch="None"></Image>
-            <Button Name="btBack" Width="100" Height="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btBack_Click">Back</Button>
-            </Grid>
-        <Canvas Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
-                Name="containerContent">
-            </Canvas>
-        <Grid VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="1"
-                  Name="containerFooter">
+            <Button Visibility="Collapsed" Name="btBack" Width="100" Height="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btBack_Click">Back</Button>
+        </Grid>
+        <ProgressBar Grid.Row="1" x:Name="pbar" IsIndeterminate="False" Background="White" Foreground="Black" Minimum="0" Maximum="100"
+           Value="0" BorderBrush="{x:Null}"  Style="{StaticResource ProgressBarStyle1}" />
+
+        <Grid Grid.Row="2" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Name="containerContent" RenderTransformOrigin="0.5,0.5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="400" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid VerticalAlignment="Bottom" Grid.Row="3" Name="containerFooter">
             <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/MasterPage/FooterLeft.png" Stretch="None"></Image>
             <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/FooterRight.png" Stretch="None"></Image>
         </Grid>
