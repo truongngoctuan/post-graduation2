@@ -16,9 +16,7 @@ namespace DataManager.DataEventController
     {
         public void BeforeAnimation(ref BookData Data)
         {
-            string str = "/PageFlip;component/Images/HomeMenuPage/home_02.jpg";
-
-
+            string str = "/PageFlip;component/Images/CoverPage/cover_page.jpg";
 
 
             Data.TurnTypeManager = TurnType.NoTurn;
@@ -34,21 +32,65 @@ namespace DataManager.DataEventController
             Data.PreNextPageLeftPart = null;
             Data.PreNextPageRightPart = null;
 
-                        string xaml = @"
+
+            #region create grid
+            int NGridColumns = 1;
+            int NGridRows = 1;
+
+            string xamlColumns = string.Empty;
+            for (int i = 0; i < NGridColumns; i++)
+            {
+                xamlColumns += "<ColumnDefinition Width='*'></ColumnDefinition>\r\n";
+            }
+
+            string xamlRows = string.Empty;
+            for (int i = 0; i < NGridRows; i++)
+            {
+                xamlRows += "<RowDefinition Height='*'></RowDefinition>\r\n";
+            }
+
+            string xaml = string.Format(@"
+<Grid 
+xmlns='http://schemas.microsoft.com/client/2007'
+    xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+Background='White'>
+        <Grid.ColumnDefinitions>
+            {0}
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            {1}
+        </Grid.RowDefinitions>
+    </Grid>
+", xamlColumns, xamlRows);
+
+            #endregion
+
+
+
+
+            string xaml2 = @"
 <Button 
 xmlns='http://schemas.microsoft.com/client/2007'
 xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+Grid.Row='0' Grid.Column='0' Grid.ColumnSpan='1' Grid.RowSpan='1'
 >
             <Image Source='{0}'></Image>
         </Button>
 ";
-            xaml = string.Format(xaml, str);//Data.FirstCoverImageSource);
-            Button bt = (Button)Ultis.LoadXamlFromString(xaml);
+
+            xaml2 = string.Format(xaml2, str);//Data.FirstCoverImageSource);
+            Button bt = (Button)Ultis.LoadXamlFromString(xaml2);
             bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
 
             bt.Click += new RoutedEventHandler(bt_Click);
 
-            Data._currentPageRightPage = bt;
+
+            Grid grd = (Grid)Ultis.LoadXamlFromString(xaml);
+            grd.Children.Add(bt);
+
+            //grd.Background = new SolidColorBrush(Colors.White);
+
+            Data._currentPageRightPage = grd;
         }
 
         void bt_Click(object sender, RoutedEventArgs e)

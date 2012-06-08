@@ -225,6 +225,7 @@
     <Resource Include="Images\SubContent\subcontent_03.jpg" />
     <Resource Include="Images\SubContent\subcontent_04.jpg" />
     <Resource Include="Images\SubContent\subcontent_05.jpg" />
+    <Resource Include="Images\CoverPage\cover_page.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
