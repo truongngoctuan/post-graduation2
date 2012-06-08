@@ -6,7 +6,7 @@
            mc:Ignorable="d"
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
          
-                 xmlns:local="clr-namespace:SLMitsuControls;assembly=SLMitsuControls"
+                 xmlns:local="clr-namespace:SLMitsuControls"
            Title="MainPage2 Page"
                  Loaded="UserControl_Loaded">
     <Grid x:Name="LayoutRootOfMainPage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
