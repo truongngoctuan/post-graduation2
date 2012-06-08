@@ -16,4 +16,21 @@
   <item Type='ArticlePage' NGridRows='5' NGridColumns='4'>
     <item Type='TileClickableImage' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'/>
   </item>
+  <item Type='ArticlePage' NGridRows='2' NGridColumns='6'>
+    <item Type='TileClickableImage' Name='Story' GridRow='0' GridColumn='0' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/SubContent/subcontent_01.jpg'/>
+    <item Type='TileClickableImage' Name='LIFESTYLE' GridRow='0' GridColumn='1' GridColumnSpan='2' GridRowSpan='2' ImageSource='/PageFlip;component/Images/SubContent/subcontent_02.jpg'/>
+    <item Type='TileClickableImage' Name='DESIGN' GridRow='0' GridColumn='3' GridColumnSpan='2' GridRowSpan='2' ImageSource='/PageFlip;component/Images/SubContent/subcontent_03.jpg'/>
+    <item Type='TileClickableImage' Name='LIFESTYLE' GridRow='0' GridColumn='5' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/SubContent/subcontent_04.jpg'/>
+    <item Type='TileClickableImage' Name='DESIGN' GridRow='1' GridColumn='5' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/SubContent/subcontent_05.jpg'/>
+  </item>
+
+  <item Type='ArticlePage' NGridRows='5' NGridColumns='4'>
+    <item Type='TileClickableImage' GridRow='2' GridColumn='3' GridColumnSpan='1' GridRowSpan='3' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_05.jpg'/>
+  </item>
+  <item Type='ArticlePage' NGridRows='2' NGridColumns='6'>
+    <item Type='TileClickableImage' Name='Story' GridRow='0' GridColumn='0' GridColumnSpan='1' GridRowSpan='2' ImageSource='/PageFlip;component/Images/SubContent/subcontent_01.jpg'/>
+    <item Type='TileClickableImage' Name='LIFESTYLE' GridRow='0' GridColumn='1' GridColumnSpan='2' GridRowSpan='2' ImageSource='/PageFlip;component/Images/SubContent/subcontent_02.jpg'/>
+    <item Type='TileClickableImage' Name='DESIGN' GridRow='0' GridColumn='3' GridColumnSpan='2' GridRowSpan='2' ImageSource='/PageFlip;component/Images/SubContent/subcontent_03.jpg'/>
+    <item Type='TileClickableImage' Name='DESIGN' GridRow='1' GridColumn='5' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/SubContent/subcontent_05.jpg'/>
+  </item>
 </item>

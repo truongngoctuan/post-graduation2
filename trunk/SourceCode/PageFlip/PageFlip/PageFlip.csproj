@@ -95,6 +95,7 @@
     <Compile Include="Data\DataEventController\DataEventLoadMenu.cs" />
     <Compile Include="Data\DataEventController\DataEventNextArticlePage.cs" />
     <Compile Include="Data\DataEventController\DataEventNextMenu.cs" />
+    <Compile Include="Data\DataEventController\DataEventPreviousArticlePage.cs" />
     <Compile Include="Data\DataEventController\DataEventPreviousMenu.cs" />
     <Compile Include="Data\DataEventController\IDataEvent.cs" />
     <Compile Include="Data\IBasicTurnPageEffect.cs" />
