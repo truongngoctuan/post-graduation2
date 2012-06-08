@@ -88,6 +88,7 @@
     <Compile Include="BookSizes.cs" />
     <Compile Include="Data\BookData.cs" />
     <Compile Include="Data\BookLoader.cs" />
+    <Compile Include="Data\DataEventController\DataEventClickOnArticleImage.cs" />
     <Compile Include="Data\DataEventController\DataEventInitFirstCoverPage.cs" />
     <Compile Include="Data\DataEventController\DataEventLoadArticlePage.cs" />
     <Compile Include="Data\DataEventController\DataEventLoadBasic.cs" />

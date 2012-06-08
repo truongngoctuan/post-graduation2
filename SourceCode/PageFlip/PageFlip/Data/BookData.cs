@@ -46,6 +46,9 @@ namespace DataManager
         //variables for First cover
         public string FirstCoverImageSource;// = "/PageFlip;component/Images/HomeMenuPage/home_01.jpg";
 
+        //variables for click on article's image
+        public Image ClickedImage;
+
         //turn type
         public TurnType TurnTypeManager;
     }

@@ -13,13 +13,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using DataManager.DataEventController;
+using PageFlip.Data.DataEventController;
 namespace DataManager
 {
     public enum TurnType
     {
         NoTurn,
         TurnFromLeft,
-        TurnFromRight
+        TurnFromRight,
+        ClickedImage
     }
 
 	public class BookLoader:Subject
@@ -122,7 +124,7 @@ namespace DataManager
         {
             DataEventState.BeforeAnimation(ref Data);
 
-            UpdateParams = new UpdateInterfaceParams() { Type = Data.TurnTypeManager };
+            UpdateParams = new UpdateInterfaceParams() { Type = Data.TurnTypeManager, ClikedImage = Data.ClickedImage };
         }
         
         public bool IsCanTransitionRight()
@@ -293,6 +295,15 @@ namespace DataManager
             Data.CurrentMenuPage.bt_Click(new object(), new RoutedEventArgs());
             //DataEventState = new DataEventInitFirstCoverPage();
             //Notify();
+        }
+
+        public void OnClickedImage(Image img)
+        {
+            //Data.CurrentMenuPage.bt_Click(new object(), new RoutedEventArgs());
+            Data.ClickedImage = img;
+
+            DataEventState = new DataEventClickOnArticleImage();
+            Notify();
         }
 
         //bool IsMenuState;

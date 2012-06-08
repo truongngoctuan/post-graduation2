@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <item Type='Menu'>
   <item Type='MenuPage' NGridRows='1' NGridColumns='1'>
-    <item Type='Article' ArticleID='0001' Name='Story' GridRow='0' GridColumn='0' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_01.jpg'/>
+    <item Type='TileClickableImage' ArticleID='0001' Name='Story' GridRow='0' GridColumn='0' GridColumnSpan='1' GridRowSpan='1' ImageSource='/PageFlip;component/Images/HomeMenuPage/home_01.jpg'/>
   </item>
   
   <item Type='MenuPage' NGridRows='5' NGridColumns='2'>

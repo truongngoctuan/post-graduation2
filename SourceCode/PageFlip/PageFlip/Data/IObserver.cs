@@ -58,5 +58,6 @@ namespace DataManager
     public struct UpdateInterfaceParams
     {
         public TurnType Type;
+        public Image ClikedImage;
     }
 }
