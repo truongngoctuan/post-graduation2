@@ -40,7 +40,7 @@ namespace SLMitsuControls
                 case TurnType.TurnFromRight:
                     {
                         UpdateLeftRightPage(BookLoader.Instance().PreviousPageLeftPart, BookLoader.Instance().PreviousPageRightPart, BookLoader.Instance().CurrentPageLeftPage, BookLoader.Instance().CurrentPageRightPage, BookLoader.Instance().NextPageLeftPart, BookLoader.Instance().NextPageRightPart);
-                        this.AnimateToNextPage(2000);
+                        this.AnimateToNextPage(500);
                         break;
                     }
                 case TurnType.TurnFromLeft:

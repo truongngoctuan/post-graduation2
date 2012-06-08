@@ -296,14 +296,14 @@ namespace PageFlip
                 this.PageCorner.ReleaseMouseCapture();
                 if ((DateTime.Now < this.doubleClickDuration) && ((this.mouse.X > 0.0) && (this.mouse.Y > 0.0)))
                 {
-                    BookLoader.Instance().OnNextMenu();
+                    //BookLoader.Instance().OnNextMenu();
                     //this.TypeTransition = UpdatePageTransition.NextPage;
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);
                 }
                 else if (this.mouse.X < 0.0)
                 {
-                    BookLoader.Instance().OnNextMenu();
+                    //BookLoader.Instance().OnNextMenu();
                     //this.TypeTransition = UpdatePageTransition.NextPage;
                     this.startTransition();
                     this.mouse = new Point(-this.pageHalfWidth, this.pageHalfHeight);

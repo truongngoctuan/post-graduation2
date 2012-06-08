@@ -24,6 +24,13 @@ namespace DataManager
         ClickedImage
     }
 
+    public enum BookLoaderState
+    {
+        CoverPage, 
+        MenuPage,
+        ArticlePage
+    }
+
 	public class BookLoader:Subject
     {
         #region Data
@@ -76,6 +83,7 @@ namespace DataManager
         #endregion
         
         //public bool IsRightToLeftTransition;
+        public BookLoaderState BookState;
 
         IDataEvent DataEventState;
         private static BookLoader _instance;
@@ -165,26 +173,29 @@ namespace DataManager
 
             Data.iCurrentMenuPage = 0;
             DataEventState = new DataEventLoadMenu();
+            BookState = BookLoaderState.MenuPage;
             Notify();
         }
 
-        public void OnNextMenu()
+        void OnNextMenu()
         {
             if (Data.iCurrentMenuPage + 3 < Data.CurrentMenuPage.ListSubMenu.Count)
             {
                 //IsRightToLeftTransition = true;
                 DataEventState = new DataEventNextMenu();
+                BookState = BookLoaderState.MenuPage;
                 Notify();
             }
         }
 
-        public void OnPreviousMenu()
+        void OnPreviousMenu()
         {
             //IsRightToLeftTransition = true;
             if (Data.iCurrentMenuPage - 2 >= 0)
             {
                 
                 DataEventState = new DataEventPreviousMenu();
+                BookState = BookLoaderState.MenuPage;
                 Notify();
             }
         }
@@ -204,6 +215,7 @@ namespace DataManager
                 listMenuIdx.RemoveAt(listMenuIdx.Count - 1);
                 listMenuPage.RemoveAt(listMenuPage.Count - 1);
 
+                BookState = BookLoaderState.MenuPage;
                 //LoadMenu(0);
                 Notify();
             }
@@ -235,12 +247,15 @@ namespace DataManager
                 Data.CurrentArticlePage = 0;
                 //LoadArticlePage(0);
                 DataEventState = new DataEventLoadArticlePage();
+                BookState = BookLoaderState.ArticlePage;
                 Notify();
             }
         }
 
         void LoadArticlePage(int iPage)
         {
+            BookState = BookLoaderState.ArticlePage;
+
             Data.CurrentArticlePage = iPage;
 
             if (Data.CurrentArticlePage < Data.CurrentArticle.ListSubMenu.Count)
@@ -268,12 +283,24 @@ namespace DataManager
             }
         }
 
-        public void OnNextArticlePage()
+        void OnNextArticlePage()
         {
             if (Data.CurrentArticlePage + 3 < Data.CurrentArticle.ListSubMenu.Count)
             {
                 //IsRightToLeftTransition = true;
-                DataEventState = new DataEventNextMenu();
+                DataEventState = new DataEventNextArticlePage();
+                BookState = BookLoaderState.ArticlePage;
+                Notify();
+            }
+        }
+
+        void OnPreviousArticlePage()
+        {
+            if (Data.CurrentArticlePage - 2 >= 0)
+            {
+
+                DataEventState = new DataEventPreviousArticlePage();
+                BookState = BookLoaderState.ArticlePage;
                 Notify();
             }
         }
@@ -306,6 +333,35 @@ namespace DataManager
             Notify();
         }
 
-        //bool IsMenuState;
+        public void OnNextPage()
+        {
+            if (BookState == BookLoaderState.MenuPage)
+            {
+                OnNextMenu();
+                return;
+            }
+            if (BookState == BookLoaderState.ArticlePage)
+            {
+                OnNextArticlePage();
+                return;
+            }
+        }
+
+
+        public void OnPreviousPage()
+        {
+            if (BookState == BookLoaderState.MenuPage)
+            {
+                OnPreviousMenu();
+                return;
+            }
+            if (BookState == BookLoaderState.ArticlePage)
+            {
+                OnPreviousArticlePage();
+                return;
+            }
+        }
+
+
     }
 }
