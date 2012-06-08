@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using PageFlip;
 
 namespace DataManager.DataEventController
 {
@@ -43,6 +44,8 @@ xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
 ";
             xaml = string.Format(xaml, str);//Data.FirstCoverImageSource);
             Button bt = (Button)Ultis.LoadXamlFromString(xaml);
+            bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
+
             bt.Click += new RoutedEventHandler(bt_Click);
 
             Data._currentPageRightPage = bt;
