@@ -212,7 +212,7 @@ namespace DataManager
             }
         }
 
-        public void OnBackMenu()
+        void OnBackMenu()
         {
             try
             {
@@ -229,6 +229,7 @@ namespace DataManager
 
                 BookState = BookLoaderState.MenuPage;
                 //LoadMenu(0);
+                DataEventState = new DataEventLoadMenu();
                 Notify();
             }
             catch (Exception ex)
@@ -317,8 +318,12 @@ namespace DataManager
             }
         }
 
-        public void OnBackArticle()
+        void OnBackArticle()
         {
+            if (listMenuIdx.Count == 0) return;
+            BookState = BookLoaderState.MenuPage;
+            DataEventState = new DataEventLoadMenu();
+            Notify();
         }
         #endregion
 
@@ -370,6 +375,20 @@ namespace DataManager
             if (BookState == BookLoaderState.ArticlePage)
             {
                 OnPreviousArticlePage();
+                return;
+            }
+        }
+
+        public void OnBack()
+        {
+            if (BookState == BookLoaderState.MenuPage)
+            {
+                OnBackMenu();
+                return;
+            }
+            if (BookState == BookLoaderState.ArticlePage)
+            {
+                OnBackArticle();
                 return;
             }
         }
