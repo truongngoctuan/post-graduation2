@@ -83,7 +83,7 @@ namespace PageFlip
 
         private void btBack_Click(object sender, RoutedEventArgs e)
         {
-            BookLoader.Instance().OnBackMenu();
+            BookLoader.Instance().OnBack();
         }
 
         private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
