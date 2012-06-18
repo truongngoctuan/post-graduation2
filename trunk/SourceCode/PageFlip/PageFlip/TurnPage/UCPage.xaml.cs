@@ -262,6 +262,7 @@ namespace SLMitsuControls
 
         private void OnMouseMove(object sender, MouseEventArgs args)
         {
+     
             if ((Status == PageStatus.DropAnimation) || (Status == PageStatus.TurnAnimation))
                 return;
 

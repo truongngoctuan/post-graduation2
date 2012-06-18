@@ -10,18 +10,10 @@
            Title="MainPage2 Page"
                  Loaded="UserControl_Loaded">
     <Grid x:Name="LayoutRootOfMainPage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        
-       
         <Grid.RowDefinitions>
-            <RowDefinition Height="8" />
-            <RowDefinition Height="25" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1"  Orientation="Horizontal" >
-            <Button  Width="50" Name="btPrevious" Content="previous"  Click="btPrevious_Click"></Button>
-            <Button  Width="50" Name="btNext" Margin="5,0,0,0" Content="next" Click="btNext_Click"  ></Button>
-        </StackPanel>
-        <Grid x:Name="bookContainer" Grid.Row="2" Grid.ColumnSpan="2" Width="1000" Height="400" Margin="-500,0,52,0">
+        <Grid x:Name="bookContainer" Grid.Row="1" Grid.ColumnSpan="1" Width="1000" Height="400" Margin="-500,0,0,0">
             <local:UCBook x:Name="book"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Loaded="book_Loaded"/>
         </Grid>
         

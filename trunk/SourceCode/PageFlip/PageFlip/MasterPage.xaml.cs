@@ -86,6 +86,16 @@ namespace PageFlip
             BookLoader.Instance().OnBack();
         }
 
+        private void btNext_Click(object sender, RoutedEventArgs e)
+        {
+            BookLoader.Instance().OnNextPage();
+        }
+
+        private void btPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            BookLoader.Instance().OnPreviousPage();
+        }
+
         private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
         {
 
