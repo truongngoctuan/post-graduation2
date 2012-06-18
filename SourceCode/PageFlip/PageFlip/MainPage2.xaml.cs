@@ -68,15 +68,15 @@ namespace PageFlip
 
         //#endregion
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            book.AnimateToNextPage(500);
-        }
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    book.AnimateToNextPage(500);
+        //}
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            book.AnimateToPreviousPage(500);
-        }
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
+        //    book.AnimateToPreviousPage(500);
+        //}
 
         private void book_Loaded(object sender, RoutedEventArgs e)
         {
