@@ -83,15 +83,6 @@ namespace PageFlip
             book.UpdateLeftRightPage(BookLoader.Instance().PreviousPageLeftPart, BookLoader.Instance().PreviousPageRightPart, BookLoader.Instance().CurrentPageLeftPage, BookLoader.Instance().CurrentPageRightPage, BookLoader.Instance().NextPageLeftPart, BookLoader.Instance().NextPageRightPart);
         }
 
-        private void btNext_Click(object sender, RoutedEventArgs e)
-        {
-            BookLoader.Instance().OnNextPage();
-        }
-
-        private void btPrevious_Click(object sender, RoutedEventArgs e)
-        {
-            BookLoader.Instance().OnPreviousPage();
-        }
 
 
     }

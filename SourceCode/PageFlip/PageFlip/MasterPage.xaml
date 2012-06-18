@@ -137,7 +137,13 @@
             </Grid.Effect>
                 <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/MasterPage/HeaderLeft.jpg" Stretch="None"></Image>
                 <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/HeaderRight.jpg" Stretch="None"></Image>
-            <Button Visibility="Visible" Name="btBack" Width="100" Height="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btBack_Click">Back</Button>
+            
+            <StackPanel Grid.Row="1"  Orientation="Horizontal" Visibility="Visible"
+                        HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <Button Visibility="Visible" Name="btBack" Width="75" Height="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btBack_Click">Back</Button>
+                <Button  Width="75" Name="btPrevious" Content="previous"  Click="btPrevious_Click"></Button>
+                <Button  Width="75" Name="btNext" Margin="5,0,0,0" Content="next" Click="btNext_Click"  ></Button>
+            </StackPanel>
         </Grid>
         <ProgressBar Canvas.ZIndex="1" Grid.Row="1" x:Name="pbar" IsIndeterminate="False" Background="White" Foreground="Black" Minimum="0" Maximum="100"
            Value="0" BorderBrush="{x:Null}"  Style="{StaticResource ProgressBarStyle1}" />

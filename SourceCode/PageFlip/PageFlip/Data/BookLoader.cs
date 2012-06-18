@@ -320,7 +320,7 @@ namespace DataManager
 
         void OnBackArticle()
         {
-            if (listMenuIdx.Count == 0) return;
+            //if (listMenuIdx.Count == 0) return;
             BookState = BookLoaderState.MenuPage;
             DataEventState = new DataEventLoadMenu();
             Notify();
