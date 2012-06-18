@@ -77,7 +77,7 @@ namespace PageFlip
             this.RootVisual = mPage;
             //App.GoToPage(new HomePage(), null);
 
-            //Page1 mainP = new Page1();
+            Page1 mainP = new Page1();
 
             //MainPage mainP = new MainPage()
             //{
@@ -85,7 +85,7 @@ namespace PageFlip
             //    ContentPageIndex = 0
             //};
 
-            MainPage2 mainP = new MainPage2();
+            //MainPage2 mainP = new MainPage2();
 
             App app = (App)Application.Current;
 
