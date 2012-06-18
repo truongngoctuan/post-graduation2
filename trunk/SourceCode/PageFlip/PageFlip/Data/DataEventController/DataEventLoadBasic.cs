@@ -19,7 +19,7 @@ namespace DataManager.DataEventController
 
         public void BeforeAnimationBasic(ref BookData Data, int iCurrenPage, ref TileMenu CurrentMenuItem)
         {
-            Data.TurnTypeManager = TurnType.TurnFromRight;
+            //Data.TurnTypeManager = TurnType.TurnFromRight;
             if (iCurrenPage - 2 >= 0)
             {
                 Data._previousPageLeftPart = ((TilePage)CurrentMenuItem.ListSubMenu[iCurrenPage - 2]).generatePage();
@@ -41,7 +41,8 @@ namespace DataManager.DataEventController
             {
                 if (CurrentMenuItem.ListSubMenu.Count == 1)
                 {
-                    Data._nextPageRightPart = ((TilePage)CurrentMenuItem.ListSubMenu[iCurrenPage]).generatePage();
+                    Data._nextPageLeftPart = ((TilePage)CurrentMenuItem.ListSubMenu[iCurrenPage]).generatePage();
+                    Data._nextPageRightPart = null;
                 }
                 else
                 {
