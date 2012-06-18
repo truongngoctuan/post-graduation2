@@ -237,10 +237,13 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
             //MessageBox.Show("bt_Click " + CurrentLvl.ToString() + " " + currentIndex.ToString());
             if (this.Parent == null)
             {
+                //if (this.Name != null) MessageBox.Show(this.Name);
                 BookLoader.Instance().OnClickedTile(CurrentLvl, -1, currentIndex);
+
             }
             else
-            { 
+            {
+                //if (this.Name != null) MessageBox.Show(this.Name);
                 BookLoader.Instance().OnClickedTile(CurrentLvl, this.Parent.currentIndex, currentIndex);
             }
         }

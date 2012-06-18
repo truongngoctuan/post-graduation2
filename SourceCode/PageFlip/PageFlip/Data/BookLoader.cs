@@ -148,33 +148,45 @@ namespace DataManager
         List<int> listMenuPage = new List<int>();
         public void OnClickedTile(int Lvl, int PageIdx, int Idx)
         {//OnForwadMenu
-            //if (Lvl != -1 && ((MenuItem)(Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage].ListSubMenu[Idx])).ListSubMenu.Count == 0) return;
-            if (Lvl != -1 && ((MenuItem)(Data.CurrentMenuPage.ListSubMenu[PageIdx].ListSubMenu[Idx])).ListSubMenu.Count == 0) return;
-            
-//            IsRightToLeftTransition = true;
-            
-            if (Lvl == -1)
+            try
             {
+                //if (Lvl != -1 && ((MenuItem)(Data.CurrentMenuPage.ListSubMenu[Data.iCurrentMenuPage].ListSubMenu[Idx])).ListSubMenu.Count == 0) return;
+                if (Lvl != -1 && ((MenuItem)(Data.CurrentMenuPage.ListSubMenu[PageIdx].ListSubMenu[Idx])).ListSubMenu.Count == 0)
+                {
+                    MessageBox.Show("OnClickedTile: no sub menu!!!");
+                    return;
+                }
+                   
 
-            }
-            else
-            {
-                listMenuIdx.Add(Idx);
-                //listMenuPage.Add(Data.iCurrentMenuPage);
-                listMenuPage.Add(PageIdx);
-            }
-            
-            //get currentTiles
-            Data.CurrentMenuPage = Data.MenuPage;
-            for (int i = 0; i < listMenuIdx.Count; i++)
-            {
-                Data.CurrentMenuPage = (TileMenu)(Data.CurrentMenuPage.ListSubMenu[listMenuPage[i]].ListSubMenu[listMenuIdx[i]]);
-            }
+                //            IsRightToLeftTransition = true;
 
-            Data.iCurrentMenuPage = 0;
-            DataEventState = new DataEventLoadMenu();
-            BookState = BookLoaderState.MenuPage;
-            Notify();
+                if (Lvl == -1)
+                {
+
+                }
+                else
+                {
+                    listMenuIdx.Add(Idx);
+                    //listMenuPage.Add(Data.iCurrentMenuPage);
+                    listMenuPage.Add(PageIdx);
+                }
+
+                //get currentTiles
+                Data.CurrentMenuPage = Data.MenuPage;
+                for (int i = 0; i < listMenuIdx.Count; i++)
+                {
+                    Data.CurrentMenuPage = (TileMenu)(Data.CurrentMenuPage.ListSubMenu[listMenuPage[i]].ListSubMenu[listMenuIdx[i]]);
+                }
+
+                Data.iCurrentMenuPage = 0;
+                DataEventState = new DataEventLoadMenu();
+                BookState = BookLoaderState.MenuPage;
+                Notify();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("OnClicked [Menu] Tile: " + ex.Message);
+            }
         }
 
         void OnNextMenu()

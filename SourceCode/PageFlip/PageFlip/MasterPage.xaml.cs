@@ -34,7 +34,8 @@ namespace PageFlip
         {
            if (pbar.Value < pbar.Maximum)
             {
-                pbar.Value++;
+                //pbar.Value++;
+                pbar.Value += 10;
                 _timer.Begin();
             }
             else
