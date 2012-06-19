@@ -21,9 +21,12 @@ namespace DataManager
         public int NGridColumns;
 
         public string Margin;
+
+        public string ImageBrush;
         public TilePage()
         {
             Margin = "0,0,0,0";
+            ImageBrush = string.Empty;
         }
 
         public virtual UIElement generatePage()
@@ -40,16 +43,29 @@ namespace DataManager
                 xamlRows += "<RowDefinition Height='*'></RowDefinition>\r\n";
             }
 
-
-            string strColor;
-            if (this.currentIndex % 2 == 0) strColor = "Orange";
-            else strColor = "Violet";
+            //<!--<ImageBrush AlignmentX='Left' AlignmentY='Top' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_01_01.jpg'></ImageBrush>-->
+                //<SolidColorBrush Color='Orange'></SolidColorBrush>
+            string strBackgroundColor;
+            if (this.ImageBrush != string.Empty)
+            {
+                strBackgroundColor = "<ImageBrush AlignmentX='Left' AlignmentY='Top' Stretch='None' ImageSource='" 
+                    + this.ImageBrush + "'></ImageBrush>";
+            }
+            else
+            {
+                if (this.currentIndex % 2 == 0) strBackgroundColor = "<SolidColorBrush Color='Orange'></SolidColorBrush>";
+                else strBackgroundColor = "<SolidColorBrush Color='Violet'></SolidColorBrush>";
+            }
+            
             string xaml = string.Format(@"
 <Grid
     xmlns='http://schemas.microsoft.com/client/2007'
     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-Background='{3}'
 >
+            <Grid.Background>
+                {3}
+            </Grid.Background>
+
 <Grid.ColumnDefinitions>
     <ColumnDefinition Width='*'></ColumnDefinition>
 </Grid.ColumnDefinitions>
@@ -58,7 +74,7 @@ Background='{3}'
     <RowDefinition Height='*'></RowDefinition>
 </Grid.RowDefinitions>
 
-    <Grid Background='White' ShowGridLines='True' Margin='{2}'>
+    <Grid ShowGridLines='True' Margin='{2}'>
             <Grid.ColumnDefinitions>
                 {0}
             </Grid.ColumnDefinitions>
@@ -67,7 +83,7 @@ Background='{3}'
             </Grid.RowDefinitions>
     </Grid>
 </Grid>
-", xamlColumns, xamlRows, this.Margin, strColor);
+", xamlColumns, xamlRows, this.Margin, strBackgroundColor);
 
             int iCounter = 0;
             Grid grdRoot = (Grid)Ultis.LoadXamlFromString(xaml);
@@ -105,6 +121,11 @@ Background='{3}'
                     case "Margin":
                         {
                             this.Margin = reader.Value;
+                            break;
+                        }
+                    case "ImageBrush":
+                        {
+                            this.ImageBrush = reader.Value;
                             break;
                         }
                     default:
@@ -152,9 +173,9 @@ Background='{3}'
 ////            }
 
 
-////            string strColor;
-////            if (this.currentIndex % 2 == 0) strColor = "Orange";
-////            else strColor = "Violet";
+////            string strBackgroundColor;
+////            if (this.currentIndex % 2 == 0) strBackgroundColor = "Orange";
+////            else strBackgroundColor = "Violet";
 ////            string xaml = string.Format(@"
 ////<Grid
 ////    xmlns='http://schemas.microsoft.com/client/2007'
@@ -178,7 +199,7 @@ Background='{3}'
 ////            </Grid.RowDefinitions>
 ////    </Grid>
 ////</Grid>
-////", xamlColumns, xamlRows, this.Margin, strColor);
+////", xamlColumns, xamlRows, this.Margin, strBackgroundColor);
 
 ////            int iCounter = 0;
 ////            Grid grdRoot = (Grid)Ultis.LoadXamlFromString(xaml);
