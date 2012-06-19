@@ -24,7 +24,24 @@ namespace SLMitsuControls
             BookLoader.Instance().Attach(this);
 
             this.Loaded += new RoutedEventHandler(UCBook_Loaded);
+
+            this.leftPage.TurnedByConner += new RoutedEventHandler(leftPage_PageTurnedByConner);
+            this.rightPage.TurnedByConner += new RoutedEventHandler(rightPage_PageTurnedByConner);
             
+        }
+
+        private void leftPage_PageTurnedByConner(object sender, RoutedEventArgs e)
+        {
+            //CurrentSheetIndex++;
+            BookLoader.Instance().OnPreviousPage(true);
+            OnCompleteAnimation();
+        }
+
+        private void rightPage_PageTurnedByConner(object sender, RoutedEventArgs e)
+        {
+            //CurrentSheetIndex++;
+            BookLoader.Instance().OnNextPage(true);
+            OnCompleteAnimation();
         }
 
         void UCBook_Loaded(object sender, RoutedEventArgs e)

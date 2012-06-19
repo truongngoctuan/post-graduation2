@@ -48,7 +48,14 @@ namespace SLMitsuControls
         {
             Obj = obj;
         }
-        
+
+        private void OnTurnedByConner()
+        {
+            if (TurnedByConner != null)
+                TurnedByConner(this, new RoutedEventArgs());
+        }
+        public RoutedEventHandler TurnedByConner;
+
         void anim_Completed(object sender, EventArgs e)
         {
             ApplyParameters(new PageParameters(this.RenderSize));
@@ -62,8 +69,8 @@ namespace SLMitsuControls
             else
                 Status = PageStatus.None;
 
-            //if (Obj != null)
-            //    Obj.OnCompleteAnimation();
+            
+            OnTurnedByConner();
         }
 
 
