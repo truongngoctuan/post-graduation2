@@ -62,6 +62,9 @@
     <Content Include="ClientBin\Articles\0002.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="ClientBin\demo1_menu_temp.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ClientBin\demo1_menu.xml">
       <SubType>Designer</SubType>
     </Content>

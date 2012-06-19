@@ -105,7 +105,7 @@ namespace DataManager
             Data.CurrentMenuPage = new TileMenu();
 
             //load data from menudata.xml
-            Uri url = new Uri("demo1_menu.xml", UriKind.Relative);
+            Uri url = new Uri("demo1_menu_temp.xml", UriKind.Relative);
             //Uri url = new Uri("menudata3.xml", UriKind.Relative);
             WebClient client = new WebClient();
             client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);
@@ -190,27 +190,51 @@ namespace DataManager
             }
         }
 
-        void OnNextMenu()
+        void OnNextMenu(bool IsByConner = false)
         {
-            if (Data.iCurrentMenuPage + 3 < Data.CurrentMenuPage.ListSubMenu.Count)
+            if (IsByConner)
             {
-                //IsRightToLeftTransition = true;
-                DataEventState = new DataEventNextMenu();
-                BookState = BookLoaderState.MenuPage;
-                Notify();
+                if (Data.iCurrentMenuPage + 3 < Data.CurrentMenuPage.ListSubMenu.Count)
+                {
+                    DataEventState = new DataEventNextMenu();
+                    BookState = BookLoaderState.MenuPage;
+                    PrepareNotify();
+                }
             }
+            else
+            {
+                if (Data.iCurrentMenuPage + 3 < Data.CurrentMenuPage.ListSubMenu.Count)
+                {
+                    DataEventState = new DataEventNextMenu();
+                    BookState = BookLoaderState.MenuPage;
+                    Notify();
+                }
+            }
+
         }
 
-        void OnPreviousMenu()
+        void OnPreviousMenu(bool IsByConner = false)
         {
-            //IsRightToLeftTransition = true;
-            if (Data.iCurrentMenuPage - 2 >= 0)
+            if (IsByConner)
             {
-                
-                DataEventState = new DataEventPreviousMenu();
-                BookState = BookLoaderState.MenuPage;
-                Notify();
+                if (Data.iCurrentMenuPage - 2 >= 0)
+                {
+                    DataEventState = new DataEventPreviousMenu();
+                    BookState = BookLoaderState.MenuPage;
+                    PrepareNotify();
+                }
             }
+            else
+            {
+                if (Data.iCurrentMenuPage - 2 >= 0)
+                {
+
+                    DataEventState = new DataEventPreviousMenu();
+                    BookState = BookLoaderState.MenuPage;
+                    Notify();
+                }
+            }
+
         }
 
         void OnBackMenu()
@@ -351,11 +375,11 @@ namespace DataManager
             Notify();
         }
 
-        public void OnNextPage()
+        public void OnNextPage(bool IsByConner = false)
         {
             if (BookState == BookLoaderState.MenuPage)
             {
-                OnNextMenu();
+                OnNextMenu(IsByConner);
                 return;
             }
             if (BookState == BookLoaderState.ArticlePage)
@@ -366,11 +390,11 @@ namespace DataManager
         }
 
 
-        public void OnPreviousPage()
+        public void OnPreviousPage(bool IsByConner = false)
         {
             if (BookState == BookLoaderState.MenuPage)
             {
-                OnPreviousMenu();
+                OnPreviousMenu(IsByConner);
                 return;
             }
             if (BookState == BookLoaderState.ArticlePage)

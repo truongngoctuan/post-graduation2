@@ -1,0 +1,186 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+<item Type='Menu'>
+  <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+    <item Type='Article' ArticleID='0002' Name='Story' 
+          GridRow='0' GridColumn='0' GridColumnSpan='1' GridRowSpan='1' VerticalAlignment='Center' HorizontalAlignment='Center' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_01_01.jpg'/>
+  </item>
+  
+  <item Type='TilePage' NGridRows='5' NGridColumns='2' Margin='10,20,20,20'>
+    <item Type='Menu' Name='LIFESTYLE'
+      GridRow='0' GridColumn='0' GridRowSpan='4' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_01.jpg'>
+      <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_01_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_01_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_01_03.jpg'/>
+      </item>
+
+      <item Type='TilePage' NGridRows='2' NGridColumns='1' Margin='10,20,20,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_02_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_02_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='1' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_02_03.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='1' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_02_04.jpg'/>
+      </item>
+    </item>
+    
+    <item Type='Menu' Name='FASHION'
+      GridRow='0' GridColumn='1' GridRowSpan='2' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_02.jpg'>
+      <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_01_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_01_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_01_03.jpg'/>
+      </item>
+
+      <item Type='TilePage' NGridRows='3' NGridColumns='1' Margin='10,20,20,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='3' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_02_01.jpg'>
+          <!--SUB-FASHION-->
+          <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'
+                ImageBrush='/PageFlip;component/Images/Demo1/sub_fashion_01_background.jpg'>
+            <item Type='Menu' Name='a'
+              GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/sub_fashion_01_01.png'/>
+            <item Type='Menu' Name='a'
+              GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/sub_fashion_01_02.jpg'/>
+            <item Type='Menu' Name='a'
+              GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/sub_fashion_01_03.jpg'/>
+          </item>
+
+          <item Type='TilePage' NGridRows='4' NGridColumns='4' Margin='10,20,20,20'>
+            <item Type='Menu' Name='a'
+              GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='2' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/sub_fashion_02_01.jpg'/>
+            <item Type='Menu' Name='a'
+              GridRow='0' GridColumn='2' GridRowSpan='1' GridColumnSpan='2' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/sub_fashion_02_02.jpg'/>
+            <item Type='Menu' Name='a'
+              GridRow='1' GridColumn='0' GridRowSpan='3' GridColumnSpan='2' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/sub_fashion_02_03.jpg'/>
+            <item Type='Menu' Name='a'
+              GridRow='1' GridColumn='2' GridRowSpan='2' GridColumnSpan='2' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/sub_fashion_02_04.jpg'/>
+            <item Type='Menu' Name='a'
+              GridRow='3' GridColumn='2' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/sub_fashion_02_05.jpg'/>
+            <item Type='Menu' Name='a'
+              GridRow='3' GridColumn='3' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/sub_fashion_02_05.jpg'/>
+          </item>
+        </item>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_02_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='1' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_02_03.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='2' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_02_04.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='2' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_02_05.jpg'/>
+      </item>
+    </item>
+    
+    <item Type='Menu' Name='ART'
+      GridRow='3' GridColumn='0' GridRowSpan='2' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_03.jpg'>
+      <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_01_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_01_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_01_03.jpg'/>
+      </item>
+
+      <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='10,20,20,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_03.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_04.jpg'/>
+      </item>
+    </item>
+    
+    <item Type='Menu' Name='BEAUTY'
+      GridRow='2' GridColumn='1' GridRowSpan='3' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_04.jpg'>
+      <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_01_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_01_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_01_03.jpg'/>
+      </item>
+
+      <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='10,20,20,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_02_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Center' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_02_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_02_03.jpg'/>
+      </item>
+    </item>
+  </item>
+  <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+    <item Type='Article' ArticleID='0002' Name='Story'
+          GridRow='0' GridColumn='0' GridColumnSpan='1' GridRowSpan='1' VerticalAlignment='Center' HorizontalAlignment='Center' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_01.jpg'/>
+  </item>
+
+  <item Type='TilePage' NGridRows='5' NGridColumns='2' Margin='10,20,20,20'>
+    <item Type='Menu' Name='LIFESTYLE'
+      GridRow='0' GridColumn='0' GridRowSpan='4' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_02.jpg'>
+    </item>
+
+    <item Type='Menu' Name='FASHION'
+      GridRow='0' GridColumn='1' GridRowSpan='2' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_02.jpg'>
+    </item>
+
+    <item Type='Menu' Name='ART'
+      GridRow='3' GridColumn='0' GridRowSpan='2' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_01.jpg'>
+      <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_01_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_01_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_01_03.jpg'/>
+      </item>
+
+      <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='10,20,20,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_03.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_04.jpg'/>
+      </item>
+    </item>
+
+    <item Type='Menu' Name='BEAUTY'
+      GridRow='2' GridColumn='1' GridRowSpan='3' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_04.jpg'>
+      <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_01_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_01_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_01_03.jpg'/>
+      </item>
+
+      <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='10,20,20,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_02_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Center' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_02_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_02_03.jpg'/>
+      </item>
+    </item>
+  </item>
+
+</item>
