@@ -545,7 +545,7 @@ namespace SLMitsuControls
             anim.Completed += new EventHandler(anim_TurnPageCompleted);
             anim.Begin();
             //MessageBox.Show("TurnPage");
-            BookLoader.Instance().OnNextPage();
+            //BookLoader.Instance().OnNextPage();
         }
 
         public void AutoTurnPage(CornerOrigin fromCorner, int duration)

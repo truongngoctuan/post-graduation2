@@ -170,6 +170,23 @@ namespace DataManager
             }
             if (BookState == BookLoaderState.ArticlePage)
             {
+                if (Data.CurrentArticlePage == 0)
+                {
+                    Data.canTurnLeft = false;
+                }
+                else
+                {
+                    Data.canTurnLeft = true;
+                }
+
+                if (Data.CurrentArticlePage + 2 >= Data.CurrentArticle.ListSubMenu.Count)
+                {
+                    Data.canTurnRight = false;
+                }
+                else
+                {
+                    Data.canTurnRight = true;
+                }
             }
 
             UpdateParams = new UpdateInterfaceParams()
