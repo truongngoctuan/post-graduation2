@@ -51,5 +51,7 @@ namespace DataManager
 
         //turn type
         public TurnType TurnTypeManager;
+
+        public bool canTurnLeft, canTurnRight;
     }
 }

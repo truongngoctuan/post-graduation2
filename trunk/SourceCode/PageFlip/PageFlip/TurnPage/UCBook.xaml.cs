@@ -27,7 +27,6 @@ namespace SLMitsuControls
 
             this.leftPage.TurnedByConner += new RoutedEventHandler(leftPage_PageTurnedByConner);
             this.rightPage.TurnedByConner += new RoutedEventHandler(rightPage_PageTurnedByConner);
-            
         }
 
         private void leftPage_PageTurnedByConner(object sender, RoutedEventArgs e)
@@ -76,12 +75,36 @@ namespace SLMitsuControls
                         break;
                     }
             }
+
         }
 
         public void OnCompleteAnimation()
         {
             try
             {
+
+                if (!BookLoader.Instance().CanTurnLeft)
+                {
+                    leftPage.IsBottomLeftCornerEnabled = false;
+                    leftPage.IsTopLeftCornerEnabled = false;
+                }
+                else
+                {
+                    leftPage.IsBottomLeftCornerEnabled = true;
+                    leftPage.IsTopLeftCornerEnabled = true;
+                }
+
+                if (!BookLoader.Instance().CanTurnRight)
+                {
+                    rightPage.IsBottomRightCornerEnabled = false;
+                    rightPage.IsTopRightCornerEnabled = false;
+                }
+                else
+                {
+                    rightPage.IsBottomRightCornerEnabled = true;
+                    rightPage.IsTopRightCornerEnabled = true;
+                }
+
                 BookLoader.Instance().UpdatePrePageToCurrentPage();
 
                 UpdateLeftRightPage(BookLoader.Instance().PreviousPageLeftPart, BookLoader.Instance().PreviousPageRightPart, BookLoader.Instance().CurrentPageLeftPage, BookLoader.Instance().CurrentPageRightPage, BookLoader.Instance().NextPageLeftPart, BookLoader.Instance().NextPageRightPart);

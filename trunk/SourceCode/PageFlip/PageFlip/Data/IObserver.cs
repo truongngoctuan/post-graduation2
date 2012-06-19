@@ -59,5 +59,8 @@ namespace DataManager
     {
         public TurnType Type;
         public Image ClikedImage;
+
+        public bool CanTurnLeft;
+        public bool CanTurnRight;
     }
 }
