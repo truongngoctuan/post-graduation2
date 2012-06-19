@@ -59,16 +59,10 @@
     <Content Include="App_Data\EmployeeDB_log.ldf">
       <DependentUpon>EmployeeDB.mdf</DependentUpon>
     </Content>
-    <Content Include="ClientBin\Articles\0001.xml">
+    <Content Include="ClientBin\Articles\0002.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ClientBin\demo1_menu.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="ClientBin\menudata3.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="ClientBin\menudata2.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ClientBin\PageFlip.xap" />
