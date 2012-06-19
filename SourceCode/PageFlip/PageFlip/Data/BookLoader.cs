@@ -80,6 +80,20 @@ namespace DataManager
                 return Data._nextPageRightPart;
             }
         }
+        public bool CanTurnLeft
+        {
+            get
+            {
+                return Data.canTurnLeft;
+            }
+        }
+        public bool CanTurnRight
+        {
+            get
+            {
+                return Data.canTurnRight;
+            }
+        }
         #endregion
         
         //public bool IsRightToLeftTransition;
@@ -133,15 +147,47 @@ namespace DataManager
         {
             DataEventState.BeforeAnimation(ref Data);
 
-            UpdateParams = new UpdateInterfaceParams() { Type = Data.TurnTypeManager, ClikedImage = Data.ClickedImage };
+            
+            if (BookState == BookLoaderState.MenuPage)
+            {
+                if (Data.iCurrentMenuPage == 0)
+                {
+                    Data.canTurnLeft = false;
+                }
+                else
+                {
+                    Data.canTurnLeft = true;
+                }
+
+                if (Data.iCurrentMenuPage + 2 >= Data.CurrentMenuPage.ListSubMenu.Count)
+                {
+                    Data.canTurnRight = false;
+                }
+                else
+                {
+                    Data.canTurnRight = true;
+                }
+            }
+            if (BookState == BookLoaderState.ArticlePage)
+            {
+            }
+
+            UpdateParams = new UpdateInterfaceParams()
+            {
+                Type = Data.TurnTypeManager,
+                ClikedImage = Data.ClickedImage
+                //,
+                //CanTurnLeft = Data.canTurnLeft,
+                //CanTurnRight = Data.canTurnRight
+            };
         }
         
-        public bool IsCanTransitionRight()
-        {
-            if (Data._nextPageRightPart == null && Data._nextPageLeftPart == null) 
-                return false;
-            return true;
-        }
+        //public bool IsCanTransitionRight()
+        //{
+        //    if (Data._nextPageRightPart == null && Data._nextPageLeftPart == null) 
+        //        return false;
+        //    return true;
+        //}
 
         #region Control Events From Outside
         //observer tamplate for control tile signal: to submenu page, to list tiles of article and article content
@@ -203,7 +249,7 @@ namespace DataManager
             }
             else
             {
-                if (Data.iCurrentMenuPage + 3 < Data.CurrentMenuPage.ListSubMenu.Count)
+                if (Data.CurrentArticlePage + 3 < Data.CurrentMenuPage.ListSubMenu.Count)
                 {
                     DataEventState = new DataEventNextMenu();
                     BookState = BookLoaderState.MenuPage;

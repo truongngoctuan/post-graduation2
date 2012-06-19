@@ -463,7 +463,7 @@ namespace PageFlip
             try
             {
                 BookLoader.Instance().UpdatePrePageToCurrentPage();
-                bCanTransitionRight = BookLoader.Instance().IsCanTransitionRight();
+                //bCanTransitionRight = BookLoader.Instance().IsCanTransitionRight();
 
                 this.Page1Sheet.sheetImage.Children.Clear();
                 this.Page2SheetSection2.sheetImage.Children.Clear();
