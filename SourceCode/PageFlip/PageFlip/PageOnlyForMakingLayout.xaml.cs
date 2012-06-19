@@ -36,7 +36,7 @@ namespace PageFlip
             container.Child = cv;
             Paragraph paragraph = new Paragraph();
             paragraph.Inlines.Add(container);
-            asd.Blocks.Add(paragraph);
+            //asd.Blocks.Add(paragraph);
 
 
         }

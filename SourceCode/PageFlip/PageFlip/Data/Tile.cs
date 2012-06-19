@@ -120,9 +120,14 @@ namespace DataManager
     {
         public string ImageSource;//...
         public int GridColumn, GridRow, GridColumnSpan, GridRowSpan;
-        //public int Page;
-        //margin
-        //border
+        public string VerticalAlignment;
+        public string HorizontalAlignment;
+
+        public Tile()
+        {
+            VerticalAlignment = "Center";
+            HorizontalAlignment = "Center";
+        }
 
         
         public virtual UIElement generate()
@@ -147,63 +152,72 @@ namespace DataManager
         public int NGridRows;
         public int NGridColumns;
 
+        public void FromXmlBasicAttribute(string AttName, string AttValue)
+        {
+            switch (AttName)
+            {
+                case "NGridRows":
+                    {
+                        this.NGridRows = int.Parse(AttValue);
+                        break;
+                    }
+                case "NGridColumns":
+                    {
+                        this.NGridColumns = int.Parse(AttValue);
+                        break;
+                    }
+                case "Name":
+                    {
+                        this.Name = AttValue;
+                        break;
+                    }
+                case "GridRow":
+                    {
+                        this.GridRow = int.Parse(AttValue);
+                        break;
+                    }
+                case "GridColumn":
+                    {
+                        this.GridColumn = int.Parse(AttValue);
+                        break;
+                    }
+                case "GridColumnSpan":
+                    {
+                        this.GridColumnSpan = int.Parse(AttValue);
+                        break;
+                    }
+                case "GridRowSpan":
+                    {
+                        this.GridRowSpan = int.Parse(AttValue);
+                        break;
+                    }
+                case "ImageSource":
+                    {
+                        this.ImageSource = AttValue;
+                        break;
+                    }
+                case "VerticalAlignment":
+                    {
+                        this.VerticalAlignment = AttValue;
+                        break;
+                    }
+                case "HorizontalAlignment":
+                    {
+                        this.HorizontalAlignment = AttValue;
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+        }
         public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
         {
             //TileMenu tile = new TileMenu();
             for (int i = 0; i < reader.AttributeCount - 1; i++)
             {
-                switch (reader.Name)
-                {
-                    case "NGridRows":
-                        {
-                            this.NGridRows = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "NGridColumns":
-                        {
-                            this.NGridColumns = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "Name":
-                        {
-                            this.Name = reader.Value;
-                            break;
-                        }
-                    //case "Page":
-                    //    {
-                    //        tile.Page = int.Parse(reader.Value);
-                    //        break;
-                    //    }
-                    case "GridRow":
-                        {
-                            this.GridRow = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "GridColumn":
-                        {
-                            this.GridColumn = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "GridColumnSpan":
-                        {
-                            this.GridColumnSpan = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "GridRowSpan":
-                        {
-                            this.GridRowSpan = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "ImageSource":
-                        {
-                            this.ImageSource = reader.Value;
-                            break;
-                        }
-                    default:
-                        {
-                            break;
-                        }
-                }
+                this.FromXmlBasicAttribute(reader.Name, reader.Value);
                 reader.MoveToNextAttribute();
             }
 
@@ -219,12 +233,12 @@ namespace DataManager
 <Button 
 xmlns='http://schemas.microsoft.com/client/2007'
 xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
+Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}' VerticalAlignment='{5}' HorizontalAlignment='{6}'
 >
-            <Image Source='{4}'></Image>
+            <Image Source='{4}' Stretch='None'></Image>
         </Button>
 ";
-            xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, ImageSource);
+            xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, ImageSource, VerticalAlignment, HorizontalAlignment);
             Button bt = (Button)Ultis.LoadXamlFromString(xaml);
             bt.Click += new RoutedEventHandler(bt_Click);
             bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;

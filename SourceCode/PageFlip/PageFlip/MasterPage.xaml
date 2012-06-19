@@ -130,8 +130,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="Images/MasterPage/background.jpg" Stretch="UniformToFill"></ImageBrush>
         </Grid.Background>
-        <Grid VerticalAlignment="Top" Grid.Row="0" Grid.Column="1"
-                  Name="containerHeader" Background="White" Canvas.ZIndex="1">
+        <Grid Name="containerHeader" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1"
+                   Background="White" Canvas.ZIndex="1">
             <Grid.Effect>
                 <DropShadowEffect Direction="-90" Opacity="0.05" BlurRadius="10"></DropShadowEffect>
             </Grid.Effect>
@@ -148,14 +148,12 @@
         <ProgressBar Canvas.ZIndex="1" Grid.Row="1" x:Name="pbar" IsIndeterminate="False" Background="White" Foreground="Black" Minimum="0" Maximum="100"
            Value="0" BorderBrush="{x:Null}"  Style="{StaticResource ProgressBarStyle1}" />
 
-        <Grid Canvas.ZIndex="1" Grid.Row="2" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Name="containerContent" RenderTransformOrigin="0.5,0.5">
+        <Grid Canvas.ZIndex="1" Grid.Row="2" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Name="containerContent" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="400" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
         </Grid>
-        <Grid Canvas.ZIndex="1" VerticalAlignment="Bottom" Grid.Row="3" Name="containerFooter">
+        <Grid Name="containerFooter" Canvas.ZIndex="1" VerticalAlignment="Bottom" Grid.Row="3">
             <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/MasterPage/FooterLeft.png" Stretch="None"></Image>
             <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/FooterRight.png" Stretch="None"></Image>
         </Grid>
