@@ -367,26 +367,52 @@ namespace DataManager
             }
         }
 
-        void OnNextArticlePage()
+        void OnNextArticlePage(bool IsByConner = false)
         {
-            if (Data.CurrentArticlePage + 3 < Data.CurrentArticle.ListSubMenu.Count)
+            if (IsByConner)
             {
-                //IsRightToLeftTransition = true;
-                DataEventState = new DataEventNextArticlePage();
-                BookState = BookLoaderState.ArticlePage;
-                Notify();
+                if (Data.CurrentArticlePage + 3 < Data.CurrentArticle.ListSubMenu.Count)
+                {
+                    //IsRightToLeftTransition = true;
+                    DataEventState = new DataEventNextArticlePage();
+                    BookState = BookLoaderState.ArticlePage;
+                    PrepareNotify();
+                }
             }
+            else
+            {
+                if (Data.CurrentArticlePage + 3 < Data.CurrentArticle.ListSubMenu.Count)
+                {
+                    //IsRightToLeftTransition = true;
+                    DataEventState = new DataEventNextArticlePage();
+                    BookState = BookLoaderState.ArticlePage;
+                    Notify();
+                }
+            }
+
         }
 
-        void OnPreviousArticlePage()
+        void OnPreviousArticlePage(bool IsByConner = false)
         {
-            if (Data.CurrentArticlePage - 2 >= 0)
+            if (IsByConner)
             {
-
-                DataEventState = new DataEventPreviousArticlePage();
-                BookState = BookLoaderState.ArticlePage;
-                Notify();
+                if (Data.CurrentArticlePage - 2 >= 0)
+                {
+                    DataEventState = new DataEventPreviousArticlePage();
+                    BookState = BookLoaderState.ArticlePage;
+                    PrepareNotify();
+                }
             }
+            else
+            {
+                if (Data.CurrentArticlePage - 2 >= 0)
+                {
+                    DataEventState = new DataEventPreviousArticlePage();
+                    BookState = BookLoaderState.ArticlePage;
+                    Notify();
+                }
+            }
+
         }
 
         void OnBackArticle()
@@ -430,7 +456,7 @@ namespace DataManager
             }
             if (BookState == BookLoaderState.ArticlePage)
             {
-                OnNextArticlePage();
+                OnNextArticlePage(IsByConner);
                 return;
             }
         }
@@ -445,7 +471,7 @@ namespace DataManager
             }
             if (BookState == BookLoaderState.ArticlePage)
             {
-                OnPreviousArticlePage();
+                OnPreviousArticlePage(IsByConner);
                 return;
             }
         }
