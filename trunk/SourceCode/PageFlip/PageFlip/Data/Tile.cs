@@ -52,17 +52,22 @@ namespace DataManager
                             {
                                 item = new TileArticle();
                                 break;
-                            }
-                        case "MenuPage":
+                            }//TilePage
+                        case "TilePage":
                             {
-                                item = new TilePageMenu();
+                                item = new TilePage();
                                 break;
                             }
-                        case "ArticlePage":
-                            {
-                                item = new TilePageMenu();
-                                break;
-                            }
+                        //case "MenuPage":
+                        //    {
+                        //        item = new TilePageMenu();
+                        //        break;
+                        //    }
+                        //case "ArticlePage":
+                        //    {
+                        //        item = new TilePageMenu();
+                        //        break;
+                        //    }
                         case "TileClickableImage":
                             {
                                 item = new TileClickableImage();
@@ -70,6 +75,7 @@ namespace DataManager
                             }
                         default:
                             {
+                                MessageBox.Show("ReadFromXml: no type");
                                 break;
                             }
                     }
@@ -123,54 +129,41 @@ namespace DataManager
         public string VerticalAlignment;
         public string HorizontalAlignment;
 
+        public int CurrentLvl;
+        
+        //public int NGridRows;
+        //public int NGridColumns;
+
         public Tile()
         {
             VerticalAlignment = "Center";
             HorizontalAlignment = "Center";
         }
 
-        
         public virtual UIElement generate()
         {
             return new Button() { Width = 100, Height = 25, Content = "Test Tile" };
         }
 
-        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
-        {
-            //return new Tile();
-        }
-    }
-
-    public class TileMenu : Tile
-    {//tile when click vao open new menu
-        //use 2 variable to indicate position of his item in global menu
-        //to load new sub menu.
-        public int CurrentLvl;
-        
-
-        public string Name;
-        public int NGridRows;
-        public int NGridColumns;
-
         public void FromXmlBasicAttribute(string AttName, string AttValue)
         {
             switch (AttName)
             {
-                case "NGridRows":
-                    {
-                        this.NGridRows = int.Parse(AttValue);
-                        break;
-                    }
-                case "NGridColumns":
-                    {
-                        this.NGridColumns = int.Parse(AttValue);
-                        break;
-                    }
-                case "Name":
-                    {
-                        this.Name = AttValue;
-                        break;
-                    }
+                //case "NGridRows":
+                //    {
+                //        this.NGridRows = int.Parse(AttValue);
+                //        break;
+                //    }
+                //case "NGridColumns":
+                //    {
+                //        this.NGridColumns = int.Parse(AttValue);
+                //        break;
+                //    }
+                //case "Name":
+                //    {
+                //        this.Name = AttValue;
+                //        break;
+                //    }
                 case "GridRow":
                     {
                         this.GridRow = int.Parse(AttValue);
@@ -212,12 +205,40 @@ namespace DataManager
                     }
             }
         }
+
+        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        {
+            for (int i = 0; i < reader.AttributeCount - 1; i++)
+            {
+                this.FromXmlBasicAttribute(reader.Name, reader.Value);
+                reader.MoveToNextAttribute();
+            }
+        }
+    }
+
+    public class TileMenu : Tile
+    {//tile when click vao open new menu
+        //use 2 variable to indicate position of his item in global menu
+        //to load new sub menu.
+        public string Name;
         public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
         {
             //TileMenu tile = new TileMenu();
             for (int i = 0; i < reader.AttributeCount - 1; i++)
             {
                 this.FromXmlBasicAttribute(reader.Name, reader.Value);
+                switch (reader.Name)
+                {
+                    case "Name":
+                        {
+                            this.Name = reader.Value;
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
                 reader.MoveToNextAttribute();
             }
 
@@ -266,60 +287,24 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}' Vertic
     public class TileArticle : Tile
     {//tile that click open new article
         public string ArticleID;
-
         public string Name;
-        public int NGridRows;
-        public int NGridColumns;
 
         public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
         {
             for (int i = 0; i < reader.AttributeCount - 1; i++)
             {
+                this.FromXmlBasicAttribute(reader.Name, reader.Value);
+
                 switch (reader.Name)
                 {
-                    case "ArticleID":
-                        {
-                            this.ArticleID = reader.Value;
-                            break;
-                        }
-                    case "NGridRows":
-                        {
-                            this.NGridRows = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "NGridColumns":
-                        {
-                            this.NGridColumns = int.Parse(reader.Value);
-                            break;
-                        }
                     case "Name":
                         {
                             this.Name = reader.Value;
                             break;
                         }
-                    case "GridRow":
+                    case "ArticleID":
                         {
-                            this.GridRow = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "GridColumn":
-                        {
-                            this.GridColumn = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "GridColumnSpan":
-                        {
-                            this.GridColumnSpan = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "GridRowSpan":
-                        {
-                            this.GridRowSpan = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "ImageSource":
-                        {
-                            this.ImageSource = reader.Value;
+                            this.ArticleID = reader.Value;
                             break;
                         }
                     default:
@@ -337,12 +322,12 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}' Vertic
 <Button 
 xmlns='http://schemas.microsoft.com/client/2007'
 xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
+Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}' VerticalAlignment='{5}' HorizontalAlignment='{6}'
 >
-            <Image Source='{4}'></Image>
+            <Image Source='{4}' Stretch='None'></Image>
         </Button>
 ";
-            xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, ImageSource);
+            xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, ImageSource, VerticalAlignment, HorizontalAlignment);
             Button bt = (Button)Ultis.LoadXamlFromString(xaml);
             bt.Click += new RoutedEventHandler(bt_Click);
             bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
@@ -359,59 +344,7 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
 
     public class TileClickableImage : Tile
     {//tile that click open new article
-        public int NGridRows;
-        public int NGridColumns;
         Image _img;
-
-        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
-        {
-            for (int i = 0; i < reader.AttributeCount - 1; i++)
-            {
-                switch (reader.Name)
-                {
-                    case "NGridRows":
-                        {
-                            this.NGridRows = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "NGridColumns":
-                        {
-                            this.NGridColumns = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "GridRow":
-                        {
-                            this.GridRow = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "GridColumn":
-                        {
-                            this.GridColumn = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "GridColumnSpan":
-                        {
-                            this.GridColumnSpan = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "GridRowSpan":
-                        {
-                            this.GridRowSpan = int.Parse(reader.Value);
-                            break;
-                        }
-                    case "ImageSource":
-                        {
-                            this.ImageSource = reader.Value;
-                            break;
-                        }
-                    default:
-                        {
-                            break;
-                        }
-                }
-                reader.MoveToNextAttribute();
-            }
-        }
 
         public override UIElement generate()
         {
@@ -419,12 +352,12 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
 <Button 
 xmlns='http://schemas.microsoft.com/client/2007'
 xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'
+Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  VerticalAlignment='{5}' HorizontalAlignment='{6}'
 >
-            <Image Source='{4}'></Image>
+            <Image Source='{4}' Stretch='None'></Image>
         </Button>
 ";
-            xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, ImageSource);
+            xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, ImageSource, VerticalAlignment, HorizontalAlignment);
             Button bt = (Button)Ultis.LoadXamlFromString(xaml);
             bt.Click += new RoutedEventHandler(bt_Click);
             bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
