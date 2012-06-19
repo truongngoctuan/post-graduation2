@@ -105,7 +105,8 @@ namespace DataManager
             Data.CurrentMenuPage = new TileMenu();
 
             //load data from menudata.xml
-            Uri url = new Uri("menudata3.xml", UriKind.Relative);
+            Uri url = new Uri("demo1_menu.xml", UriKind.Relative);
+            //Uri url = new Uri("menudata3.xml", UriKind.Relative);
             WebClient client = new WebClient();
             client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);
             client.DownloadStringAsync(url);

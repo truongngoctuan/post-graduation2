@@ -493,6 +493,7 @@ namespace SLMitsuControls
                     (from, to, percent) => new Point { X = from.X + (to.X - from.X) * percent, Y = from.Y + (to.Y - from.Y) * percent });
             anim.Completed += new EventHandler(anim_Completed);
             anim.Begin();
+            //MessageBox.Show("DropPage");
         }
 
         public void TurnPage() 
@@ -523,6 +524,8 @@ namespace SLMitsuControls
                     (from, to, percent) => new Point { X = from.X + (to.X - from.X) * percent, Y = from.Y + (to.Y - from.Y) * percent });
             anim.Completed += new EventHandler(anim_Completed);
             anim.Begin();
+            //MessageBox.Show("TurnPage");
+            BookLoader.Instance().OnNextPage();
         }
 
         public void AutoTurnPage(CornerOrigin fromCorner, int duration)

@@ -13,8 +13,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid x:Name="bookContainer" Grid.Row="1" Grid.ColumnSpan="1" Width="1000" Height="400" Margin="-500,0,0,0">
-            <local:UCBook x:Name="book"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Loaded="book_Loaded"/>
+        <Grid x:Name="bookContainer" Grid.Row="1" Grid.ColumnSpan="1" Width="920" Height="520" Margin="-460,0,0,0">
+            <local:UCBook x:Name="book"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Loaded="book_Loaded" Margin="0,0,0,0" 
+                           Width="920" Height="520"/>
         </Grid>
         
     </Grid>

@@ -17,7 +17,8 @@ namespace DataManager
    
     public class TilePage:MenuItem
     {//generate a page from multiple tiles
-        //tiles in this case mean chapter thumnails
+        
+
         public virtual UIElement generatePage()
         {
             return new Button() { Width = 100, Height = 25, Content = "Test Tile Page "};
@@ -33,8 +34,10 @@ namespace DataManager
         public int NGridRows;
         public int NGridColumns;
 
+        public string Margin;
         public TilePageMenu()
         {
+            Margin = "0,0,0,0";
         }
 
         public override UIElement generatePage()
@@ -51,22 +54,38 @@ namespace DataManager
                 xamlRows += "<RowDefinition Height='*'></RowDefinition>\r\n";
             }
 
+
+            string strColor;
+            if (this.currentIndex % 2 == 0) strColor = "Orange";
+            else strColor = "Violet";
             string xaml = string.Format(@"
-<Grid 
-xmlns='http://schemas.microsoft.com/client/2007'
+<Grid
+    xmlns='http://schemas.microsoft.com/client/2007'
     xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
-Background='White'>
-        <Grid.ColumnDefinitions>
-            {0}
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            {1}
-        </Grid.RowDefinitions>
+Background='{3}'
+>
+<Grid.ColumnDefinitions>
+    <ColumnDefinition Width='*'></ColumnDefinition>
+</Grid.ColumnDefinitions>
+
+<Grid.RowDefinitions>
+    <RowDefinition Height='*'></RowDefinition>
+</Grid.RowDefinitions>
+
+    <Grid Background='White' ShowGridLines='True' Margin='{2}'>
+            <Grid.ColumnDefinitions>
+                {0}
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                {1}
+            </Grid.RowDefinitions>
     </Grid>
-", xamlColumns, xamlRows);
+</Grid>
+", xamlColumns, xamlRows, this.Margin, strColor);
 
             int iCounter = 0;
-            Grid grd = (Grid)Ultis.LoadXamlFromString(xaml);
+            Grid grdRoot = (Grid)Ultis.LoadXamlFromString(xaml);
+            Grid grd = (Grid)grdRoot.Children[0];
             //load item
             foreach (Tile item in ListSubMenu)
             {
@@ -75,7 +94,7 @@ Background='White'>
             }
 
             if (iCounter > 0)
-                return grd;
+                return grdRoot;
             else
                 return null;
         }
@@ -95,6 +114,11 @@ Background='White'>
                     case "NGridColumns":
                         {
                             this.NGridColumns = int.Parse(reader.Value);
+                            break;
+                        }
+                    case "Margin":
+                        {
+                            this.Margin = reader.Value;
                             break;
                         }
                     default:
