@@ -259,21 +259,21 @@
     <Resource Include="Images\Demo1\beauty_02_01.jpg" />
     <Resource Include="Images\Demo1\beauty_02_02.jpg" />
     <Resource Include="Images\Demo1\beauty_02_03.jpg" />
-    <Resource Include="Images\Demo1\sub-fachion_01_01.jpg" />
-    <Resource Include="Images\Demo1\sub-fachion_01_02.jpg" />
-    <Resource Include="Images\Demo1\sub-fachion_01_03.jpg" />
-    <Resource Include="Images\Demo1\sub-fachion_02_01.jpg" />
-    <Resource Include="Images\Demo1\sub-fachion_02_02.jpg" />
-    <Resource Include="Images\Demo1\sub-fachion_02_03.jpg" />
-    <Resource Include="Images\Demo1\sub-fachion_02_04.jpg" />
-    <Resource Include="Images\Demo1\sub-fachion_02_05.jpg" />
-    <Resource Include="Images\Demo1\sub-fachion_02_06.jpg" />
     <Resource Include="Images\Demo1\sub_content_01_01.jpg" />
     <Resource Include="Images\Demo1\sub_content_01_02.jpg" />
     <Resource Include="Images\Demo1\sub_content_02_01.jpg" />
     <Resource Include="Images\Demo1\sub_content_02_02.jpg" />
     <Resource Include="Images\Demo1\sub_content_02_03.jpg" />
     <Resource Include="Images\Demo1\home_02_01.jpg" />
+    <Resource Include="Images\Demo1\sub_fashion_01_01.jpg" />
+    <Resource Include="Images\Demo1\sub_fashion_01_02.jpg" />
+    <Resource Include="Images\Demo1\sub_fashion_01_03.jpg" />
+    <Resource Include="Images\Demo1\sub_fashion_02_01.jpg" />
+    <Resource Include="Images\Demo1\sub_fashion_02_02.jpg" />
+    <Resource Include="Images\Demo1\sub_fashion_02_03.jpg" />
+    <Resource Include="Images\Demo1\sub_fashion_02_04.jpg" />
+    <Resource Include="Images\Demo1\sub_fashion_02_05.jpg" />
+    <Resource Include="Images\Demo1\sub_fashion_02_06.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
