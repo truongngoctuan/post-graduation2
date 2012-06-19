@@ -249,7 +249,7 @@ namespace DataManager
             }
             else
             {
-                if (Data.CurrentArticlePage + 3 < Data.CurrentMenuPage.ListSubMenu.Count)
+                if (Data.iCurrentMenuPage + 3 < Data.CurrentMenuPage.ListSubMenu.Count)
                 {
                     DataEventState = new DataEventNextMenu();
                     BookState = BookLoaderState.MenuPage;
