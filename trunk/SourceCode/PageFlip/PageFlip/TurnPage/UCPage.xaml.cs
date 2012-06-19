@@ -56,7 +56,7 @@ namespace SLMitsuControls
         }
         public RoutedEventHandler TurnedByConner;
 
-        void anim_Completed(object sender, EventArgs e)
+        void anim_TurnPageCompleted(object sender, EventArgs e)
         {
             ApplyParameters(new PageParameters(this.RenderSize));
 
@@ -73,6 +73,19 @@ namespace SLMitsuControls
             OnTurnedByConner();
         }
 
+        void anim_DropPageCompleted(object sender, EventArgs e)
+        {
+            ApplyParameters(new PageParameters(this.RenderSize));
+
+            if (Status == PageStatus.TurnAnimation)
+            {
+                Status = PageStatus.None;
+                if (PageTurned != null)
+                    PageTurned(this, new RoutedEventArgs());
+            }
+            else
+                Status = PageStatus.None;
+        }
 
         void animAutoTurnPage_Completed(object sender, EventArgs e)
         {
@@ -480,7 +493,7 @@ namespace SLMitsuControls
             //anim.AccelerationRatio = 0.6;
             //anim.CurrentTimeInvalidated += new EventHandler(anim_CurrentTimeInvalidated);
             
-            //anim.Completed += new EventHandler(anim_Completed);
+            //anim.Completed += new EventHandler(anim_TurnPageCompleted);
 
             //var sb = new Storyboard();
             //sb.Duration = anim.Duration;
@@ -490,7 +503,7 @@ namespace SLMitsuControls
 
             //(this.Parent as FrameworkElement).Resources.Add(sb);
             //this.Resources.Add(sb);
-            //sb.Completed += new EventHandler(anim_Completed);
+            //sb.Completed += new EventHandler(anim_TurnPageCompleted);
             //sb.Begin();
 
             //this.BeginAnimation(UCPage.CornerPointProperty, anim);
@@ -498,7 +511,7 @@ namespace SLMitsuControls
             var anim = new TimerAnimation<Point>(this, UCPage.CornerPointProperty,
                 OriginToPoint(this, origin), new Duration(TimeSpan.FromMilliseconds(duration)),
                     (from, to, percent) => new Point { X = from.X + (to.X - from.X) * percent, Y = from.Y + (to.Y - from.Y) * percent });
-            anim.Completed += new EventHandler(anim_Completed);
+            anim.Completed += new EventHandler(anim_DropPageCompleted);
             anim.Begin();
             //MessageBox.Show("DropPage");
         }
@@ -524,12 +537,12 @@ namespace SLMitsuControls
             //anim.AccelerationRatio = 0.6;
 
             //anim.CurrentTimeInvalidated +=new EventHandler(anim_CurrentTimeInvalidated);
-            //anim.Completed += new EventHandler(anim_Completed);
+            //anim.Completed += new EventHandler(anim_TurnPageCompleted);
             //this.BeginAnimation(UCPage.CornerPointProperty, anim);
             var anim = new TimerAnimation<Point>(this, UCPage.CornerPointProperty,
                 OriginToOppositePoint(this, origin), new Duration(TimeSpan.FromMilliseconds(duration)),
                     (from, to, percent) => new Point { X = from.X + (to.X - from.X) * percent, Y = from.Y + (to.Y - from.Y) * percent });
-            anim.Completed += new EventHandler(anim_Completed);
+            anim.Completed += new EventHandler(anim_TurnPageCompleted);
             anim.Begin();
             //MessageBox.Show("TurnPage");
             BookLoader.Instance().OnNextPage();
