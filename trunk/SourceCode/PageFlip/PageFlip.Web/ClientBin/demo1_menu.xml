@@ -17,22 +17,85 @@
           GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_01_03.jpg'/>
       </item>
 
-      <item Type='MenuPage' NGridRows='1' NGridColumns='1' Margin='10,20,20,20'>
+      <item Type='MenuPage' NGridRows='2' NGridColumns='1' Margin='10,20,20,20'>
         <item Type='Menu' Name='a'
           GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_02_01.jpg'/>
         <item Type='Menu' Name='a'
           GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_02_02.jpg'/>
         <item Type='Menu' Name='a'
-          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_02_03.jpg'/>
+          GridRow='1' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_02_03.jpg'/>
         <item Type='Menu' Name='a'
-          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_02_04.jpg'/>
+          GridRow='1' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/lifestyle_02_04.jpg'/>
       </item>
     </item>
-    <item Type='Menu' Name='LIFESTYLE'
-      GridRow='0' GridColumn='1' GridRowSpan='2' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_02.jpg'/>
+    
+    <item Type='Menu' Name='FASHION'
+      GridRow='0' GridColumn='1' GridRowSpan='2' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_02.jpg'>
+      <item Type='MenuPage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_01_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_01_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_01_03.jpg'/>
+      </item>
+
+      <item Type='MenuPage' NGridRows='3' NGridColumns='1' Margin='10,20,20,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='3' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_02_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_02_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='1' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_02_03.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='2' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_02_04.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='2' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_02_05.jpg'/>
+      </item>
+    </item>
+    
     <item Type='Menu' Name='ART'
-      GridRow='3' GridColumn='0' GridRowSpan='2' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_03.jpg'/>
-    <item Type='Menu' Name='DESIGN' 
-      GridRow='2' GridColumn='1' GridRowSpan='3' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_04.jpg'/>
+      GridRow='3' GridColumn='0' GridRowSpan='2' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_03.jpg'>
+      <item Type='MenuPage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_01_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_01_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_01_03.jpg'/>
+      </item>
+
+      <item Type='MenuPage' NGridRows='1' NGridColumns='1' Margin='10,20,20,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_03.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/art_02_04.jpg'/>
+      </item>
+    </item>
+    
+    <item Type='Menu' Name='BEAUTY'
+      GridRow='2' GridColumn='1' GridRowSpan='3' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_04.jpg'>
+      <item Type='MenuPage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_01_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_01_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_01_03.jpg'/>
+      </item>
+
+      <item Type='MenuPage' NGridRows='1' NGridColumns='1' Margin='10,20,20,20'>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_02_01.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Center' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_02_02.jpg'/>
+        <item Type='Menu' Name='a'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/beauty_02_03.jpg'/>
+      </item>
+    </item>
   </item>
 </item>
