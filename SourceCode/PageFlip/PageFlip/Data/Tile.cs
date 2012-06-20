@@ -14,6 +14,7 @@ using System.IO;
 using System.Xml;
 using PageFlip;
 using PageFlip.Animation.UISlider;
+using PageFlip.Animation.UISliderR;
 using System.Windows.Media.Imaging;
 
 namespace DataManager
@@ -78,6 +79,11 @@ namespace DataManager
                         case "TileScrollUI":
                             {
                                 item = new TileScrollUI();
+                                break;
+                            }
+                        case "TileScrollUI_LR":
+                            {
+                                item = new TileScrollUI_LR();
                                 break;
                             }
                         default:
@@ -390,7 +396,7 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
 
     public class TileScrollUI : Tile
     {
-        UIScroll curScroll;
+        PageFlip.Animation.UISlider.UIScroll curScroll;
         public override UIElement generate()
         {
             string xaml = @"
@@ -405,7 +411,7 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
                         </UIScroll:UIScroll>
                         ";
             xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, VerticalAlignment, HorizontalAlignment);
-            UIScroll uiScroll = (UIScroll)(System.Windows.Markup.XamlReader.Load(xaml) as UIElement);
+            PageFlip.Animation.UISlider.UIScroll uiScroll = (PageFlip.Animation.UISlider.UIScroll)(System.Windows.Markup.XamlReader.Load(xaml) as UIElement);
             uiScroll.ButtonHeight = 20.0;
             curScroll = uiScroll;
             uiScroll.LeftButton.Opacity = 0;
@@ -452,6 +458,76 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
         {
 
             MessageBox.Show((sender as Image).Name);
+            //BookLoader.Instance().OnClickToArticle(ArticleID);
+            //goi 1 ham ben masterpage
+            //  BookLoader.Instance().OnClickedImage(_img);
+        }
+    }
+
+    public class TileScrollUI_LR : Tile
+    {
+        Image _img;
+        PageFlip.Animation.UISliderR.UIScroll curScroll;
+        public override UIElement generate()
+        {
+            string xaml = @"
+                        <UIScroll:UIScroll 
+                        xmlns='http://schemas.microsoft.com/client/2007'
+                        xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+                        xmlns:UIScroll='clr-namespace:PageFlip.Animation.UISliderR;assembly=PageFlip'  
+                        x:Name='abc' ScrollingTime ='300' UIWidth='430' UIHeight='472' 
+                        VisibleImages='1' Background='White'
+  Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  VerticalAlignment='{4}' HorizontalAlignment='{5}'
+                        >                    
+                        </UIScroll:UIScroll>
+                        ";
+            xaml = string.Format(xaml, GridRow, GridColumn, GridColumnSpan, GridRowSpan, VerticalAlignment, HorizontalAlignment);
+            PageFlip.Animation.UISliderR.UIScroll uiScroll = (PageFlip.Animation.UISliderR.UIScroll)(System.Windows.Markup.XamlReader.Load(xaml) as UIElement);
+            uiScroll.ButtonWidth = 20.0;
+            curScroll = uiScroll;
+            uiScroll.LeftButton.Opacity = 1;
+            uiScroll.RightButton.Opacity = 1;
+            uiScroll.MouseEnter += new MouseEventHandler(uiScroll_MouseEnter);
+            uiScroll.MouseLeave += new MouseEventHandler(uiScroll_MouseLeave);
+            double W = uiScroll.UIWidth;
+            double H = uiScroll.UIHeight;
+
+            for (int i = 1; i <= 3; i++)
+            {
+                Image img = new Image();
+                img.Source = new BitmapImage(new Uri("/PageFlip;component/Images/Demo1/home_01_01_0" + i.ToString() + ".jpg", UriKind.Relative));
+                img.Width = W;
+                img.Height = H;
+                img.MouseLeftButtonDown += new MouseButtonEventHandler(bt_Click);
+
+                uiScroll.AddUI(img);
+            }
+
+            uiScroll.DisabledImageLeft = new BitmapImage(new Uri("/PageFlip;component/Images/Slider/BtnLeft_dis.png", UriKind.Relative));
+            uiScroll.EnabledImageLeft = new BitmapImage(new Uri("/PageFlip;component/Images/Slider/BtnLeft.png", UriKind.Relative));
+            uiScroll.DisabledImageRight = new BitmapImage(new Uri("/PageFlip;component/Images/Slider/BtnRight_dis.png", UriKind.Relative));
+            uiScroll.EnabledImageRight = new BitmapImage(new Uri("/PageFlip;component/Images/Slider/BtnRight.png", UriKind.Relative));
+
+           return uiScroll;
+        }
+
+        void uiScroll_MouseLeave(object sender, MouseEventArgs e)
+        {
+            curScroll.LeftButton.Opacity = 0;
+            curScroll.RightButton.Opacity = 0;
+        }
+
+        void uiScroll_MouseEnter(object sender, MouseEventArgs e)
+        {
+            curScroll.LeftButton.Opacity = 1;
+            curScroll.RightButton.Opacity = 1;
+        }
+
+
+        public void bt_Click(object sender, RoutedEventArgs e)
+        {
+
+           // MessageBox.Show((sender as Image).Name);
             //BookLoader.Instance().OnClickToArticle(ArticleID);
             //goi 1 ham ben masterpage
             //  BookLoader.Instance().OnClickedImage(_img);
