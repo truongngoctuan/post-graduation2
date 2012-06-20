@@ -82,6 +82,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animation\UISliderR\ActionButton.cs" />
+    <Compile Include="Animation\UISliderR\AnimationUI.xaml.cs">
+      <DependentUpon>AnimationUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Animation\UISliderR\AnimationUIEventArgs.cs" />
+    <Compile Include="Animation\UISliderR\SelectedItemChange.cs" />
+    <Compile Include="Animation\UISliderR\UIScroll.xaml.cs">
+      <DependentUpon>UIScroll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Animation\UISlider\ActionButton.cs" />
+    <Compile Include="Animation\UISlider\AnimationUI.xaml.cs">
+      <DependentUpon>AnimationUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Animation\UISlider\AnimationUIEventArgs.cs" />
+    <Compile Include="Animation\UISlider\SelectedItemChange.cs" />
+    <Compile Include="Animation\UISlider\UIScroll.xaml.cs">
+      <DependentUpon>UIScroll.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -144,6 +162,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Animation\UISliderR\AnimationUI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Animation\UISliderR\UIScroll.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Animation\UISlider\AnimationUI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Animation\UISlider\UIScroll.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -291,6 +325,26 @@
     <Resource Include="Images\MasterPage\TopRightMenu_Seperate.jpg" />
     <Resource Include="Images\MasterPage\ShowLogin.png" />
     <Resource Include="Images\MasterPage\ShowSearch.png" />
+    <Resource Include="Images\Slider\BtnDown.png" />
+    <Resource Include="Images\Slider\BtnDown_dis.png" />
+    <Resource Include="Images\Slider\BtnUp.png" />
+    <Resource Include="Images\Slider\BtnUp_dis.png" />
+    <Resource Include="Images\Demo1\recommended_content_01.png" />
+    <Resource Include="Images\Demo1\recommended_content_02.png" />
+    <Resource Include="Images\Demo1\recommended_content_03.png" />
+    <Resource Include="Images\Demo1\recommended_content_04.png" />
+    <Resource Include="Images\Demo1\recommended_content_05.png" />
+    <Resource Include="Images\Demo1\recommended_content_06.png" />
+    <Resource Include="Images\Demo1\recommended_content_07.png" />
+    <Resource Include="Images\Demo1\recommended_content_08.png" />
+    <Resource Include="Images\Demo1\recommended_content_09.png" />
+    <Resource Include="Images\Slider\BtnLeft.png" />
+    <Resource Include="Images\Slider\BtnLeft_dis.png" />
+    <Resource Include="Images\Slider\BtnRight.png" />
+    <Resource Include="Images\Slider\BtnRight_dis.png" />
+    <Resource Include="Images\Demo1\home_01_01_01.jpg" />
+    <Resource Include="Images\Demo1\home_01_01_02.jpg" />
+    <Resource Include="Images\Demo1\home_01_01_03.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

@@ -475,7 +475,7 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
                         xmlns='http://schemas.microsoft.com/client/2007'
                         xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
                         xmlns:UIScroll='clr-namespace:PageFlip.Animation.UISliderR;assembly=PageFlip'  
-                        x:Name='abc' ScrollingTime ='300' UIWidth='430' UIHeight='472' 
+                        x:Name='abc' ScrollingTime ='300' UIWidth='430' UIHeight='480' 
                         VisibleImages='1' Background='White'
   Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  VerticalAlignment='{4}' HorizontalAlignment='{5}'
                         >                    
