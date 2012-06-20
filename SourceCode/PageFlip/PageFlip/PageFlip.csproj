@@ -102,6 +102,7 @@
     <Compile Include="Data\IObserver.cs" />
     <Compile Include="Data\Tile.cs" />
     <Compile Include="Data\TilePage.cs" />
+    <Compile Include="Data\Tile\TileArticleBigView.cs" />
     <Compile Include="Data\Ultis.cs" />
     <Compile Include="Effects\GutterBookEffect.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -276,6 +277,8 @@
     <Resource Include="Images\Demo1\sub_content_01_01.jpg" />
     <Resource Include="Images\Demo1\sub_content_01_02.jpg" />
     <Resource Include="Images\Demo1\sub_content_01_background.jpg" />
+    <Resource Include="Images\Demo1\lifestyle_01_bigview01.jpg" />
+    <Resource Include="Images\Demo1\lifestyle_01_bigview02.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
@@ -305,6 +308,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

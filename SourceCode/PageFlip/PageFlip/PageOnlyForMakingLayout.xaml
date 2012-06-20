@@ -56,7 +56,38 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="None" Source="/PageFlip;component/Images/Demo1/lifestyle_01_01.jpg"></Image>
+                <!--<Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="None" Source="/PageFlip;component/Images/Demo1/lifestyle_01_01.jpg"></Image>-->
+                <Grid ShowGridLines="True"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="None" Source="/PageFlip;component/Images/Demo1/lifestyle_01_bigview01.jpg"></Image>
+                    <StackPanel Orientation="Vertical" 
+                                Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                        <Image Stretch="None" Source="/PageFlip;component/Images/Demo1/lifestyle_01_bigview02.jpg"></Image>
+                        <RichTextBox Width="208" Height="292" >
+                            <Paragraph>
+                                Mùa hè đã đến, thời gian chúng ta tạm rời xa những bộ đồng phục cứng nhắc để thỏa sức diện những bộ trang phục cá tính theo mỗi xì tai của mỗi người. Hãy update ngay các xu hướng cũng như các món đồ 'hot' dành cho teenboy của hè này cùng BECO Boy Shop nhé!
+                            </Paragraph>
+                            <Paragraph>
+                                Còn chần chừ gì mà không đến ngày BECO
+                            </Paragraph>
+                            <Paragraph>
+                                Hot line đồ nam: 097 219 5555
+                            </Paragraph>
+                            <Paragraph>
+                                Ngoài ra đồ nữ cũng có mặt ở 2 địa chỉ:
+                            </Paragraph>
+                            <Paragraph>
+                                Hotline đồ nữ: 0945 755 405 Hà Nội [...]
+                            </Paragraph>
+                        </RichTextBox>
+                    </StackPanel>
+                </Grid>
                 <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Stretch="None" Source="/PageFlip;component/Images/Demo1/lifestyle_01_02.jpg"></Image>
                 <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Stretch="None" Source="/PageFlip;component/Images/Demo1/lifestyle_01_03.jpg"></Image>
                 
