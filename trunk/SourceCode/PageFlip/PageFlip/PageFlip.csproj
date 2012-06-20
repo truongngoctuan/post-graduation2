@@ -289,6 +289,8 @@
     <Resource Include="Images\MasterPage\TopRightMenu_Register.jpg" />
     <Resource Include="Images\MasterPage\TopRightMenu_Search.jpg" />
     <Resource Include="Images\MasterPage\TopRightMenu_Seperate.jpg" />
+    <Resource Include="Images\MasterPage\ShowLogin.png" />
+    <Resource Include="Images\MasterPage\ShowSearch.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
