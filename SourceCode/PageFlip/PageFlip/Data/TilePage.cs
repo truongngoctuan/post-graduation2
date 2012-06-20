@@ -59,8 +59,8 @@ namespace DataManager
             }
             else
             {
-                if (this.currentIndex % 2 == 0) strBackgroundColor = "<SolidColorBrush Color='Orange'></SolidColorBrush>";
-                else strBackgroundColor = "<SolidColorBrush Color='Violet'></SolidColorBrush>";
+                if (this.currentIndex % 2 == 0) strBackgroundColor = "<SolidColorBrush Color='White'></SolidColorBrush>";
+                else strBackgroundColor = "<SolidColorBrush Color='White'></SolidColorBrush>";
             }
             
             string xaml = string.Format(@"
