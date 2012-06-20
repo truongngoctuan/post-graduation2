@@ -279,6 +279,8 @@
     <Resource Include="Images\Demo1\sub_content_01_background.jpg" />
     <Resource Include="Images\Demo1\lifestyle_01_bigview01.jpg" />
     <Resource Include="Images\Demo1\lifestyle_01_bigview02.jpg" />
+    <Resource Include="Images\Button\ButtonNext.png" />
+    <Resource Include="Images\Button\ButtonPrevious.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
