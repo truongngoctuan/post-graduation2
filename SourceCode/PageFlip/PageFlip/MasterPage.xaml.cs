@@ -191,5 +191,20 @@ namespace PageFlip
                     }
             }
         }
+
+        private void btLogin_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("btLogin_Click");
+        }
+
+        private void btRegister_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
