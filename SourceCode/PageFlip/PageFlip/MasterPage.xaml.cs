@@ -194,7 +194,16 @@ namespace PageFlip
 
         private void btLogin_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("btLogin_Click");
+            if (imgLogin.Visibility == System.Windows.Visibility.Visible)
+            {
+                imgLogin.Visibility = System.Windows.Visibility.Collapsed;
+                //imgSearch.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                imgLogin.Visibility = System.Windows.Visibility.Visible;
+                imgSearch.Visibility = System.Windows.Visibility.Collapsed;
+            }
         }
 
         private void btRegister_Click(object sender, RoutedEventArgs e)
@@ -204,7 +213,16 @@ namespace PageFlip
 
         private void btSearch_Click(object sender, RoutedEventArgs e)
         {
-
+            if (imgSearch.Visibility == System.Windows.Visibility.Visible)
+            {
+                //imgLogin.Visibility = System.Windows.Visibility.Visible;
+                imgSearch.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            else
+            {
+                imgLogin.Visibility = System.Windows.Visibility.Collapsed;
+                imgSearch.Visibility = System.Windows.Visibility.Visible;
+            }
         }
     }
 }

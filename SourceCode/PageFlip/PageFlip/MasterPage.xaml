@@ -175,6 +175,7 @@
                     <Image Source="/PageFlip;component/Images/MasterPage/TopRightMenu_Search.jpg" Stretch="None"></Image>
                 </Button>
             </StackPanel>
+
         </Grid>
         
         <Button Grid.Row="2" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -208,5 +209,13 @@
 
 
         </Canvas>
+
+        <!-- show sub page-->
+        <Image Canvas.ZIndex="10" x:Name="imgLogin" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,40,10,0" Visibility="Collapsed"
+                   Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="1" 
+                   Source="/PageFlip;component/Images/MasterPage/ShowLogin.png" Stretch="None"></Image>
+        <Image Canvas.ZIndex="10" x:Name="imgSearch" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,40,10,0" Visibility="Collapsed"
+                   Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="1" 
+                   Source="/PageFlip;component/Images/MasterPage/ShowSearch.png" Stretch="None"></Image>
     </Grid>
 </navigation:Page>
