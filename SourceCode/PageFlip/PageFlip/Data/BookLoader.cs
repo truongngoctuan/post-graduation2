@@ -525,12 +525,24 @@ namespace DataManager
                 {
                     OnBack();
                 }
-                OnPreviousMenu(IsByConner);
+                else
+                {
+                    OnPreviousMenu(IsByConner);
+                }
+                
                 return;
             }
             if (BookState == BookLoaderState.ArticlePage)
             {
-                OnPreviousArticlePage(IsByConner);
+                if (Data.CurrentArticlePage == 0)
+                {
+                    OnBack();
+                }
+                else
+                {
+                    OnPreviousArticlePage(IsByConner);
+                }
+                
                 return;
             }
         }
