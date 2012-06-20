@@ -1,11 +1,11 @@
 ﻿<UserControl x:Class="SLMitsuControls.UCPage"
-    xmlns="http://schemas.microsoft.com/client/2007" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Loaded="OnLoaded" MouseLeftButtonDown="OnMouseDown" MouseLeftButtonUp="OnMouseUp"
-    MouseMove="OnMouseMove" MouseLeave="OnMouseLeave">
+	xmlns="http://schemas.microsoft.com/client/2007" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Loaded="OnLoaded" MouseLeftButtonDown="OnMouseDown" MouseLeftButtonUp="OnMouseUp"
+	MouseMove="OnMouseMove" MouseLeave="OnMouseLeave">
 	<Grid x:Name="mainGrid">
 		<!--Page 2 begin-->
-        <Grid x:Name="page2"></Grid>
+		<Grid x:Name="page2"></Grid>
 		<!--<ContentControl x:Name="page2" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />-->
 		<!--Page 2 end-->
 		<Canvas Opacity="1" x:Name="nextPageShadowCanvas" Visibility="Collapsed">
@@ -33,7 +33,7 @@
 			</Grid.Clip>-->
 			<!--Page 0 begin-->
 			<!--<ContentControl x:Name="page0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />-->
-            <Grid x:Name="page0"></Grid>
+			<Grid x:Name="page0"></Grid>
 			<!--Page 0 end-->
 		</Grid>
 		<Canvas Opacity="1" x:Name="gridShadow" Visibility="Collapsed">
@@ -59,7 +59,7 @@
 			</Grid.Clip>
 			<!--Page 1 begin-->
 			<!--<ContentControl x:Name="page1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />-->
-            <Grid x:Name="page1"></Grid>
+			<Grid x:Name="page1"></Grid>
 			<!--Page 1 end-->
 			<Canvas Opacity="0.7" x:Name="canvasReflection" Visibility="Collapsed">
 				<Canvas.Background>
