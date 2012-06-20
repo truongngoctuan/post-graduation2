@@ -96,6 +96,19 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--button with no style-->
+        <Style x:Key="customButtonNoStyle" TargetType="Button">
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
     </UserControl.Resources>
     
     <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded">
@@ -128,23 +141,30 @@
             <RowDefinition Height="65"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/MasterPage/background.jpg" Stretch="UniformToFill"></ImageBrush>
+            <!--<ImageBrush ImageSource="Images/MasterPage/background.jpg" Stretch="UniformToFill"></ImageBrush>-->
+            <SolidColorBrush Color="#d5d5d5"></SolidColorBrush>
         </Grid.Background>
         <Grid Name="containerHeader" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1"
                    Background="White" Canvas.ZIndex="1">
             <Grid.Effect>
                 <DropShadowEffect Direction="-90" Opacity="0.05" BlurRadius="10"></DropShadowEffect>
             </Grid.Effect>
-                <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/MasterPage/HeaderLeft.jpg" Stretch="None"></Image>
-                <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/HeaderRight.jpg" Stretch="None"></Image>
-            
-            <StackPanel Visibility="Collapsed" Grid.Row="1"  Orientation="Horizontal" 
-                        HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                <Button Visibility="Visible" Name="btBack" Width="75" Height="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btBack_Click">Back</Button>
-                <Button  Width="75" Name="btPrevious" Content="previous"  Click="btPrevious_Click"></Button>
-                <Button  Width="75" Name="btNext" Margin="5,0,0,0" Content="next" Click="btNext_Click"  ></Button>
-            </StackPanel>
+            <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/MasterPage/HeaderLeft.jpg" Stretch="None"></Image>
+            <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/HeaderRight.jpg" Stretch="None"></Image>
         </Grid>
+        
+        <Button Grid.Row="2" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" VerticalAlignment="Center" HorizontalAlignment="Left"
+            Margin="20,0,0,0" Name="btPrevious" Click="btPrevious_Click" Style="{StaticResource customButtonNoStyle}">
+            <Button.Content>
+                <Image Stretch="None" Source="/PageFlip;component/Images/Button/ButtonPrevious.png"></Image>
+            </Button.Content>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" VerticalAlignment="Center" HorizontalAlignment="Right"
+               Margin="0,0,20,0" Name="btNext" Click="btNext_Click" Style="{StaticResource customButtonNoStyle}">
+            <Button.Content>
+                <Image Stretch="None" Source="/PageFlip;component/Images/Button/ButtonNext.png"></Image>
+            </Button.Content>
+        </Button>
         <ProgressBar Canvas.ZIndex="1" Grid.Row="1" x:Name="pbar" IsIndeterminate="False" Background="White" Foreground="Black" Minimum="0" Maximum="100"
            Value="0" BorderBrush="{x:Null}"  Style="{StaticResource ProgressBarStyle1}" />
 
