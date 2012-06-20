@@ -221,6 +221,12 @@ namespace DataManager
         //use 2 variable to indicate position of his item in global menu
         //to load new sub menu.
         public string Name;
+
+        public string BackImageSource;
+        public TileMenu()
+        {
+            BackImageSource = string.Empty;
+        }
         public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
         {
             //TileMenu tile = new TileMenu();
@@ -234,6 +240,7 @@ namespace DataManager
                             this.Name = reader.Value;
                             break;
                         }
+                    case "BackImageSource": { this.BackImageSource = reader.Value; break; }
                     default:
                         {
                             break;

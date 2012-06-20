@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Collections.Generic;
 
 namespace DataManager
 {
@@ -53,5 +54,8 @@ namespace DataManager
         public TurnType TurnTypeManager;
 
         public bool canTurnLeft, canTurnRight;
+
+        //for menu navigation
+        public List<string> listMenuBackImageSource;
     }
 }
