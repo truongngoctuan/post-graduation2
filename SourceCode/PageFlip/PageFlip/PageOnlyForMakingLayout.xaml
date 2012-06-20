@@ -69,7 +69,7 @@
                     <StackPanel Orientation="Vertical" 
                                 Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" VerticalAlignment="Top" HorizontalAlignment="Right" >
                         <Image Stretch="None" Source="/PageFlip;component/Images/Demo1/lifestyle_01_bigview02.jpg"></Image>
-                        <RichTextBox Width="208" Height="292" >
+                        <RichTextBox Width="208" Height="292" Style="Nothing">
                             <Paragraph>
                                 Mùa hè đã đến, thời gian chúng ta tạm rời xa những bộ đồng phục cứng nhắc để thỏa sức diện những bộ trang phục cá tính theo mỗi xì tai của mỗi người. Hãy update ngay các xu hướng cũng như các món đồ 'hot' dành cho teenboy của hè này cùng BECO Boy Shop nhé!
                             </Paragraph>
