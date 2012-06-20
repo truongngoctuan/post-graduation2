@@ -94,6 +94,29 @@ namespace DataManager
                 return Data.canTurnRight;
             }
         }
+
+        public List<string> listMenuBackImageSource
+        {
+            get
+            {
+                List<string> list = new List<string>();
+                if (BookState == BookLoaderState.MenuPage)
+                {
+                    for (int i = 0; i < Data.listMenuBackImageSource.Count - 1; i++)
+                    {
+                        list.Add(Data.listMenuBackImageSource[i]);
+                    }
+                }
+                if (BookState == BookLoaderState.ArticlePage)
+                {//this case mean article is low-level compared to menu
+                    for (int i = 0; i < Data.listMenuBackImageSource.Count; i++)
+                    {
+                        list.Add(Data.listMenuBackImageSource[i]);
+                    }
+                }
+                return list;
+            }
+        }
         #endregion
         
         //public bool IsRightToLeftTransition;
@@ -117,6 +140,7 @@ namespace DataManager
 		{
             Data.MenuPage = new TileMenu();
             Data.CurrentMenuPage = new TileMenu();
+            Data.listMenuBackImageSource = new List<string>();
 
             //load data from menudata.xml
             Uri url = new Uri("demo1_menu_temp.xml", UriKind.Relative);
@@ -242,6 +266,15 @@ namespace DataManager
                     Data.CurrentMenuPage = (TileMenu)(Data.CurrentMenuPage.ListSubMenu[listMenuPage[i]].ListSubMenu[listMenuIdx[i]]);
                 }
 
+                if (Lvl != -1)
+                {//get back button image source
+                    string str = Data.CurrentMenuPage.BackImageSource;
+                    if (str != string.Empty)
+                    {
+                        Data.listMenuBackImageSource.Add(str);
+                    }
+                }
+
                 Data.iCurrentMenuPage = 0;
                 DataEventState = new DataEventLoadMenu();
                 BookState = BookLoaderState.MenuPage;
@@ -314,6 +347,11 @@ namespace DataManager
                 }
                 listMenuIdx.RemoveAt(listMenuIdx.Count - 1);
                 listMenuPage.RemoveAt(listMenuPage.Count - 1);
+                if (Data.listMenuBackImageSource.Count >= 1)
+                {
+                    Data.listMenuBackImageSource.RemoveAt(Data.listMenuBackImageSource.Count - 1);
+                }
+                
 
                 BookState = BookLoaderState.MenuPage;
                 //LoadMenu(0);
@@ -483,6 +521,10 @@ namespace DataManager
         {
             if (BookState == BookLoaderState.MenuPage)
             {
+                if (Data.iCurrentMenuPage == 0)
+                {
+                    OnBack();
+                }
                 OnPreviousMenu(IsByConner);
                 return;
             }

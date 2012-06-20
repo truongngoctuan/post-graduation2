@@ -30,6 +30,7 @@
     </item>
     
     <item Type='Menu' Name='FASHION'
+          BackImageSource='/PageFlip;component/Images/Demo1/fashion_backbutton.jpg'
       GridRow='0' GridColumn='1' GridRowSpan='2' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Right' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/home_02_02.jpg'>
       <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
         <item Type='Menu' Name='a'
@@ -42,11 +43,12 @@
 
       <item Type='TilePage' NGridRows='3' NGridColumns='1' Margin='10,20,20,20'>
         <item Type='Menu' Name='a'
+              BackImageSource='/PageFlip;component/Images/Demo1/sub_fashion_backbutton.jpg'
           GridRow='0' GridColumn='0' GridRowSpan='3' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/fashion_02_01.jpg'>
           <!--SUB-FASHION-->
           <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'
-                ImageBrush='/PageFlip;component/Images/Demo1/sub_fashion_01_background.jpg'>
-            <item Type='Menu' Name='a'
+                >
+            <item Type='Article' ArticleID='0002' Name='a'
               GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/sub_fashion_01_01.png'/>
             <item Type='Menu' Name='a'
               GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/sub_fashion_01_02.jpg'/>

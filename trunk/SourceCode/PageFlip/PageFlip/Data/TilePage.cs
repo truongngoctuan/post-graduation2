@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using System.Collections.Generic;
 using System.Xml;
 using System.IO;
+using PageFlip;
 
 namespace DataManager
 {
@@ -22,15 +23,20 @@ namespace DataManager
 
         public string Margin;
 
-        public string ImageBrush;
+        public string ImageBrush;//background source of this pages
+        
+
         public TilePage()
         {
             Margin = "0,0,0,0";
             ImageBrush = string.Empty;
+            
         }
 
         public virtual UIElement generatePage()
         {
+            
+
             string xamlColumns = string.Empty;
             for (int i = 0; i < NGridColumns; i++)
             {
@@ -95,10 +101,56 @@ namespace DataManager
                 iCounter++;
             }
 
+            //add stack-back button
+            if (this.currentIndex % 2 == 0)
+            {
+                List<string> listBackImg = BookLoader.Instance().listMenuBackImageSource;
+                //string strlistMenuBackImageSource = string.Empty;
+                //foreach (string item in listBackImg)
+                //{
+                //    strlistMenuBackImageSource += item;
+                //}
+                //MessageBox.Show(strlistMenuBackImageSource + " " + listBackImg);
+
+                //dang o dung cap cua no, nen chi can lay n-1 cap truoc no la dc
+                if (listBackImg.Count >= 1)
+                {
+                    StackPanel StPnl = new StackPanel();
+                    StPnl.Orientation = Orientation.Horizontal;
+                    StPnl.VerticalAlignment = VerticalAlignment.Top;
+                    StPnl.HorizontalAlignment = HorizontalAlignment.Left;
+
+                    for (int i = 0; i < listBackImg.Count; i++)
+                    {
+                        string xamlBt = @"
+<Button 
+xmlns='http://schemas.microsoft.com/client/2007'
+xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml'
+>
+            <Image Source='{0}' Stretch='None'></Image>
+        </Button>
+";
+                        xamlBt = string.Format(xamlBt, listBackImg[i]);
+                        Button bt = (Button)Ultis.LoadXamlFromString(xamlBt);
+                        bt.Click += new RoutedEventHandler(bt_Click);
+                        bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
+                        StPnl.Children.Add(bt);
+                    }
+                    grdRoot.Children.Add(StPnl);
+                }
+
+                
+            }
+
             if (iCounter > 0)
                 return grdRoot;
             else
                 return null;
+        }
+
+        void bt_Click(object sender, RoutedEventArgs e)
+        {
+            BookLoader.Instance().OnBack();
         }
 
         public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
@@ -128,6 +180,7 @@ namespace DataManager
                             this.ImageBrush = reader.Value;
                             break;
                         }
+                    
                     default:
                         {
                             break;
@@ -145,6 +198,7 @@ namespace DataManager
         //public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
         //{
         //}
+
     }
     
 //    public class TilePageMenu : TilePage

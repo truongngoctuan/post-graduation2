@@ -281,6 +281,8 @@
     <Resource Include="Images\Demo1\lifestyle_01_bigview02.jpg" />
     <Resource Include="Images\Button\ButtonNext.png" />
     <Resource Include="Images\Button\ButtonPrevious.png" />
+    <Resource Include="Images\Demo1\fashion_backbutton.jpg" />
+    <Resource Include="Images\Demo1\sub_fashion_backbutton.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
