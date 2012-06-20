@@ -122,7 +122,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="65"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
             <RowDefinition Height="4"></RowDefinition>
             <RowDefinition Height="329*" />
             <RowDefinition Height="65"></RowDefinition>
@@ -138,7 +138,7 @@
                 <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/MasterPage/HeaderLeft.jpg" Stretch="None"></Image>
                 <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/HeaderRight.jpg" Stretch="None"></Image>
             
-            <StackPanel Grid.Row="1"  Orientation="Horizontal" Visibility="Visible"
+            <StackPanel Visibility="Collapsed" Grid.Row="1"  Orientation="Horizontal" 
                         HorizontalAlignment="Left" VerticalAlignment="Bottom">
                 <Button Visibility="Visible" Name="btBack" Width="75" Height="25" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btBack_Click">Back</Button>
                 <Button  Width="75" Name="btPrevious" Content="previous"  Click="btPrevious_Click"></Button>
