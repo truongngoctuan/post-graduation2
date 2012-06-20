@@ -283,6 +283,12 @@
     <Resource Include="Images\Button\ButtonPrevious.png" />
     <Resource Include="Images\Demo1\fashion_backbutton.jpg" />
     <Resource Include="Images\Demo1\sub_fashion_backbutton.jpg" />
+    <Resource Include="Images\MasterPage\TopRightMenu_DownMenu.jpg" />
+    <Resource Include="Images\MasterPage\TopRightMenu_Help.jpg" />
+    <Resource Include="Images\MasterPage\TopRightMenu_Login.jpg" />
+    <Resource Include="Images\MasterPage\TopRightMenu_Register.jpg" />
+    <Resource Include="Images\MasterPage\TopRightMenu_Search.jpg" />
+    <Resource Include="Images\MasterPage\TopRightMenu_Seperate.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

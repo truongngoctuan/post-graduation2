@@ -150,7 +150,31 @@
                 <DropShadowEffect Direction="-90" Opacity="0.05" BlurRadius="10"></DropShadowEffect>
             </Grid.Effect>
             <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="Images/MasterPage/HeaderLeft.jpg" Stretch="None"></Image>
-            <Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/HeaderRight.jpg" Stretch="None"></Image>
+            <!--<Image HorizontalAlignment="Right" VerticalAlignment="Top" Source="Images/MasterPage/HeaderRight.jpg" Stretch="None"></Image>-->
+            <!--TopRightMenu-->
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0"
+                Orientation="Horizontal">
+                <Button x:Name="btLogin" Style="{StaticResource customButtonNoStyle}" Click="btLogin_Click">
+                    <Image Source="/PageFlip;component/Images/MasterPage/TopRightMenu_Login.jpg" Stretch="None"></Image>    
+                </Button>
+                
+                <Image Source="/PageFlip;component/Images/MasterPage/TopRightMenu_Seperate.jpg" Stretch="None"></Image>
+                <Button x:Name="btRegister" Style="{StaticResource customButtonNoStyle}" Click="btRegister_Click">
+                    <Image Source="/PageFlip;component/Images/MasterPage/TopRightMenu_Register.jpg" Stretch="None"></Image>
+                </Button>
+                <Image Source="/PageFlip;component/Images/MasterPage/TopRightMenu_Seperate.jpg" Stretch="None"></Image>
+                <Button Style="{StaticResource customButtonNoStyle}">
+                    <Image Source="/PageFlip;component/Images/MasterPage/TopRightMenu_DownMenu.jpg" Stretch="None"></Image>
+                </Button>
+                <Image Source="/PageFlip;component/Images/MasterPage/TopRightMenu_Seperate.jpg" Stretch="None"></Image>
+                <Button Style="{StaticResource customButtonNoStyle}">
+                    <Image Source="/PageFlip;component/Images/MasterPage/TopRightMenu_Help.jpg" Stretch="None"></Image>
+                </Button>
+                <Image Source="/PageFlip;component/Images/MasterPage/TopRightMenu_Seperate.jpg" Stretch="None"></Image>
+                <Button x:Name="btSearch" Style="{StaticResource customButtonNoStyle}" Click="btSearch_Click">
+                    <Image Source="/PageFlip;component/Images/MasterPage/TopRightMenu_Search.jpg" Stretch="None"></Image>
+                </Button>
+            </StackPanel>
         </Grid>
         
         <Button Grid.Row="2" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="1" VerticalAlignment="Center" HorizontalAlignment="Left"
