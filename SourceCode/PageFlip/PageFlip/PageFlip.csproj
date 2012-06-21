@@ -376,6 +376,7 @@
     <Resource Include="Images\Demo1\ContentPages\ContentPage14_02_01.jpg" />
     <Resource Include="Images\Demo1\ContentPages\ContentPage15_01_01.jpg" />
     <Resource Include="Images\Demo1\ContentPages\ContentPage15_02_01.jpg" />
+    <Resource Include="Images\MasterPage\RegisterPage.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

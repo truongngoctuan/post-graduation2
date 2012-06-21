@@ -217,5 +217,13 @@
         <Image Canvas.ZIndex="10" x:Name="imgSearch" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,40,10,0" Visibility="Collapsed"
                    Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="1" 
                    Source="/PageFlip;component/Images/MasterPage/ShowSearch.png" Stretch="None"></Image>
+
+        <Grid Canvas.ZIndex="10" x:Name="imgRegister" 
+              Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="1" Visibility="Collapsed"
+              Background="#d5d5d5">
+            <Image  Margin="0,40,10,0"  VerticalAlignment="Center" HorizontalAlignment="Center"
+                       
+                       Source="/PageFlip;component/Images/MasterPage/RegisterPage.jpg" Stretch="None"></Image>
+        </Grid>
     </Grid>
 </navigation:Page>
