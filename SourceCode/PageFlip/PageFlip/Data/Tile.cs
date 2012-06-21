@@ -466,8 +466,36 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
 
     public class TileScrollUI_LR : Tile
     {
-        Image _img;
+        public string strListImageSource;
+        public string strListArticleID;
+
+        string[] listImageSource;
+        string[] listArticleID;
+
         PageFlip.Animation.UISliderR.UIScroll curScroll;
+
+        public TileScrollUI_LR()
+        {
+            this.strListImageSource = string.Empty;
+            this.strListArticleID = string.Empty;
+        }
+
+        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        {
+            for (int i = 0; i < reader.AttributeCount - 1; i++)
+            {
+                this.FromXmlBasicAttribute(reader.Name, reader.Value);
+
+                switch (reader.Name)
+                {
+                    case "strListImageSource": { this.strListImageSource = reader.Value; break; }
+                    case "strListArticleID": { this.strListArticleID = reader.Value; break; }
+                    default: { break; }
+                }
+                reader.MoveToNextAttribute();
+            }
+        }
+
         public override UIElement generate()
         {
             string xaml = @"
@@ -492,15 +520,26 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
             double W = uiScroll.UIWidth;
             double H = uiScroll.UIHeight;
 
-            for (int i = 1; i <= 3; i++)
+            listImageSource = strListImageSource.Split(new char[] { ' ' });
+            listArticleID = strListArticleID.Split(new char[] { ' ' });
+
+            for (int i = 0; i < listImageSource.Length; i++)
             {
+                Button bt = new Button();
+                bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
+
                 Image img = new Image();
-                img.Source = new BitmapImage(new Uri("/PageFlip;component/Images/Demo1/home_01_01_0" + i.ToString() + ".jpg", UriKind.Relative));
+                img.Source = new BitmapImage(new Uri(listImageSource[i], UriKind.Relative));
+                img.Stretch = Stretch.None;
                 img.Width = W;
                 img.Height = H;
-                img.MouseLeftButtonDown += new MouseButtonEventHandler(bt_Click);
+                //img.MouseLeftButtonDown += new MouseButtonEventHandler(bt_Click);
+                bt.Tag = listArticleID[i];
 
-                uiScroll.AddUI(img);
+                bt.Content = img;
+                bt.Click +=new RoutedEventHandler(bt_Click);
+
+                uiScroll.AddUI(bt);
             }
 
             uiScroll.DisabledImageLeft = new BitmapImage(new Uri("/PageFlip;component/Images/Slider/BtnLeft_dis.png", UriKind.Relative));
@@ -526,11 +565,7 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
 
         public void bt_Click(object sender, RoutedEventArgs e)
         {
-
-           // MessageBox.Show((sender as Image).Name);
-            //BookLoader.Instance().OnClickToArticle(ArticleID);
-            //goi 1 ham ben masterpage
-            //  BookLoader.Instance().OnClickedImage(_img);
+           BookLoader.Instance().OnClickToArticle((sender as Button).Tag.ToString());
         }
     }
 }
