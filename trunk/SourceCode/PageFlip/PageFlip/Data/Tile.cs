@@ -394,7 +394,44 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
         }
     }
 
-    public class TileScrollUI : Tile
+
+    public class TileScroll : Tile
+    {
+        public string strListImageSource;
+        public string strListArticleID;
+
+        public string[] listImageSource;
+        public string[] listArticleID;
+
+        public TileScroll()
+        {
+            this.strListImageSource = string.Empty;
+            this.strListArticleID = string.Empty;
+        }
+
+        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
+        {
+            for (int i = 0; i < reader.AttributeCount - 1; i++)
+            {
+                this.FromXmlBasicAttribute(reader.Name, reader.Value);
+
+                switch (reader.Name)
+                {
+                    case "strListImageSource": { this.strListImageSource = reader.Value; break; }
+                    case "strListArticleID": { this.strListArticleID = reader.Value; break; }
+                    default: { break; }
+                }
+                reader.MoveToNextAttribute();
+            }
+        }
+
+        public void bt_Click_LoadNewArticle(object sender, RoutedEventArgs e)
+        {
+            BookLoader.Instance().OnClickToArticle((sender as Button).Tag.ToString());
+        }
+    }
+
+    public class TileScrollUI : TileScroll
     {
         PageFlip.Animation.UISlider.UIScroll curScroll;
         public override UIElement generate()
@@ -421,16 +458,27 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
             double W = uiScroll.UIWidth;
             double H = uiScroll.UIHeight;
 
-            for (int i = 1; i <= 9; i++)
+            //PageFlip;component/Images/Demo1/recommended_content_0"
+            listImageSource = strListImageSource.Split(new string[] { " ","\r\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
+            listArticleID = strListArticleID.Split(new string[] { " ", "\r\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < listImageSource.Length; i++)
             {
+                Button bt = new Button();
+                bt.Style = App.Current.Resources["customButtonNoStyle"] as Style;
+
                 Image img = new Image();
-                img.Name = "image" + i.ToString();
-                img.Source = new BitmapImage(new Uri("/PageFlip;component/Images/Demo1/recommended_content_0" + i.ToString() + ".png", UriKind.Relative));
+                img.Source = new BitmapImage(new Uri(listImageSource[i], UriKind.Relative));
+                img.Stretch = Stretch.None;
                 img.Width = W;
                 img.Height = H;
-                img.MouseLeftButtonDown += new MouseButtonEventHandler(bt_Click);
+                //img.MouseLeftButtonDown += new MouseButtonEventHandler(bt_Click);
+                bt.Tag = listArticleID[i];
 
-                uiScroll.AddUI(img);
+                bt.Content = img;
+                bt.Click += new RoutedEventHandler(bt_Click_LoadNewArticle);
+
+                uiScroll.AddUI(bt);
             }
 
             uiScroll.DisabledImageLeft = new BitmapImage(new Uri("/PageFlip;component/Images/Slider/BtnDown_dis.png", UriKind.Relative));
@@ -453,48 +501,11 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
             curScroll.RightButton.Opacity = 1;
         }
 
-
-        public void bt_Click(object sender, RoutedEventArgs e)
-        {
-
-            MessageBox.Show((sender as Image).Name);
-            //BookLoader.Instance().OnClickToArticle(ArticleID);
-            //goi 1 ham ben masterpage
-            //  BookLoader.Instance().OnClickedImage(_img);
-        }
     }
 
-    public class TileScrollUI_LR : Tile
+    public class TileScrollUI_LR : TileScroll
     {
-        public string strListImageSource;
-        public string strListArticleID;
-
-        string[] listImageSource;
-        string[] listArticleID;
-
         PageFlip.Animation.UISliderR.UIScroll curScroll;
-
-        public TileScrollUI_LR()
-        {
-            this.strListImageSource = string.Empty;
-            this.strListArticleID = string.Empty;
-        }
-
-        public override void FromXml(XmlReader reader, int CurrentLevel, int CurrentIndex)
-        {
-            for (int i = 0; i < reader.AttributeCount - 1; i++)
-            {
-                this.FromXmlBasicAttribute(reader.Name, reader.Value);
-
-                switch (reader.Name)
-                {
-                    case "strListImageSource": { this.strListImageSource = reader.Value; break; }
-                    case "strListArticleID": { this.strListArticleID = reader.Value; break; }
-                    default: { break; }
-                }
-                reader.MoveToNextAttribute();
-            }
-        }
 
         public override UIElement generate()
         {
@@ -537,7 +548,7 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
                 bt.Tag = listArticleID[i];
 
                 bt.Content = img;
-                bt.Click +=new RoutedEventHandler(bt_Click);
+                bt.Click += new RoutedEventHandler(bt_Click_LoadNewArticle);
 
                 uiScroll.AddUI(bt);
             }
@@ -560,12 +571,6 @@ Grid.Row='{0}' Grid.Column='{1}' Grid.ColumnSpan='{2}' Grid.RowSpan='{3}'  Verti
         {
             curScroll.LeftButton.Opacity = 1;
             curScroll.RightButton.Opacity = 1;
-        }
-
-
-        public void bt_Click(object sender, RoutedEventArgs e)
-        {
-           BookLoader.Instance().OnClickToArticle((sender as Button).Tag.ToString());
         }
     }
 }

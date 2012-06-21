@@ -80,7 +80,7 @@ namespace DataManager
     <RowDefinition Height='*'></RowDefinition>
 </Grid.RowDefinitions>
 
-    <Grid ShowGridLines='True' Margin='{2}'>
+    <Grid ShowGridLines='False' Margin='{2}'>
             <Grid.ColumnDefinitions>
                 {0}
             </Grid.ColumnDefinitions>
