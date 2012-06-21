@@ -345,6 +345,37 @@
     <Resource Include="Images\Demo1\home_01_01_01.jpg" />
     <Resource Include="Images\Demo1\home_01_01_02.jpg" />
     <Resource Include="Images\Demo1\home_01_01_03.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage01_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage01_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage02_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage02_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage03_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage03_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage04_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage04_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage05_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage05_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage06_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage06_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage07_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage07_01_02.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage07_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage08_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage08_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage09_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage09_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage10_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage10_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage11_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage11_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage12_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage12_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage13_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage13_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage14_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage14_02_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage15_01_01.jpg" />
+    <Resource Include="Images\Demo1\ContentPages\ContentPage15_02_01.jpg" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

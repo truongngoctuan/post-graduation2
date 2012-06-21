@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<item Type='Menu'>
+  <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+    <item Type='TileClickableImage'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/ContentPages/ContentPage08_01_01.jpg'/>
+  </item>
+
+  <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='10,0,0,0'>
+    <item Type='TileClickableImage'
+      GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/ContentPages/ContentPage08_02_01.jpg'/>
+  </item>
+  
+  <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,10,20'>
+    <item Type='TileClickableImage'
+          GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/ContentPages/ContentPage09_01_01.jpg'/>
+  </item>
+
+  <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='10,20,20,20'>
+    <item Type='TileClickableImage'
+      GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/ContentPages/ContentPage09_02_01.jpg'/>
+  </item>
+
+  <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='20,20,0,20'>
+    <item Type='TileClickableImage'
+      GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/ContentPages/ContentPage10_01_01.jpg'/>
+  </item>
+
+  <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='0,0,0,0'>
+    <item Type='TileClickableImage'
+      GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/ContentPages/ContentPage10_02_01.jpg'/>
+  </item>
+
+  <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='0,0,0,0'>
+    <item Type='TileClickableImage'
+      GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Bottom' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/ContentPages/ContentPage11_01_01.jpg'/>
+  </item>
+
+  <item Type='TilePage' NGridRows='1' NGridColumns='1' Margin='10,20,0,20'>
+    <item Type='TileClickableImage'
+      GridRow='0' GridColumn='0' GridRowSpan='1' GridColumnSpan='1' VerticalAlignment='Top' HorizontalAlignment='Left' Stretch='None' ImageSource='/PageFlip;component/Images/Demo1/ContentPages/ContentPage11_02_01.jpg'/>
+  </item>
+</item>
