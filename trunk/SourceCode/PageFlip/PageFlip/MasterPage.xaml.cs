@@ -197,18 +197,29 @@ namespace PageFlip
             if (imgLogin.Visibility == System.Windows.Visibility.Visible)
             {
                 imgLogin.Visibility = System.Windows.Visibility.Collapsed;
-                //imgSearch.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
                 imgLogin.Visibility = System.Windows.Visibility.Visible;
+
+                imgRegister.Visibility = System.Windows.Visibility.Collapsed;
                 imgSearch.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
 
         private void btRegister_Click(object sender, RoutedEventArgs e)
         {
+            if (imgRegister.Visibility == System.Windows.Visibility.Visible)
+            {
+                imgRegister.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            else
+            {
+                imgRegister.Visibility = System.Windows.Visibility.Visible;
 
+                imgSearch.Visibility = System.Windows.Visibility.Collapsed;
+                imgLogin.Visibility = System.Windows.Visibility.Collapsed;
+            }
         }
 
         private void btSearch_Click(object sender, RoutedEventArgs e)
@@ -220,8 +231,10 @@ namespace PageFlip
             }
             else
             {
-                imgLogin.Visibility = System.Windows.Visibility.Collapsed;
                 imgSearch.Visibility = System.Windows.Visibility.Visible;
+
+                imgLogin.Visibility = System.Windows.Visibility.Collapsed;
+                imgRegister.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
     }
